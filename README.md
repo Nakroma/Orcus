@@ -1,8 +1,3 @@
-# Orcus
-Fight online versus other players for money
-
-## Team
-Knugen - Design
-Nakroma - Backend
-Wat
-ADASDSADASDASS
+## Development Branch
+Use this branch to develop the ongoing project.
+When the content is ready for a new release, merge into the master branch.

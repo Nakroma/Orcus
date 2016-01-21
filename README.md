@@ -1,8 +1,2 @@
-# Orcus
-Fight online versus other players for money
-
-## Team
-Knugen - Design
-Nakroma - Backend
-Wat
-ADASDSADASDASS
+## Stable Branch
+Use this branch to store new and release ready content.

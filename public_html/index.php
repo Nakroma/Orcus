@@ -12,11 +12,11 @@ include('classes/model.php');
 include('classes/view.php');
 
 
-// $_GET und $_POST zusammenfassen
+// Merge $_GET und $_POST
 $request = array_merge($_GET, $_POST);
 
 // Create controller
 $controller = new Controller($request);
 
-// Inhalt ausgeben
+// Display content
 echo $controller->display();

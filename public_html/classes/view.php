@@ -10,41 +10,48 @@ class View {
 
     // Path to template
     private $path = 'templates';
-    // Default tempalte
+    // Default template
     private $template = 'default';
 
     // Master array, contains everything
     private $_ = array();
 
     /**
-     * Ordnet eine Variable einen bestimmten Schlüssel zu
+     * Assigns a variable to a key
+     *
+     * @param String $key Key
+     * @param String $value Variable
      */
     public function assign($key, $value) {
         $this->_[$key] = $value;
     }
 
     /**
-     * Setzt den Namen des Templates
+     * Sets the name of the template
+     *
+     * @param String $template Name of the template
      */
     public function setTemplate($template = 'default') {
         $this->template = $template;
     }
 
     /**
-     * Laden des Template File und zurückgeben
+     * Loads the template and puts it out
+     *
+     * @return String Output of the template
      */
     public function loadTemplate() {
         $tpl = $this->template;
 
-        // Pfad zum Template erstellen und überprüfen ob es existiert
+        // Creates template path and checks if it exists
         $file = $this->path . DIRECTORY_SEPARATOR . $tpl . '.php';
         $exists = file_exists($file);
 
         if ($exists) {
-            // Output wird im Buffer gespeichert, dh nicht gleich ausgegeben
+            // Output gets saved in a buffer
             ob_start();
 
-            // Template wird eingebunden und in $output gespeichert
+            // Template file gets put into buffer and saved in $output
             include $file;
             $output = ob_get_contents();
             ob_end_clean();
@@ -52,7 +59,7 @@ class View {
             // Return output
             return $output;
         } else {
-            // Error
+            // Template file doesn't exist
             return 'Could not find template.';
         }
     }

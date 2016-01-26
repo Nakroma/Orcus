@@ -17,6 +17,14 @@ class Model {
         "video" => "bootstrap/video/"
     );
 
+    // Database
+    private static $db = array(
+        "dbname" => "orcus",
+        "username" => "root",
+        "password" => "",
+        "host" => "localhost"
+    );
+
     /**
      * Returns all paths
      *
@@ -26,4 +34,12 @@ class Model {
         return self::$paths;
     }
 
+    /**
+     * Returns the database values
+     *
+     * @return Array Database credentials
+     */
+    public static function getDatabase() {
+        return self::$db;
+    }
 }

@@ -33,9 +33,22 @@ class Controller {
 
         // Load template settings
         switch($this->template) {
+            // Script: Registration
+            case 'scr_registration':
+                $view->setTemplate('scripts/registration');
+                $data = array(
+                    "email" => $this->request['email'],
+                    "password" => Model::hashValue($this->request['password'])
+                );
+                $view->assign('data', $data);
+                $view->assign('db', Model::getDatabase());
+                break;
+
+            // Page: Landing Page
             case 'default':
             default:
                 $view->setTemplate('default');
+                break;
         }
 
         // Load global variables

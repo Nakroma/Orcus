@@ -11,17 +11,17 @@ require "public_html/classes/model.php";
 $db = Model::getDatabase();
 
 // Connect to database
-$mConn = new mysqli($db['host'], $db['username'], $db['password'], $db['dbname']);
+$mConn = mysqli_connect($db['host'], $db['username'], $db['password'], $db['dbname']);
 // Check connection
-if ($mConn->connect_error) {
-    die("Connection failed: " . $mConn->connect_erorr);
+if (!$mConn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 
 /**
  * SQL for the installation
  */
-$sql = "CREATE TABLE o_users (
+$sql = "CREATE TABLE orcus_users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(128) NOT NULL
@@ -29,11 +29,11 @@ $sql = "CREATE TABLE o_users (
 
 
 // Query
-if ($mConn->multi_query($sql) === TRUE) {
+if (mysqli_query($mConn, $sql)) {
     echo "All tables were created successfully.";
 } else {
-    echo "Error creating tables: " . $mConn->error;
+    echo "Error creating tables: " . mysqli_error($mConn);
 }
 
 // Close connection
-$mConn->close();
+mysqli_close($mConn);

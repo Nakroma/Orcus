@@ -83,31 +83,35 @@
                 <a href='#' class='login-sub-headline'>Sign in through Steam</a>
             </div>
 
-                <span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="text" required/>
-					<label class="input__label input__label--jiro">
-                        <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+                <form action="?view=scr_registration" method="POST" enctype="multipart/form-data">
+                    <span class="input input--jiro">
+                        <input class="input__field input__field--jiro" name="email" type="text" required/>
+                        <label class="input__label input__label--jiro">
+                            <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+                        </label>
+                    </span>
+                    <span class="input input--jiro">
+                        <input class="input__field input__field--jiro" name="password" type="password" required/>
+                        <label class="input__label input__label--jiro">
+                            <span class="input__label-content input__label-content--jiro" >Password</span>
+                        </label>
+                    </span>
+
+
+                    <br>
+                    <br>
+
+                    <br>
+                    <label class='login-checkbox'>
+                        <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
                     </label>
-                </span>
-                <span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" required/>
-					<label class="input__label input__label--jiro">
-                        <span class="input__label-content input__label-content--jiro" >Password</span>
-                    </label>
-                </span>
 
-            <br>
-            <br>
+                    <div class="modal-footer">
+                        <button type="submit" class="login-btn">Sign Up</button>
 
-            <br>
-            <label class='login-checkbox'>
-                <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
-            </label>
+                    </div>
+                </form>
 
-            <div class="modal-footer">
-                <button type="submit" class="login-btn">Sign Up</button>
-
-            </div>
         </div>
     </div>
 </div>

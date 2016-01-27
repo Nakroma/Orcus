@@ -25,6 +25,10 @@ class Model {
         "host" => "localhost"
     );
 
+    // Salt
+    private static $salt = "828Z5dH5RkU3i555NVjuSVT7Htkmven8bn2C7H88saaVPt99G6XWn3Nc6e3wqM5ZCvmtMwf5Mknm639qPr6B";
+
+
     /**
      * Returns all paths
      *
@@ -41,5 +45,19 @@ class Model {
      */
     public static function getDatabase() {
         return self::$db;
+    }
+
+    /**
+     * Hashes a clear string with sha512
+     *
+     * @param String String to hash
+     * @return String Hashed string
+     */
+    public static function hashValue($str) {
+        for ($x = 0; $x < 10000; $x++) {
+            $str = hash('sha512', $str . self::$salt);
+        }
+
+        return $str;
     }
 }

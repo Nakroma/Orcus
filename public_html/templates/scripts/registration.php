@@ -27,10 +27,14 @@ $sql = "INSERT INTO orcus_users (email, password)
 VALUES ('". $data['email'] ."', '". $data['password'] ."')";
 
 // Insert
-if (mysqli_query($mConn, $sql)) {
-    echo "Yay!";
-} else {
-    echo "Error: " . mysqli_error($mConn);
-}
+$mQuery = mysqli_query($mConn, $sql);
 
+// Close connection
 mysqli_close($mConn);
+
+// Insert
+if ($mQuery) {
+    header("Location: ?view=default");
+} else {
+    header("Location: ?view=error&type=1&detail=".urlencode($mysqli_error($mConn)));
+}

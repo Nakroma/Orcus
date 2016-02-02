@@ -33,6 +33,10 @@ class Controller {
 
         // Load template settings
         switch($this->template) {
+            /**
+             * SCRIPTS
+             */
+
             // Script: Registration
             case 'scr_registration':
                 $view->setTemplate('scripts/registration');
@@ -42,6 +46,29 @@ class Controller {
                 );
                 $view->assign('data', $data);
                 $view->assign('db', Model::getDatabase());
+                break;
+
+            // Script: Login
+            case 'scr_login':
+                $view->setTemplate('scripts/login');
+                $data = array(
+                    "email" => $this->request['email'],
+                    "password" => Model::hashValue($this->request['password'])
+                );
+                $view->assign('data', $data);
+                $view->assign('db', Model::getDatabase());
+                $view->assign('skey', Model::getSessionKey());
+                break;
+
+
+            /**
+             * PAGES
+             */
+
+            // Page: Control Panel
+            case 'controlpanel':
+                $view->setTemplate('controlpanel');
+                $view->assign('skey', Model::getSessionKey());
                 break;
 
             // Page: Error Page

@@ -28,6 +28,9 @@ class Model {
     // Salt
     private static $salt = "828Z5dH5RkU3i555NVjuSVT7Htkmven8bn2C7H88saaVPt99G6XWn3Nc6e3wqM5ZCvmtMwf5Mknm639qPr6B";
 
+    // Session Key
+    private static $skey = "nyywM6SaUosYKRMsjhxBG0j5933wDl4wETyXaVYFjoaiIASuGJo896iVX57jTIR9kCwMlSrXjz0eljh2tsfI";
+
 
     /**
      * Returns all paths
@@ -45,6 +48,15 @@ class Model {
      */
     public static function getDatabase() {
         return self::$db;
+    }
+
+    /**
+     * Returns the session key
+     *
+     * @return String session key
+     */
+    public static function getSessionKey() {
+        return self::$skey;
     }
 
     /**

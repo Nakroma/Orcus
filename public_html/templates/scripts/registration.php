@@ -15,7 +15,8 @@ $mConn = mysqli_connect($db['host'], $db['username'], $db['password'], $db['dbna
 
 // Check connection
 if (!$mConn) {
-    die("Connection failed: " . mysqli_connect_error());
+    header("Location: ?view=error&type=1&detail=".urlencode(mysqli_connect_error()));
+    exit();
 }
 
 // Escape all strings

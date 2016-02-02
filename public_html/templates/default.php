@@ -50,13 +50,13 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign Up</a></li>
-                <li><a href='#'>Login</a></li>
+                <li><a href='#' data-toggle="modal" data-target="#login-modal2">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- BEGIN # MODAL LOGIN -->
+<!-- BEGIN # MODAL REGISTRATION -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
 
@@ -111,6 +111,67 @@
 
                     </div>
                 </form>
+
+        </div>
+    </div>
+</div>
+<!-- END # MODAL REGISTRATION -->
+
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
+
+        <!-- Left -->
+        <div class='col-md-4 login-left'>
+            <img src='<?php echo $path['img']; ?>login-bg.png' class='login-bg'>
+            <img src="<?php echo $path['img']; ?>logo_solo.png" class='login-logo'>
+            <br>
+            <span class='sign-up-headline'>LOGIN</span>
+            <br>
+            <span class='sign-up-swap-headline'>Need an account?</span>
+            <br>
+            <a href='#' class='sign-up-swap'>Register a new account</a>
+        </div>
+
+        <!-- Right-->
+        <div class='col-md-8 login-right'>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='login-close'>
+            </button>
+            <span class='login-headline'>Log in to your account</span>
+            <div class='login-sub-headline-wrapper'>
+                <img src='<?php echo $path['img']; ?>steam.svg' class='steam-ico'>
+                <a href='#' class='login-sub-headline'>Sign in through Steam</a>
+            </div>
+
+            <form action="?view=scr_login" method="POST" enctype="multipart/form-data">
+                    <span class="input input--jiro">
+                        <input class="input__field input__field--jiro" name="email" type="text" required/>
+                        <label class="input__label input__label--jiro">
+                            <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+                        </label>
+                    </span>
+                    <span class="input input--jiro">
+                        <input class="input__field input__field--jiro" name="password" type="password" required/>
+                        <label class="input__label input__label--jiro">
+                            <span class="input__label-content input__label-content--jiro" >Password</span>
+                        </label>
+                    </span>
+
+
+                <br>
+                <br>
+
+                <br>
+                <label class='login-checkbox'>
+                    <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
+                </label>
+
+                <div class="modal-footer">
+                    <button type="submit" class="login-btn">Login</button>
+
+                </div>
+            </form>
 
         </div>
     </div>

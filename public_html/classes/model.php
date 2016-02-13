@@ -25,9 +25,6 @@ class Model {
         "host" => "localhost"
     );
 
-    // Salt
-    private static $salt = "828Z5dH5RkU3i555NVjuSVT7Htkmven8bn2C7H88saaVPt99G6XWn3Nc6e3wqM5ZCvmtMwf5Mknm639qPr6B";
-
     // Session Key
     private static $skey = "nyywM6SaUosYKRMsjhxBG0j5933wDl4wETyXaVYFjoaiIASuGJo896iVX57jTIR9kCwMlSrXjz0eljh2tsfI";
 
@@ -66,10 +63,6 @@ class Model {
      * @return String Hashed string
      */
     public static function hashValue($str) {
-        for ($x = 0; $x < 10000; $x++) {
-            $str = hash('sha512', $str . self::$salt);
-        }
-
-        return $str;
+        return password_hash($str, PASSWORD_BCRYPT);
     }
 }

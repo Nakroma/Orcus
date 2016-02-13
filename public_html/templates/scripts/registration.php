@@ -19,23 +19,26 @@ if (!$mConn) {
     exit();
 }
 
-// Escape all strings
-$data['email'] = mysqli_escape_string($mConn, $data['email']);
-$data['password'] = mysqli_escape_string($mConn, $data['password']);
+// Prepare statement
+$mStmt = mysqli_stmt_init($mConn);
+$mPrep = mysqli_stmt_prepare($mStmt, "INSERT INTO orcus_users (email, password) VALUES (?, ?)");
+if ($mPrep) {
+    // Bind parameters
+    mysqli_stmt_bind_param($mStmt, 'ss', $data['email'], $data['password']);
 
-// SQL code
-$sql = "INSERT INTO orcus_users (email, password)
-VALUES ('". $data['email'] ."', '". $data['password'] ."')";
+    // Execute
+    mysqli_stmt_execute($mStmt);
 
-// Insert
-$mQuery = mysqli_query($mConn, $sql);
+    // Close statement
+    mysqli_stmt_close($mStmt);
+}
 
 // Close connection
 mysqli_close($mConn);
 
 // Insert
-if ($mQuery) {
+if ($mPrep) {
     header("Location: ?view=default");
 } else {
-    header("Location: ?view=error&type=1&detail=".urlencode($mysqli_error($mConn)));
+    header("Location: ?view=error&type=1&detail=".urlencode(mysqli_error($mConn)));
 }

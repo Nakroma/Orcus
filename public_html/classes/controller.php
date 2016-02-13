@@ -53,7 +53,7 @@ class Controller {
                 $view->setTemplate('scripts/login');
                 $data = array(
                     "email" => $this->request['email'],
-                    "password" => Model::hashValue($this->request['password'])
+                    "password" => $this->request['password']
                 );
                 $view->assign('data', $data);
                 $view->assign('db', Model::getDatabase());

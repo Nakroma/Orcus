@@ -26,6 +26,7 @@ if (!$mConn) {
     exit();
 }
 
+/*
 // Escape all strings
 $data['email'] = mysqli_escape_string($mConn, $data['email']);
 $data['password'] = mysqli_escape_string($mConn, $data['password']);
@@ -36,32 +37,53 @@ $sql = "SELECT email, password, id FROM orcus_users WHERE email='$mail' LIMIT 1"
 
 // Read
 $mQuery = mysqli_query($mConn, $sql);
+*/
+
+// Prepare statement
+$fPassword = "";
+$mStmt = mysqli_stmt_init($mConn);
+$mPrep = mysqli_stmt_prepare($mStmt, "SELECT password, id FROM orcus_users WHERE email=? LIMIT 1");
+if ($mPrep) {
+    // Bind parameters
+    mysqli_stmt_bind_param($mStmt, 's', $data['email']);
+
+    // Execute
+    mysqli_stmt_execute($mStmt);
+
+    // Bind results
+    mysqli_stmt_bind_result($mStmt, $rePassword, $reID);
+
+    // Store result
+    mysqli_stmt_store_result($mStmt);
+
+    // Save result if row was found
+    if (mysqli_stmt_num_rows($mStmt) > 0) {
+        mysqli_stmt_fetch($mStmt);
+        $fPassword = $rePassword;
+        $fID = $reID;
+    }
+
+    // Close statement
+    mysqli_stmt_close($mStmt);
+}
 
 // Close connection
 mysqli_close($mConn);
 
 // Results
-if (mysqli_num_rows($mQuery) > 0) {
-    // Found user
-    $row = mysqli_fetch_assoc($mQuery);
-    if ($data['password'] == $row['password']) {
-        /**
-         * Login process
-         */
+if (password_verify($data['password'], $fPassword)) {
+    /**
+     * Login process
+     */
 
-        // Set session
-        $_SESSION[$skey] = $row['id'];
+    // Set session
+    $_SESSION[$skey] = $fID;
 
-        // Redirect to control panel
-        header("Location: ?view=controlpanel");
-        exit;
-    } else {
-        // Password wrong
-        header("Location: ?view=default");
-        exit;
-    }
+    // Redirect to control panel
+    header("Location: ?view=controlpanel");
+    exit;
 } else {
-    // User wasn't found
+    // User wasn't found or pw wrong
     header("Location: ?view=default");
     exit;
 }

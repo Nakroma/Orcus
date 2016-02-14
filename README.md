@@ -19,4 +19,4 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `E|LOBBY_FULL` Signals that the lobby is full.
 `N|LOBBY_JOINED|(SID)` Notifies the other users with the SID of the new user.
 `N|LOBBY_LEFT|(SID)` Notifies the other users with the SID of the left user.
-`N|LOBBY_DISBAND` Notifies the other users of the disbanding of the lobby.
+`N|LOBBY_DISBAND` Notifies the other users of the disband.

@@ -24,16 +24,58 @@ class MatchmakingLobby {
     /**
      * Returns the number of users currently in the lobby
      *
-     * @return int the number of users currently in the lobby
+     * @return Int The number of users currently in the lobby
      */
     public function getUserCount() {
         return count($this->team1) + count($this->team2);
     }
 
     /**
+     * Returns an array with all users currently in the lobby
+     *
+     * @return Array All users currently in the lobby
+     */
+    public function getUsers() {
+        return array_merge($this->team1, $this->team2);
+    }
+
+    /**
+     * Returns the user who owns the lobby
+     *
+     * @return WebSocketUser User which owns the lobby
+     */
+    public function getOwner() {
+        return $this->owner;
+    }
+
+    /**
+     * Removes a user from the lobby
+     *
+     * @param WebSocketUser User to remove
+     * @return Boolean True if user found and removed, false if not
+     */
+    public function removeUser($user) {
+        for ($i = 0; $i < count($this->team1); $i++) {
+            if ($this->team1[$i] == $user) {
+                unset($this->team1[$i]);
+                $this->team1 = array_values($this->team1);
+                return true;
+            }
+        }
+        for ($i = 0; $i < count($this->team2); $i++) {
+            if ($this->team2[$i] == $user) {
+                unset($this->team2[$i]);
+                $this->team2 = array_values($this->team2);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Joins a user in the next free team
      *
-     * @param $user ID of the user to join
+     * @param WebSocketUser User to join
      */
     public function joinUser($user) {
         if ($this->teamsize > count($this->team1)) {
@@ -44,5 +86,4 @@ class MatchmakingLobby {
             $this->team2[] = $user;
         }
     }
-
 } 

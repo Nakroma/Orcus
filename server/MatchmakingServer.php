@@ -10,6 +10,7 @@
 require_once('src/WebSocketServer.php');
 require_once('MatchmakingLobby.php');
 // php -q htdocs/Orcus/server/MatchmakingServer.php
+// BIG FAT TODO: CHANGE ARRAYS TO IDs AND FOREACH!!!!! (maybe)
 
 class MatchmakingServer extends WebSocketServer {
     protected $lobbies = array();
@@ -38,7 +39,6 @@ class MatchmakingServer extends WebSocketServer {
              * Creates a new lobby
              * [1] Game
              * [2] Teamsize
-             * [3] Creator ID
              */
             case 'LOBBY_CREATE':
                 $lobby = new MatchmakingLobby($part[1], $part[2], $user);
@@ -53,12 +53,28 @@ class MatchmakingServer extends WebSocketServer {
             case 'LOBBY_JOIN':
                 $lobby = $this->lobbies[$part[1]];
                 if ($lobby->teamsize*2 > $lobby->getUserCount()) {
-                    // Lobby free
+                    // Inform other lobby users
+                    $all = $lobby->getUsers();
+                    for ($i = 0; $i < count($all); $i++) {
+                        $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
+                    }
+
+                    // Join lobby
                     $lobby->joinUser($user);
                     $this->send($user, 'S|LOBBY_JOIN');
                 } else {
                     // Lobby full
                     $this->send($user, 'E|LOBBY_FULL');
+                }
+                break;
+
+            /**
+             * Admin info stuff
+             * Note: Does not actually work yet
+             */
+            case 'ADMIN_SHOW_USERS':
+                for ($i = 0; $i < count($this->users); $i++) {
+                    $this->stdout(print_r($this->users[$i]));
                 }
                 break;
         }
@@ -79,9 +95,30 @@ class MatchmakingServer extends WebSocketServer {
      * @param $user user which socket has been closed
      */
     protected function closed($user) {
-        // Do nothing: This is where cleanup would go, in case the user had any sort of
-        // open files or other objects associated with them.  This runs after the socket
-        // has been closed, so there is no need to clean up the socket itself here.
+        // Complete lobby cleanup
+        // May be resource intensive so check it later
+        for ($i = 0; $i < count($this->lobbies); $i++) {
+            $u = $this->lobbies[$i]->getUsers();
+            for ($j = 0; $j < count($u); $j++) {
+                if ($u[$j] == $user) {
+                    $o = $this->lobbies[$i]->getOwner();
+
+                    // Clean up user
+                    $this->lobbies[$i]->removeUser($user);
+
+                    // Notify other users
+                    for ($k = 0; $k < count($u); $k++) {
+                        if ($o == $user) {
+                            $this->send($u[$k], 'N|LOBBY_DISBAND');
+                        } else {
+                            $this->send($u[$k], 'N|LOBBY_LEFT|' . $user->session_id);
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
     }
 }
 

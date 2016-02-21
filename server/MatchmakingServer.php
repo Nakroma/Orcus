@@ -56,15 +56,91 @@ class MatchmakingServer extends WebSocketServer {
                     // Inform other lobby users
                     $all = $lobby->getUsers();
                     for ($i = 0; $i < count($all); $i++) {
-                        $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
+                        if ($lobby->type == 'lobby') {
+                            $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
+                        } else if ($lobby->type == 'squad') {
+                            $this->send($all[$i], 'N|SQUAD_JOINED|' . $user->session_id);
+                        }
                     }
 
                     // Join lobby
                     $lobby->joinUser($user);
-                    $this->send($user, 'S|LOBBY_JOIN');
+                    if ($lobby->type == 'lobby') {
+                        $this->send($user, 'S|LOBBY_JOIN');
+                    } else if ($lobby->type == 'squad') {
+                        $this->send($user, 'S|SQUAD_JOIN');
+                    }
                 } else {
                     // Lobby full
-                    $this->send($user, 'E|LOBBY_FULL');
+                    if ($lobby->type == 'lobby') {
+                        $this->send($user, 'E|LOBBY_FULL');
+                    } else if ($lobby->type == 'squad') {
+                        $this->send($user, 'E|SQUAD_FULL');
+                    }
+                }
+                break;
+
+            /**
+             * Creates a squad
+             * [1] Game
+             */
+            case 'SQUAD_CREATE':
+                $lobby = new MatchmakingLobby($part[1], 5, $user, 'squad');
+                $this->lobbies[] = $lobby;
+                $this->stdout("Squad created (".$part[1].")");
+                break;
+
+            /**
+             * Searches for an open squad
+             * [1] Game
+             */
+            case 'SQUAD_SEARCH':
+                foreach ($this->lobbies as $key => $value) {
+                    $l = $this->lobbies[$key];
+                    if ($l->type == 'squad' && $l->open) {
+                        // Lobby is a squad and open
+                        if ($l->getUserCount() < $l->teamsize) {
+                            // Squad is open
+                            if ($l->game == $part[1]) {
+                                // Game is correct
+                                // Everything is right -> join lobby
+                                $this->process($user, 'LOBBY_JOIN|' . $key);
+                            }
+                        }
+                    }
+                }
+                break;
+
+            /**
+             * Joins a squad into a lobby
+             * [1] Lobby ID
+             */
+            case 'SQUAD_MERGE':
+                // Get squad owner
+                foreach ($this->lobbies as $key => $value) {
+                    $squad = $this->lobbies[$key];
+                    if ($squad->owner == $user && $squad->type == 'squad') {
+                        // Found Squad
+                        $lobby = $this->lobbies[$part[1]];
+                        if ($squad->getUserCount() <= $lobby->teamsize) { // Squad has the right size
+                            if ($squad->getUserCount() <= ($lobby->teamsize - count($lobby->team1))) {
+                                // Join team 1
+                                foreach($squad->getUsers() as $key => $value) {
+                                    $this->process($value, 'LOBBY_JOIN|' . $part[1]);
+                                }
+                            } else if ($squad->getUserCount() <= ($lobby->teamsize - count($lobby->team2))) {
+                                // Join team 2
+                                foreach($squad->getUsers() as $key => $value) {
+                                    $this->process($value, 'LOBBY_JOIN|' . $part[1]);
+                                }
+                            } else {
+                                // No space in lobby
+                                $this->send($user, 'E|LOBBY_NOSPACE');
+                            }
+                        }
+
+                        break;
+                    }
                 }
                 break;
 
@@ -97,7 +173,7 @@ class MatchmakingServer extends WebSocketServer {
     protected function closed($user) {
         // Complete lobby cleanup
         // May be resource intensive so check it later
-        for ($i = 0; $i < count($this->lobbies); $i++) {
+        foreach ($this->lobbies as $i => $value) {
             $u = $this->lobbies[$i]->getUsers();
             for ($j = 0; $j < count($u); $j++) {
                 if ($u[$j] == $user) {
@@ -109,10 +185,23 @@ class MatchmakingServer extends WebSocketServer {
                     // Notify other users
                     for ($k = 0; $k < count($u); $k++) {
                         if ($o == $user) {
-                            $this->send($u[$k], 'N|LOBBY_DISBAND');
+                            if ($this->lobbies[$i]->type == 'lobby') {
+                                $this->send($u[$k], 'N|LOBBY_DISBAND');
+                            } else if ($this->lobbies[$i]->type == 'squad') {
+                                $this->send($u[$k], 'N|SQUAD_DISBAND');
+                            }
                         } else {
-                            $this->send($u[$k], 'N|LOBBY_LEFT|' . $user->session_id);
+                            if ($this->lobbies[$i]->type == 'lobby') {
+                                $this->send($u[$k], 'N|LOBBY_LEFT|' . $user->session_id);
+                            } else if ($this->lobbies[$i]->type == 'squad') {
+                                $this->send($u[$k], 'N|SQUAD_LEFT|' . $user->session_id);
+                            }
                         }
+                    }
+
+                    if ($o == $user) {
+                        // Delete lobby
+                        unset($this->lobbies[$i]);
                     }
 
                     break;

@@ -13,12 +13,15 @@ class MatchmakingLobby {
     public $owner;
     public $team1 = array();
     public $team2 = array();
+    public $type; // lobby / squad
+    public $open = true;
 
-    function __construct($g, $ts, $o) {
+    function __construct($g, $ts, $o, $t = 'lobby') {
         $this->game = $g;
         $this->teamsize = $ts;
         $this->owner = $o;
         $this->team1[] = $o;
+        $this->type = $t;
     }
 
     /**
@@ -81,7 +84,7 @@ class MatchmakingLobby {
         if ($this->teamsize > count($this->team1)) {
             // Team 1 free
             $this->team1[] = $user;
-        } else if ($this->teamsize > count($this->team2)) {
+        } else if ($this->teamsize > count($this->team2) && $this->type == 'lobby') {
             // Team 2 free
             $this->team2[] = $user;
         }

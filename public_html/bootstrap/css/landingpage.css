@@ -80,7 +80,7 @@
 .navbar-right {
     margin-top: 35px;
     margin-right: 8vw;
-    font-weight: 600;
+    font-weight:500;
 }
 
 .modal-open .modal,
@@ -90,6 +90,7 @@ a:focus {
 }
 
 li a {
+    font-weight:500;
     padding-right: 16;
 }
 
@@ -164,11 +165,11 @@ li a {
     width: 239px;
     height: 59px;
     line-height: 58px;
-    color: #22beca;
+    color: #00b4ff;
     font-family: 'raleway';
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.3);
-    border: solid #22beca 2px;
+    border: solid #00b4ff 2px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.1s;
@@ -179,7 +180,7 @@ li a {
 
 .header-cta:hover {
     color: white;
-    background-color: #22beca;
+    background-color: #00b4ff;
 }
 
 
@@ -272,7 +273,7 @@ li a {
     width: 100%;
     height: 50px;
     text-align: center;
-    background: transparent url("../../bootstrap/img/top-indicator.svg") no-repeat scroll center top / cover
+    background: transparent url("../../img/top-indicator.svg") no-repeat scroll center top / cover
 }
 
 .hdiw-top-headline span {
@@ -347,10 +348,8 @@ li a {
 .hdiw-bg-2 {
     position: absolute;
     overflow: hidden;
-    opacity: 0.0;
     right: 0px;
     left: 0px;
-    bottom: -90px;
 }
 
 .hdiw-bg-4 {
@@ -413,7 +412,7 @@ li a {
 .hwdi-desc-headline-2 {
     font-size: 18px;
     font-family: 'raleway';
-    font-weight: 600;
+    font-weight:500;
     color: white;
     margin-top: 100px;
 }
@@ -455,8 +454,8 @@ li a {
 
 .hwdi-cta-text {
     display: inline-block;
-    color: #22beca;
-    font-weight: 600;
+    color: #00b4ff;
+        font-weight:500;
     margin-bottom: 36px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -483,14 +482,16 @@ li a {
 }
 
 .bot-cta-bg {
+    position:relative;
+    overflow:hidden;
     background-color: rgb(17, 21, 26);
 }
 
 .bot-cta-bold {
     font-family: 'titillium web';
     font-size: 26px;
-    font-weight: 600;
-    color: #22beca;
+        font-weight:500;
+    color: #00b4ff;
 }
 
 .bot-cta-bg .container {
@@ -510,7 +511,8 @@ li a {
     height: 175px;
     width: 310px;
     margin-top:40px;
-
+    background-color: #191d21;
+    box-shadow: 0px 3px 60px rgba(0, 0, 0, 0.5);
 }
 
 .bot-cta-bg .col-md-4 {
@@ -521,7 +523,7 @@ li a {
 .bot-cta-head {
     font-family: 'raleway';
     font-size: 22px;
-    color: white;
+    color: #00b4ff;
     margin-bottom: 0px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -555,7 +557,7 @@ li a {
 }
 
 .bot-cta-dota {
-    background: url('../../bootstrap/img/bot_cta_dota_1.png');
+    background: url('/img/bot_cta_dota_1.png');
     height: 175px;
     width: 310px;
     margin: auto;
@@ -564,7 +566,7 @@ li a {
 
 .bot-cta-rec {
     position: absolute;
-    background: url('../../bootstrap/img/bot_cta_dota_rec.svg') no-repeat;
+    background: url('/img/bot_cta_dota_rec.svg') no-repeat;
     font-family: 'segoe ui';
     font-weight: 300;
     padding-top: 6px;
@@ -577,7 +579,7 @@ li a {
 }
 
 .bot-cta-league {
-    background-image: url("../../bootstrap/img/bot_cta_league_1.jpg");
+    background-image: url("/img/bot_cta_league_1.jpg");
     height: 175px;
     width: 310px;
     margin: auto;
@@ -623,8 +625,8 @@ li a {
 
 .bot-cta-btn:hover {
     opacity: 1;
-    color:#22beca;
-    border:solid #22beca 2px;
+    color:#00b4ff;
+    border:solid #00b4ff 2px;
 }
 
 .bot-cta-img-hover {
@@ -744,7 +746,7 @@ tbody tr:hover {
 
 .lp-footer .lp-footer-nav {
     color: #515151;
-    font-weight: 600;
+        font-weight:500;
     font-size: 16px;
 }
 
@@ -764,7 +766,7 @@ tbody tr:hover {
 }
 
 .vid-pattern {
-    background: transparent url("../../bootstrap/img/texture.png") repeat;
+    background: transparent url("../../img/texture.png") repeat;
     position:absolute;
     top: 0px;
     right: 0px;
@@ -778,7 +780,7 @@ tbody tr:hover {
 .orcus-font-menu-anchor {
     margin-bottom: 15px;
     margin-left: 7vw;
-    padding-right: 50px;
+    padding-right: 90px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.15s;
@@ -797,7 +799,7 @@ tbody tr:hover {
     color: white;
     font-family: 'raleway';
     font-size: 12px;
-    font-weight: 600;
+        font-weight:500;
     margin-right: 3px;
 }
 
@@ -815,11 +817,11 @@ tbody tr:hover {
 }
 
 .nav.navbar-nav li a:hover {
-    color: #22defa;
+    color: #00b4ff;
 }
 
 .stats-bg {
-    background: transparent url("../../bootstrap/img/texture.png") repeat;
+    background: transparent url("../../img/texture.png") repeat;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -865,7 +867,7 @@ tbody tr:hover {
     display: relative;
     overflow: hidden;
     background-color: #191d21;
-    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.5), inset 0px 3px 60px rgba(0, 0, 0, 0.10);
+    box-shadow: inset 0px 3px 60px rgba(0, 0, 0, 0.10);
     height: 500px;
 }
 
@@ -913,7 +915,7 @@ tbody tr:hover {
 }
 
 .sign-up-swap:hover {
-    color: #187e86;
+    color: #00b4ff;
     text-decoration: none;
 }
 
@@ -970,7 +972,7 @@ tbody tr:hover {
 }
 
 input:required {
-    border: 2px solid rgba(200, 67, 64, 0.85);
+    border: 2px solid rgba (200, 67, 64, 0.85);
     box-shadow: none;
 }
 
@@ -985,12 +987,12 @@ input:required {
 .TOU {
     font-family: 'raleway';
     color: white;
-    font-weight: 600;
+        font-weight:500;
     opacity: 0.6;
 }
 
 .TOU:hover {
-    color: #22beca;
+    color: #00b4ff;
     opacity: 1;
     text-decoration: none;
 }
@@ -1112,6 +1114,7 @@ button:focus{
 }
 
 .input__label-content--jiro {
+    font-weight:500;
     -webkit-transition: -webkit-transform 0.3s 0.3s;
     transition: transform 0.3s 0.3s;
 }
@@ -1268,14 +1271,20 @@ input:-ms-input-placeholder {
     margin-top:65px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
-    -webkit-transition-duration: 0.15s;
-    -moz-transition-duration: 0.15s;
-    -o-transition-duration: 0.15s;
-    transition-duration: 0.15s;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .game-preview-img:hover {
     opacity:0.7;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
 }
 
 @media (max-width: 1061px) {
@@ -1313,16 +1322,15 @@ input:-ms-input-placeholder {
     .collapse.in{
         display:block !important;
     }
-    .navbar-nav .open .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: transparent;
-        border: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+   .navbar-nav .open .dropdown-menu {
+       position: static;
+       float: none;
+       width: auto;
+       margin-top: 0;
+       background-color: transparent;
+       border: 0;
+       -webkit-box-shadow: none;
+       box-shadow: none;
     }
 }
-
 

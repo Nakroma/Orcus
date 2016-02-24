@@ -571,7 +571,8 @@ input:-ms-input-placeholder {
 }
 
 .heading-icon {
-    margin-top: 50px;
+    margin-top: 65px;
+    height:30px;
 }
 
 .header-search-font {
@@ -589,6 +590,7 @@ input:-ms-input-placeholder {
 }
 
 .header-search {
+    margin-top:55px;
     padding-top: 15px;
     padding-bottom: 15px;
     background: #0d0e13;
@@ -862,6 +864,7 @@ a:hover {
 /* Menu styles */
 
 .menu {
+    font-family: raleway;
     overflow:hidden;
     padding-left: calc(10px + 1vw);
     padding-right: 60px;
@@ -1233,12 +1236,9 @@ a:hover {
 }
 
 .game-stats {
-    display: block;
-    font-family: 'helvetica';
-    font-size: 12px;
-    color: #999;
-    margin-left: 52px;
-    margin-top: -12px;
+    display:inline-block;
+    text-align: center;
+    padding: 0px 18px 0px;
 }
 
 .checkbox-switch {
@@ -1365,6 +1365,12 @@ a:hover {
             .gd-gamebar{
         top:65px;
                 height:calc(100% - 65px);
+    }
+}
+
+@media (max-width: 1827px) {
+    .game-groups{
+        margin-top:20vh !important;
     }
 }
 
@@ -1553,6 +1559,146 @@ a:hover {
 
 .game-bg {
     position:fixed;
+    min-width:80vw;
+    min-height:100%;
     z-index:-1;
-    opacity:0.08;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+}
+
+.heading-font {
+    margin-top:67px;
+    margin-left:5px;
+    height:18px;
+}
+
+.game-groups {
+    width:85%;
+    margin:auto;
+    margin-top:35vh;
+    text-align:center;
+}
+
+.game-g-1 {
+    display:inline-block;
+    overflow:hidden;
+    width:185px;
+    height:185px;
+    border-radius:185px;
+    margin-right:50px;
+}
+
+.game-g-1-bg {
+    position:absolute;
+    z-index:-1;
+    opacity:0;
+    -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+.game-g-1-logo {
+    margin-top:60px;
+    margin-left:30px;
+}
+
+.game-g-1-container:hover .game-g-1-bg {
+    opacity:1;
+}
+
+.game-g-1 {
+ cursor:pointer;
+}
+
+
+
+.games-group-1 {
+    display:inline-block;
+}
+
+.game-g-1-name {
+    font-family:'titillium web';
+    font-size:24px;
+    font-weight:400;
+    margin-top:20px;
+    opacity:0;
+    padding-bottom:5px;
+    color:white;
+    -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+.game-g-1-container:hover .game-g-1-name {
+    opacity:1;
+}
+
+.game-g-1-name-border {
+    width:266px;
+    height:2px;
+    background:#4b515d;
+    margin:auto;
+    opacity:0;
+    -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+.game-stats-value {
+    color: white;
+    font-family: 'titillium web';
+    font-weight: 300;
+    font-size: 24px;
+
+}
+
+.game-stats-property {
+    display:block;
+    font-family:raleway;
+    font-weight:500 !important;
+    color: white;
+    font-size: 12px;
+    font-weight:600;
+    margin-top:-5px;
+}
+
+
+
+.game-g-1-container:hover .game-stats-container {
+    margin-top:5px;
+    opacity:1;
+}
+
+.game-stats-container {
+margin-top:20px;
+    opacity:0;
+    transition-delay:0.05s;
+    -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    transition-timing-function: cubic-bezier(.42, 0, .58, 1);
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.game-g-1-container:hover .game-g-1-name-border {
+    opacity:1;
+}
+
+.game-g-1-container {
+    display:inline-block;
+    vertical-align:top;
 }

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="bootstrap/css/games.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
     <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/jquery.knob.min.js"></script>
@@ -83,8 +83,8 @@
     <div class='gd-sidebar'>
         <div class="select-game-header">
             <div class='header-wrapper'>
-                <img src='img/gl-game-icon.png' class='heading-icon'>
-                <h2 class="dummy-heading">Select a Game</h2>
+                <img src='img/logo_solo.png' class='heading-icon'>
+                <img src='img/orcus_font.png' class='heading-font'>
                 <div class='header-search'>
                     <span class='header-search-font'>Search game</span>
                     <input type='text' class='header-input' placeholder='e.g. Hearthstone'>
@@ -120,25 +120,168 @@
         </div>
     </div>
 
-        <!-- Menu Open -->
-        <div class='menu-open'>
-            <div class='menu-ava'></div>
-            <div class='menu-group-1'>
-                <a href="#" class='menu-link'><img src='img/lp_header_tournament.svg'>Tournaments</a>
-                <a href="#" class='menu-link'><img src='img/lp_header_leaderboard.svg'>Leaderboards</a>
-                <a href="#" class='menu-link'><img src='img/lp_header_games.svg' style='margin-left:2px;'>Games</a>
-            </div>
-            <div class='menu-group-2'>
-                <a href="#" class='menu-link'><img src='img/currency.svg' class='menu-currency'>Charge</a>
-                <a href="#" class='menu-link'><img src='img/settings.svg' class='menu-settings'>Settings</a>
-            </div>
-            <div class='menu-group-3'>
-                <a href="#" class='menu-link'><img src='img/logout.svg' class='menu-settings'>Logout</a>
-            </div>
+    <!-- Menu Open -->
+    <div class='menu-open'>
+        <div class='menu-ava'></div>
+        <div class='menu-group-1'>
+            <a href="#" class='menu-link'><img src='img/lp_header_tournament.svg'>Tournaments</a>
+            <a href="#" class='menu-link'><img src='img/lp_header_leaderboard.svg'>Leaderboards</a>
+            <a href="#" class='menu-link'><img src='img/lp_header_games.svg' style='margin-left:2px;'>Games</a>
         </div>
+        <div class='menu-group-2'>
+            <a href="#" class='menu-link'><img src='img/currency.svg' class='menu-currency'>Charge</a>
+            <a href="#" class='menu-link'><img src='img/settings.svg' class='menu-settings'>Settings</a>
+        </div>
+        <div class='menu-group-3'>
+            <a href="#" class='menu-link'><img src='img/logout.svg' class='menu-settings'>Logout</a>
+        </div>
+    </div>
 
     <div class="content">
-       <img id='dota' class='game-bg'>
+        <img src='img/csgo_game_full_bg.png' class='game-bg' >
+        <img src='' class='game-bg' id='dota'>
+        <div class='game-groups'>
+            <div class='games-group-1'>
+                <div class='game-g-1-container'>
+                    <a href='#' class='game-g-1'>
+                        <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
+                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                    </a>
+                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <div class='game-g-1-name-border'></div>
+                    <div class='game-stats-container'>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                4300
+                            </span>
+                            <span class='game-stats-property'>
+                                PLAYERS
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                320
+                            </span>
+                            <span class='game-stats-property'>
+                                LOBBIES
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                0
+                            </span>
+                            <span class='game-stats-property'>
+                                EVENTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='game-g-1-container' onmouseover="document.getElementById('dota').src='img/league_bg.png'">
+                    <a href='#' class='game-g-1'>
+                        <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
+                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                    </a>
+                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <div class='game-g-1-name-border'></div>
+                    <div class='game-stats-container'>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                4300
+                            </span>
+                            <span class='game-stats-property'>
+                                PLAYERS
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                320
+                            </span>
+                            <span class='game-stats-property'>
+                                LOBBIES
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                0
+                            </span>
+                            <span class='game-stats-property'>
+                                EVENTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class='games-group-1'>
+                <div class='game-g-1-container'>
+                    <a href='#' class='game-g-1'>
+                        <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
+                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                    </a>
+                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <div class='game-g-1-name-border'></div>
+                    <div class='game-stats-container'>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                4300
+                            </span>
+                            <span class='game-stats-property'>
+                                PLAYERS
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                320
+                            </span>
+                            <span class='game-stats-property'>
+                                LOBBIES
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                0
+                            </span>
+                            <span class='game-stats-property'>
+                                EVENTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='game-g-1-container'>
+                    <a href='#' class='game-g-1'>
+                        <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
+                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                    </a>
+                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <div class='game-g-1-name-border'></div>
+                    <div class='game-stats-container'>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                4300
+                            </span>
+                            <span class='game-stats-property'>
+                                PLAYERS
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                320
+                            </span>
+                            <span class='game-stats-property'>
+                                LOBBIES
+                            </span>
+                        </div>
+                        <div class='game-stats'>
+                            <span class='game-stats-value'>
+                                0
+                            </span>
+                            <span class='game-stats-property'>
+                                EVENTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Menu -->
         <nav class='user-menu'>
             <div class='user-menu-container'>
@@ -148,7 +291,6 @@
             </div>
         </nav>
 
- 
     </div>
     <script src="js/games.js"></script>
     <script src="js/classie.js"></script>

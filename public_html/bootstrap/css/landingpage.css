@@ -766,7 +766,7 @@ tbody tr:hover {
 }
 
 .vid-pattern {
-    background: transparent url("../../img/texture.png") repeat;
+    background: transparent url("../img/texture.png") repeat;
     position:absolute;
     top: 0px;
     right: 0px;

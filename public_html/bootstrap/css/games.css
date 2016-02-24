@@ -608,7 +608,7 @@ input:-ms-input-placeholder {
     border-radius: 50px;
     background: #16191e;
     border: medium none;
-    background-image: url(/img/gl-search-ico-no-mo.svg);
+    background-image: url(../img/gl-search-ico-no-mo.svg);
     background-position: 9vw 9px;
     background-repeat: no-repeat;
     -webkit-transition-timing-function: ease;
@@ -621,14 +621,14 @@ input:-ms-input-placeholder {
 
 .header-input:hover {
     background: #0c0e12;
-    background-image: url(/img/gl-search-ico.svg);
+    background-image: url(../img/gl-search-ico.svg);
     background-position: 9vw 9px;
     background-repeat: no-repeat;
 }
 
 .header-input:focus {
     background: #0c0e12;
-    background-image: url(/img/gl-search-ico.svg);
+    background-image: url(../img/gl-search-ico.svg);
     background-position: 9vw 9px;
     background-repeat: no-repeat;
 }
@@ -1178,7 +1178,7 @@ a:hover {
     margin-left: 13px;
     height: 22px;
     width: 25px;
-    background: url(/img/lp_popular_heart_full.svg);
+    background: url(../img/lp_popular_heart_full.svg);
     -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
     transition-timing-function: cubic-bezier(.42, 0, .58, 1);
     -webkit-transition-duration: 0.1s;
@@ -1196,7 +1196,7 @@ a:hover {
     margin-left: 13px;
     height: 22px;
     width: 25px;
-    background: url(/img/lp_popular_heart_empty.svg);
+    background: url(../img/lp_popular_heart_empty.svg);
     -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
     transition-timing-function: cubic-bezier(.42, 0, .58, 1);
     -webkit-transition-duration: 0.1s;
@@ -1473,7 +1473,7 @@ a:hover {
     width: 35px;
     border-radius: 50px;
     border: 2px solid #4c525e;
-    background-image: url('/img/ava_sample_4.png');
+    background-image: url('../img/ava_sample_4.png');
     background-position:center;
     background-size:100%;
     background-repeat: no-repeat;
@@ -1564,6 +1564,12 @@ a:hover {
     min-width:80vw;
     min-height:100%;
     z-index:-1;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .heading-font {
@@ -1725,3 +1731,20 @@ margin-top:20px;
 }
 
 
+
+.lol-bg {
+    opacity:0;
+    min-width:0;
+    min-height:0;
+    transition-delay:0.2s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+}
+
+.lol:hover .lol-bg {
+    opacity:1;
+}

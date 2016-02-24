@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2015, Codrops
  * http://www.codrops.com
  */
@@ -71,7 +71,7 @@
         backCtrl: true,
         // delay between each menu item sliding animation
         itemsDelayInterval: 60,
-        // direction 
+        // direction
         direction: 'r2l',
         // callback: item that doesn´t have a submenu gets clicked
         // onItemClick([event], [inner HTML of the clicked item])

@@ -1,38 +1,7 @@
 /* Mobile Check */
-if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {
-} else{
-    $('head').append('<script src="bootstrap/js/parallax.js"></script>');
+if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
+    $('head').append('<script src="js/parallax.js"></script>');
 }
-
-/* Skill Circle */
-$(function () {
-    $(".circle").knob({
-        'readOnly': true,
-        'min': 1,
-        'max': 980,
-        'width': 43,
-        'height': 43,
-        'thickness': 0.17,
-        'bgColor': 'black',
-        'fgColor': '#218ef1',
-        'font': 'Arial',
-        'draw': function () {
-            $(this.i).css('font-size', '14px');
-        }
-    });
-});
-
-/* Fade on Scroll
- tiles = $("#fade-02, #fade-03").fadeTo(0, 0);
-
- $(window).scroll(function (d, h) {
- tiles.each(function (i) {
- a = $(this).offset().top + $(this).height();
- b = $(window).scrollTop() + $(window).height();
- if (0.81 * a < b) $(this).fadeTo(600, 1);
- });
- });*/
-
 
 /* Navbar */
 $(document).ready(function () {
@@ -63,7 +32,3 @@ $(document).ready(function () {
         }
     });
 });
-
-setTimeout(function(){
-    odometer.innerHTML = 456;
-}, 1000);

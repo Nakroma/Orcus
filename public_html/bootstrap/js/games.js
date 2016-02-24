@@ -4,8 +4,9 @@ $(".sidebar-menu-ico").click(function () {
         $('.menu-open').css('right', '');
         $('.gd-sidebar').css('margin-left', '');
         $('.content').css('margin-left', '');
+        $('.game-bg').css('left', '');
         $('.sidebar-content-dim').css('opacity', '').css('pointer-events', 'none');
-        $('.sidebar-menu-ico').attr('src', 'img/hamburger.svg');
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
         if ($('.sidebar-hide').is('#sidebar-hidden')) {
@@ -19,7 +20,8 @@ $(".sidebar-menu-ico").click(function () {
             $('.menu-open').css('right', '0px');
             $('.gd-sidebar').css('margin-left', '-250px');
             $('.content').css('margin-left', '7vw');
-            $('.sidebar-menu-ico').attr('src', 'img/login-close.svg');
+                        $('.game-bg').css('left', '4.15%');
+            $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
             $('.sidebar-content-dim').css('opacity', '1').css('pointer-events', 'all');
         };
     };
@@ -29,7 +31,8 @@ $(".sidebar-content-dim").click(function () {
     $('.menu-open').css('right', '');
     $('.gd-sidebar').css('margin-left', '');
     $('.content').css('margin-left', '');
+    $('.game-bg').css('left', '');
     $('.sidebar-content-dim').css('opacity', '').css('pointer-events', 'none');
-    $('.sidebar-menu-ico').attr('src', 'img/hamburger.svg');
+    $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
     $('.sidebar-menu-ico').removeAttr('id');
 });

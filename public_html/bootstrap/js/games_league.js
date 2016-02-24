@@ -1,8 +1,8 @@
 if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script src="js/parallax_games.js"></script>');
+    $('head').append('<script src="bootstrap/js/parallax_games.js"></script>');
 }
 
-/* Timer 
+/* Timer
 function updateWCTime() {
     now = new Date();
     kickoff = Date.parse("1, 00:8:00");
@@ -136,21 +136,21 @@ $(".sidebar-menu-ico").click(function () {
         $('.gd-sidebar').css('margin-left', '');
         $('.content').css('margin-left', '');
         $('.sidebar-content-dim').css('opacity', '').css('pointer-events', 'none');
-        $('.sidebar-menu-ico').attr('src', 'img/hamburger.svg');
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
         if ($('.sidebar-hide').is('#sidebar-hidden')) {
             $('.sidebar-menu-ico').attr('id', "menu-visible");
             $('.menu-open').css('right', '0px');
             $('.content').css('margin-left', '4.15%');
-            $('.sidebar-menu-ico').attr('src', 'img/login-close.svg');
+            $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
             $('.sidebar-content-dim').css('opacity', '1').css('pointer-events', 'all');
         } else {
             $('.sidebar-menu-ico').attr('id', "menu-visible");
             $('.menu-open').css('right', '0px');
             $('.gd-sidebar').css('margin-left', '-250px');
             $('.content').css('margin-left', 'calc(28.2% - 250px)');
-            $('.sidebar-menu-ico').attr('src', 'img/login-close.svg');
+            $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
             $('.sidebar-content-dim').css('opacity', '1').css('pointer-events', 'all');
         };
     };
@@ -161,7 +161,7 @@ $(".sidebar-content-dim").click(function () {
     $('.gd-sidebar').css('margin-left', '');
     $('.content').css('margin-left', '');
     $('.sidebar-content-dim').css('opacity', '').css('pointer-events', 'none');
-    $('.sidebar-menu-ico').attr('src', 'img/hamburger.svg');
+    $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
     $('.sidebar-menu-ico').removeAttr('id');
 });
 

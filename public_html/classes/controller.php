@@ -71,6 +71,11 @@ class Controller {
                 $view->assign('skey', Model::getSessionKey());
                 break;
 
+            // Page: Games List
+            case 'games_list':
+                $view->setTemplate('games_list');
+                break;
+
             // Page: Error Page
             case 'error':
                 $view->setTemplate('error');
@@ -92,4 +97,4 @@ class Controller {
         return $view->loadTemplate();
     }
 
-} 
+}

@@ -1,5 +1,5 @@
 if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script src="js/parallax_games.js"></script>');
+    $('head').append('<script src="bootstrap/js/parallax_games.js"></script>');
 }
 
 /* Timer 

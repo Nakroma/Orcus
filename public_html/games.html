@@ -12,7 +12,6 @@
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
     <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/jquery.knob.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/games.js"></script>
     <script src="js/modernizr-custom.js"></script>
@@ -138,14 +137,13 @@
     </div>
 
     <div class="content">
-        <img src='img/csgo_game_full_bg.png' class='game-bg' >
-        <img src='' class='game-bg' id='dota'>
         <div class='game-groups'>
             <div class='games-group-1'>
-                <div class='game-g-1-container'>
+                <div class='game-g-1-container csgo'>
+                    <img src='img/csgo_game_full_bg.png' class='game-bg csgo-bg'>
                     <a href='#' class='game-g-1'>
                         <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
-                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                        <img src='img/csgo_preview.png' class='game-csgo-logo'>
                     </a>
                     <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
                     <div class='game-g-1-name-border'></div>
@@ -176,12 +174,13 @@
                         </div>
                     </div>
                 </div>
-                <div class='game-g-1-container' onmouseover="document.getElementById('dota').src='img/league_bg.png'">
+                <div class='game-g-1-container dota'>
+                           <img src='img/dota_bg.png' class='game-bg dota-bg' id='dota'>
                     <a href='#' class='game-g-1'>
-                        <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
-                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                        <img src='img/dota_game_bg.png' class='game-g-1-bg'>
+                        <img src='img/dota_preview.png' class='game-dota-logo'>
                     </a>
-                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <h2 class='game-g-1-name'>Defense of the Ancients</h2>
                     <div class='game-g-1-name-border'></div>
                     <div class='game-stats-container'>
                         <div class='game-stats'>
@@ -212,12 +211,13 @@
                 </div>
             </div>
              <div class='games-group-1'>
-                <div class='game-g-1-container'>
+                <div class='game-g-1-container lol' onmouseover="document.getElementById('dota').src='img/lol_bg.png'">
+                    <img src='' class='game-bg dota-bg' id='dota'>
                     <a href='#' class='game-g-1'>
                         <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
-                        <img src='img/csgo_preview.png' class='game-g-1-logo'>
+                        <img src='img/league_preview.png' class='game-dota-logo'>
                     </a>
-                    <h2 class='game-g-1-name'>Counter Strike Global Offensive</h2>
+                    <h2 class='game-g-1-name'>Defense of the Ancients</h2>
                     <div class='game-g-1-name-border'></div>
                     <div class='game-stats-container'>
                         <div class='game-stats'>
@@ -246,7 +246,8 @@
                         </div>
                     </div>
                 </div>
-                <div class='game-g-1-container'>
+            </div>
+                <div class='game-g-1-container hearthstone'>
                     <a href='#' class='game-g-1'>
                         <img src='img/CSGO_game_bg.png' class='game-g-1-bg'>
                         <img src='img/csgo_preview.png' class='game-g-1-logo'>

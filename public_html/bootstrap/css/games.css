@@ -1559,15 +1559,11 @@ a:hover {
 
 .game-bg {
     position:fixed;
+    top:0;
+    left:20vw;
     min-width:80vw;
     min-height:100%;
     z-index:-1;
-    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    -webkit-transition-duration: 0.55s;
-    -moz-transition-duration: 0.55s;
-    -o-transition-duration: 0.55s;
-    transition-duration: 0.55s;
 }
 
 .heading-font {
@@ -1589,11 +1585,10 @@ a:hover {
     width:185px;
     height:185px;
     border-radius:185px;
-    margin-right:50px;
 }
 
 .game-g-1-bg {
-    position:absolute;
+    position:relative;
     z-index:-1;
     opacity:0;
     -webkit-transition-timing-function: cubic-bezier(.42, 0, .58, 1);
@@ -1604,18 +1599,13 @@ a:hover {
     transition-duration: 0.1s;
 }
 
-.game-g-1-logo {
-    margin-top:60px;
-    margin-left:30px;
-}
+
 
 .game-g-1-container:hover .game-g-1-bg {
     opacity:1;
 }
 
-.game-g-1 {
- cursor:pointer;
-}
+
 
 
 
@@ -1702,3 +1692,36 @@ margin-top:20px;
     display:inline-block;
     vertical-align:top;
 }
+
+#dota {
+}
+
+.dota:hover .dota-bg {
+    opacity:1;
+}
+
+.dota-bg {
+    opacity:0;
+    min-width:0;
+    min-height:0;
+    transition-delay:0.2s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+}
+
+.game-dota-logo {
+    display:inline-block;
+        margin-top:-197px;
+    margin-left:0px;
+    width:140px;
+}
+
+.game-csgo-logo {
+        margin-top:-210px;
+}
+
+

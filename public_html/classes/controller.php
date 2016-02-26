@@ -76,6 +76,11 @@ class Controller {
                 $view->setTemplate('games_list');
                 break;
 
+            // Page: Games Lobby
+            case 'games_lobby':
+                $view->setTemplate('games_lobby');
+                break;
+
             // Page: Error Page
             case 'error':
                 $view->setTemplate('error');

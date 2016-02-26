@@ -74,11 +74,13 @@ class Controller {
             // Page: Games List
             case 'games_list':
                 $view->setTemplate('games_list');
+                $view->assign('templateSidebar', ModelGames::getTemplateSidebar());
                 break;
 
             // Page: Games Lobby
             case 'games_lobby':
                 $view->setTemplate('games_lobby');
+                $view->assign('templateSidebar', ModelGames::getTemplateSidebar());
                 break;
 
             // Page: Error Page

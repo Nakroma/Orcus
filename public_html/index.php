@@ -9,6 +9,7 @@
 // Include classes
 include('classes/controller.php');
 include('classes/model.php');
+include('classes/modelGames.php');
 include('classes/view.php');
 
 

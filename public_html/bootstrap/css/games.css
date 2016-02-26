@@ -1560,10 +1560,11 @@ a:hover {
 .game-bg {
     position:fixed;
     top:0;
-    left:20vw;
-    min-width:80vw;
+    left:0;
+    min-width:100%;
     min-height:100%;
     z-index:-1;
+    transition-delay:0.15s;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -1710,7 +1711,6 @@ margin-top:20px;
     opacity:0;
     min-width:0;
     min-height:0;
-    transition-delay:0.2s;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.55s;
@@ -1736,7 +1736,6 @@ margin-top:20px;
     opacity:0;
     min-width:0;
     min-height:0;
-    transition-delay:0.2s;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.55s;
@@ -1747,4 +1746,27 @@ margin-top:20px;
 
 .lol:hover .lol-bg {
     opacity:1;
+}
+
+.game-hearthstone-logo {
+        display:inline-block;
+        margin-top:-197px;
+    margin-left:0px;
+    width:140px;
+}
+
+.hearthstone-bg {
+    opacity:0;
+    min-width:0;
+    min-height:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+}
+
+.hearthstone:hover .hearthstone-bg {
+   opacity:1;
 }

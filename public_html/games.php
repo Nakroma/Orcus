@@ -2,13 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Nakroma
- * Date: 21.01.2016
- * Time: 19:05
+ * Date: 26.02.2016
+ * Time: 21:49
  */
 
 // Include classes
-include('classes/controller.php');
+include('classes/games/controllerGames.php');
 include('classes/model.php');
+include('classes/games/modelGames.php');
 include('classes/view.php');
 
 
@@ -16,7 +17,7 @@ include('classes/view.php');
 $request = array_merge($_GET, $_POST);
 
 // Create controller
-$controller = new Controller($request);
+$controller = new ControllerGames($request);
 
 // Display content
 echo $controller->display();

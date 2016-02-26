@@ -8,9 +8,21 @@
 
 class ModelGames {
 
+    // Directory to store templates
+    private static $templateFolder = 'games/';
+
     // Sidebar menu template to use
     private static $templateSidebar = 'games_sidebar';
 
+
+    /**
+     * Returns the folder where templates are stored
+     *
+     * @return String Template folder
+     */
+    public static function getTemplateFolder() {
+        return self::$templateFolder;
+    }
 
     /**
      * Returns the template of the menu sidebar

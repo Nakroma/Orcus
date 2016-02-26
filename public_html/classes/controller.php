@@ -39,7 +39,7 @@ class Controller {
 
             // Script: Registration
             case 'scr_registration':
-                $view->setTemplate('scripts/registration');
+                $view->setTemplate('_scripts/registration');
                 $data = array(
                     "email" => $this->request['email'],
                     "password" => Model::hashValue($this->request['password'])
@@ -50,7 +50,7 @@ class Controller {
 
             // Script: Login
             case 'scr_login':
-                $view->setTemplate('scripts/login');
+                $view->setTemplate('_scripts/login');
                 $data = array(
                     "email" => $this->request['email'],
                     "password" => $this->request['password']
@@ -69,18 +69,6 @@ class Controller {
             case 'controlpanel':
                 $view->setTemplate('controlpanel');
                 $view->assign('skey', Model::getSessionKey());
-                break;
-
-            // Page: Games List
-            case 'games_list':
-                $view->setTemplate('games_list');
-                $view->assign('templateSidebar', ModelGames::getTemplateSidebar());
-                break;
-
-            // Page: Games Lobby
-            case 'games_lobby':
-                $view->setTemplate('games_lobby');
-                $view->assign('templateSidebar', ModelGames::getTemplateSidebar());
                 break;
 
             // Page: Error Page

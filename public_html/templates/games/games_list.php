@@ -29,28 +29,15 @@
 
         <div class='sidebar-content-dim'></div>
         <!-- Menu Open -->
-        <div class='menu-open'>
-            <div class='menu-ava'></div>
-            <div class='menu-group-1'>
-                <div class='menu-group-1'>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_tournament.svg'>Tournaments</a>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_leaderboard.svg'>Leaderboards</a>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_games.svg' style='margin-left:2px;'>Games</a>
-                </div>
-                <div class='menu-group-2'>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>currency.svg' class='menu-currency'>Charge</a>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>settings.svg' class='menu-settings'>Settings</a>
-                </div>
-                <div class='menu-group-3'>
-                    <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>logout.svg' class='menu-settings'>Logout</a>
-                </div>
-            </div>
+        <?php
+            include $templateSidebar;
+        ?>
 
             <!-- Sidebar -->
             <div class='gd-sidebar'>
                 <div class='header-wrapper'>
-                    <img src='<?php echo $path[' img ']; ?>logo_solo.png' class='heading-icon'>
-                    <img src='<?php echo $path[' img ']; ?>orcus_font.png' class='heading-font'>
+                    <img src='<?php echo $path['img']; ?>logo_solo.png' class='heading-icon'>
+                    <img src='<?php echo $path['img']; ?>orcus_font.png' class='heading-font'>
 
                 </div>
                 <div class='header-search'>
@@ -85,11 +72,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <?php
-    include $templateSidebar;
-?>
 
                   <div class="content">
         <div class='game-groups'>

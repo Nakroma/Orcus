@@ -580,7 +580,7 @@ input:-ms-input-placeholder {
     padding-bottom: 5px;
     padding-right: 5px;
     font-family: 'raleway';
-        font-weight:500;
+    font-weight:500;
     font-size: 14px;
     color: white;
 }
@@ -591,8 +591,8 @@ input:-ms-input-placeholder {
 
 .header-search {
     margin-top:55px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-bottom: 20px;
     background: #0d0e13;
     text-align: center;
 }
@@ -815,8 +815,6 @@ a:hover {
 }
 
 .content {
-    position:relative;
-    overflow: hidden;
     margin-left:20vw;
     max-width:80vw;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -1267,113 +1265,6 @@ a:hover {
 }
 
 
-
-@media screen and (max-width: 50em) {
-    .select-game-header{
-        visibility:hidden;
-        width:100%
-    } 
-    .header-search{
-        position:fixed;
-        width:100%;
-        margin-top:-168px;
-        visibility:visible;
-    }
-    .header-input{
-        width:30vw;
-        background-position:25.5vw
-    }
-    .header-input:hover{
-        background-position:25.5vw
-    }
-    .header-input:focus{
-        background-position:25.5vw
-    }
-    .menu{
-        margin-left:-600px;
-    }
-    .content{
-        margin:auto;
-        margin-top:162px;
-        max-width:100%;
-        height:calc(100vh - 162px);
-    }
-    .content-row{
-        margin-top:-140px;
-    }
-    .gd-gamebar{
-        visibility: hidden;
-    }
-}
-
-
-@media (max-width: 1000px) {
-    .navbar-header {
-        float: none;
-    }
-    .navbar-left,.navbar-right {
-        float: none !important;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-fixed-top {
-        top: 0;
-        border-width: 0 0 1px;
-    }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-        margin-top: 7.5px;
-    }
-    .navbar-nav>li {
-        float: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .collapse.in{
-        display:block !important;
-    }
-   .navbar-nav .open .dropdown-menu {
-       position: static;
-       float: none;
-       width: auto;
-       margin-top: 0;
-       background-color: transparent;
-       border: 0;
-       -webkit-box-shadow: none;
-       box-shadow: none;
-    }
-
-    .orcus-font-menu {
-        margin-top: -6px;
-    }
-    .orcus-logo-menu {
-        margin-top: -6px;
-    }
-        .select-game-header{
-        top:64px;
-    }
-            .gd-gamebar{
-        top:65px;
-                height:calc(100% - 65px);
-    }
-}
-
-@media (max-width: 1827px) {
-    .game-groups{
-        margin-top:20vh !important;
-    }
-}
-
 .gd-sidebar-bg {
     position: absolute;
     left: -90%;
@@ -1401,6 +1292,7 @@ a:hover {
     right:-400px;
     height:100%;
     width:400px;
+    top:0px;
     background: #16191e;
     z-index:4;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -1416,6 +1308,7 @@ a:hover {
 .sidebar-content-dim {
     position:absolute;
     pointer-events:none;
+    top:0px;
     height:100%;
     width:100%;
     background-color:rgba(0,0,0,0.7);
@@ -1542,7 +1435,7 @@ a:hover {
 
 
 .gd-sidebar {
-        position: fixed;
+    position: fixed;
     top: 0px;
     width: calc(18vw + 40px);
     background: #16191e;
@@ -1582,7 +1475,7 @@ a:hover {
 .game-groups {
     width:85%;
     margin:auto;
-    margin-top:35vh;
+    margin-top:33vh;
     text-align:center;
 }
 
@@ -1769,4 +1662,104 @@ margin-top:20px;
 
 .hearthstone:hover .hearthstone-bg {
    opacity:1;
+}
+
+@media screen and (max-width: 50em) {
+    .gd-sidebar{
+        background:transparent;
+    }
+    .content{
+        margin:auto;
+    }
+    .user-menu{
+        top:30px;
+    }
+    .header-wrapper{
+        display:none;
+    }
+    .header-search{
+        position:fixed;
+        width:100%;
+        margin-top:0px;
+        left:0px;
+        z-index:6;
+    }
+    .header-search-font{
+        margin-left:-30vw;
+    }
+    .header-input{
+        width:30vw;
+        background-position:25.5vw
+    }
+    .header-input:hover{
+        background-position:25.5vw
+    }
+    .header-input:focus{
+        background-position:25.5vw
+    }
+    .menu{
+        display:none;
+    }
+    .menu-open{
+        width:330px;
+    }
+    .menu-link{
+        margin-left:75px;
+
+    }
+    .menu-ava{
+        margin-top:23px;
+    }
+    .menu-group-1{
+        margin-top:77px;
+    }
+
+    .content-row{
+        margin-top:-140px;
+    }
+    .gd-gamebar{
+        visibility: hidden;
+    }
+    .sidebar-bottom-links{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 36em) {
+    .user-menu-name{
+        display:none;
+    }
+    .user-money{
+        display:none;
+    }
+    .menu-ava{
+        display:none;
+    }
+    .menu-group-1 {
+        margin-top:0px;
+        border-top:none;
+    }
+}
+
+@media (max-width: 1660px) {
+    .game-groups{
+        margin-top:20vh !important;
+    }
+}
+
+.sidebar-bottom-links {
+    position:absolute;
+    bottom:42px;
+    width:15vw;
+    margin-left:2.5vw;
+    text-align:center;
+    z-index:1
+}
+
+.sidebar-bot-link {
+    color:#5c636e;
+}
+
+.sidebar-bot-link:hover {
+    color:white;
 }

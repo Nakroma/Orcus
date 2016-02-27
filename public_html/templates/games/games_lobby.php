@@ -32,8 +32,14 @@
     <script src="<?php echo $path['js']; ?>jquery.knob.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $path['js']; ?>greensock/minified/TweenMax.min.js"></script>
+
+    <!-- Websocket Server -->
+    <script>var sid = <?php echo json_encode($sid); ?></script>
+    <script type="text/javascript" src="../server/client.js"></script>
+    <script>init();</script>
 </head>
 
+<!-- Websocket Startup -->
 <body>
 <div class='sidebar-content-dim'></div>
 <!-- Sidebar -->

@@ -24,7 +24,9 @@ if (!$mConn) {
 $sql = "CREATE TABLE orcus_users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) NOT NULL,
-    password VARCHAR(128) NOT NULL
+    password VARCHAR(128) NOT NULL,
+    username VARCHAR(25) NOT NULL,
+    okken INT(6) UNSIGNED
 );";
 
 

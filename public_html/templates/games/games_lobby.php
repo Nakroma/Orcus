@@ -1,7 +1,18 @@
 <?php
     // Assign path variables for easier use
     $path = $this->_['path'];
+    $skey = $this->_['skey'];
     $templateSidebar = $this->_['templateSidebar'];
+
+    // Page specific vars
+    $_d = $this->_;
+
+    // AUTH STUFF HERE
+    $_SESSION[$skey] = 14;
+    $sid = $_SESSION[$skey];
+
+    // Get auth info
+    $_u = Model::getUser($sid, 'username, okken')[0];
 ?>
 
 <!doctype html>
@@ -340,8 +351,8 @@
 <!-- Menu -->
 <nav class='user-menu'>
     <div class='user-menu-container'>
-        <a href='#' class='user-menu-name'>TotalBiscuit</a>
-        <a href='#' class='user-money'>50 <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'></a>
+        <a href='#' class='user-menu-name'><?php echo $_u['username']; ?></a>
+        <a href='#' class='user-money'><?php echo $_u['okken']; ?> <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'></a>
         <a class='side-menu'><img src='<?php echo $path['img']; ?>hamburger.svg' class='sidebar-menu-ico'></a>
     </div>
 </nav>

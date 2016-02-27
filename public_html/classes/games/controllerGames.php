@@ -41,6 +41,8 @@ class ControllerGames {
             case 'games_lobby':
                 $view->setTemplate($prefix . 'games_lobby');
                 $view->assign('templateSidebar', ModelGames::getTemplateSidebar());
+                $view->assign('skey', Model::getSessionKey());
+                $view->assign('game', $this->request['game']);
                 break;
 
             // Page: Games List

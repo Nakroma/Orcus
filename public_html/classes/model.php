@@ -57,6 +57,53 @@ class Model {
     }
 
     /**
+     * Returns the mysql entry of a user
+     *
+     * @param Integer Session ID
+     * @param String Entries to select
+     * @return Array Mysql entry or false on error
+     */
+    public static function getUser($sid, $select = "*") {
+        // Create connection
+        $mConn = mysqli_connect(self::$db['host'], self::$db['username'], self::$db['password'], self::$db['dbname']);
+
+        // Check connection
+        if (!$mConn) {
+            return false;
+        }
+
+        // Prepare statement
+        $mStmt = mysqli_stmt_init($mConn);
+        $sql = "SELECT ". $select ." FROM orcus_users WHERE id=? LIMIT 1";
+        $mPrep = mysqli_stmt_prepare($mStmt, $sql);
+
+        if ($mPrep) {
+            // Bind parameters
+            mysqli_stmt_bind_param($mStmt, 'i', $sid);
+
+            // Execute
+            mysqli_stmt_execute($mStmt);
+
+            // Extract results
+            $result = mysqli_stmt_get_result($mStmt);
+            while ($data = mysqli_fetch_assoc($result)) {
+                $user[] = $data;
+            }
+
+            // Close statement
+            mysqli_stmt_close($mStmt);
+        } else {
+            return false;
+        }
+
+        // Close connection
+        mysqli_close($mConn);
+
+        // Return results
+        return $user;
+    }
+
+    /**
      * Hashes a clear string with sha512
      *
      * @param String String to hash

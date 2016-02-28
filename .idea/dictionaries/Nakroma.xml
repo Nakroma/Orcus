@@ -8,6 +8,7 @@
       <w>sessionid</w>
       <w>skey</w>
       <w>teamsize</w>
+      <w>userinfo</w>
     </words>
   </dictionary>
 </component>

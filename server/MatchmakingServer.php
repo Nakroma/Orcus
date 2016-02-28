@@ -25,6 +25,8 @@ class MatchmakingServer extends WebSocketServer {
         // Splits every message into parts
         $part = explode("|", $message);
 
+        $this->stdout($message);
+
         switch ($part[0]) {
             /**
              * Sets the session ID for a user

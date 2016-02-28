@@ -1288,7 +1288,7 @@ a:hover {
 }
 
 .menu-open {
-    position:absolute;
+    position:fixed;
     right:-400px;
     height:100%;
     width:400px;
@@ -1306,7 +1306,7 @@ a:hover {
 
 
 .sidebar-content-dim {
-    position:absolute;
+    position:fixed;
     pointer-events:none;
     top:0px;
     height:100%;
@@ -1650,8 +1650,7 @@ margin-top:20px;
 
 .hearthstone-bg {
     opacity:0;
-    min-width:0;
-    min-height:0;
+    z-index:-1;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.55s;
@@ -1763,3 +1762,5 @@ margin-top:20px;
 .sidebar-bot-link:hover {
     color:white;
 }
+
+

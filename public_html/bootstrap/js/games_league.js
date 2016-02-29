@@ -108,7 +108,9 @@ $(".queue-pub-squads").click(function () {
     $('.queue-quit').css('display', 'block');
 });
 
-$(".queue-quit").click(function () {
+$(".queue-quit").click('queueQuit()');
+// Quit function
+function queueQuit() {
     $('.queue-status').css('opacity', '0');
     $('.queue-loading').css('opacity', '0');
     $('.queue-bg').css('margin-left', '600px').css('margin-top', '-1000px');
@@ -127,7 +129,7 @@ $(".queue-quit").click(function () {
         $('.queue-pub-squads').css('display', 'inline-block');
         $('.show-pub-squads').css('display', 'inline-block');
     }, 300);
-});
+}
 
 /* Side Menu Open */
 $(".sidebar-menu-ico").click(function () {

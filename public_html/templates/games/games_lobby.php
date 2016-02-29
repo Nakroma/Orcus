@@ -8,7 +8,7 @@
     $_d = $this->_;
 
     // AUTH STUFF HERE
-    $_SESSION[$skey] = 14;
+    $_SESSION[$skey] = 69;
     $sid = $_SESSION[$skey];
 
     // Get auth info
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class='squad-ava-wrapper'>
-                <div class='squad-ava-other-1'><a class='squad-name'>Weaboo_Overlord</a></div>
+                <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
             </div>
             <div class='squad-ava-wrapper'>
                 <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
@@ -82,13 +82,13 @@
             </div>
         </div>
         <div class='sidebar-pub-squads'>
-            <a class='queue-pub-squads'>Find Squad</a>
+            <a class='queue-pub-squads' onclick="findSquad('start');">Find Squad</a>
             <a class='show-pub-squads'>Show Public Squads</a>
             <div class='queue-bg' id='inactive'></div>
             <div class='queue-loading-container'>
                 <img src="<?php echo $path['img']; ?>puff.svg" width="50" alt="" class='queue-loading'>
                 <span class='queue-status'></span>
-                <a class='close'> <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='queue-quit'></a>
+                <a class='close' onclick="findSquad('stop');"> <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='queue-quit'></a>
             </div>
         </div>
     </div>

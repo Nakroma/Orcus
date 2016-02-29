@@ -77,6 +77,7 @@
         <div class='game-groups'>
             <div class='games-group-1'>
                 <div class='game-g-1-container csgo'>
+                    <img src='<?php echo $path['img']; ?>csgo_game_full_bg.png' class='game-bg main-bg'>
                     <img src='<?php echo $path['img']; ?>csgo_game_full_bg.png' class='game-bg csgo-bg'>
                     <a href='#' class='game-g-1'>
                         <img src='<?php echo $path['img']; ?>CSGO_game_bg.png' class='game-g-1-bg'>

@@ -43,7 +43,6 @@ $(".sidebar-content-dim").click(function () {
     }, 10);
 });
 
-
 /* Background Swap */
 $('.dota').hover(function () {
     setTimeout(function () {

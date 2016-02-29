@@ -1764,3 +1764,11 @@ margin-top:20px;
 }
 
 
+
+.csgo-bg {
+    opacity:0;
+}
+
+.csgo:hover .csgo-bg {
+    opacity:1;
+}

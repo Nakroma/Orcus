@@ -4,6 +4,8 @@ class WebSocketUser {
     public $socket;
     public $id;
     public $session_id;
+    public $lobby_id;
+    public $squad_id;
     public $headers = array();
     public $handshake = false;
     public $handlingPartialPacket = false;

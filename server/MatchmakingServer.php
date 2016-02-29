@@ -45,7 +45,16 @@ class MatchmakingServer extends WebSocketServer {
             case 'LOBBY_CREATE':
                 $lobby = new MatchmakingLobby($part[1], $part[2], $user);
                 $this->lobbies[] = $lobby;
-                $this->stdout("Lobby created (" . $part[1] . ", " . $part[2] . ")");
+
+                // Get the last added lobby key
+                end($this->lobbies);
+                $lastkey = key($this->lobbies);
+                reset($this->lobbies);
+
+                // Adds lobby entry to user
+                $user->lobby_id = $lastkey;
+
+                $this->stdout("Lobby created with ID ".$lastkey." (" . $part[1] . ", " . $part[2] . ")");
                 break;
 
             /**
@@ -69,8 +78,10 @@ class MatchmakingServer extends WebSocketServer {
                     $lobby->joinUser($user);
                     if ($lobby->type == 'lobby') {
                         $this->send($user, 'S|LOBBY_JOIN');
+                        $user->lobby_id = $part[1];
                     } else if ($lobby->type == 'squad') {
                         $this->send($user, 'S|SQUAD_JOIN');
+                        $user->squad_id = $part[1];
                     }
                 } else {
                     // Lobby full
@@ -89,7 +100,16 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_CREATE':
                 $lobby = new MatchmakingLobby($part[1], 5, $user, 'squad');
                 $this->lobbies[] = $lobby;
-                $this->stdout("Squad created (".$part[1].")");
+
+                // Get the last added lobby key
+                end($this->lobbies);
+                $lastkey = key($this->lobbies);
+                reset($this->lobbies);
+
+                // Adds lobby entry to user
+                $user->squad_id = $lastkey;
+
+                $this->stdout("Squad created with ID ".$lastkey." (".$part[1].")");
                 break;
 
             /**
@@ -99,14 +119,16 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_SEARCH':
                 foreach ($this->lobbies as $key => $value) {
                     $l = $this->lobbies[$key];
-                    if ($l->type == 'squad' && $l->open) {
-                        // Lobby is a squad and open
+                    if ($l->type == 'squad' && $l->open && $key != $user->squad_id) {
+                        // Lobby is a squad and open and not the original squad
                         if ($l->getUserCount() < $l->teamsize) {
                             // Squad is open
                             if ($l->game == $part[1]) {
                                 // Game is correct
                                 // Everything is right -> join lobby
+                                $this->removeUser($user, 'squad');
                                 $this->process($user, 'LOBBY_JOIN|' . $key);
+                                break;
                             }
                         }
                     }
@@ -207,6 +229,52 @@ class MatchmakingServer extends WebSocketServer {
                     }
 
                     break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Removes a user from a lobby or disbands it. Not a replacement for full cleanup
+     *
+     * @param $user User user to remove
+     * @param $lobby String remove from lobby or squad
+     */
+    protected function removeUser($user, $lobby = 'lobby')
+    {
+        $l = -1;
+
+        // Removes the user from the lobby
+        if ($lobby == 'lobby') {
+            $l = $user->lobby_id;
+            unset($user->lobby_id);
+        } else if ($lobby == 'squad') {
+            $l = $user->squad_id;
+            unset($user->squad_id);
+        }
+
+        // Notifiy other users
+        if (isset($l) && $l != -1) {
+            $lo = $this->lobbies[$l];
+            $o = $lo->getOwner();
+            $u = $lo->getUsers();
+
+            // Clean up user
+            $lo->removeUser($user);
+
+            foreach ($u as $i => $value) {
+                if ($o == $user) {
+                    if ($lo->type == 'lobby') {
+                        $this->send($u[$i], 'N|LOBBY_DISBAND');
+                    } else if ($lo->type == 'squad') {
+                        $this->send($u[$i], 'N|SQUAD_DISBAND');
+                    }
+                } else {
+                    if ($lo->type == 'lobby') {
+                        $this->send($u[$i], 'N|LOBBY_LEFT|' . $user->session_id);
+                    } else if ($lo->type == 'squad') {
+                        $this->send($u[$i], 'N|SQUAD_LEFT|' . $user->session_id);
+                    }
                 }
             }
         }

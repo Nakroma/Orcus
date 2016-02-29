@@ -42,3 +42,26 @@ $(".sidebar-content-dim").click(function () {
         $('.game-bg').css('transition-delay', '0.15s');
     }, 10);
 });
+
+
+/* Background Swap */
+$('.dota').hover(function () {
+    setTimeout(function () {
+        $('.main-bg').attr('src', 'bootstrap/img/dota_bg.png');
+    }, 700);
+});
+$('.csgo').hover(function () {
+    setTimeout(function () {
+        $('.main-bg').attr('src', 'bootstrap/img/csgo_game_full_bg.png');
+    }, 700);
+});
+$('.lol').hover(function () {
+    setTimeout(function () {
+        $('.main-bg').attr('src', 'bootstrap/img/league_game_full_bg.png');
+    }, 700);
+});
+$('.hearthstone').hover(function () {
+    setTimeout(function () {
+        $('.main-bg').attr('src', 'bootstrap/img/hearthstone_game_full_bg.png');
+    }, 700);
+});

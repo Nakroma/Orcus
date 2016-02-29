@@ -51,8 +51,8 @@ $(".sidebar-hide").click(function () {
     if ($('.sidebar-hide').is('#sidebar-visible')) {
         $('.sidebar-hide').removeAttr('id').attr('id', "sidebar-hidden");
         $('.gd-sidebar-bg').css('opacity', '0');
-        $('.gd-sidebar').css('margin-left', '-24%');
-        $('.content').css('margin-left', '4.15%').css('width', '100%');
+        $('.gd-sidebar').css('margin-left', '-18.4%');
+        $('.content').css('margin-left', '2%').css('width', '100%');
         if ($('#chat-option-2').is('.lobby-active')) {
             $('.lobby').css('width', '100%');
         } else {
@@ -148,8 +148,8 @@ $(".sidebar-menu-ico").click(function () {
         } else {
             $('.sidebar-menu-ico').attr('id', "menu-visible");
             $('.menu-open').css('right', '0px');
-            $('.gd-sidebar').css('margin-left', '-250px');
-            $('.content').css('margin-left', 'calc(28.2% - 250px)');
+            $('.gd-sidebar').css('margin-left', '-230px');
+            $('.content').css('margin-left', 'calc(28.2% - 350px)');
             $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
             $('.sidebar-content-dim').css('opacity', '1').css('pointer-events', 'all');
         };

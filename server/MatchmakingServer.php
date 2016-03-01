@@ -7,6 +7,7 @@
  * Time: 20:14
  */
 
+require_once(dirname(__FILE__).'/../public_html/classes/model.php');
 require_once('src/WebSocketServer.php');
 require_once('MatchmakingLobby.php');
 // php -q htdocs/Orcus/server/MatchmakingServer.php
@@ -70,7 +71,12 @@ class MatchmakingServer extends WebSocketServer {
                         if ($lobby->type == 'lobby') {
                             $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
                         } else if ($lobby->type == 'squad') {
-                            $this->send($all[$i], 'N|SQUAD_JOINED|' . $user->session_id);
+                            // Prepare JSON
+                            $this->stdout($user->sessionid);
+                            $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                            $json = json_encode($jsonUser);
+
+                            $this->send($all[$i], 'N|SQUAD_JOINED|' . $json);
                         }
                     }
 
@@ -80,7 +86,14 @@ class MatchmakingServer extends WebSocketServer {
                         $this->send($user, 'S|LOBBY_JOIN');
                         $user->lobby_id = $part[1];
                     } else if ($lobby->type == 'squad') {
-                        $this->send($user, 'S|SQUAD_JOIN');
+                        // Prepare JSON
+                        $jsonSquad = array();
+                        foreach ($lobby->getUsers() as $key => $value) {
+                            $jsonSquad[] = Model::getUser($value->session_id, 'id, username'); // TODO: add picture
+                        }
+                        $json = json_encode($jsonSquad);
+
+                        $this->send($user, 'S|SQUAD_JOIN|' . $json);
                         $user->squad_id = $part[1];
                     }
                 } else {

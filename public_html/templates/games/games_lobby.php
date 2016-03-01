@@ -29,6 +29,7 @@
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="<?php echo $path['js']; ?>ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?php echo $path['js']; ?>ajax.googleapis.com/ajax/libs/jquery/ui-1.11.4/jquery-ui.js"></script>
     <script src="<?php echo $path['js']; ?>jquery.knob.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $path['js']; ?>greensock/minified/TweenMax.min.js"></script>

@@ -36,10 +36,15 @@ class MatchmakingLobby {
     /**
      * Returns an array with all users currently in the lobby
      *
+     * @param Boolean if team composition matters or not
      * @return Array All users currently in the lobby
      */
-    public function getUsers() {
-        return array_merge($this->team1, $this->team2);
+    public function getUsers($team = false) {
+        if ($team) {
+            return array('team1' => $this->team1, 'team2' => $this->team2);
+        } else {
+            return array_merge($this->team1, $this->team2);
+        }
     }
 
     /**

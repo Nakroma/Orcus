@@ -22,10 +22,30 @@ function init() {
 
         socket.onmessage = function(msg) {
             console.log(msg);
-            switch (msg['data']) {
-                case 'S|SQUAD_JOIN':
-                    findSquad('stop');
-                    queueQuit(); // Visual
+            var p = msg['data'].split('|');
+            switch (p[0]) {
+                case 'S':
+                    switch(p[1]) {
+                        case 'SQUAD_JOIN':
+                            findSquad('stop');
+                            queueQuit(); // Visual
+                            break;
+
+                        default:
+                            break;
+                    }
+                    break;
+
+                case 'N':
+                    switch (p[1]) {
+                        case 'SQUAD_JOINED':
+                            var user = JSON.parse(p[2].slice(1, -1));
+                            addSquadMember(user);
+                            break;
+
+                        default:
+                            break;
+                    }
                     break;
 
                 default:
@@ -78,4 +98,14 @@ function findSquad(k) {
             clearInterval(squadInterval);
             break;
     }
+}
+
+// Adds a user to the squad
+function addSquadMember(uObj) {
+    // Get wrapper
+    var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
+
+    // Change name and class
+    wrapper.html("<a class='squad-name'>" + uObj.username + "</a>");
+    wrapper.switchClass('squad-ava', 'squad-ava-other-1');
 }

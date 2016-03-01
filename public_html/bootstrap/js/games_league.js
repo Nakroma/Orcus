@@ -43,7 +43,7 @@ window.onload = function () {
     }
     input.onchange = check;
     check();
-}
+};
 
 
 /* Hide Sidebar */

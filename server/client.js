@@ -109,3 +109,14 @@ function addSquadMember(uObj) {
     wrapper.html("<a class='squad-name'>" + uObj.username + "</a>");
     wrapper.switchClass('squad-ava', 'squad-ava-other-1');
 }
+
+
+/** Not called functions **/
+
+function squadStatecheck() {
+    if (document.getElementById('checkbox-switch').checked) {
+        socket.send('SQUAD_LOCK_CHANGE|true');
+    } else {
+        socket.send('SQUAD_LOCK_CHANGE|false');
+    }
+}

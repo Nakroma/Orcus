@@ -5,9 +5,11 @@
       <w>dbname</w>
       <w>lastkey</w>
       <w>nospace</w>
+      <w>onload</w>
       <w>orcus</w>
       <w>sessionid</w>
       <w>skey</w>
+      <w>statecheck</w>
       <w>teamsize</w>
       <w>userinfo</w>
     </words>

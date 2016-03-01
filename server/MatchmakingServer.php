@@ -181,6 +181,17 @@ class MatchmakingServer extends WebSocketServer {
                 break;
 
             /**
+             * Changes the lock state of a squad
+             * [1] State (True = Open, False = Closed)
+             */
+            case 'SQUAD_LOCK_CHANGE':
+                // Get user squad
+                $squad = $this->lobbies[$user->squad_id];
+                $squad->open = filter_var($part[1], FILTER_VALIDATE_BOOLEAN);
+                break;
+
+
+            /**
              * Admin info stuff
              * Note: Does not actually work yet
              */

@@ -75,7 +75,7 @@
             </div>
             <div class='squad-helper'>
                 <div class='squad-open-switch'>
-                    <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked>
+                    <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked onclick="squadStatecheck();">
                     <label for="checkbox-switch" class='squad-toggle-ico'></label>
                 </div>
                 <span class='squad-toggle'>Toggle Public Squad</span>

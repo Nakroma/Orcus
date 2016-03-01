@@ -15,6 +15,7 @@ These are the internal codes used in the matchmaking server to communicate betwe
 
 `SQUAD_CREATE|(Game)` Creates a new squad and sets the calling user as the owner.  
 `SQUAD_SEARCH|(Game)` Searches for an empty squad (gets called repeatedly by the matchmaking queue).  
+`SQUAD_LOCK_CHANGE|(Boolean)` Changes the locked state of a squad. True = Open, False = Closed.  
 
 **Server -> Client**  
 `S`: Success - `E`: Error - `N`: Notice  

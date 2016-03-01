@@ -39,7 +39,7 @@ function init() {
                 case 'N':
                     switch (p[1]) {
                         case 'SQUAD_JOINED':
-                            var user = JSON.parse(p[2].slice(1, -1));
+                            var user = JSON.parse(p[2]);
                             addSquadMember(user);
                             break;
 

@@ -72,7 +72,6 @@ class MatchmakingServer extends WebSocketServer {
                             $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
                         } else if ($lobby->type == 'squad') {
                             // Prepare JSON
-                            $this->stdout($user->sessionid);
                             $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
                             $json = json_encode($jsonUser);
 

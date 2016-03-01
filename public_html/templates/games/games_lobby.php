@@ -8,11 +8,11 @@
     $_d = $this->_;
 
     // AUTH STUFF HERE
-    $_SESSION[$skey] = 69;
+    $_SESSION[$skey] = 14;
     $sid = $_SESSION[$skey];
 
     // Get auth info
-    $_u = Model::getUser($sid, 'username, okken')[0];
+    $_u = Model::getUser($sid, 'username, okken');
 ?>
 
 <!doctype html>

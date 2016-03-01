@@ -100,7 +100,7 @@ class Model {
         mysqli_close($mConn);
 
         // Return results
-        return $user;
+        return $user[0];
     }
 
     /**

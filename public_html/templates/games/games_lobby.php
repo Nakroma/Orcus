@@ -58,7 +58,7 @@
         <div class='squad-wrapper'>
             <div class='squad-ava-wrapper'>
                 <div class='squad-ava-self'>
-                    <a href="#" class='squad-name'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
+                    <a href="#" class='squad-name'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'><?php echo $_u['username']; ?></a>
                 </div>
             </div>
             <div class='squad-ava-wrapper'>

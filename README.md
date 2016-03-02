@@ -21,8 +21,8 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `S`: Success - `E`: Error - `N`: Notice  
 
 `S|SESSIONID_SET` Confirms that the SID was set to the client.  
-`S|LOBBY_JOIN` Confirms the successful joining in a lobby.
-`S|SQUAD_JOIN|(Json: squad members[][id, username])` Confirms the successful joining of a squad.
+`S|LOBBY_JOIN` Confirms the successful joining in a lobby.  
+`S|SQUAD_JOIN|(Json: squad members[][id, username])` Confirms the successful joining of a squad.  
 
 `E|LOBBY_FULL` Signals that the lobby is full.  
 `E|LOBBY_NOSPACE` Signals that the lobby doesn't have enough space for the squad.  

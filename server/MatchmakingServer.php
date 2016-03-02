@@ -85,10 +85,19 @@ class MatchmakingServer extends WebSocketServer {
                         $this->send($user, 'S|LOBBY_JOIN');
                         $user->lobby_id = $part[1];
                     } else if ($lobby->type == 'squad') {
+                        $squadowner = $lobby->getOwner();
                         // Prepare JSON
                         $jsonSquad = array();
                         foreach ($lobby->getUsers() as $key => $value) {
                             $jsonSquad[] = Model::getUser($value->session_id, 'id, username'); // TODO: add picture
+                            end($jsonSquad);
+                            $lastkey = key($jsonSquad);
+                            reset($jsonSquad);
+                            if ($value == $squadowner) {
+                                $jsonSquad[$lastkey]['owner'] = true;
+                            } else {
+                                $jsonSquad[$lastkey]['owner'] = false;
+                            }
                         }
                         $json = json_encode($jsonSquad);
 
@@ -187,7 +196,11 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_LOCK_CHANGE':
                 // Get user squad
                 $squad = $this->lobbies[$user->squad_id];
-                $squad->open = filter_var($part[1], FILTER_VALIDATE_BOOLEAN);
+
+                // Check if user is actually owner
+                if ($user == $squad->owner) {
+                    $squad->open = filter_var($part[1], FILTER_VALIDATE_BOOLEAN);
+                }
                 break;
 
 

@@ -108,7 +108,7 @@ $(".queue-pub-squads").click(function () {
     $('.queue-quit').css('display', 'block');
 });
 
-$(".queue-quit").click('queueQuit()');
+$(".queue-quit").click(queueQuit);
 // Quit function
 function queueQuit() {
     $('.queue-status').css('opacity', '0');

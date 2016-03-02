@@ -8,11 +8,11 @@
     $_d = $this->_;
 
     // AUTH STUFF HERE
-    $_SESSION[$skey] = 69;
+    $_SESSION[$skey] = 14;
     $sid = $_SESSION[$skey];
 
     // Get auth info
-    $_u = Model::getUser($sid, 'username, okken')[0];
+    $_u = Model::getUser($sid, 'username, okken');
 ?>
 
 <!doctype html>
@@ -29,6 +29,7 @@
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="<?php echo $path['js']; ?>ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?php echo $path['js']; ?>ajax.googleapis.com/ajax/libs/jquery/ui-1.11.4/jquery-ui.js"></script>
     <script src="<?php echo $path['js']; ?>jquery.knob.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $path['js']; ?>greensock/minified/TweenMax.min.js"></script>
@@ -57,7 +58,7 @@
         <div class='squad-wrapper'>
             <div class='squad-ava-wrapper'>
                 <div class='squad-ava-self'>
-                    <a href="#" class='squad-name'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
+                    <a href="#" class='squad-name'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'><?php echo $_u['username']; ?></a>
                 </div>
             </div>
             <div class='squad-ava-wrapper'>
@@ -74,7 +75,7 @@
             </div>
             <div class='squad-helper'>
                 <div class='squad-open-switch'>
-                    <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked>
+                    <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked onclick="squadStatecheck();">
                     <label for="checkbox-switch" class='squad-toggle-ico'></label>
                 </div>
                 <span class='squad-toggle'>Toggle Public Squad</span>

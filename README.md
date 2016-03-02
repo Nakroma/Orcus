@@ -15,13 +15,14 @@ These are the internal codes used in the matchmaking server to communicate betwe
 
 `SQUAD_CREATE|(Game)` Creates a new squad and sets the calling user as the owner.  
 `SQUAD_SEARCH|(Game)` Searches for an empty squad (gets called repeatedly by the matchmaking queue).  
+`SQUAD_LOCK_CHANGE|(Boolean)` Changes the locked state of a squad. True = Open, False = Closed.  
 
 **Server -> Client**  
 `S`: Success - `E`: Error - `N`: Notice  
 
 `S|SESSIONID_SET` Confirms that the SID was set to the client.  
 `S|LOBBY_JOIN` Confirms the successful joining in a lobby.  
-`S|SQUAD_JOIN` Confirms the successful joining of a squad.  
+`S|SQUAD_JOIN|(Json: squad members[][id, username])` Confirms the successful joining of a squad.  
 
 `E|LOBBY_FULL` Signals that the lobby is full.  
 `E|LOBBY_NOSPACE` Signals that the lobby doesn't have enough space for the squad.  
@@ -30,6 +31,6 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `N|LOBBY_JOINED|(SID)` Notifies the other users with the SID of the new user.  
 `N|LOBBY_LEFT|(SID)` Notifies the other users with the SID of the left user.   
 `N|LOBBY_DISBAND` Notifies the other users of the disband.  
-`N|SQUAD_JOINED|(SID)` Notifies the other users with the SID of the new user.  
+`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.
 `N|SQUAD_LEFT|(SID)` Notifies the other users with the SID of the left user.  
 `N|SQUAD_DISBAND` Notifies the other users of the disband.  

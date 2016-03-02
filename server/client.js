@@ -22,10 +22,33 @@ function init() {
 
         socket.onmessage = function(msg) {
             console.log(msg);
-            switch (msg['data']) {
-                case 'S|SQUAD_JOIN':
-                    findSquad('stop');
-                    queueQuit(); // Visual
+            var p = msg['data'].split('|');
+            switch (p[0]) {
+                case 'S':
+                    switch(p[1]) {
+                        case 'SQUAD_JOIN':
+                            findSquad('stop');
+                            queueQuit(); // Visual
+
+                            var user = JSON.parse(p[2]);
+                            setSquadMembers(user);
+                            break;
+
+                        default:
+                            break;
+                    }
+                    break;
+
+                case 'N':
+                    switch (p[1]) {
+                        case 'SQUAD_JOINED':
+                            var user = JSON.parse(p[2]);
+                            addSquadMember(user);
+                            break;
+
+                        default:
+                            break;
+                    }
                     break;
 
                 default:
@@ -77,5 +100,55 @@ function findSquad(k) {
         default:
             clearInterval(squadInterval);
             break;
+    }
+}
+
+// Adds a user to the squad
+function addSquadMember(uObj) {
+    // Get wrapper
+    var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
+
+    // Change name and class
+    wrapper.html("<a class='squad-name'>" + uObj.username + "</a>");
+    wrapper.switchClass('squad-ava', 'squad-ava-other-1');
+}
+
+// Sets users in a squad
+function setSquadMembers(uObj) {
+    // Set everything to an empty player.
+    var avatars = $('.squad-wrapper .squad-ava-wrapper .squad-ava-self, .squad-wrapper .squad-ava-wrapper .squad-ava-other-1');
+    avatars.switchClass('squad-ava-self', 'squad-ava', 0);
+    avatars.switchClass('squad-ava-other-1', 'squad-ava', 0);
+    avatars.html("<a class='squad-name-blank'>Click to add player</a>");
+
+    // Insert the avatars
+    var owner;
+    for (var i = 0; i < uObj.length; i++) {
+        // Select the first free avatar
+        var avatar = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
+
+        // Insert user
+        if (uObj[i].owner) {
+            avatar.switchClass('squad-ava', 'squad-ava-self', 0);
+            avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + uObj[i].username + "</a>")
+            owner = uObj[i].id;
+        } else {
+            avatar.switchClass('squad-ava', 'squad-ava-other-1', 0);
+            avatar.html("<a class='squad-name'>" + uObj[i].username + "</a>");
+        }
+    }
+
+    // Hide lock if not owner (technically not necessary but maybe I want the function called not only on join somewhere)
+    if (owner != sid) {
+        $('.squad-helper').fadeOut();
+    }
+}
+
+// Changes the lock state
+function squadStatecheck() {
+    if (document.getElementById('checkbox-switch').checked) {
+        socket.send('SQUAD_LOCK_CHANGE|true');
+    } else {
+        socket.send('SQUAD_LOCK_CHANGE|false');
     }
 }

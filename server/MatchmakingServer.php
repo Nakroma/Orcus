@@ -7,6 +7,7 @@
  * Time: 20:14
  */
 
+require_once(dirname(__FILE__).'/../public_html/classes/model.php');
 require_once('src/WebSocketServer.php');
 require_once('MatchmakingLobby.php');
 // php -q htdocs/Orcus/server/MatchmakingServer.php
@@ -70,7 +71,11 @@ class MatchmakingServer extends WebSocketServer {
                         if ($lobby->type == 'lobby') {
                             $this->send($all[$i], 'N|LOBBY_JOINED|' . $user->session_id);
                         } else if ($lobby->type == 'squad') {
-                            $this->send($all[$i], 'N|SQUAD_JOINED|' . $user->session_id);
+                            // Prepare JSON
+                            $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                            $json = json_encode($jsonUser);
+
+                            $this->send($all[$i], 'N|SQUAD_JOINED|' . $json);
                         }
                     }
 
@@ -80,7 +85,23 @@ class MatchmakingServer extends WebSocketServer {
                         $this->send($user, 'S|LOBBY_JOIN');
                         $user->lobby_id = $part[1];
                     } else if ($lobby->type == 'squad') {
-                        $this->send($user, 'S|SQUAD_JOIN');
+                        $squadowner = $lobby->getOwner();
+                        // Prepare JSON
+                        $jsonSquad = array();
+                        foreach ($lobby->getUsers() as $key => $value) {
+                            $jsonSquad[] = Model::getUser($value->session_id, 'id, username'); // TODO: add picture
+                            end($jsonSquad);
+                            $lastkey = key($jsonSquad);
+                            reset($jsonSquad);
+                            if ($value == $squadowner) {
+                                $jsonSquad[$lastkey]['owner'] = true;
+                            } else {
+                                $jsonSquad[$lastkey]['owner'] = false;
+                            }
+                        }
+                        $json = json_encode($jsonSquad);
+
+                        $this->send($user, 'S|SQUAD_JOIN|' . $json);
                         $user->squad_id = $part[1];
                     }
                 } else {
@@ -167,6 +188,21 @@ class MatchmakingServer extends WebSocketServer {
                     }
                 }
                 break;
+
+            /**
+             * Changes the lock state of a squad
+             * [1] State (True = Open, False = Closed)
+             */
+            case 'SQUAD_LOCK_CHANGE':
+                // Get user squad
+                $squad = $this->lobbies[$user->squad_id];
+
+                // Check if user is actually owner
+                if ($user == $squad->owner) {
+                    $squad->open = filter_var($part[1], FILTER_VALIDATE_BOOLEAN);
+                }
+                break;
+
 
             /**
              * Admin info stuff

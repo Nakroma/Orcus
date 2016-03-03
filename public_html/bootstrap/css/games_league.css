@@ -287,7 +287,7 @@ li a {
 }
 
 input:required {
-    border: 2px solid rgba (200, 67, 64, 0.85);
+    border: 2px solid rgba(200, 67, 64, 0.85);
     box-shadow: none;
 }
 
@@ -997,7 +997,7 @@ div {
     .navbar-collapse.collapse {
         display: none!important;
     }
-    2 .navbar-nav {
+    .navbar-nav {
         float: none!important;
         margin-top: 7.5px;
     }

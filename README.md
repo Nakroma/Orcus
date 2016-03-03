@@ -31,6 +31,6 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `N|LOBBY_JOINED|(SID)` Notifies the other users with the SID of the new user.  
 `N|LOBBY_LEFT|(SID)` Notifies the other users with the SID of the left user.   
 `N|LOBBY_DISBAND` Notifies the other users of the disband.  
-`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.
-`N|SQUAD_LEFT|(SID)` Notifies the other users with the SID of the left user.  
+`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.  
+`N|SQUAD_LEFT|(Json: squad member[id, username])` Notifies the other users with the SID of the left user.  
 `N|SQUAD_DISBAND` Notifies the other users of the disband.  

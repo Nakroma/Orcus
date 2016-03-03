@@ -254,7 +254,11 @@ class MatchmakingServer extends WebSocketServer {
                             if ($this->lobbies[$i]->type == 'lobby') {
                                 $this->send($u[$k], 'N|LOBBY_LEFT|' . $user->session_id);
                             } else if ($this->lobbies[$i]->type == 'squad') {
-                                $this->send($u[$k], 'N|SQUAD_LEFT|' . $user->session_id);
+                                // Prepare JSON
+                                $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                                $json = json_encode($jsonUser);
+
+                                $this->send($u[$k], 'N|SQUAD_LEFT|' . $json);
                             }
                         }
                     }

@@ -46,6 +46,11 @@ function init() {
                             addSquadMember(user);
                             break;
 
+                        case 'SQUAD_LEFT':
+                            var user = JSON.parse(p[2]);
+                            removeSquadMember(user);
+                            break;
+
                         default:
                             break;
                     }
@@ -142,6 +147,17 @@ function setSquadMembers(uObj) {
     if (owner != sid) {
         $('.squad-helper').fadeOut();
     }
+}
+
+// Removes a user in a squad
+function removeSquadMember(uObj) {
+    // Remove squad member
+    $('.squad-wrapper .squad-ava-wrapper .squad-ava-other-1 .squad-name').filter(function () {
+        return $(this).text() === uObj.username;
+    }).parent().parent().remove();
+
+    // Add empty squad slot
+    $('.squad-wrapper .squad-ava-wrapper').last().after("<div class='squad-ava-wrapper'><div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div></div>");
 }
 
 // Changes the lock state

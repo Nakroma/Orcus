@@ -4,6 +4,7 @@
 
 // Websocket vars
 var socket;
+var username;
 
 // Squadfinding vars
 var squadFrequency = 5000;
@@ -26,6 +27,11 @@ function init() {
             switch (p[0]) {
                 case 'S':
                     switch(p[1]) {
+                        case 'SESSIONID_SET':
+                            var user = JSON.parse(p[2]);
+                            username = user.username;
+                            break;
+
                         case 'SQUAD_JOIN':
                             findSquad('stop');
                             queueQuit(); // Visual
@@ -49,6 +55,10 @@ function init() {
                         case 'SQUAD_LEFT':
                             var user = JSON.parse(p[2]);
                             removeSquadMember(user);
+                            break;
+
+                        case 'SQUAD_DISBAND':
+                            resetSquad();
                             break;
 
                         default:
@@ -108,6 +118,21 @@ function findSquad(k) {
     }
 }
 
+// Creates a new squad and displays it visually
+function resetSquad() {
+    // TODO: Add visual message to let user know their squad was disbanded
+    // Clean up all slots
+    cleanSquad();
+
+    // Insert you
+    var avatar = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
+    avatar.switchClass('squad-ava', 'squad-ava-self', 0);
+    avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + username + "</a>");
+
+    // Create new squad
+    socket.send('SQUAD_CREATE|lol');
+}
+
 // Adds a user to the squad
 function addSquadMember(uObj) {
     // Get wrapper
@@ -121,10 +146,7 @@ function addSquadMember(uObj) {
 // Sets users in a squad
 function setSquadMembers(uObj) {
     // Set everything to an empty player.
-    var avatars = $('.squad-wrapper .squad-ava-wrapper .squad-ava-self, .squad-wrapper .squad-ava-wrapper .squad-ava-other-1');
-    avatars.switchClass('squad-ava-self', 'squad-ava', 0);
-    avatars.switchClass('squad-ava-other-1', 'squad-ava', 0);
-    avatars.html("<a class='squad-name-blank'>Click to add player</a>");
+    cleanSquad();
 
     // Insert the avatars
     var owner;
@@ -135,7 +157,7 @@ function setSquadMembers(uObj) {
         // Insert user
         if (uObj[i].owner) {
             avatar.switchClass('squad-ava', 'squad-ava-self', 0);
-            avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + uObj[i].username + "</a>")
+            avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + uObj[i].username + "</a>");
             owner = uObj[i].id;
         } else {
             avatar.switchClass('squad-ava', 'squad-ava-other-1', 0);
@@ -158,6 +180,14 @@ function removeSquadMember(uObj) {
 
     // Add empty squad slot
     $('.squad-wrapper .squad-ava-wrapper').last().after("<div class='squad-ava-wrapper'><div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div></div>");
+}
+
+// Sets everything to an empty player
+function cleanSquad() {
+    var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava-self, .squad-wrapper .squad-ava-wrapper .squad-ava-other-1');
+    wrapper.switchClass('squad-ava-self', 'squad-ava', 0);
+    wrapper.switchClass('squad-ava-other-1', 'squad-ava', 0);
+    wrapper.html("<a class='squad-name-blank'>Click to add player</a>");
 }
 
 // Changes the lock state

@@ -35,7 +35,12 @@ class MatchmakingServer extends WebSocketServer {
              */
             case 'SESSIONID_SET':
                 $user->session_id = $part[1];
-                $this->send($user, 'S|SESSIONID_SET');
+
+                // Prepare JSON
+                $jsonUser = Model::getUser($user->session_id, 'id, username');
+                $json = json_encode($jsonUser);
+
+                $this->send($user, 'S|SESSIONID_SET|' . $json);
                 break;
 
             /**

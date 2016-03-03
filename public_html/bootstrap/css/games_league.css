@@ -2246,9 +2246,9 @@ width:60%;
 
 .lobby {
     position:absolute;
-    width:71.8%;
+    width:77.8%;
     height:100%;
-    margin-left:calc(-100% + 28vw);
+    margin-left:calc(-100% + 22vw);
     background:#0f1115;
     z-index:2;
  -webkit-transition-timing-function: cubic-bezier(0,1.03,1,1);

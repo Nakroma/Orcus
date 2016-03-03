@@ -297,10 +297,10 @@ class MatchmakingServer extends WebSocketServer {
         if (isset($l) && $l != -1) {
             $lo = $this->lobbies[$l];
             $o = $lo->getOwner();
-            $u = $lo->getUsers();
 
             // Clean up user
             $lo->removeUser($user);
+            $u = $lo->getUsers();
 
             foreach ($u as $i => $value) {
                 if ($o == $user) {

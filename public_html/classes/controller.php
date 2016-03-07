@@ -71,13 +71,6 @@ class Controller {
                 $view->assign('skey', Model::getSessionKey());
                 break;
 
-            // Page: Error Page
-            case 'error':
-                $view->setTemplate('error');
-                $view->assign('type', $this->request['type']);
-                $view->assign('detail', urldecode($this->request['detail']));
-                break;
-
             // Page: Landing Page
             case 'default':
             default:

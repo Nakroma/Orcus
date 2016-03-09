@@ -32,20 +32,6 @@ function updateWCTime() {
 }
 setInterval(updateWCTime, 1000);*/
 
-
-/* Squad Lock */
-window.onload = function () {
-    var input = document.querySelector('.checkbox-switch');
-
-    function check() {
-        var a = input.checked ? "Squad Open" : "";
-        document.getElementById('squad-open').innerHTML = a;
-    }
-    input.onchange = check;
-    check();
-};
-
-
 /* Hide Sidebar */
 $(".sidebar-hide").click(function () {
     if ($('.sidebar-hide').is('#sidebar-visible')) {

@@ -1472,9 +1472,9 @@ a:focus {
 
 .gd-sidebar-bg {
     position: absolute;
-    left: -90%;
+    left: -0%;
     height: 100%;
-    opacity: 0.0;
+    opacity: 0.60;
     z-index: -1;
 }
 
@@ -1516,15 +1516,22 @@ a:focus {
 }
 
 .squad-ava {
+    overflow:hidden;
     margin-top: 10px;
     height: 45px;
     width: 45px;
     border-radius: 50px;
     border: 2px solid #4c525e;
-    background: #16191e url('../img/ava_blank.svg') center no-repeat;
+background: #16191e url('../img/ava_blank.svg') center no-repeat;
     background-size: 50%;
     margin-left: 6px;
     text-align: center;
+        -webkit-transition-timing-function: cubic-bezier(0,1.1,.76,1.09);
+    transition-timing-function: cubic-bezier(0,1.1,.76,1.09);
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .squad-ava-wrapper + squad.ava:first-child {
@@ -1535,7 +1542,6 @@ a:focus {
 .squad-wrapper {
     margin-top: 5px;
     margin-left: calc(12% - 6px);
-    margin-right: 25px;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -1547,11 +1553,11 @@ a:focus {
 }
 
 .squad-name {
+    position:absolute;
     visibility: hidden;
-    display: inline-block;
     width: 200px;
-    margin-left: -80px;
-    margin-top: 50px;
+    margin-left: -105px;
+    margin-top: 10px;
     color: #00b4ff;
     font-size: 16px;
 }
@@ -1574,17 +1580,14 @@ a:focus {
 }
 
 
-/* .squad-ava-wrapper:hover .squad-ava-other-1 {
-    background: #0e0f12 url('../img/login-close.svg') center no-repeat;
-    background-size: 30%;
-} */
+
 
 .squad-name-blank {
-    visibility: hidden;
-    display: inline-block;
-    margin-top: 50px;
+    position:absolute;
+    visibility:hidden;
+    margin-top: 10px;
     width: 200px;
-    margin-left: -75px;
+    margin-left: -100px;
     color: white;
     font-size: 16px;
 }
@@ -1611,23 +1614,7 @@ a:focus {
     text-align: center;
 }
 
-.squad-ava-other-1 {
-    margin-top: 10px;
-    height: 45px;
-    width: 45px;
-    border-radius: 50px;
-    border: 2px solid #4c525e;
-    background: #4c525e url('../img/ava_sample_2.png') center no-repeat;
-    background-size: 100%;
-    margin-left: 6px;
-    text-align: center;
-    -webkit-transition-timing-function: cubic-bezier(.65, .1, .25, .95);
-    transition-timing-function: cubic-bezier(.65, .1, .25, .95);
-    -webkit-transition-duration: 0.25s;
-    -moz-transition-duration: 0.25s;
-    -o-transition-duration: 0.25s;
-    transition-duration: 0.25s;
-}
+
 
 .lobby-host {
     display:inline-block;
@@ -1667,8 +1654,6 @@ a:focus {
 
 .squad-toggle {
     visibility: hidden;
-    position: absolute;
-    margin-left: -75px;
     margin-top: 5px;
     color: #788293;
     font-size: 16px;
@@ -1696,8 +1681,7 @@ a:focus {
 }
 
 .squad-open-switch {
-    margin-top: 5px;
-    margin-left: -10px;
+    text-align:center;
 }
 
 .squad-helper:hover .squad-toggle {
@@ -1705,8 +1689,8 @@ a:focus {
 }
 
 .squad-helper {
-    padding-right: 140px;
-    margin-left: 6px;
+    margin-top:-75px;
+    margin-left: 100px;
 }
 
 .squad-leave {
@@ -1777,6 +1761,7 @@ a:focus {
     padding-bottom: 20px;
     border-top: solid #25282e 1px;
     border-bottom: solid #25282e 1px;
+    background:rgba(0,0,0,0.2);
 }
 
 .show-pub-squads {
@@ -1957,14 +1942,14 @@ width:60%;
     margin-top: -200px;
     margin-left: -290px;
     border-radius: 100%;
-    background: #16191e;
+    background: #131518;
     z-index: -1;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    -webkit-transition-duration: 1.25s;
-    -moz-transition-duration: 1.25s;
-    -o-transition-duration: 1.25s;
-    transition-duration: 1.25s;
+    -webkit-transition-duration: 1.65s;
+    -moz-transition-duration: 1.65s;
+    -o-transition-duration: 1.65s;
+    transition-duration: 1.65s;
 }
 
 .queue-status {
@@ -2538,27 +2523,26 @@ width:60%;
 
 
 
+.squad-ava-img {
+    height:100%;
+}
 
+.squad-ava:hover {
+ border-radius:10px;
+    border:2px solid #aaa;
+}
 
+.sidebar-bg {
 
+}
 
+.squad-ava-lock {
+    width:120px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.squad-ava-last-2 {
+    width:50%;
+        display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}

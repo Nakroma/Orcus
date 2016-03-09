@@ -1,6 +1,6 @@
 /* Mobile Check */
 if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script src="js/parallax.js"></script>');
+    $('head').append('<script src="bootstrap/js/parallax.js"></script>');
 }
 
 /* Navbar */
@@ -32,3 +32,62 @@ $(document).ready(function () {
         }
     });
 });
+
+// Modal Signup PHP script interaction
+var modal = $('#signup-modal');
+modal.find('.login-btn').click(function() {
+    $(this).prop('disabled', true);
+
+    var email = modal.find('#email').val();
+    var password = modal.find('#password').val();
+
+    if (!isEmptyOrSpaces(email) && !isEmptyOrSpaces(password)) {
+        // Call registration script
+        $.ajax({
+            url: 'index.php?view=scr_registration',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password
+            }
+        }).done(function(data) {
+            // Get data back
+            console.log(data);
+        });
+    }
+
+    $(this).prop('disabled', false);
+});
+
+// Modal Login PHP script interaction
+var modal2 = $('#login-modal');
+modal2.find('.login-btn').click(function() {
+    $(this).prop('disabled', true);
+
+    var email = modal2.find('#email').val();
+    var password = modal2.find('#password').val();
+
+    if (!isEmptyOrSpaces(email) && !isEmptyOrSpaces(password)) {
+        // Call registration script
+        $.ajax({
+            url: 'index.php?view=scr_login',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password
+            }
+        }).done(function(data) {
+            // Get data back
+            console.log(data);
+        });
+    }
+
+    $(this).prop('disabled', false);
+});
+
+// Utility function
+function isEmptyOrSpaces(str) {
+    return str === null || str.match(/^\s*$/) !== null;
+}

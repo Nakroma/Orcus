@@ -12,19 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Orcus</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo $path['css']; ?>bootstrap.min.css">
     <link href="<?php echo $path['css']; ?>landingpage.css" rel="stylesheet">
-    <link href="<?php echo $path['css']; ?>odometer-theme-default.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
-    <script src="<?php echo $path['js']; ?>jquery.min.js"></script>
-    <script src="<?php echo $path['js']; ?>jquery.knob.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,500' rel='stylesheet' type='text/css'>
+    <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script src="<?php echo $path['js']; ?>landingpage.js"></script>
-    <script src="<?php echo $path['js']; ?>odometer.js"></script>
 </head>
 
 <body style='background-color:black;'>
+
 <!-- Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -49,131 +47,124 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign Up</a></li>
-                <li><a href='#' data-toggle="modal" data-target="#login-modal2">Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#signup-modal">Sign Up</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- BEGIN # MODAL REGISTRATION -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
-
-        <!-- Left -->
-        <div class='col-md-4 login-left'>
-            <img src='<?php echo $path['img']; ?>login-bg.png' class='login-bg'>
-            <img src="<?php echo $path['img']; ?>logo_solo.png" class='login-logo'>
-            <br>
-            <span class='sign-up-headline'>SIGN UP</span>
-            <br>
-            <span class='sign-up-swap-headline'>Already have an account?</span>
-            <br>
-            <a href='#' class='sign-up-swap'>Log me in</a>
-        </div>
-
-        <!-- Right-->
-        <div class='col-md-8 login-right'>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='login-close'>
-            </button>
-            <span class='login-headline'>Create Account</span>
-            <div class='login-sub-headline-wrapper'>
-                <img src='<?php echo $path['img']; ?>steam.svg' class='steam-ico'>
-                <a href='#' class='login-sub-headline'>Sign in through Steam</a>
-            </div>
-
-                <form action="?view=scr_registration" method="POST" enctype="multipart/form-data">
-                    <span class="input input--jiro">
-                        <input class="input__field input__field--jiro" name="email" type="text" required/>
-                        <label class="input__label input__label--jiro">
-                            <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
-                        </label>
-                    </span>
-                    <span class="input input--jiro">
-                        <input class="input__field input__field--jiro" name="password" type="password" required/>
-                        <label class="input__label input__label--jiro">
-                            <span class="input__label-content input__label-content--jiro" >Password</span>
-                        </label>
-                    </span>
-
-
-                    <br>
-                    <br>
-
-                    <br>
-                    <label class='login-checkbox'>
-                        <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
-                    </label>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="login-btn">Sign Up</button>
-
-                    </div>
-                </form>
-
-        </div>
-    </div>
-</div>
-<!-- END # MODAL REGISTRATION -->
 
 <!-- BEGIN # MODAL LOGIN -->
-<div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
 
-        <!-- Left -->
-        <div class='col-md-4 login-left'>
-            <img src='<?php echo $path['img']; ?>login-bg.png' class='login-bg'>
-            <img src="<?php echo $path['img']; ?>logo_solo.png" class='login-logo'>
-            <br>
-            <span class='sign-up-headline'>LOGIN</span>
-            <br>
-            <span class='sign-up-swap-headline'>Need an account?</span>
-            <br>
-            <a href='#' class='sign-up-swap'>Register a new account</a>
-        </div>
+        <!-- Sign Up -->
+        <form id='register-form'>
 
-        <!-- Right-->
-        <div class='col-md-8 login-right'>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='login-close'>
-            </button>
-            <span class='login-headline'>Log in to your account</span>
-            <div class='login-sub-headline-wrapper'>
-                <img src='<?php echo $path['img']; ?>steam.svg' class='steam-ico'>
-                <a href='#' class='login-sub-headline'>Sign in through Steam</a>
+            <!-- Left -->
+            <div class='col-md-4 login-left'>
+                <img src='<?php echo $path['img']; ?>login-bg.png' class='login-bg'>
+                <img src="<?php echo $path['img']; ?>logo_solo.png" class='login-logo'>
+                <br>
+                <span class='sign-up-headline'>SIGN UP</span>
+                <br>
+                <span class='sign-up-swap-headline'>Already have an account?</span>
+                <br>
+                <a href='#' class='sign-up-swap'>Log me in</a>
             </div>
 
-            <form action="?view=scr_login" method="POST" enctype="multipart/form-data">
+            <!-- Right-->
+            <div class='col-md-8 login-right'>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='login-close'>
+                </button>
+                <span class='login-headline'>Create Account</span>
+                <div class='login-sub-headline-wrapper'>
+                    <img src='<?php echo $path['img']; ?>steam.svg' class='steam-ico'>
+                    <a href='#' class='login-sub-headline'>Sign in through Steam</a>
+                </div>
                     <span class="input input--jiro">
-                        <input class="input__field input__field--jiro" name="email" type="text" required/>
-                        <label class="input__label input__label--jiro">
-                            <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
-                        </label>
+					<input class="input__field input__field--jiro" id="email" type="text" required/>
+					<label class="input__label input__label--jiro">
+                        <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+                    </label>
                     </span>
                     <span class="input input--jiro">
-                        <input class="input__field input__field--jiro" name="password" type="password" required/>
-                        <label class="input__label input__label--jiro">
-                            <span class="input__label-content input__label-content--jiro" >Password</span>
-                        </label>
+					<input class="input__field input__field--jiro" id="password" type="password" required/>
+					<label class="input__label input__label--jiro">
+                        <span class="input__label-content input__label-content--jiro" >Password</span>
+                    </label>
                     </span>
-
-
                 <br>
                 <br>
-
                 <br>
                 <label class='login-checkbox'>
                     <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
                 </label>
-
                 <div class="modal-footer">
-                    <button type="submit" class="login-btn">Login</button>
+                    <button type="button" class="login-btn">Sign Up</button>
 
                 </div>
-            </form>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END # MODAL LOGIN -->
 
-        </div>
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
+
+        <!-- Sign Up -->
+        <form id='register-form'>
+
+            <!-- Left -->
+            <div class='col-md-4 login-left'>
+                <img src='<?php echo $path['img']; ?>login-bg.png' class='login-bg'>
+                <img src="<?php echo $path['img']; ?>logo_solo.png" class='login-logo'>
+                <br>
+                <span class='sign-up-headline'>LOGIN</span>
+                <br>
+                <span class='sign-up-swap-headline'>Don't have an account?</span>
+                <br>
+                <a href='#' class='sign-up-swap'>Sign me up</a>
+            </div>
+
+            <!-- Right-->
+            <div class='col-md-8 login-right'>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='login-close'>
+                </button>
+                <span class='login-headline'>Login</span>
+                <div class='login-sub-headline-wrapper'>
+                    <img src='<?php echo $path['img']; ?>steam.svg' class='steam-ico'>
+                    <a href='#' class='login-sub-headline'>Sign in through Steam</a>
+                </div>
+                    <span class="input input--jiro">
+					<input class="input__field input__field--jiro" id="email" type="text" required/>
+					<label class="input__label input__label--jiro">
+                        <span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+                    </label>
+                    </span>
+                    <span class="input input--jiro">
+					<input class="input__field input__field--jiro" id="password" type="password" required/>
+					<label class="input__label input__label--jiro">
+                        <span class="input__label-content input__label-content--jiro" >Password</span>
+                    </label>
+                    </span>
+                <br>
+                <br>
+                <br>
+                <label class='login-checkbox'>
+                    <input type="checkbox"> Here are the <a href='#' class='TOU'>Terms of Use.</a> I know you won't read them, so tl;dr - Don't cheat!
+                </label>
+                <div class="modal-footer">
+                    <button type="button" class="login-btn">Login</button>
+
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <!-- END # MODAL LOGIN -->
@@ -182,20 +173,20 @@
 <img src='<?php echo $path['img']; ?>top shade.png' class='top-shade'>
 <div class='vid-pattern'></div>
 <video loop muted autoplay poser="<?php echo $path['img']; ?>lp_header.png" class="video">
-    <source src="<?php echo $path['video']; ?>header.mp4" type="video/mp4">
-    <source src="<?php echo $path['video']; ?>header.ogv" type="video/ogv">
-    <source src="<?php echo $path['video']; ?>header.webm" type="video/webm">
+    <source src="bootstrap/video/header.mp4" type="video/mp4">
+    <source src="bootstrap/video/header.ogv" type="video/ogv">
+    <source src="bootstrap/video/header.webm" type="video/webm">
 </video>
-
 
 <!-- Header -->
 <div class='header' id='fade'>
+    <div class='vid-pattern'></div>
     <div class='header-bg'></div>
     <div class='container'>
         <h1>Bet on your Gaming Skills!</h1>
         <h2>Real esports - Open for everyone</h2>
         <a href="#">
-            <div class='header-cta' data-toggle="modal" data-target="#login-modal">GET STARTED TODAY</div>
+            <div class='header-cta' data-toggle="modal" data-target="#signup-modal">GET STARTED TODAY</div>
         </a>
     </div>
 </div>
@@ -241,7 +232,6 @@
 
 <!-- Row 2 -->
 <div class='container-fluid parallax2' style='position:relative; background-color:#11151a; overflow:hidden;'>
-    <img src='<?php echo $path['img']; ?>hdiw-invest-bg.png' class='hdiw-bg-2'>
     <div class='row container' id='fade-02' style='margin-top:40px; margin-bottom:10px;'>
         <div class='col-md-5'>
             <h2 class='hwdi-desc-headline'><img src='<?php echo $path['img']; ?>hdiw-headline-accent.svg' style='margin-bottom:7px; padding-right:10px;'>Streamlined Investments <span class='hwdi-note' style='margin-left:2px;'>(Coming March 2016)</span></h2>
@@ -295,6 +285,7 @@
 
 <!-- Stats -->
 <div class='container-fluid stats-bg'>
+    <div class='vid-pattern'></div>
     <div class='container row'>
         <div class='col-md-2'></div>
         <div class='col-md-4'>
@@ -313,43 +304,40 @@
 
 
 <!-- Bot CTA -->
-<div class='container-full bot-cta-bg'>
+
+<div class='bot-cta-bg'>
+    <img src='<?php echo $path['img']; ?>hdiw-invest-bg.png' class='hdiw-bg-2'>
     <div class='container'>
         <span class='bot-cta-bold'>Be one of the first!</span><span class='bot-cta-regular'> Win a reward of your choice during the</span><span class='bot-cta-bold'> first <span class='number'>5000</span> matches.</span>
         <div class='row'>
             <!-- AWP -->
             <div class='col-md-4'>
-                <div class='bot-cta-wrapper-awp'>
-                    <img src='<?php echo $path['img']; ?>bot_cta_awp_2.png' class='bot-cta-img'>
-                    <h1 class='bot-cta-head'>AWP | Dragon Lore</h1>
-                    <span class='bot-cta-desc-awp'>Minimal Wear <span class='number'>~1.52%</span></span>
-                </div>
+                <img src='<?php echo $path['img']; ?>bot_cta_awp_2.png' class='bot-cta-img'>
+                <h1 class='bot-cta-head'>AWP | Dragon Lore</h1>
+                <span class='bot-cta-desc-awp'>Minimal Wear <span class='number'>~1.52%</span></span>
             </div>
             <!-- Dota -->
             <div class='col-md-4'>
-                <div class='bot-cta-wrapper-dota'>
-                    <img src='<?php echo $path['img']; ?>bot_cta_dota_2.png' class='bot-cta-img'>
-                    <br>
-                    <h1 class='bot-cta-head'>Genuine Golden Doomling</h1>
-                        <span class='bot-cta-desc-dota'>+All Arcanas<br><span class='bot-cta-desc-dota-2'>+Any items for ~<span class='number'>$500</span></span>
-                        </span>
-                </div>
+                <img src='<?php echo $path['img']; ?>bot_cta_dota_2.png' class='bot-cta-img'>
+                <br>
+                <h1 class='bot-cta-head'>Genuine Golden Doomling</h1>
+                    <span class='bot-cta-desc-dota'>+All Arcanas<br><span class='bot-cta-desc-dota-2'>+Any items for ~<span class='number'>$500</span></span>
+                    </span>
             </div>
             <!-- League -->
             <div class='col-md-4'>
-                <div class='bot-cta-wrapper-league'>
-                    <img src='<?php echo $path['img']; ?>bot_cta_league_2.png' class='bot-cta-img'>
-                    <h1 class='bot-cta-head'>All League of Legends Skins</h1>
-                    <span class='bot-cta-desc-league'>All Skins obtainable through<br><span class='bot-cta-desc-league-2'>the store</span></span>
-                </div>
+                <img src='<?php echo $path['img']; ?>bot_cta_league_2.png' class='bot-cta-img'>
+                <h1 class='bot-cta-head'>All League of Legends Skins</h1>
+                <span class='bot-cta-desc-league'>All Skins obtainable through<br><span class='bot-cta-desc-league-2'>the store</span></span>
             </div>
         </div>
+
     </div>
 </div>
 
 <div class='hwdi-bot-cta'>
     <a href="#">
-        <div class='bot-cta-btn' data-toggle="modal" data-target="#login-modal">SIGN UP NOW</div>
+        <div class='bot-cta-btn' data-toggle="modal" data-target="#signup-modal">SIGN UP NOW</div>
     </a>
 </div>
 

@@ -8,7 +8,7 @@
     $_d = $this->_;
 
     // AUTH STUFF HERE
-    $_SESSION[$skey] = 14;
+    $_SESSION[$skey] = 15;
     $sid = $_SESSION[$skey];
 
     // Get auth info
@@ -70,10 +70,10 @@
             <div class='squad-ava-wrapper'>
                 <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
             </div>
-            <div class='squad-ava-wrapper' style='padding-right:10px;'>
+            <div class='squad-ava-wrapper'>
                 <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
             </div>
-            <div class='squad-helper'>
+            <div class='squad-helper' style='padding-left:10px;'>
                 <div class='squad-open-switch'>
                     <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked onclick="squadStatecheck();">
                     <label for="checkbox-switch" class='squad-toggle-ico'></label>

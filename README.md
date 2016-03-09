@@ -20,7 +20,7 @@ These are the internal codes used in the matchmaking server to communicate betwe
 **Server -> Client**  
 `S`: Success - `E`: Error - `N`: Notice  
 
-`S|SESSIONID_SET` Confirms that the SID was set to the client.  
+`S|SESSIONID_SET|(Username)` Confirms that the SID was set to the client.  
 `S|LOBBY_JOIN` Confirms the successful joining in a lobby.  
 `S|SQUAD_JOIN|(Json: squad members[][id, username])` Confirms the successful joining of a squad.  
 
@@ -31,6 +31,6 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `N|LOBBY_JOINED|(SID)` Notifies the other users with the SID of the new user.  
 `N|LOBBY_LEFT|(SID)` Notifies the other users with the SID of the left user.   
 `N|LOBBY_DISBAND` Notifies the other users of the disband.  
-`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.
-`N|SQUAD_LEFT|(SID)` Notifies the other users with the SID of the left user.  
+`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.  
+`N|SQUAD_LEFT|(Json: squad member[id, username])` Notifies the other users with the SID of the left user.  
 `N|SQUAD_DISBAND` Notifies the other users of the disband.  

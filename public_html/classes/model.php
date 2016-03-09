@@ -112,4 +112,18 @@ class Model {
     public static function hashValue($str) {
         return password_hash($str, PASSWORD_BCRYPT);
     }
+
+    /**
+     * Returns if a space is empty or is only white spaces
+     *
+     * @param String String to check
+     * @return Boolean True if empty/spaces, false if not
+     */
+    public static function isEmptyOrSpaces($str) {
+        if (ctype_space($str) && $str == '') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

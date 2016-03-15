@@ -1774,6 +1774,8 @@ a:focus {
     text-transform: uppercase;
     font-size:14px;
     letter-spacing: 0.05em;
+    margin-top:9px;
+    margin-bottom:6px;
 }
 
 .queue-pub-squads:hover {

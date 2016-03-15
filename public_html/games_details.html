@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Orcus | All Games</title>
+    <title>Orcus | League of Legends</title>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
@@ -89,7 +89,7 @@
             <div class='squad-wrapper'>
                 <div class='squad-ava-wrapper'>
                     <div class='squad-ava'><img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>
-                        <a href="#" class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
+                        <a href="#" class='squad-name' style='margin-top:9px;'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
                     </div>
                 </div>
                 <div class='squad-ava-wrapper'>
@@ -233,6 +233,112 @@
 
     <!-- Content -->
     <div class="content">
+        <div class='queue-intro-container'>
+            <div class='queue-intro-header'>
+                <h2>Welcome TotalBiscuit!</h2>
+            </div>
+        </div>
+        <div class='queue-search-container'>
+            <a href='#' class='queue-create'>
+                <span class='create-lobby-text'>Create Lobby</span>
+            </a>
+            <a href='#' class='queue-search'>
+                <span class='create-lobby-text'>Find Match</span>
+            </a>
+        </div>
+        <div class='queue-online-players'><span class='number'>44.999</span> Players online!</div>
+
+        <!-- Sidebar Lobby Options -->
+        <div class='sidebar-lobby-options'>
+            <div class='sidebar-lobby-header'>
+                <h3 class='queue-options'>TotalBiscuit</h3>
+                <br>
+                <a class='queue-options-hide'>Jungler</a>
+            </div>
+            <!-- Game Mode -->
+            <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>
+            <div class='queue-filters'>
+                <div class='sidebar-lobby-options-wrapper'>
+                    <div class='sidebar-lobby-mode'>
+                        <h4 class='sidebar-game-mode'>Game Mode</h4>
+                        <div class='queue-filter-arrow-ico' id='modes'></div>
+                    </div>
+                    <div class='sidebar-lobby-mode-wrapper'>
+                        <div class='sidebar-lobby-mode-filters'>
+                            <div class='game-mode-box'>
+                                All Pick
+                            </div>
+                            <div class='game-mode-box'>
+                                ARAM
+                            </div>
+                            <div class='game-mode-box'>
+                                SWAG
+                            </div>
+                            <div class='game-mode-box'>
+                                Captain's Draft
+                            </div>
+                        </div>
+                        <div class='game-mode-players'>
+                            <div class='game-mode-box'>
+                                <span class='number'>5 vs 5</span>
+                            </div>
+                            <div class='game-mode-box'>
+                                <span class='number'>1 vs 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Entry -->
+                <div class='sidebar-lobby-options-wrapper-entry'>
+                    <div class='sidebar-lobby-entry'>
+                        <h4 class='sidebar-game-mode'>Select Entry</h4>
+                        <div class='queue-filter-arrow-ico' id='entries'>
+                        </div>
+                        <div class='sidebar-entry-error error-hidden'>No Mode Selected</div>
+                    </div>
+                    <div class='sidebar-lobby-entry-wrapper'>
+                           <div class='sidebar-lobby-entry-filters'>
+                            <div class='game-mode-box number'>
+                                5 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                50 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number' style='width:110px;'>
+                                <input type="number" name="custom entry" class='custom-entry' placeholder='Custom'>
+                            </div>
+                        </div>
+                        <div class='game-entry-invest'>
+                            <div class='game-mode-box active'>
+                                <span class='number'>20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
+                            </div>
+                            <div class='game-mode-box'>
+                                <span class='number'>10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='sidebar-queue-status-wrapper'>
+                <div class='sidebar-queue-status-desc'>
+                    <span class='entry-value number'>20<img src='bootstrap/img/currency.svg' class='entry-ico'></span> - <span class='mode-selected'>All Pick</span> - Europe
+                </div>
+                <div class='sidebar-queue-start-cancel'>
+                    <div class='sidebar-queue-start queue-not-ready'>Find Match</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Full Lobby -->
         <div class='lobby'>
             <div class='lobby-header'>
                 <div class='lobby-quit'>
@@ -413,526 +519,7 @@
             </div>
         </nav>
 
-        <!-- Suggested Match + Tournament CTA -->
-        <div class='suggested-match parallax'>
-            <img src='bootstrap/img/suggested_match_bg.png' class='suggested-match-bg'>
-            <div class='suggested-match-bg-dim'></div>
-            <div class='suggested-match-details'>
-                <div class='suggestd-match-ava-wrap'>
-                    <img src='bootstrap/img/ava_sample_3.png'>
-                </div>
-                <a href='#' class='suggested-match-opp-name'>Alpacko</a>
-                <div class='suggested-match-opponent-stats'>
-                    <div class='suggested-match-stats'>
-                        <span class='suggested-match-stats-value'>430</span>
-                        <br>
-                        <span class='suggested-match-stats-headline'>SKILL</span>
-                    </div>
-                    <div class='suggested-match-stats'>
-                        <span class='suggested-match-stats-value'>30</span>
-                        <br>
-                        <span class='suggested-match-stats-headline'>WINS</span>
-                    </div>
-                    <div class='suggested-match-stats'>
-                        <span class='suggested-match-stats-value'>4</span>
-                        <br>
-                        <span class='suggested-match-stats-headline'>LOST</span>
-                    </div>
-                </div>
-                <div class='suggested-match-join-skip'>
-                    <a href='#' class='sgt-mtch-btn'>
-                        <div class='suggested-match-join' id='activate-lobby'>
-                            <div class='suggested-match-join-text'>
-                                <span>JOIN</span>
-                                <img src='bootstrap/img/currency.svg' style='margin-left:2px; margin-bottom:3px;'>
-                                <span class='number' style='margin-left:-2px;'>5</span>
-                            </div>
-                        </div>
-                    </a>
-                    <div class='suggested-match-skip'>
-                        <span class='suggested-match-skip-text'>SKIP</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class='match-filter'>
-            <span class='sort'>Sort by</span>
-            <a class='sort-link-focused'>Entry</a><img src='bootstrap/img/arrow_down.svg' class='descending'>
-            <a class='sort-link'>Price Pool</a><img src='bootstrap/img/arrow_down.svg' class='descending'>
-            <a class='sort-link'>Avg. Skill</a><img src='bootstrap/img/arrow_down.svg' class='descending'>
-            <a class='sort-link'>Friends</a><img src='bootstrap/img/arrow_down.svg' class='descending' style='padding-right:calc(80% - 430px);'>
-            <div class='view-wrapper'>
-                <span class='view-by'>View By</span>
-                <a href='#' class='view-ico-grid'>&nbsp;</a>
-                <a href='#' class='view-ico-list'>&nbsp;</a>
-            </div>
-        </div>
-
-        <div class='game-preview-wrapper'>
-            <h1 class='game-mode-h1'>5 vs 5</h1>
-            <!-- Lobby 1 -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class='game-preview-wrapper'>
-
-            <h1 class='game-mode-h1'>1 vs 1</h1>
-            <!-- Lobby 1 -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Lobby -->
-            <div class='game-preview'>
-                <div class='game-preview-top'>
-                    <img src='bootstrap/img/game_preview_bg.png' class='game-preview-bg'>
-                    <div class='entry'>
-                        <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'>
-                        <span class='number'>11 ENTRY</span>
-                    </div>
-                    <div class='price-pool'>
-                        <img src='bootstrap/img/currency.svg' class='price-pool-coins'>
-                        <span class='number'>830</span>
-                    </div>
-                    <div class='avg-skill'>
-                        <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-                    </div>
-                </div>
-                <div class='game-preview-title'>
-                    <div class='team-1'>
-                        <span class='team-title'>Void Boys</span>
-                        <p class='team-count'>4/5</p>
-                    </div>
-                    <span class='game-preview-vs'>vs.</span>
-                    <div class='team-2'>
-                        <span class='team-title'>Team Liquid</span>
-                        <p class='team-count'>5/5</p>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class='footer'>
-                500 online 20 matches
-            </div>
-        </div>
     </div>
 
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>

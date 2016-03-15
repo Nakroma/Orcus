@@ -2,36 +2,6 @@ if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent
     $('head').append('<script src="bootstrap/js/parallax_games.js"></script>');
 }
 
-/* Timer
-function updateWCTime() {
-    now = new Date();
-    kickoff = Date.parse("1, 00:8:00");
-    diff = kickoff - now;
-
-    days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hours = Math.floor(diff / (1000 * 60 * 60));
-    mins = Math.floor(diff / (1000 * 60));
-    secs = Math.floor(diff / 1000);
-
-    dd = days;
-    hh = hours - days * 24;
-    mm = mins - hours * 60;
-    ss = secs - mins * 60;
-    total = mm + ss;
-
-    if (ss > 9) {
-        ss = ss;
-    } else {
-        ss = '0' + ss;
-    }
-
-    document.getElementById("countdown")
-        .innerHTML =
-        mm + ':' +
-        ss + ' Remaining';
-}
-setInterval(updateWCTime, 1000);*/
-
 /* Hide Sidebar */
 $(".sidebar-hide").click(function () {
     if ($('.sidebar-hide').is('#sidebar-visible')) {
@@ -167,3 +137,91 @@ $("#activate-lobby").click(function () {
         $('.sidebar-lobby-note').css('opacity', '1');
     }, 1200);
 });
+
+
+/* Set Entries Hidden by default */
+$('.sidebar-lobby-entry-filters').css('margin-top', '-250px');
+$('.sidebar-lobby-entry-wrapper').css('opacity', '0');
+$('#entries').addClass('ico-hidden');
+
+
+$(".sidebar-lobby-mode").click(function () {
+    if ($('#entries').hasClass("ico-hidden")) {
+        if ($('#modes').hasClass("ico-hidden")) {
+            $('.sidebar-lobby-mode-filters').css('margin-top', '');
+            $('.sidebar-lobby-mode-wrapper').css('opacity', '');
+            $('#modes').removeClass('ico-hidden');
+        } else {
+            $('.sidebar-lobby-mode-filters').css('margin-top', '-200px');
+            $('.sidebar-lobby-mode-wrapper').css('opacity', '0');
+            $('#modes').addClass('ico-hidden');
+        };
+    } else {
+        $('.sidebar-lobby-entry').addClass('animated pulse');
+        $('.sidebar-lobby-entry-filters').css('margin-top', '-200px');
+        $('.sidebar-lobby-entry-wrapper').css('opacity', '0');
+        $('#entries').addClass('ico-hidden');
+        setTimeout(function () {
+            $('.sidebar-lobby-mode-filters').css('margin-top', '');
+            $('.sidebar-lobby-mode-wrapper').css('opacity', '');
+            $('#modes').removeClass('ico-hidden');
+        }, 150);
+    };
+});
+
+$(".sidebar-lobby-entry").click(function () {
+    $('.sidebar-lobby-entry').removeClass('animated pulse')
+    if ($('.game-mode-players').children('div').hasClass('active') && $('.sidebar-lobby-mode-filters').children('div').hasClass('active')) {
+        if ($('#modes').hasClass("ico-hidden")) {
+            if ($('#entries').hasClass("ico-hidden")) {
+                $('.sidebar-lobby-entry-filters').css('margin-top', '');
+                $('.sidebar-lobby-entry-wrapper').css('opacity', '');
+                $('#entries').removeClass('ico-hidden');
+            } else {
+                $('.sidebar-lobby-entry').addClass('animated pulse');
+                $('.sidebar-lobby-entry-filters').css('margin-top', '-200px');
+                $('.sidebar-lobby-entry-wrapper').css('opacity', '0');
+                $('#entries').addClass('ico-hidden');
+            };
+        } else {
+            $('.sidebar-lobby-mode-filters').css('margin-top', '-200px');
+            $('.sidebar-lobby-mode-wrapper').css('opacity', '0');
+            $('#modes').addClass('ico-hidden');
+            setTimeout(function () {
+                $('.sidebar-lobby-entry-filters').css('margin-top', '');
+                $('.sidebar-lobby-entry-wrapper').css('opacity', '');
+                $('#entries').removeClass('ico-hidden');
+            }, 150);
+        };
+    } else {
+        $('.sidebar-entry-error').removeClass('error-hidden');
+        setTimeout(function () {
+            $('.sidebar-entry-error').addClass('error-hidden');
+        }, 1200);
+    };
+});
+
+/* Select Filters */
+$(".game-mode-box").click(function () {
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                if ($(this).parents('div').hasClass('sidebar-lobby-mode-filters') || $(this).parents('div').hasClass('game-mode-players')) {
+                    if ($('.game-mode-players').children('div').hasClass('active') && $('.sidebar-lobby-mode-filters').children('div').hasClass('active')) {} else {
+                        $('.sidebar-lobby-entry').removeClass('animated pulse')
+                    };
+                } else {};
+            } else {
+                $(this).addClass('active');
+                if ($(this).parents('div').hasClass('sidebar-lobby-mode-filters') || $(this).parents('div').hasClass('game-mode-players')) {
+                    if ($('.game-mode-players').children('div').hasClass('active') && $('.sidebar-lobby-mode-filters').children('div').hasClass('active')) {
+                        if ($('.sidebar-lobby-entry').hasClass('animated pulse')) {} else {
+                            $('.sidebar-lobby-entry').addClass('animated pulse')
+                        };
+                    } else {/* Find Match Conditions here */};
+                } else {/* Find Match Conditions here */};
+                    /* Add Filter to Bot */
+                    $('.active', $('.sidebar-lobby-mode-filters')).each(function () {
+                        console.log($(this));
+                    });
+                };
+            });

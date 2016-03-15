@@ -1745,11 +1745,11 @@ a:focus {
     width: 100%;
     text-align: center;
     margin-top: 20px;
-    max-height: 65px;
     color: #788293;
     font-size: 16px;
     padding-top: 23px;
     padding-bottom: 20px;
+    padding:15px 15px;
     border-top: solid #25282e 1px;
     border-bottom: solid #25282e 1px;
     background: rgba(0, 0, 0, 0.2);
@@ -1989,7 +1989,7 @@ a:focus {
     text-align: left;
     display: none;
     margin-left: 12%;
-    margin-top: -3px;
+    margin-top: 5px;
 }
 
 .suggested-match-bg {

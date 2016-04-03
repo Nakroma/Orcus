@@ -1256,6 +1256,7 @@ a:hover {
     width: 123px;
     background-color: #16191e;
     text-align: center;
+
 }
 .gd-gamebar .gd-game:first-of-type {
     margin-top: 58px;
@@ -1293,7 +1294,7 @@ a:hover {
     height:100%;
     width:400px;
     top:0px;
-    background: #16191e;
+    background: #0e1012;
     z-index:4;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -1393,9 +1394,15 @@ a:hover {
 
 .user-menu {
     position:fixed;
-    right:4%;
+    right:9%;
     top:49px;
     z-index:5;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .user-menu-name {
@@ -1441,6 +1448,7 @@ a:hover {
     width: calc(18vw + 40px);
     background: #16191e;
     height:100%;
+
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;

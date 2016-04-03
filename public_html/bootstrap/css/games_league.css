@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #202328;
+    background-color: #25292d;
     overflow: hidden;
 }
 
@@ -700,23 +700,36 @@ div {
 /* Game Bar */
 
 .gd-gamebar {
-    display: none;
     position: fixed;
+    top:0;
     right: 0px;
     height: 100%;
     width: 123px;
     background-color: #16191e;
     text-align: center;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+    z-index:4;
 }
 
 .gd-gamebar .gd-game:first-of-type {
-    margin-top: 58px;
+    margin-top: 47px;
 }
 
 .gd-gamebar .gd-game {
     display: inline-block;
     margin-top: 45px;
     width: 100%;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
 }
 
 .game-banner {
@@ -756,9 +769,11 @@ div {
 
 .content {
     opacity: 1;
-    width: 77.8%;
-    margin-left: 22.2%;
+    width: calc(78% - 123px );
+    margin-left: 22.0%;
     min-height: 100vh;
+    background:#25292d;
+    background-size:cover;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -1467,7 +1482,7 @@ a:focus {
     position: absolute;
     left: -0%;
     height: 100%;
-    opacity: 0.40;
+    opacity: 0.0;
     z-index: -1;
 }
 
@@ -1478,6 +1493,12 @@ a:focus {
     margin-left: 5px;
     color: #788293;
     font-size: 16px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .sidebar-top-links {
@@ -1493,6 +1514,7 @@ a:focus {
     font-size: 18px;
     font-weight: 500;
     padding-right: 50px;
+    letter-spacing: 0.1em;
 }
 
 .squad-title {
@@ -1521,10 +1543,10 @@ a:focus {
     text-align: center;
     -webkit-transition-timing-function: cubic-bezier(0, 1.18, .97, .99);
     transition-timing-function: cubic-bezier(0, 1.18, .97, .99);
-    -webkit-transition-duration: 0.35s;
-    -moz-transition-duration: 0.35s;
-    -o-transition-duration: 0.35s;
-    transition-duration: 0.35s;
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .squad-ava-wrapper + squad.ava:first-child {
@@ -1564,7 +1586,7 @@ a:focus {
 }
 
 .squad-ava-wrapper:hover .squad-name-blank {
-    visibility: visible;
+    opacity:1;
 }
 
 .squad-ava-wrapper:hover .squad-ava {
@@ -1574,15 +1596,22 @@ a:focus {
 
 .squad-name-blank {
     position: absolute;
-    visibility: hidden;
     margin-top: 10px;
     width: 200px;
     margin-left: -100px;
     color: white;
     font-size: 16px;
     text-transform: uppercase;
-    font-size:12px;
+    font-size: 12px;
     letter-spacing: 0.05em;
+    opacity:0;
+    transition-delay:0.15s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .squad-name-blank:hover {
@@ -1689,6 +1718,12 @@ a:focus {
     color: #788293;
     font-size: 16px;
     cursor: pointer;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .squad-leave:hover {
@@ -1749,21 +1784,33 @@ a:focus {
     font-size: 16px;
     padding-top: 23px;
     padding-bottom: 20px;
-    padding:15px 15px;
+    padding: 15px 15px;
     border-top: solid #25282e 1px;
     border-bottom: solid #25282e 1px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.12);
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .show-pub-squads {
-    display:inline-block;
+    display: inline-block;
     margin-left: 7%;
     color: #788293;
     cursor: pointer;
-        text-transform: uppercase;
-    font-size:14px;
+    text-transform: uppercase;
+    font-size: 14px;
     letter-spacing: 0.05em;
-    margin-bottom:6px;
+    margin-bottom: 6px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .show-pub-squads:hover {
@@ -1771,14 +1818,20 @@ a:focus {
 }
 
 .queue-pub-squads {
-    display:inline-block;
+    display: inline-block;
     color: #788293;
     cursor: pointer;
     text-transform: uppercase;
-    font-size:14px;
+    font-size: 14px;
     letter-spacing: 0.05em;
-    margin-top:9px;
-    margin-bottom:6px;
+    margin-top: 9px;
+    margin-bottom: 6px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .queue-pub-squads:hover {
@@ -1795,6 +1848,12 @@ a:focus {
     color: #788293;
     font-size: 16px;
     cursor: pointer;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .chat-inactive:hover {
@@ -1806,6 +1865,12 @@ a:focus {
     color: #788293;
     font-size: 16px;
     cursor: pointer;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .chat-active:hover {
@@ -1835,6 +1900,12 @@ a:focus {
     color: white;
     font-size: 16px;
     font-weight: 500;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
 }
 
 .sidebar-chat-username:hover {
@@ -1948,10 +2019,10 @@ a:focus {
     z-index: -1;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    -webkit-transition-duration: 1.65s;
-    -moz-transition-duration: 1.65s;
-    -o-transition-duration: 1.65s;
-    transition-duration: 1.65s;
+    -webkit-transition-duration: 2.65s;
+    -moz-transition-duration: 2.65s;
+    -o-transition-duration: 2.65s;
+    transition-duration: 2.65s;
 }
 
 .queue-status {
@@ -1973,8 +2044,6 @@ a:focus {
     width: 15px;
     bottom: 35%;
 }
-
-
 
 .queue-loading {
     position: relative;
@@ -2084,9 +2153,15 @@ a:focus {
 
 .user-menu {
     position: fixed;
-    right: 4%;
+    right: 187px;
     top: 49px;
     z-index: 5;
+        -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .user-menu-name {
@@ -2123,11 +2198,11 @@ a:focus {
 
 .menu-open {
     position: absolute;
-    right: -400px;
+    right: -300px;
     height: 100%;
     width: 400px;
-    background: #16191e;
-    z-index: 4;
+    background: #22262c;
+    z-index:4;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -2221,17 +2296,19 @@ a:focus {
 
 .lobby {
     position: absolute;
-    width: 77.8%;
+    width: calc(78% - 123px);
     height: 100%;
-    margin-left: calc(-100% + 22vw);
-    background: #0f1115;
+    top:0;
+    opacity:0.0;
+    background: #101316;
     z-index: 2;
-    -webkit-transition-timing-function: cubic-bezier(0, 1.03, 1, 1);
-    transition-timing-function: cubic-bezier(0, 1.03, 1, 1);
-    -webkit-transition-duration: 0.35s;
-    -moz-transition-duration: 0.35s;
-    -o-transition-duration: 0.35s;
-    transition-duration: 0.35s;
+    pointer-events:none;
+    -webkit-transition-timing-function: cubic-bezier(.21,.84,.83,.67)
+    transition-timing-function: cubic-bezier(.21,.84,.83,.67)
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .sidebar-lobby-note {
@@ -2512,7 +2589,7 @@ a:focus {
 }
 
 .squad-ava:hover {
-    border-radius: 10px;
+
     border: 2px solid #aaa;
 }
 
@@ -2612,9 +2689,16 @@ a:focus {
     height: 100%;
     width: 349px;
     background: url(../img/siderbar_queue_bg.png);
+    background-size:cover;
     top: 0;
     right: 0;
     z-index: 6;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .sidebar-lobby-header {
@@ -2640,6 +2724,12 @@ a:focus {
     font-weight: 600;
     text-transform: uppercase;
     text-shadow: 0px 0px 1.8px rgba(0, 0, 0, 0.47);
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.15s;
+    -moz-transition-duration: 0.15s;
+    -o-transition-duration: 0.15s;
+    transition-duration: 0.15s;
 }
 
 .queue-options-hide:hover {
@@ -2692,12 +2782,7 @@ a:focus {
 .game-mode-box:hover {
     border: solid 2px #00b4ff;
     background: #00b4ff;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0s;
-    -moz-transition-duration: 0s;
-    -o-transition-duration: 0s;
-    transition-duration: 0s;
+
 }
 
 .game-mode-players {
@@ -2791,33 +2876,38 @@ input[type=number]::-webkit-outer-spin-button {
     background: url('../img/queue-filter-arrow.svg') center no-repeat;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
-    -webkit-transition-duration: 0.25s;
-    -moz-transition-duration: 0.25s;
-    -o-transition-duration: 0.25s;
-    transition-duration: 0.25s;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }
+
 .sidebar-lobby-mode:hover .queue-filter-arrow-ico {
-    background: url('../img/queue-filter-arrow-mo.svg') center no-repeat;
+     -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
 }
+
 .sidebar-lobby-entry:hover .queue-filter-arrow-ico {
-    background: url('../img/queue-filter-arrow-mo.svg') center no-repeat;
+        -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
 }
 
 .sidebar-lobby-mode {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .ico-hidden {
-    background: url('../img/queue-filter-arrow-inactive.svg') center no-repeat;
+    -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
 }
 
 .queue-filters {
-    margin-top:15vh;
+    margin-top: 15vh;
 }
 
 .sidebar-lobby-mode-wrapper {
-    position:relative;
-    overflow:hidden;
+    position: relative;
+    overflow: hidden;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
@@ -2825,8 +2915,6 @@ input[type=number]::-webkit-outer-spin-button {
     -o-transition-duration: 0.25s;
     transition-duration: 0.25s;
 }
-
-
 
 .sidebar-lobby-mode {
     -webkit-transition-timing-function: ease;
@@ -2847,12 +2935,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sidebar-lobby-entry {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .sidebar-lobby-entry-wrapper {
-    position:relative;
-    overflow:hidden;
+    position: relative;
+    overflow: hidden;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
@@ -2871,34 +2959,34 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sidebar-queue-status-wrapper {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    border-top:solid 1px #2f3238;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: solid 1px #2f3238;
 }
 
 .sidebar-queue-status-desc {
     border-bottom: solid 1px #2f3238;
     color: #acbace;
     padding: 14px 15px 13px 52px;
-    font-size:16px;
+    font-size: 16px;
 }
 
 .entry-ico {
-    margin-bottom:3px;
-    opacity:0.6;
-    margin-left:3px;
+    margin-bottom: 3px;
+    margin-left: 0px;
+    padding-right:8px;
 }
 
 .sidebar-queue-start {
-    padding-top:26px;
-    padding-bottom:25px;
-    color:#acbace;
-    font-size:16px;
-    font-weight:500;
-text-transform: uppercase;
+    padding-top: 26px;
+    padding-bottom: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
     letter-spacing: 0.1em;
-    cursor:pointer;
+    cursor: pointer;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.15s;
@@ -2908,47 +2996,55 @@ text-transform: uppercase;
 }
 
 .sidebar-queue-start-cancel {
-    text-align:center;
-    background:transparent;
-        -webkit-transition-timing-function: ease;
+    text-align: center;
+    background: transparent;
+    -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
     -moz-transition-duration: 0.25s;
     -o-transition-duration: 0.25s;
     transition-duration: 0.25s;
 }
-
-.sidebar-queue-start-cancel:hover {
-    background:rgba(0,0,0,0.1);
+.sidebar-queue-start:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+.queue-not-ready:hover {
+    background: rgba(0, 0, 0, 0.0);
 }
 
-
-
 .queue-not-ready {
-    opacity:0.5;
+    opacity: 0.5;
     cursor: default;
 }
 
 .animated {
-  animation-duration: 2.5s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
 }
 
 @keyframes pulse {
-  0% {opacity: 0.05;}
-  50% {opacity: 1;}
-  100% {opacity: 0.05;}
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.05;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+
 .pulse {
-  animation-name: pulse;
-  animation-duration: 2s;
+    animation-name: pulse;
+    animation-duration: 2s;
 }
+
 .sidebar-entry-error {
-    display:inline-block;
-    margin-left:5px;
+    display: inline-block;
+    margin-left: 5px;
     color: #f2433a;
-    font-weight:500;
+    font-weight: 500;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
@@ -2958,6 +3054,299 @@ text-transform: uppercase;
 }
 
 .error-hidden {
-    margin-left:25px;
+    margin-left: 25px;
+    opacity: 0;
+}
+
+.sidebar-pub-squads:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-hidden .gd-sidebar {
+    margin-left:-18.4%;
+}
+
+.sidebar-hidden .content {
+    margin-left:2%;
+    width:100%;
+}
+
+.entry-child {
+    display:inline-block;
+    margin-left:-25px;
     opacity:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+.mode-child{
+    display:inline-block;
+    margin-left:-25px;
+    padding-right:10px;
+    opacity:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+
+.entry-visible {
+    margin-left:0;
+    opacity:1;
+}
+
+.filters-hidden {
+    right:-349px;
+}
+
+.dim-visible {
+    opacity:1;
+    pointer-events:all;
+}
+
+
+
+.match-queue-status {
+    position:relative;
+    text-align:center;
+    z-index:6;
+    margin:auto;
+    margin-top:12%;
+    opacity:0;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+
+.players-ready {
+    color:white;
+    font-size:18px;
+}
+
+.match-queue-status-desc {
+    text-transform: uppercase;
+    font-size:12px;
+    color: #8791a0;
+    margin-top:10px;
+    opacity:0;
+    transition-delay:0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+
+.team-placeholder {
+    display:inline-block;
+    height:22px;
+    width:22px;
+    background: #8791a0;
+    border-radius:100%;
+}
+
+.match-queue-team {
+    display:inline-block;
+    margin-top:12px;
+    transition-delay:0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+
+.player-ready {
+    background: #42d275;
+}
+
+.team-1-2 {
+    position:relative;
+    display:inline-block;
+    padding:0px 15px;
+    color:#acbace;
+    bottom:5px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+
+.player-ready-2 {
+    background:#00b4ff;
+}
+
+.status-visible {
+    margin-top:10%;
+    opacity:1;
+}
+
+.status-visible .match-queue-status-desc{
+    margin-top:0;
+    opacity:1;
+}
+
+.status-visible .match-queue-team {
+    margin-top:22px;
+}
+
+.find-match-btn {
+      width: 255px;
+      height: 240px;
+    cursor:pointer;
+    margin-left:40px;
+    text-align:center;
+    box-shadow: 0px 3px 50px rgba(0, 0, 0, 0.3), inset 0px 3px 160px rgba(0, 0, 0, 0.30);
+    background: #0a0d0f;
+}
+
+.queue-container {
+    display:flex;
+    justify-content: center;
+    padding-top:20%;
+    width:90%;
+    margin:auto;
+}
+
+.find-match-ico {
+    margin-top: 68px;
+}
+
+.cta-btn-text {
+    display:inline-block;
+    margin-top:10px;
+    font-family: "titillium web";
+    color:white;
+    font-size:24px;
+    font-weight:500;
+}
+
+.cta-btn-text-desc {
+    color: #8791a0;
+    display:inline-block;
+    width:80%;
+    font-weight:500;
+}
+
+.find-match-btn:first-of-type {
+    margin-left:0;
+}
+
+.find-match-btn-bg {
+    position:absolute;
+    margin-left:-128px;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.03, 1, 1);
+    transition-timing-function: cubic-bezier(0, 1.03, 1, 1);
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    -o-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+
+.find-match-btn-z-helper {
+    position:relative;
+}
+
+.find-match-btn:hover .find-match-btn-bg {
+    opacity:0.3;
+}
+
+.find-match-btn:last-child:hover .find-match-btn-bg {
+    opacity:1;
+}
+
+.notification-container {
+    width:95%;
+    margin:auto;
+    margin-top:58px;
+    text-align:center;
+}
+
+.notification-wrapper {
+    display:inline-block;
+    margin-top:37px;
+    padding-right:40px;
+}
+
+.notification-ico {
+    display:inline-block;
+    height:40px;
+    width:40px;
+    border-radius:40px;
+    background: #414851;
+}
+
+.notification-title {
+    display:inline-block;
+    position:relative;
+    color:white;
+    font-size:18px;
+    font-family:'titillium web';
+    font-weight:500;
+    bottom:0px;
+    top:4px;
+    margin-left:-9px;
+    margin-top:0px;
+}
+
+.invest {
+    color: #42d275;
+}
+
+.notification-text {
+    display:inline-block;
+    position:relative;
+    color:#8791a0;
+    font-size:14px;
+    margin-left:16px;
+    font-weight:500;
+    bottom:10px;
+}
+
+.gd-game:hover {
+    opacity:0.5;
+}
+
+.lobby-visible {
+    opacity:1;
+    pointer-events: all;
+}
+
+.sidebar-bottom-links {
+    position:absolute;
+    font-family:'helvetica';
+    bottom:36px;
+    width:14vw;
+    margin-left:3.5vw;
+    text-align:center;
+    z-index:1
+}
+
+.sidebar-bot-link {
+        color:#5c636e;
+}
+
+.sidebar-bot-link:hover {
+    color:white;
+}
+
+.game-mode-box:active {
+    border: solid 2px #00b4ff;
+    background:transparent;
+}
+
+.squad-name-visible {
+        opacity:1;
 }

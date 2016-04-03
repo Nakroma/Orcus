@@ -1,5 +1,5 @@
 /* Mobile Check */
-if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
     $('head').append('<script src="bootstrap/js/parallax.js"></script>');
 }
 

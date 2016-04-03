@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -72,7 +72,7 @@
 </div>
 <!-- END # MODAL LOGIN -->
 
-<body>
+<body class=''>
     <div class='sidebar-content-dim'></div>
     <!-- Sidebar -->
     <div class="gd-sidebar">
@@ -81,7 +81,7 @@
         <div class='sidebar-top-links'>
             <a href='#' class='sidebar-list-link'>All</a>&nbsp;&nbsp;-
             <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
-            <span class='sidebar-list-link-game'>League of Legends</span>
+            <span class='sidebar-list-link-game'>LEAGUE</span>
         </div>
         <div class='sidebar-squad'>
             <span class='squad-title'>Your Squad</span>
@@ -191,26 +191,12 @@
             <input type='text' class='chat-input-box' placeholder='Type a message'>
             <a href="#" class='chat-input-btn'>&nbsp;</a>
         </div>
-        <div class='sidebar-news'>
-            <div class='sidebar-news-w'>
-                <img src='bootstrap/img/News.svg' class='news-ico'>
-                <h2 class='news-headline'>OLC now live!</h2>
-                <span class='news-text'>Orcus League Championships open for entries. <a href="#" class='sb-read-more'>Read more.</a></span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Game Bar -->
-    <div class="gd-gamebar">
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_dota.png">
-        </a>
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_csgo.png">
-        </a>
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_hs.png">
-        </a>
+        <div class='sidebar-bottom-links'>
+            <a href='#' class='sidebar-bot-link'>Support </a>|
+            <a href='#' class='sidebar-bot-link'>Impressum </a>|
+            <a href='#' class='sidebar-bot-link'>Contact Us </a>|
+            <a href='#' class='sidebar-bot-link'>Privacy Policy </a>
+           </div>
     </div>
 
     <!-- Menu Open -->
@@ -230,30 +216,96 @@
         </div>
     </div>
 
+    <!-- Game Bar -->
+    <div class="gd-gamebar">
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_dota.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_csgo.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_hs.png">
+        </a>
+    </div>
 
     <!-- Content -->
     <div class="content">
-        <div class='queue-intro-container'>
-            <div class='queue-intro-header'>
-                <h2>Welcome TotalBiscuit!</h2>
+        <div class='queue-container'>
+             <div class='find-match-btn' id='find-match'>
+                <img src='bootstrap/img/find_match_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='bootstrap/img/find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Find Match</span>
+                    <br>
+                    <span class='cta-btn-text-desc'><span class='number'>23</span> People in your skill range online!</span>
+                </div>
+            </div>
+            <div class='find-match-btn' id='create-lobby'>
+                <img src='bootstrap/img/create_lobby_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='bootstrap/img/find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Create Lobby</span>
+                    <br>
+                    <span class='cta-btn-text-desc'><span class='number'>4.000</span> People currently in queue!</span>
+                </div>
+            </div>
+             <div class='find-match-btn' id='invest' style='cursor:default;'>
+                <img src='bootstrap/img/invest_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='bootstrap/img/find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Invest</span>
+                    <br>
+                    <span class='cta-btn-text-desc'>Coming soon.</span>
+                </div>
             </div>
         </div>
-        <div class='queue-search-container'>
-            <a href='#' class='queue-create'>
-                <span class='create-lobby-text'>Create Lobby</span>
-            </a>
-            <a href='#' class='queue-search'>
-                <span class='create-lobby-text'>Find Match</span>
-            </a>
+        <div class='notification-container'>
+            <img src='bootstrap/img/notification_seperator.png' class='notification-seperator'><br>
+            <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
+             <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
+             <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
         </div>
-        <div class='queue-online-players'><span class='number'>44.999</span> Players online!</div>
+
+        <!-- Queue Status -->
+        <div class='match-queue-status'>
+            <span class='players-ready'>Players Ready: <span class='number'>6/10</span></span>
+            <div class='match-queue-status-desc'>Finding Support...</div>
+            <div class='match-queue-team'>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder'></div>
+            </div>
+            <span class='team-1-2'>vs</span>
+            <div class='match-queue-team'>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder'></div>
+            </div>
+        </div>
 
         <!-- Sidebar Lobby Options -->
-        <div class='sidebar-lobby-options'>
+        <div class='sidebar-lobby-options filters-hidden'>
             <div class='sidebar-lobby-header'>
                 <h3 class='queue-options'>TotalBiscuit</h3>
                 <br>
-                <a class='queue-options-hide'>Jungler</a>
+                <a href='#' class='queue-options-hide'>Jungler</a>
             </div>
             <!-- Game Mode -->
             <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>
@@ -294,10 +346,10 @@
                         <h4 class='sidebar-game-mode'>Select Entry</h4>
                         <div class='queue-filter-arrow-ico' id='entries'>
                         </div>
-                        <div class='sidebar-entry-error error-hidden'>No Mode Selected</div>
+                        <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
                     </div>
                     <div class='sidebar-lobby-entry-wrapper'>
-                           <div class='sidebar-lobby-entry-filters'>
+                        <div class='sidebar-lobby-entry-filters'>
                             <div class='game-mode-box number'>
                                 5 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
                             </div>
@@ -315,7 +367,7 @@
                             </div>
                         </div>
                         <div class='game-entry-invest'>
-                            <div class='game-mode-box active'>
+                            <div class='game-mode-box'>
                                 <span class='number'>20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
                             </div>
                             <div class='game-mode-box'>
@@ -328,10 +380,10 @@
             </div>
             <div class='sidebar-queue-status-wrapper'>
                 <div class='sidebar-queue-status-desc'>
-                    <span class='entry-value number'>20<img src='bootstrap/img/currency.svg' class='entry-ico'></span> - <span class='mode-selected'>All Pick</span> - Europe
+                    <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
                 </div>
                 <div class='sidebar-queue-start-cancel'>
-                    <div class='sidebar-queue-start queue-not-ready'>Find Match</div>
+                    <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
                 </div>
             </div>
 
@@ -347,7 +399,7 @@
                 </div>
                 <div class='lobby-info'>
                     <img src='bootstrap/img/info.svg' class='lobby-info-ico'>
-                    <span class='lobby-info-text'>No money will be lost until match starts</span>
+                    <span class='lobby-info-text'>Leaving now will cause you to lose your entry</span>
                 </div>
                 <div class='lobby-details'>
                     <span class='lobby-name'>
@@ -514,7 +566,7 @@
         <nav class='user-menu'>
             <div class='user-menu-container'>
                 <a href='#' class='user-menu-name'>TotalBiscuit</a>
-                <a href='#' class='user-money'>50 <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'></a>
+                <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'></a>
                 <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
             </div>
         </nav>

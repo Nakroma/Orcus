@@ -41,852 +41,510 @@
 </head>
 
 <!-- Websocket Startup -->
-<body>
-<div class='sidebar-content-dim'></div>
-<!-- Sidebar -->
-<div class="gd-sidebar">
-    <img src='<?php echo $path['img']; ?>sidebar_bg.jpg' class='gd-sidebar-bg' id='sidebar'>
-    <a class='sidebar-hide' id='sidebar-visible'>&nbsp;</a>
-    <div class='sidebar-top-links'>
-        <a href='#' class='sidebar-list-link'>All</a>&nbsp;&nbsp;-
-        <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
-        <span class='sidebar-list-link-game'>League of Legends</span>
-    </div>
-    <div class='sidebar-squad'>
-        <span class='squad-title'>Your Squad</span>
-        <a class='squad-leave'>Leave Squad</a>
-        <div class='squad-wrapper'>
-            <div class='squad-ava-wrapper'>
-                <div class='squad-ava-self'>
-                    <a href="#" class='squad-name'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'><?php echo $_u['username']; ?></a>
+<body class=''>
+    <div class='sidebar-content-dim'></div>
+    <!-- Sidebar -->
+    <div class="gd-sidebar">
+        <img src='<?php echo $path['img']; ?>sidebar_bg.jpg' class='gd-sidebar-bg' id='sidebar'>
+        <a class='sidebar-hide' id='sidebar-visible'>&nbsp;</a>
+        <div class='sidebar-top-links'>
+            <a href='#' class='sidebar-list-link'>All</a>&nbsp;&nbsp;-
+            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
+            <span class='sidebar-list-link-game'>LEAGUE</span>
+        </div>
+        <div class='sidebar-squad'>
+            <span class='squad-title'>Your Squad</span>
+            <a class='squad-leave'>Leave Squad</a>
+            <div class='squad-wrapper'>
+                <div class='squad-ava-wrapper'>
+                    <div class='squad-ava'><img src='<?php echo $path['img']; ?>ava_sample_1.png' class='squad-ava-img'>
+                        <a href="#" class='squad-name' style='margin-top:9px;'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
+                    </div>
                 </div>
-            </div>
-            <div class='squad-ava-wrapper'>
-                <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
-            </div>
-            <div class='squad-ava-wrapper'>
-                <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
-            </div>
-            <div class='squad-ava-wrapper'>
-                <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
-            </div>
-            <div class='squad-ava-wrapper'>
-                <div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div>
-            </div>
-            <div class='squad-helper' style='padding-left:10px;'>
-                <div class='squad-open-switch'>
-                    <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked onclick="squadStatecheck();">
-                    <label for="checkbox-switch" class='squad-toggle-ico'></label>
+                <div class='squad-ava-wrapper'>
+                    <div class='squad-ava'><img src='<?php echo $path['img']; ?>ava_sample_2.png' class='squad-ava-img'></div>
+                    <a class='squad-name'>Weaboo_Overlord</a>
                 </div>
-                <span class='squad-toggle'>Toggle Public Squad</span>
-                <span class='squad-open' id='squad-open'>Squad Open</span>
+                <div class='squad-ava-wrapper'>
+                    <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
+                </div>
+                <div class='squad-ava-last-2'>
+                    <div class='squad-ava-wrapper'>
+                        <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
+                    </div>
+                    <div class='squad-ava-wrapper'>
+                        <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
+
+                    </div>
+                    <div class='squad-helper'>
+                        <div class='squad-open-switch'>
+                            <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked>
+                            <label for="checkbox-switch" class='squad-toggle-ico'></label>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class='sidebar-pub-squads'>
+                <a class='queue-pub-squads'>Find Squad</a>
+                <a class='show-pub-squads'>Show Public Squads</a>
+                <div class='queue-bg' id='inactive'></div>
+                <div class='queue-loading-container'>
+                    <img src="<?php echo $path['img']; ?>puff.svg" width="50" alt="" class='queue-loading'>
+                    <span class='queue-status'></span>
+                    <a class='close'> <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='queue-quit'></a>
+                </div>
             </div>
         </div>
-        <div class='sidebar-pub-squads'>
-            <a class='queue-pub-squads' onclick="findSquad('start');">Find Squad</a>
-            <a class='show-pub-squads'>Show Public Squads</a>
-            <div class='queue-bg' id='inactive'></div>
-            <div class='queue-loading-container'>
-                <img src="<?php echo $path['img']; ?>puff.svg" width="50" alt="" class='queue-loading'>
-                <span class='queue-status'></span>
-                <a class='close' onclick="findSquad('stop');"> <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='queue-quit'></a>
+
+        <div class='sidebar-chat'>
+            <span class='squad-chat-title'>Squad Chat</span>
+            <a class='chat-inactive' id="chat-option-2">All Chat</a>
+            <div class='sidebar-chat-comments-scrollbar'>
+                <div class='sidebar-chat-comments'>
+                    <span class='sidebar-lobby-note'>You are now connected to the Lobby Chat!</span>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>3 hours ago</span> </a>
+                            <br>
+                            <span class='sidebar-chat-message'>FURION TP TOP FURION TP TOP FURION</span>
+                        </div>
+                    </div>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>2 minutes ago</span></a>
+                            <br>
+                            <span class='sidebar-chat-message'>Me Mid.</span>
+                        </div>
+                    </div>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
+                            <br>
+                            <span class='sidebar-chat-message'>blyatblyatblyatblya tblyatblyatblyat blyatblyat</span>
+                        </div>
+                    </div>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
+                            <br>
+                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
+                        </div>
+                    </div>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
+                            <br>
+                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
+                        </div>
+                    </div>
+                    <div class='squad-chat-post'>
+                        <div class='sidebar-chat-ava'></div>
+                        <div class='sidebar-chat-text'>
+                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
+                            <br>
+                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class='chat-input'>
+            <input type='text' class='chat-input-box' placeholder='Type a message'>
+            <a href="#" class='chat-input-btn'>&nbsp;</a>
+        </div>
+        <div class='sidebar-bottom-links'>
+            <a href='#' class='sidebar-bot-link'>Support </a>|
+            <a href='#' class='sidebar-bot-link'>Impressum </a>|
+            <a href='#' class='sidebar-bot-link'>Contact Us </a>|
+            <a href='#' class='sidebar-bot-link'>Privacy Policy </a>
+           </div>
+    </div>
+
+    <!-- Menu Open -->
+    <div class='menu-open'>
+        <div class='menu-ava'></div>
+        <div class='menu-group-1'>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_tournament.svg'>Tournaments</a>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_leaderboard.svg'>Leaderboards</a>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_games.svg' style='margin-left:2px;'>Games</a>
+        </div>
+        <div class='menu-group-2'>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>currency.svg' class='menu-currency'>Charge</a>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>settings.svg' class='menu-settings'>Settings</a>
+        </div>
+        <div class='menu-group-3'>
+            <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>logout.svg' class='menu-settings'>Logout</a>
         </div>
     </div>
 
-    <div class='sidebar-chat'>
-        <span class='squad-chat-title'>Squad Chat</span>
-        <a class='chat-inactive' id="chat-option-2">All Chat</a>
-        <div class='sidebar-chat-comments-scrollbar'>
-            <div class='sidebar-chat-comments'>
-                <span class='sidebar-lobby-note'>You are now connected to the Lobby Chat!</span>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>3 hours ago</span> </a>
-                        <br>
-                        <span class='sidebar-chat-message'>FURION TP TOP FURION TP TOP FURION</span>
-                    </div>
+    <!-- Game Bar -->
+    <div class="gd-gamebar">
+        <a href='#' class="gd-game">
+            <img src="<?php echo $path['img']; ?>gd_gamebar_dota.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="<?php echo $path['img']; ?>gd_gamebar_csgo.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="<?php echo $path['img']; ?>gd_gamebar_hs.png">
+        </a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class='queue-container'>
+             <div class='find-match-btn' id='find-match'>
+                <img src='<?php echo $path['img']; ?>find_match_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Find Match</span>
+                    <br>
+                    <span class='cta-btn-text-desc'><span class='number'>23</span> People in your skill range online!</span>
                 </div>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>2 minutes ago</span></a>
-                        <br>
-                        <span class='sidebar-chat-message'>Me Mid.</span>
-                    </div>
+            </div>
+            <div class='find-match-btn' id='create-lobby'>
+                <img src='<?php echo $path['img']; ?>create_lobby_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Create Lobby</span>
+                    <br>
+                    <span class='cta-btn-text-desc'><span class='number'>4.000</span> People currently in queue!</span>
                 </div>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                        <br>
-                        <span class='sidebar-chat-message'>blyatblyatblyatblyatblyatblyatblyatblyatblyat</span>
-                    </div>
-                </div>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                        <br>
-                        <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                    </div>
-                </div>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                        <br>
-                        <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                    </div>
-                </div>
-                <div class='squad-chat-post'>
-                    <div class='sidebar-chat-ava'></div>
-                    <div class='sidebar-chat-text'>
-                        <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                        <br>
-                        <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                    </div>
+            </div>
+             <div class='find-match-btn' id='invest' style='cursor:default;'>
+                <img src='<?php echo $path['img']; ?>invest_bg.png' class='find-match-btn-bg'>
+                <div class='find-match-btn-z-helper'>
+                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
+                    <br>
+                    <span class='cta-btn-text'>Invest</span>
+                    <br>
+                    <span class='cta-btn-text-desc'>Coming soon.</span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class='chat-input'>
-        <input type='text' class='chat-input-box' placeholder='Type a message'>
-        <a href="#" class='chat-input-btn'>&nbsp;</a>
-    </div>
-    <div class='sidebar-news'>
-        <div class='sidebar-news-w'>
-            <img src='<?php echo $path['img']; ?>News.svg' class='news-ico'>
-            <h2 class='news-headline'>OLC now live!</h2>
-            <span class='news-text'>Orcus League Championships open for entries. <a href="#" class='sb-read-more'>Read more.</a></span>
+        <div class='notification-container'>
+            <img src='<?php echo $path['img']; ?>notification_seperator.png' class='notification-seperator'><br>
+            <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
+             <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
+             <div class='notification-wrapper'>
+                <div class='notification-ico'></div>
+                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Game Bar -->
-<div class="gd-gamebar">
-    <a href='#' class="gd-game">
-        <img src="<?php echo $path['img']; ?>gd_gamebar_dota.png">
-    </a>
-    <a href='#' class="gd-game">
-        <img src="<?php echo $path['img']; ?>gd_gamebar_csgo.png">
-    </a>
-    <a href='#' class="gd-game">
-        <img src="<?php echo $path['img']; ?>gd_gamebar_hs.png">
-    </a>
-</div>
-
-<?php
-    include $templateSidebar;
-?>
-
-<!-- Content -->
-<div class="content">
-<div class='lobby'>
-
-    <div class='lobby-header'>
-        <div class='lobby-quit'>
-            <img src='<?php echo $path['img']; ?>login-close.svg' class='lobby-quit-ico'>
-            <span class='lobby-quit-text'>Rage Quit</span>
+        <!-- Queue Status -->
+        <div class='match-queue-status'>
+            <span class='players-ready'>Players Ready: <span class='number'>6/10</span></span>
+            <div class='match-queue-status-desc'>Finding Support...</div>
+            <div class='match-queue-team'>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder player-ready'></div>
+                <div class='team-placeholder'></div>
+            </div>
+            <span class='team-1-2'>vs</span>
+            <div class='match-queue-team'>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder player-ready-2'></div>
+                <div class='team-placeholder'></div>
+            </div>
         </div>
-        <div class='lobby-info'>
-            <img src='<?php echo $path['img']; ?>info.svg' class='lobby-info-ico'>
-            <span class='lobby-info-text'>No money will be lost until match starts</span>
+
+        <!-- Sidebar Lobby Options -->
+        <div class='sidebar-lobby-options filters-hidden'>
+            <div class='sidebar-lobby-header'>
+                <h3 class='queue-options'>TotalBiscuit</h3>
+                <br>
+                <a href='#' class='queue-options-hide'>Jungler</a>
+            </div>
+            <!-- Game Mode -->
+            <img src='<?php echo $path['img']; ?>league_jungler_sub_header.png' class='sub-header-bg'>
+            <div class='queue-filters'>
+                <div class='sidebar-lobby-options-wrapper'>
+                    <div class='sidebar-lobby-mode'>
+                        <h4 class='sidebar-game-mode'>Game Mode</h4>
+                        <div class='queue-filter-arrow-ico' id='modes'></div>
+                    </div>
+                    <div class='sidebar-lobby-mode-wrapper'>
+                        <div class='sidebar-lobby-mode-filters'>
+                            <div class='game-mode-box'>
+                                All Pick
+                            </div>
+                            <div class='game-mode-box'>
+                                ARAM
+                            </div>
+                            <div class='game-mode-box'>
+                                SWAG
+                            </div>
+                            <div class='game-mode-box'>
+                                Captain's Draft
+                            </div>
+                        </div>
+                        <div class='game-mode-players'>
+                            <div class='game-mode-box'>
+                                <span class='number'>5 vs 5</span>
+                            </div>
+                            <div class='game-mode-box'>
+                                <span class='number'>1 vs 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Entry -->
+                <div class='sidebar-lobby-options-wrapper-entry'>
+                    <div class='sidebar-lobby-entry'>
+                        <h4 class='sidebar-game-mode'>Select Entry</h4>
+                        <div class='queue-filter-arrow-ico' id='entries'>
+                        </div>
+                        <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
+                    </div>
+                    <div class='sidebar-lobby-entry-wrapper'>
+                        <div class='sidebar-lobby-entry-filters'>
+                            <div class='game-mode-box number'>
+                                5 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                10 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                20 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number'>
+                                50 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'>
+                            </div>
+                            <div class='game-mode-box number' style='width:110px;'>
+                                <input type="number" name="custom entry" class='custom-entry' placeholder='Custom'>
+                            </div>
+                        </div>
+                        <div class='game-entry-invest'>
+                            <div class='game-mode-box'>
+                                <span class='number'>20 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'></span>
+                            </div>
+                            <div class='game-mode-box'>
+                                <span class='number'>10 <img src='<?php echo $path['img']; ?>currency.svg' class='entry-currency-ico'></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='sidebar-queue-status-wrapper'>
+                <div class='sidebar-queue-status-desc'>
+                    <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
+                </div>
+                <div class='sidebar-queue-start-cancel'>
+                    <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
+                </div>
+            </div>
+
         </div>
-        <div class='lobby-details'>
-                        <span class='lobby-name'>
+
+
+        <!-- Full Lobby -->
+        <div class='lobby'>
+            <div class='lobby-header'>
+                <div class='lobby-quit'>
+                    <img src='<?php echo $path['img']; ?>login-close.svg' class='lobby-quit-ico'>
+                    <span class='lobby-quit-text'>Rage Quit</span>
+                </div>
+                <div class='lobby-info'>
+                    <img src='<?php echo $path['img']; ?>info.svg' class='lobby-info-ico'>
+                    <span class='lobby-info-text'>Leaving now will cause you to lose your entry</span>
+                </div>
+                <div class='lobby-details'>
+                    <span class='lobby-name'>
                     Lobby <span class='number'>72</span>
-                        </span>
-                        <span class='lobby-game-mode'>
+                    </span>
+                    <span class='lobby-game-mode'>
                     - <span class='number'>5 vs 5</span> - All Pick
-                        </span>
-        </div>
-    </div>
-    <div class='lobby-content'>
-        <div class='lobby-main'>
-            <div class='lobby-teams'>
-                <div class='lobby-team-1'>
-                    <div class='team-header'>
-                        <h2 class='team-1-name'>Axiom Esports</h2>
-                        <span class='team-ready'><span class='number'>3</span> of <span class='number'>5</span> ready</span>
-                    </div>
-
-                    <div class='lobby-players'>
-                        <div class='lobby-player'>
-                            <div class='player-ava-wrapper'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                            <a href='#' class='lobby-player-name'>TotalBiscuit</a>
-                            <span class='lobby-player-role'>Tank</span>
-                        </div>
-                        <div class='lobby-player'>
-                            <div class='player-ava-wrapper'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                            </div>
-                            <a href='#' class='lobby-player-name'>Dondo</a>
-                            <span class='lobby-player-role-nonhost'>Carry Roam</span>
-                        </div>
-                        <div class='lobby-player'>
-                            <div class='player-ava-wrapper'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                            </div>
-                            <a href='#' class='lobby-player-name'>EG.Sumail</a>
-                            <span class='lobby-player-role-nonhost'>Carry</span>
-                        </div>
-                        <div class='lobby-player'>
-                            <div class='player-ava-wrapper'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                            </div>
-                            <a href='#' class='lobby-player-name'>EG.ppd</a>
-                            <span class='lobby-player-role-nonhost'>Support</span>
-                        </div>
-                        <div class='lobby-player'>
-                            <div class='player-ava-wrapper'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                            </div>
-                            <a href='#' class='lobby-player-name'>EG.Universe</a>
-                            <span class='lobby-player-role-nonhost'>Offlane</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class='lobby-teams-middle'>
-                    <span class='versus'>vs</span>
-                    <div class='lobby-price-pool'>
-                        <span class='lobby-price-value'>180<img src='<?php echo $path['img']; ?>currency.svg' class='lobby-price-ico'></span>
-                        <span class='lobby-price-text'>PRIZE POOL</span>
-                    </div>
-                </div>
-
-
-                <div class='lobby-team-2'>
-                    <div class='team-header'>
-                        <span class='team-ready'><span class='number'>3</span> of <span class='number'>5</span> ready</span>
-                        <h2 class='team-2-name'>Axiom Esports</h2>
-                    </div>
-
-                    <div class='lobby-players-2'>
-                        <div class='lobby-player'>
-                            <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
-                            <span class='lobby-player-role-2'>Tank</span>
-                            <div class='player-ava-wrapper-2'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='lobby-player'>
-                            <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
-                            <span class='lobby-player-role-2'>Tank</span>
-                            <div class='player-ava-wrapper-2'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host' style='visibility:hidden;'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='lobby-player'>
-                            <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
-                            <span class='lobby-player-role-2'>Tank</span>
-                            <div class='player-ava-wrapper-2'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host' style='visibility:hidden;'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='lobby-player'>
-                            <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
-                            <span class='lobby-player-role-2'>Tank</span>
-                            <div class='player-ava-wrapper-2'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host' style='visibility:hidden;'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='lobby-player'>
-                            <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
-                            <span class='lobby-player-role-2'>Tank</span>
-                            <div class='player-ava-wrapper-2'>
-                                <div class='player-ava'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
-                                </div>
-                                <div class='player-host' style='visibility:hidden;'>
-                                    <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    </span>
                 </div>
             </div>
-            <div class='lobby-player-self'>
-                <img src='<?php echo $path['img']; ?>lobby_role_bg.png'>
-                <span class='player-sidebar'></span>
-            </div>
-            <div class='lobby-player-other'>
+            <div class='lobby-content'>
+                <div class='lobby-main'>
+                    <div class='lobby-teams'>
+                        <div class='lobby-team-1'>
+                            <div class='team-header'>
+                                <h2 class='team-1-name'>Axiom Esports</h2>
+                                <span class='team-ready'><span class='number'>3</span> of <span class='number'>5</span> ready</span>
+                            </div>
 
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Menu -->
-<nav class='user-menu'>
-    <div class='user-menu-container'>
-        <a href='#' class='user-menu-name'><?php echo $_u['username']; ?></a>
-        <a href='#' class='user-money'><?php echo $_u['okken']; ?> <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'></a>
-        <a class='side-menu'><img src='<?php echo $path['img']; ?>hamburger.svg' class='sidebar-menu-ico'></a>
-    </div>
-</nav>
+                            <div class='lobby-players'>
+                                <div class='lobby-player'>
+                                    <div class='player-ava-wrapper'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                    <a href='#' class='lobby-player-name'>TotalBiscuit</a>
+                                    <span class='lobby-player-role'>Tank</span>
+                                </div>
+                                <div class='lobby-player'>
+                                    <div class='player-ava-wrapper'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                    </div>
+                                    <a href='#' class='lobby-player-name'>Dondo</a>
+                                    <span class='lobby-player-role-nonhost'>Carry Roam</span>
+                                </div>
+                                <div class='lobby-player'>
+                                    <div class='player-ava-wrapper'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                    </div>
+                                    <a href='#' class='lobby-player-name'>EG.Sumail</a>
+                                    <span class='lobby-player-role-nonhost'>Carry</span>
+                                </div>
+                                <div class='lobby-player'>
+                                    <div class='player-ava-wrapper'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                    </div>
+                                    <a href='#' class='lobby-player-name'>EG.ppd</a>
+                                    <span class='lobby-player-role-nonhost'>Support</span>
+                                </div>
+                                <div class='lobby-player'>
+                                    <div class='player-ava-wrapper'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                    </div>
+                                    <a href='#' class='lobby-player-name'>EG.Universe</a>
+                                    <span class='lobby-player-role-nonhost'>Offlane</span>
+                                </div>
+                            </div>
+                        </div>
 
-<!-- Suggested Match + Tournament CTA -->
-<div class='suggested-match parallax'>
-    <img src='<?php echo $path['img']; ?>suggested_match_bg.png' class='suggested-match-bg'>
-    <div class='suggested-match-bg-dim'></div>
-    <div class='suggested-match-details'>
-        <div class='suggestd-match-ava-wrap'>
-            <img src='<?php echo $path['img']; ?>ava_sample_3.png'>
-        </div>
-        <a href='#' class='suggested-match-opp-name'>Alpacko</a>
-        <div class='suggested-match-opponent-stats'>
-            <div class='suggested-match-stats'>
-                <span class='suggested-match-stats-value'>430</span>
-                <br>
-                <span class='suggested-match-stats-headline'>SKILL</span>
-            </div>
-            <div class='suggested-match-stats'>
-                <span class='suggested-match-stats-value'>30</span>
-                <br>
-                <span class='suggested-match-stats-headline'>WINS</span>
-            </div>
-            <div class='suggested-match-stats'>
-                <span class='suggested-match-stats-value'>4</span>
-                <br>
-                <span class='suggested-match-stats-headline'>LOST</span>
-            </div>
-        </div>
-        <div class='suggested-match-join-skip'>
-            <a href='#' class='sgt-mtch-btn'>
-                <div class='suggested-match-join' id='activate-lobby'>
-                    <div class='suggested-match-join-text'>
-                        <span>JOIN</span>
-                        <img src='<?php echo $path['img']; ?>currency.svg' style='margin-left:2px; margin-bottom:3px;'>
-                        <span class='number' style='margin-left:-2px;'>5</span>
+
+                        <div class='lobby-teams-middle'>
+                            <span class='versus'>vs</span>
+                            <div class='lobby-price-pool'>
+                                <span class='lobby-price-value'>180<img src='<?php echo $path['img']; ?>currency.svg' class='lobby-price-ico'></span>
+                                <span class='lobby-price-text'>PRIZE POOL</span>
+                            </div>
+                        </div>
+
+
+                        <div class='lobby-team-2'>
+                            <div class='team-header'>
+                                <span class='team-ready'><span class='number'>3</span> of <span class='number'>5</span> ready</span>
+                                <h2 class='team-2-name'>Axiom Esports</h2>
+                            </div>
+
+                            <div class='lobby-players-2'>
+                                <div class='lobby-player'>
+                                    <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
+                                    <span class='lobby-player-role-2'>Tank</span>
+                                    <div class='player-ava-wrapper-2'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='lobby-player'>
+                                    <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
+                                    <span class='lobby-player-role-2'>Tank</span>
+                                    <div class='player-ava-wrapper-2'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host' style='visibility:hidden;'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='lobby-player'>
+                                    <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
+                                    <span class='lobby-player-role-2'>Tank</span>
+                                    <div class='player-ava-wrapper-2'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host' style='visibility:hidden;'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='lobby-player'>
+                                    <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
+                                    <span class='lobby-player-role-2'>Tank</span>
+                                    <div class='player-ava-wrapper-2'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host' style='visibility:hidden;'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='lobby-player'>
+                                    <a href='#' class='lobby-player-name-2'>TotalBiscuit</a>
+                                    <span class='lobby-player-role-2'>Tank</span>
+                                    <div class='player-ava-wrapper-2'>
+                                        <div class='player-ava'>
+                                            <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                                        </div>
+                                        <div class='player-host' style='visibility:hidden;'>
+                                            <img src='<?php echo $path['img']; ?>lobby_host.svg' class='player-host-ico'>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class='lobby-player-self'>
+                        <img src='<?php echo $path['img']; ?>lobby_role_bg.png'>
+                        <span class='player-sidebar'></span>
+                    </div>
+                    <div class='lobby-player-other'>
+
                     </div>
                 </div>
-            </a>
-            <div class='suggested-match-skip'>
-                <span class='suggested-match-skip-text'>SKIP</span>
             </div>
         </div>
-    </div>
-</div>
-
-<div class='match-filter'>
-    <span class='sort'>Sort by</span>
-    <a class='sort-link-focused'>Entry</a><img src='<?php echo $path['img']; ?>arrow_down.svg' class='descending'>
-    <a class='sort-link'>Price Pool</a><img src='<?php echo $path['img']; ?>arrow_down.svg' class='descending'>
-    <a class='sort-link'>Avg. Skill</a><img src='<?php echo $path['img']; ?>arrow_down.svg' class='descending'>
-    <a class='sort-link'>Friends</a><img src='<?php echo $path['img']; ?>arrow_down.svg' class='descending' style='padding-right:calc(80% - 430px);'>
-    <div class='view-wrapper'>
-        <span class='view-by'>View By</span>
-        <a href='#' class='view-ico-grid'>&nbsp;</a>
-        <a href='#' class='view-ico-list'>&nbsp;</a>
-    </div>
-</div>
-
-<div class='game-preview-wrapper'>
-<h1 class='game-mode-h1'>5 vs 5</h1>
-<!-- Lobby 1 -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-</div>
+        <!-- Menu -->
+        <nav class='user-menu'>
+            <div class='user-menu-container'>
+                <a href='#' class='user-menu-name'>TotalBiscuit</a>
+                <a href='#' class='user-money'>50.00 <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'></a>
+                <a class='side-menu'><img src='<?php echo $path['img']; ?>hamburger.svg' class='sidebar-menu-ico'></a>
+            </div>
+        </nav>
 
 
+    </div>
 
-<div class='game-preview-wrapper'>
-
-<h1 class='game-mode-h1'>1 vs 1</h1>
-<!-- Lobby 1 -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-<!-- Lobby -->
-<div class='game-preview'>
-    <div class='game-preview-top'>
-        <img src='<?php echo $path['img']; ?>game_preview_bg.png' class='game-preview-bg'>
-        <div class='entry'>
-            <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'>
-            <span class='number'>11 ENTRY</span>
-        </div>
-        <div class='price-pool'>
-            <img src='<?php echo $path['img']; ?>currency.svg' class='price-pool-coins'>
-            <span class='number'>830</span>
-        </div>
-        <div class='avg-skill'>
-            <span class='number' style='font-weight:700; margin-right:4px;'>430</span><span class='number'>AVG SKILL</span>
-        </div>
-    </div>
-    <div class='game-preview-title'>
-        <div class='team-1'>
-            <span class='team-title'>Void Boys</span>
-            <p class='team-count'>4/5</p>
-        </div>
-        <span class='game-preview-vs'>vs.</span>
-        <div class='team-2'>
-            <span class='team-title'>Team Liquid</span>
-            <p class='team-count'>5/5</p>
-        </div>
-    </div>
-</div>
-
-
-
-<div class='footer'>
-    500 online 20 matches
-</div>
-</div>
-</div>
-
-<script type="text/javascript" src="<?php echo $path['js']; ?>games_league.js"></script>
+    <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
 </body>
+
 
 </html>

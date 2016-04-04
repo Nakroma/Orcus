@@ -2296,7 +2296,7 @@ a:focus {
 
 .lobby {
     position: absolute;
-    width: calc(78% - 123px);
+    width: calc(80% - 123px);
     height: 100%;
     top:0;
     opacity:0.0;
@@ -3112,18 +3112,20 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .match-queue-status {
-    position:relative;
+    position:absolute;
     text-align:center;
     z-index:6;
+    left:49vw;
     margin:auto;
-    margin-top:12%;
+    margin-top:13%;
+    top:70%;
     opacity:0;
-        -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.25s;
-    -moz-transition-duration: 0.25s;
-    -o-transition-duration: 0.25s;
-    transition-duration: 0.25s;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
 }
 
 .players-ready {
@@ -3215,7 +3217,7 @@ input[type=number]::-webkit-outer-spin-button {
 .queue-container {
     display:flex;
     justify-content: center;
-    padding-top:20%;
+    padding-top:25vh;
     width:90%;
     margin:auto;
 }
@@ -3335,6 +3337,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sidebar-bot-link {
+    display:inline-block;
         color:#5c636e;
 }
 

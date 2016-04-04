@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <!-- BEGIN # MODAL LOGIN -->
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
@@ -78,7 +77,7 @@
     <!-- END # MODAL LOGIN -->
 
     <div class='sidebar-content-dim'></div>
-        <!-- Menu Open -->
+    <!-- Menu Open -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
         <div class='menu-group-1'>
@@ -95,52 +94,64 @@
         </div>
     </div>
 
-
     <!-- Sidebar -->
     <div class='gd-sidebar'>
-          <img src='bootstrap/img/sidebar_bg.jpg' class='gd-sidebar-bg' id='sidebar'>
-           <div class='sidebar-bottom-links'>
+        <img src='bootstrap/img/sidebar_bg.jpg' class='gd-sidebar-bg' id='sidebar'>
+        <div class='sidebar-bottom-links'>
             <a href='#' class='sidebar-bot-link'>Support </a>|
             <a href='#' class='sidebar-bot-link'>Impressum </a>|
             <a href='#' class='sidebar-bot-link'>Contact Us </a>|
             <a href='#' class='sidebar-bot-link'>Privacy Policy </a>|
-           </div>
-            <div class='header-wrapper'>
-                <img src='bootstrap/img/logo_solo.png' class='heading-icon'>
-                <img src='bootstrap/img/orcus_font.png' class='heading-font'>
-            </div>
-             <div class='header-search'>
-                    <span class='header-search-font'>Search game</span>
-                    <input type='text' class='header-input' placeholder='e.g. Hearthstone'>
-                </div>
+        </div>
+        <div class='header-wrapper'>
+            <img src='bootstrap/img/logo_solo.png' class='heading-icon'>
+            <img src='bootstrap/img/orcus_font.png' class='heading-font'>
+        </div>
+        <div class='header-search'>
+            <span class='header-search-font'>Search game</span>
+            <input type='text' class='header-input' placeholder='e.g. Hearthstone'>
+        </div>
 
-            <div id="ml-menu" class="menu">
-                <button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
-                <div class="menu__wrap">
-                    <ul data-menu="main" class="menu__level">
-                        <li class="menu__item"><a class="menu__link" data-submenu="submenu-1" href="#">MOBAs</a></li>
-                        <li class="menu__item"><a class="menu__link" data-submenu="submenu-2" href="#">Counter Strike</a></li>
-                        <li class="menu__item"><a class="menu__link" href="#">Hearthstone</a></li>
-                        <li class="menu__item"><a class="menu__link" data-submenu="submenu-4" href="#">Call of Duty</a></li>
-                    </ul>
-                    <!-- Submenu 1 -->
-                    <ul data-menu="submenu-1" class="menu__level">
-                        <li class="menu__item"><a class="menu__link" href="#">Dota 2</a></li>
-                        <li class="menu__item"><a class="menu__link" href="#">League of Legends</a></li>
-                    </ul>
-                    <!-- Submenu 2 -->
-                    <ul data-menu="submenu-2" class="menu__level">
-                        <li class="menu__item"><a class="menu__link" href="#">CS:GO</a></li>
-                        <li class="menu__item"><a class="menu__link" href="#">CSS</a></li>
-                    </ul>
-                    <!-- Submenu 4 -->
-                    <ul data-menu="submenu-4" class="menu__level">
-                        <li class="menu__item"><a class="menu__link" href="#">Black Ops 3</a></li>
-                        <li class="menu__item"><a class="menu__link" href="#">Advanced Warfare</a></li>
-                    </ul>
-                </div>
+        <div id="ml-menu" class="menu">
+            <button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+            <div class="menu__wrap">
+                <ul data-menu="main" class="menu__level">
+                    <li class="menu__item"><a class="menu__link" data-submenu="submenu-1" href="#">MOBAs</a></li>
+                    <li class="menu__item"><a class="menu__link" data-submenu="submenu-2" href="#">Counter Strike</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Hearthstone</a></li>
+                    <li class="menu__item"><a class="menu__link" data-submenu="submenu-4" href="#">Call of Duty</a></li>
+                </ul>
+                <!-- Submenu 1 -->
+                <ul data-menu="submenu-1" class="menu__level">
+                    <li class="menu__item"><a class="menu__link" href="#">Dota 2</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">League of Legends</a></li>
+                </ul>
+                <!-- Submenu 2 -->
+                <ul data-menu="submenu-2" class="menu__level">
+                    <li class="menu__item"><a class="menu__link" href="#">CS:GO</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">CSS</a></li>
+                </ul>
+                <!-- Submenu 4 -->
+                <ul data-menu="submenu-4" class="menu__level">
+                    <li class="menu__item"><a class="menu__link" href="#">Black Ops 3</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Advanced Warfare</a></li>
+                </ul>
             </div>
         </div>
+    </div>
+
+    <!-- Game Bar -->
+    <div class="gd-gamebar">
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_dota.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_csgo.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_hs.png">
+        </a>
+    </div>
 
     <div class="content">
         <div class='game-groups'>
@@ -253,7 +264,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class='game-g-1-container hearthstone'>
                     <img src='bootstrap/img/hearthstone_game_full_bg.png' class='game-bg hearthstone-bg'>
                     <a href='#' class='game-g-1'>
@@ -297,7 +307,7 @@
             <nav class='user-menu'>
                 <div class='user-menu-container'>
                     <a href='#' class='user-menu-name'>TotalBiscuit</a>
-                    <a href='#' class='user-money'>50 <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'></a>
+                    <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency.svg' style='margin-bottom:3px;'></a>
                     <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
                 </div>
             </nav>

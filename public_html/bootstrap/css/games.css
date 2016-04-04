@@ -816,7 +816,7 @@ a:hover {
 
 .content {
     margin-left:20vw;
-    max-width:80vw;
+    max-width:calc(80vw - 123px);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -1249,20 +1249,34 @@ a:hover {
 
 /* Game Bar */
 .gd-gamebar {
-    position:fixed;
-    right:0px;
-    top:0px;
-    height:100%;
+    position: fixed;
+    top:0;
+    right: 0px;
+    height: 100%;
     width: 123px;
     background-color: #16191e;
     text-align: center;
-
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+    z-index:4;
 }
 .gd-gamebar .gd-game:first-of-type {
-    margin-top: 58px;
+    margin-top: 47px;
 }
 .gd-gamebar .gd-game {
+        display: inline-block;
     margin-top: 45px;
+    width: 100%;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
 }
 
 
@@ -1270,7 +1284,7 @@ a:hover {
     position: absolute;
     left: -0%;
     height: 100%;
-    opacity: 0.40;
+    opacity: 0.0;
     z-index: -1;
 }
 
@@ -1289,12 +1303,12 @@ a:hover {
 }
 
 .menu-open {
-    position:fixed;
-    right:-400px;
-    height:100%;
-    width:400px;
-    top:0px;
-    background: #0e1012;
+    position: absolute;
+    right: -300px;
+    height: 100%;
+    width: 400px;
+    background: #22262c;
+    top:0;
     z-index:4;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -1394,7 +1408,7 @@ a:hover {
 
 .user-menu {
     position:fixed;
-    right:9%;
+    right: 187px;
     top:49px;
     z-index:5;
         -webkit-transition-timing-function: ease;
@@ -1466,7 +1480,7 @@ a:hover {
     min-width:100%;
     min-height:100%;
     z-index:-1;
-    transition-delay:0.15s;
+    opacity:0.5;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -1557,11 +1571,13 @@ a:hover {
 }
 
 .game-stats-value {
+    display:inline-block;
     color: white;
     font-family: 'titillium web';
     font-weight: 300;
-    font-size: 24px;
-
+    font-size: 20px;
+    margin-top:10px;
+    padding-bottom:3px;
 }
 
 .game-stats-property {
@@ -1712,6 +1728,7 @@ margin-top:20px;
         display:none;
     }
     .menu-open{
+        right:-350px;
         width:330px;
     }
     .menu-link{
@@ -1768,6 +1785,7 @@ margin-top:20px;
 }
 
 .sidebar-bot-link {
+    display:inline-block;
     color:#5c636e;
 }
 
@@ -1786,3 +1804,12 @@ margin-top:20px;
 }
 
 
+
+.gd-game:hover {
+        opacity:0.5;
+}
+
+.dim-visible {
+        opacity:1;
+    pointer-events:all;
+}

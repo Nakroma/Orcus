@@ -259,6 +259,7 @@ function ShowMatchFilters() {
     $('.gd-gamebar').css('right', '200px');
     $('.sidebar-content-dim').addClass('dim-visible');
     $('.user-menu').css('opacity', '0');
+    $('.match-queue-status').css('left', '36vw');
 };
 
 $('.queue-create').click(ShowMatchFilters);
@@ -278,6 +279,7 @@ function HideMatchFilters() {
     $('.gd-gamebar').css('right', '');
     $('.sidebar-content-dim').removeClass('dim-visible');
     $('.user-menu').css('opacity', '1');
+    $('.match-queue-status').css('left', '');
 }
 
 $('.queue-start-cancel').click(HideMatchFilters);

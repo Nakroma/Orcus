@@ -1616,7 +1616,7 @@ a:focus {
     height: 55px;
     width: 55px;
     border-radius: 50px;
-    border: 2px solid #42d275;
+    border: 2px solid #00b4ff;
     background: #4c525e url('../img/ava_sample_4.png') no-repeat center;
     background-size: 100%;
     margin-left: 6px;
@@ -3625,8 +3625,8 @@ input[type=number]::-webkit-outer-spin-button {
 .news-slideshow {
     position: relative;
     height: calc(50vh - 56.5px);
-    width: 100%;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .slideshow-img {
@@ -3681,6 +3681,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: auto;
     left: 0;
     right: 0;
+    z-index:1;
 }
 
 .pagination-active {
@@ -3785,7 +3786,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .img01 {
-    margin: -5% 0;
+    margin: -12% 0;
 }
 
 .top-ntf {
@@ -3823,7 +3824,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 29.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(11, 13, 15, 0.65);
+    background: rgba(11, 13, 15, 0.70);
     height: calc(100vh - 113px);
 }
 
@@ -4107,6 +4108,7 @@ input[type=number]::-webkit-outer-spin-button {
     top:-3px;
     margin-left:5px;
     color: #8791a0;
+    cursor:pointer;
 }
 
 .squad-ava-self-inf {
@@ -4130,4 +4132,25 @@ display:inline-block;
     float:right;
     right:8%;
     cursor:pointer;
+}
+
+.squad-slot-taken {
+    border:2px solid #00b4ff;
+}
+
+.slideshow-news-wrapper {
+    display:inline-block;
+    width:66vw;
+}
+
+.slideshow-news-wrapper:first-of-type {
+    margin-left:-66vw;
+}
+
+.img02 {
+    margin: 0 -7%;
+}
+
+.img03 {
+    margin: -0% -0.55%;
 }

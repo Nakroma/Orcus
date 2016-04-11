@@ -1,63 +1,21 @@
-if (/Android|webOS|iPhone|iPad|Chrome|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script src="bootstrap/js/parallax_games.js"></script>');
-}
-
-/* Hide Sidebar */
-$(".sidebar-hide").click(function () {
-    if ($('.sidebar-hide').is('#sidebar-visible')) {
-        $('.sidebar-hide').removeAttr('id').attr('id', "sidebar-hidden");
-        $('body').addClass('sidebar-hidden');
-        if ($('#chat-option-2').is('.lobby-active')) {
-            $('.lobby').css('width', '100%');
-        } else {
-            $('.lobby').css('width', '100%').css('margin-left', '-100%');
-        };
-    } else {
-        $('.sidebar-hide').removeAttr('id').attr('id', "sidebar-visible");
-        $('body').removeClass('sidebar-hidden');
-    }
+/* Show Icon Description */
+$("#friends, #friends-desc").hover(function () {
+    $("#friends-desc").removeClass("desc-hidden");
+}, function () {
+    $("#friends-desc").addClass("desc-hidden");
+});
+$("#invest, #invest-desc").hover(function () {
+    $("#invest-desc").removeClass("desc-hidden-2");
+}, function () {
+    $("#invest-desc").addClass("desc-hidden-2");
+});
+$("#tournament, #tournament-desc").hover(function () {
+    $("#tournament-desc").removeClass("desc-hidden-3");
+}, function () {
+    $("#tournament-desc").addClass("desc-hidden-3");
 });
 
 
-/* Toggle Chat Group */
-$('#chat-option-2').click(function () {
-    if ($(this).hasClass('chat-inactive') && $(this).hasClass('lobby-active')) {
-        $(this).text('Lobby Chat').removeClass('chat-inactive').addClass('chat-active-l');
-        $('.squad-chat-title').text('Squad Chat');
-    } else {
-        if ($(this).hasClass('chat-active-l') && $(this).hasClass('lobby-active')) {
-            $(this).text('Squad Chat');
-            $('.squad-chat-title').text('Lobby Chat');
-            $(this).removeClass('chat-active-l').addClass('chat-inactive');
-        } else {
-            if ($(this).hasClass('chat-inactive')) {
-                $(this).text('Squad Chat');
-                $('.squad-chat-title').text('All Chat');
-                $(this).removeClass('chat-inactive');
-                $(this).addClass('chat-active');
-            } else {
-                $(this).text('All Chat');
-                $('.squad-chat-title').text('Squad Chat');
-                $(this).removeClass('chat-active');
-                $(this).addClass('chat-inactive');
-            }
-        };
-    };
-});
-
-/* Squad Queue */
-$(".queue-pub-squads").click(function () {
-    $('.queue-bg').css('width', '1200px').css('height', '1200px');
-    $('.queue-pub-squads').css('display', 'none');
-    $('.show-pub-squads').css('display', 'none');
-    setTimeout(function () {
-        $('.queue-status').css('opacity', '1');
-        $('.queue-loading').css('opacity', '1');
-    }, 300);
-    $('.queue-status').text('Finding Squad...');
-    $('.queue-loading-container').css('display', 'block');
-    $('.queue-quit').css('display', 'block');
-});
 
 $(".queue-quit").click(queueQuit);
 // Quit function
@@ -86,26 +44,18 @@ function queueQuit() {
 $(".sidebar-menu-ico").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
         $('.menu-open').css('right', '');
-        $('.gd-sidebar').css('margin-left', '');
         $('.content').css('margin-left', '');
+        $('.content-bg').css('margin-left', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
-        if ($('.sidebar-hide').is('#sidebar-hidden')) {
-            $('.sidebar-menu-ico').attr('id', "menu-visible");
-            $('.menu-open').css('right', '100px');
-            $('.content').css('margin-left', '4.15%');
-            $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
-            $('.sidebar-content-dim').addClass('dim-visible');
-        } else {
-            $('.sidebar-menu-ico').attr('id', "menu-visible");
-            $('.menu-open').css('right', '100px');
-            $('.gd-sidebar').css('margin-left', '-230px');
-            $('.content').css('margin-left', 'calc(28.2% - 350px)');
-            $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
-            $('.sidebar-content-dim').addClass('dim-visible');
-        };
+        $('.sidebar-menu-ico').attr('id', "menu-visible");
+        $('.menu-open').css('right', '100px');
+        $('.content').css('margin-left', '-12%');
+        $('.content-bg').css('margin-left', '3%');
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
+        $('.sidebar-content-dim').addClass('dim-visible');
     };
 });
 
@@ -114,6 +64,7 @@ $(".sidebar-content-dim").click(function () {
         $('.menu-open').css('right', '');
         $('.gd-sidebar').css('margin-left', '');
         $('.content').css('margin-left', '');
+        $('.content-bg').css('margin-left', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
@@ -224,7 +175,7 @@ $(".game-mode-box").click(function () {
             $('.entry-child:contains(' + entry + ')').removeClass('entry-visible');
             setTimeout(function () {
                 $('.entry-child:contains(' + entry + ')').remove();
-            }, 105);
+            }, 125);
         };
     } else {
         $(this).addClass('active');
@@ -252,37 +203,29 @@ $(".game-mode-box").click(function () {
     };
 });
 
+
+
+
+
 function ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
-    $('.gd-sidebar').css('margin-left', '-230px');
-    $('.content').css('margin-left', 'calc(28.2% - 350px)');
+    $('.content').css('margin-left', '-12%');
+    $('.content-bg').css('margin-left', '3%');
     $('.gd-gamebar').css('right', '200px');
     $('.sidebar-content-dim').addClass('dim-visible');
     $('.user-menu').css('opacity', '0');
     $('.match-queue-status').css('left', '36vw');
 };
 
-$('.queue-create').click(ShowMatchFilters);
-$('#find-match').click(function () {
-    $('.sidebar-queue-start').text('Find Match');
-    ShowMatchFilters();
-});
-$('#create-lobby').click(function () {
-    $('.sidebar-queue-start').text('Create Lobby');
-    ShowMatchFilters();
-});
-
 function HideMatchFilters() {
     $('.sidebar-lobby-options').addClass('filters-hidden');
-    $('.gd-sidebar').css('margin-left', '');
     $('.content').css('margin-left', '');
+    $('.content-bg').css('margin-left', '');
     $('.gd-gamebar').css('right', '');
     $('.sidebar-content-dim').removeClass('dim-visible');
     $('.user-menu').css('opacity', '1');
     $('.match-queue-status').css('left', '');
 }
-
-$('.queue-start-cancel').click(HideMatchFilters);
 
 function ShowQueuePlayers() {
     $('.match-queue-status').addClass('status-visible');
@@ -317,13 +260,43 @@ function ShowLobby() {
     }, 4200);
 }
 
+function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('chat-hrz').scrollLeft -= (delta * 60);
+        e.preventDefault();
+}
+if (document.getElementById('chat-hrz').addEventListener) {
+    // IE9, Chrome, Safari, Opera
+    document.getElementById('chat-hrz').addEventListener("mousewheel", scrollHorizontally, false);
+    // Firefox
+    document.getElementById('chat-hrz').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+} else {
+    // IE 6/7/8
+    document.getElementById('chat-hrz').attachEvent("onmousewheel", scrollHorizontally);
+}
+
+
+
 $(".sidebar-queue-start").click(function () {
     if ($(this).hasClass('queue-ready')) {
         if ($('.match-queue-status').hasClass('status-visible')) {
             HideQueuePlayers();
+            $('.sidebar-queue-start').addClass('animated pulse queue-ready')
+            $('.sidebar-queue-start').text('Find Match');
         } else {
             ShowQueuePlayers();
+            $('.sidebar-queue-start').removeClass('animated pulse queue-ready')
+            $('.sidebar-queue-start').text('Cancel Queue');
         };
     } else {};
-
+});
+$('.queue-create').click(ShowMatchFilters);
+$('.menu-play').click(function () {
+    $('.sidebar-queue-start').text('Find Match');
+    ShowMatchFilters();
+});
+$('.menu-create').click(function () {
+    $('.sidebar-queue-start').text('Create Lobby');
+    ShowMatchFilters();
 });

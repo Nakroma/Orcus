@@ -141,11 +141,13 @@ li a {
     color: white;
     text-align: center;
     margin-top: 30vh;
+    margin-bottom:15px;
 }
 
 .header .container h2 {
+    display:inline-block;
     font-family: 'raleway';
-    margin-top: 15px;
+    margin-top: -15px;
     font-weight: 200;
     color: white;
     font-size: 30px;

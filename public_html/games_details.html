@@ -13,9 +13,10 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/jquery.knob.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/greensock/minified/TweenMax.min.js"></script>
+    <script src='bootstrap/js/gallery.js'></script>
+    <script src='bootstrap/js/motionblur.js'></script>
+    <script src='bootstrap/js/TweenMax.min.js'></script>
 </head>
 
 <!-- BEGIN # MODAL LOGIN -->
@@ -73,7 +74,16 @@
 <!-- END # MODAL LOGIN -->
 
 <body class=''>
+    <!-- Motion Blur -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+        <defs>
+            <filter id="blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+            </filter>
+        </defs>
+    </svg>
     <div class='sidebar-content-dim'></div>
+
     <!-- Menu Open -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
@@ -165,6 +175,34 @@
 
         <div class='main-content'>
             <div class='news-slideshow'>
+                <ul class="gallery-pictures">
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01' alt='img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02' alt="img02">
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01' alt='img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02' alt="img02">
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01' alt='img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                </ul>
+                <!--
                 <div class='slideshow-news-wrapper' id='news01'>
                     <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
                     <h2 class='slideshow-category'>Tournament News</h2>
@@ -189,7 +227,7 @@
                     <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
                     <h2 class='slideshow-category'>Tournament News</h2>
                     <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div>
+                </div> -->
 
 
                 <div class='slide-bot-shade'></div>
@@ -198,7 +236,7 @@
                         <div class='slide-pagination-circle'></div>
                     </div>
                     <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle pagination-active'></div>
+                        <div class='slide-pagination-circle'></div>
                     </div>
                     <div class='pagination-size-incr'>
                         <div class='slide-pagination-circle'></div>
@@ -678,8 +716,6 @@
                 <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
             </div>
         </nav>
-
-
     </div>
 
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>

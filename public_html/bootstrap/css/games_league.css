@@ -3627,6 +3627,8 @@ input[type=number]::-webkit-outer-spin-button {
     height: calc(50vh - 56.5px);
     overflow: hidden;
     white-space: nowrap;
+    background:black url('../img/kappa.png') center no-repeat;
+    background-size:10%;
 }
 
 .slideshow-img {
@@ -3638,7 +3640,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .slide-bot-shade {
     position: absolute;
-    height: 80px;
+    height: 120px;
     width: 100%;
     bottom: 0;
     z-index: 1;
@@ -3786,7 +3788,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .img01 {
-    margin: -12% 0;
+    margin: -5% 0;
 }
 
 .top-ntf {
@@ -4153,4 +4155,40 @@ display:inline-block;
 
 .img03 {
     margin: -0% -0.55%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gallery-pictures {
+    margin-top:0;
+    margin-left:-40px;
+}
+
+.gallery-picture {
+    width: 66vw;
+    position:relative;
+    height:100%;
+    overflow:hidden;
+    margin-right:-3px;
+    height:calc(50vh - 56.5px);
+    display: inline-block;
+    cursor: -webkit-grab;
+}
+
+.gallery-pagination-dot-selected {
+    background: #7D87AE;
 }

@@ -4140,38 +4140,13 @@ display:inline-block;
     border:2px solid #00b4ff;
 }
 
-.slideshow-news-wrapper {
-    display:inline-block;
-    width:66vw;
-}
-
-.slideshow-news-wrapper:first-of-type {
-    margin-left:-66vw;
-}
-
 .img02 {
     margin: 0 -7%;
 }
 
 .img03 {
-    margin: -0% -0.55%;
+    margin: 0% 0%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .gallery-pictures {
     margin-top:0;
@@ -4183,7 +4158,7 @@ display:inline-block;
     position:relative;
     height:100%;
     overflow:hidden;
-    margin-right:-3px;
+    margin-right:-3.5px;
     height:calc(50vh - 56.5px);
     display: inline-block;
     cursor: -webkit-grab;

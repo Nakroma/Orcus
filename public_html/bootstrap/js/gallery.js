@@ -17,7 +17,7 @@ $(document).ready(function () {
         speedLog = [],
         speedLogLimit = 5,
         minBlur = 2,
-        maxBlur = 200,
+        maxBlur = 500,
         blurMultiplier = 0.25,
         lastBlur = 0,
         dragging = false,
@@ -53,7 +53,8 @@ $(document).ready(function () {
     function setBlur(v) {
         if (v < minBlur) v = 0;
         if (v > maxBlur) v = maxBlur;
-        if (v != lastBlur) { $("#blur").get(0).firstElementChild.setAttribute("stdDeviation", v + ",0");
+        if (v != lastBlur) {
+            $("#blur").get(0).firstElementChild.setAttribute("stdDeviation", v + ",0");
         }
         lastBlur = v;
     }
@@ -69,6 +70,7 @@ $(document).ready(function () {
                 setGalleryPos(i);
         });
         $(".pagination-size-incr").eq(i).click(function () {
+            GalPos = i;
             setGalleryPos(i);
         })
     });
@@ -76,7 +78,7 @@ $(document).ready(function () {
     function setGalleryPos(v, anim) {
         if (typeof anim == "undefined") anim = true;
         stopMomentum();
-        TweenMax.to(galleryPos, anim ? 1 : 0, {
+        TweenMax.to(galleryPos, anim ? 1.4 : 0, {
             x: -v * imageTotalWidth,
             ease: Quint.easeOut,
             onUpdate: updateGalleryPos,
@@ -184,14 +186,19 @@ $(document).ready(function () {
 
 
 
-    window.setInterval(function galleryAutoUpdate(){
-        if (GalPos == 4){
-            GalPos = 0;
+    window.setInterval(function galleryAutoUpdate() {
+        if (dragging) {
         } else {
-            GalPos = GalPos + 1;
+            GalPos = currentImage;
+            if (GalPos == 4) {
+                GalPos = 0;
+            } else {
+                GalPos = GalPos + 1;
+            };
+            setGalleryPos(GalPos);
+            console.log(GalPos);
         };
-        setGalleryPos(GalPos);
-        console.log(GalPos);
+        console.log(currentImage);
     }, 5000);
 
 })

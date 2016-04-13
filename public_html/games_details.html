@@ -11,7 +11,6 @@
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
-    <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src='bootstrap/js/gallery.js'></script>
@@ -22,7 +21,6 @@
 <!-- BEGIN # MODAL LOGIN -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class='container row' style='margin-top:22vh; margin-right: auto; margin-left: auto;'>
-
         <!-- Left -->
         <div class='col-md-4 login-left'>
             <img src='bootstrap/img/login-bg.png' class='login-bg'>
@@ -34,7 +32,6 @@
             <br>
             <a href='#' class='sign-up-swap'>Log me in</a>
         </div>
-
         <!-- Right-->
         <div class='col-md-8 login-right'>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -49,13 +46,13 @@
             <span class="input input--jiro">
 					<input class="input__field input__field--jiro" type="text" required/>
 					<label class="input__label input__label--jiro">
-						<span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
+				<span class="input__label-content input__label-content--jiro">E-Mail <span class='input-content'>entered.email@gmail.com</span></span>
             </label>
             </span>
             <span class="input input--jiro">
 					<input class="input__field input__field--jiro" type="password" required/>
 					<label class="input__label input__label--jiro">
-						<span class="input__label-content input__label-content--jiro" >Password</span>
+				<span class="input__label-content input__label-content--jiro" >Password</span>
             </label>
             </span>
             <br>
@@ -74,16 +71,8 @@
 <!-- END # MODAL LOGIN -->
 
 <body class=''>
-    <!-- Motion Blur -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
-        <defs>
-            <filter id="blur">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
-            </filter>
-        </defs>
-    </svg>
-    <div class='sidebar-content-dim'></div>
 
+    <div class='sidebar-content-dim'></div>
     <!-- Menu Open -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
@@ -172,8 +161,16 @@
             </div>
         </div>
 
-
+        <!-- Left Side -->
         <div class='main-content'>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+                <defs>
+                    <filter id="blur">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+                    </filter>
+                </defs>
+            </svg>
+
             <div class='news-slideshow'>
                 <ul class="gallery-pictures">
                     <li class="gallery-picture">
@@ -202,34 +199,6 @@
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
                 </ul>
-                <!--
-                <div class='slideshow-news-wrapper' id='news01'>
-                    <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
-                    <h2 class='slideshow-category'>Tournament News</h2>
-                    <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div>
-                <div class='slideshow-news-wrapper' id='news02'>
-                    <img src='bootstrap/img/league_aaa_header_img.jpg' class='slideshow-img img02'>
-                    <h2 class='slideshow-category'>Tournament News</h2>
-                    <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div>
-                                <div class='slideshow-news-wrapper' id='news03'>
-                    <img src='bootstrap/img/league_bbb_header_img.jpg' class='slideshow-img img03'>
-                    <h2 class='slideshow-category'>Tournament News</h2>
-                    <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div>
-                                <div class='slideshow-news-wrapper' id='news04'>
-                    <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
-                    <h2 class='slideshow-category'>Tournament News</h2>
-                    <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div>
-                                <div class='slideshow-news-wrapper' id='news05'>
-                    <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
-                    <h2 class='slideshow-category'>Tournament News</h2>
-                    <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                </div> -->
-
-
                 <div class='slide-bot-shade'></div>
                 <div class='slide-pagination'>
                     <div class='pagination-size-incr'>
@@ -330,6 +299,9 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Right Side / Chat -->
         <div class='chat'>
             <div class='chat-groups'>
                 <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>

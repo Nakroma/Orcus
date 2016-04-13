@@ -3797,8 +3797,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 4vh;
     padding: 5px 10px;
     max-width: 55px;
-    border: solid 1px #42d275;
-    color: #42d275;
+    border: solid 1px #00b4ff;
+    color: #00b4ff;
     font-family: 'titillium web';
 }
 
@@ -4145,12 +4145,14 @@ display:inline-block;
 }
 
 .img03 {
-    margin: 0% 0%;
+    margin: -3% 0%;
 }
 
 .gallery-pictures {
     margin-top:0;
     margin-left:-40px;
+list-style-type:none;
+    filter: url('#blur');
 }
 
 .gallery-picture {
@@ -4161,9 +4163,16 @@ display:inline-block;
     margin-right:-3.5px;
     height:calc(50vh - 56.5px);
     display: inline-block;
-    cursor: -webkit-grab;
 }
 
 .gallery-pagination-dot-selected {
     background: #7D87AE;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
 }

@@ -196,9 +196,7 @@ $(document).ready(function () {
                 GalPos = GalPos + 1;
             };
             setGalleryPos(GalPos);
-            console.log(GalPos);
         };
-        console.log(currentImage);
     }, 5000);
 
 })

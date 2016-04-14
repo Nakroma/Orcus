@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -174,27 +174,27 @@
             <div class='news-slideshow'>
                 <ul class="gallery-pictures">
                     <li class="gallery-picture">
-                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01' alt='img01'>
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
                         <h2 class='slideshow-category'>Tournament News</h2>
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
                     <li class="gallery-picture">
-                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02' alt="img02">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
                         <h2 class='slideshow-category'>Tournament News</h2>
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
                     <li class="gallery-picture">
-                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01' alt='img01'>
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
                         <h2 class='slideshow-category'>Tournament News</h2>
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
                     <li class="gallery-picture">
-                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02' alt="img02">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
                         <h2 class='slideshow-category'>Tournament News</h2>
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
                     <li class="gallery-picture">
-                        <img src='bootstrap/img/league_bbb_header_img.jpg' class='slideshow-img img03' alt='img01'>
+                        <img src='bootstrap/img/league_bbb_header_img.jpg' class='slideshow-img img03'>
                         <h2 class='slideshow-category'>Tournament News</h2>
                         <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
                     </li>
@@ -307,76 +307,53 @@
                 <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>
                 <div class='chats-groups-wrapper'>
                     <div class='chat-hrz-wr' id='chat-hrz'>
-                        <div class='chat-group'>
-                            <span class='chat-group-title'>
-                        All Chat
-                    </span>
-                            <br>
-                            <span class='chat-group-desc'>
-                        590 online
-                    </span>
+                        <div class='chat-group chat-group-active'>
+                            <span class='chat-group-title'>All Chat</span>
+                            <br><span class='chat-group-desc'>590 online</span>
                         </div>
-                        <div class='chat-group chat-group-hidden'>
+                        <div class='chat-group'>
                             <div class='chat-group-td'>
-                                <span class='chat-group-title'>
-                        Squad
-                    </span>
+                                <span class='chat-group-title'>Squad</span>
                                 <br>
-                                <span class='chat-group-desc'>
-                        Main Menu
-                    </span>
+                                <span class='chat-group-desc'>Main Menu</span>
                             </div>
                             <div class='chat-new-msgs msgs-invis'>
                                 5
                             </div>
                         </div>
-                        <div class='chat-group chat-group-hidden'>
+                        <div class='chat-group'>
                             <div class='chat-group-td'>
-                                <span class='chat-group-title'>
-                        Dendi
-                    </span>
+                                <span class='chat-group-title'>Dendi</span>
                                 <br>
-                                <span class='chat-group-desc'>
-                        Idle
-                    </span>
+                                <span class='chat-group-desc'>Idle</span>
                             </div>
                             <div class='chat-new-msgs '>
                                 5
                             </div>
                         </div>
-                        <div class='chat-group chat-group-hidden'>
+                        <div class='chat-group'>
                             <div class='chat-group-td'>
-                                <span class='chat-group-title'>
-                        FatFuckMoh
-                    </span>
+                                <span class='chat-group-title'>FatFuckMoh</span>
                                 <br>
-                                <span class='chat-group-desc'>
-                        Main Menu
-                    </span>
+                                <span class='chat-group-desc'>Main Menu</span>
                             </div>
                             <div class='chat-new-msgs msgs-invis'>
                                 5
                             </div>
                         </div>
-                        <div class='chat-group chat-group-hidden'>
-                            <div class='chat-group-td'>
-                                <span class='chat-group-title'>
-                        Squad
-                    </span>
-                                <br>
-                                <span class='chat-group-desc'>
-                        Main Menu
-                    </span>
-                                <div class='chat-new-msgs msgs-invis'>
-                                    5
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-right'>
-                <img src='bootstrap/img/small_menu_ico.svg' class='chat-menu-ico'>
-
+                <div class='chat-menu-ico-wrapper'>
+                        <img src='bootstrap/img/small_menu_ico.svg' class='chat-menu-ico'>
+                </div>
+                <div class='chat-sub-menu-options'>
+                    <div class='chat-pm'>
+                        <img src='bootstrap/img/chat_add.png' class='chat-add'>
+                        <input type='text' placeholder='Enter player to chat with' class='pm-friend-input'>
+                        <div class='sidebar-entry-error error-hidden' id='chat-group-error'>Not Found</div>
+                    </div>
+                </div>
                 <div class='bottom-border-indicator'>
                     <div class='triangle-border-left'></div>
                     <div class='triangle'></div>
@@ -689,7 +666,7 @@
             </div>
         </nav>
     </div>
-
+    <script src='bootstrap/js/games_chat.js'></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
 </body>
 

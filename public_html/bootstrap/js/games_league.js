@@ -207,6 +207,7 @@ $(".game-mode-box").click(function () {
 
 
 
+
 function ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
     $('.content').css('margin-left', '-12%');
@@ -259,24 +260,6 @@ function ShowLobby() {
         }, 1200);
     }, 4200);
 }
-
-function scrollHorizontally(e) {
-        e = window.event || e;
-        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-        document.getElementById('chat-hrz').scrollLeft -= (delta * 60);
-        e.preventDefault();
-}
-if (document.getElementById('chat-hrz').addEventListener) {
-    // IE9, Chrome, Safari, Opera
-    document.getElementById('chat-hrz').addEventListener("mousewheel", scrollHorizontally, false);
-    // Firefox
-    document.getElementById('chat-hrz').addEventListener("DOMMouseScroll", scrollHorizontally, false);
-} else {
-    // IE 6/7/8
-    document.getElementById('chat-hrz').attachEvent("onmousewheel", scrollHorizontally);
-}
-
-
 
 $(".sidebar-queue-start").click(function () {
     if ($(this).hasClass('queue-ready')) {

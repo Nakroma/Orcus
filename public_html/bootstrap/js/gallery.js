@@ -17,7 +17,7 @@ $(document).ready(function () {
         speedLog = [],
         speedLogLimit = 5,
         minBlur = 2,
-        maxBlur = 500,
+        maxBlur = 200,
         blurMultiplier = 0.25,
         lastBlur = 0,
         dragging = false,
@@ -61,7 +61,9 @@ $(document).ready(function () {
 
     $galleryPictures.css({
         webkitFilter: "url('#blur')",
-        filter: "url('#blur')"
+        /* filter: "url('#blur')"
+        //Not Working in Firefox?? becomes invisible
+        */
     });
     $galleryPicture.each(function (i) {
         var cur = $(this);

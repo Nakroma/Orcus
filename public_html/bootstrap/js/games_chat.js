@@ -1,3 +1,8 @@
+jQuery(document).ready(function () {
+    jQuery("time.timeago").timeago();
+});
+
+
 /* Horizontal scroll for chat groups */
 function scrollHorizontally(e) {
     e = window.event || e;
@@ -21,6 +26,7 @@ function subMenuChatHide() {
         $('.chat-groups').removeClass('chat-groups-hidden');
     } else {
         $('.chat-groups').addClass('chat-groups-hidden');
+        $('.pm-friend-input').focus();
     }
 }
 
@@ -91,7 +97,9 @@ $(".pm-friend-input").keypress(function (e) {
                 var sameNameGroup = $("span:contains('" + groupName + "')")
                 $('.chat-group-active').removeClass('chat-group-active');
                 sameNameGroup.parents(".chat-group").addClass('chat-group-active');
-                $('#chat-hrz').animate({'scrollLeft': sameNameGroup}, 800);
+                $('#chat-hrz').animate({
+                    'scrollLeft': sameNameGroup
+                }, 800);
                 $('.chat-groups').removeClass('chat-groups-hidden');
             }
         }
@@ -106,4 +114,74 @@ $('#chat-hrz').on("click", ".chat-group", function () {
         $('.chat-group-active').removeClass('chat-group-active');
         $(this).addClass('chat-group-active');
     }
+});
+
+
+
+
+
+
+/* Create Chat Post */
+function createPost() {
+
+    var username = $('.squad-self-name').text();
+    var date = new Date();
+    date.toISOString();
+    var inputVal = $('.chat-input-text').val();
+
+    var container = $("<div>");
+    container.addClass("sidebar-chat-post");
+
+    var chatAvaWr = $("<div>");
+    chatAvaWr.addClass("chat-ava");
+    container.append(chatAvaWr);
+
+    var avaImg = $("<img>");
+    avaImg.attr("src", "bootstrap/img/ava_sample_4.png");
+    avaImg.addClass("chat-ava-img");
+    chatAvaWr.append(avaImg);
+
+    var chatPostContainer = $("<div>")
+    chatPostContainer.addClass("chat-post-content");
+    container.append(chatPostContainer);
+
+    var chatInfo = $("<div>");
+    chatInfo.addClass("chat-info");
+    chatPostContainer.append(chatInfo);
+
+    var usernameContainer = $("<a>");
+    usernameContainer.text(username);
+    usernameContainer.attr("href", "#")
+    usernameContainer.addClass("sidebar-chat-username");
+    chatInfo.append(usernameContainer);
+
+    var postDate = $("<time>");
+    postDate.addClass("timeago sidebar-chat-date");
+    postDate.attr("datetime", date)
+    chatInfo.append(postDate);
+
+    var chatPost = $("<div>");
+    chatPost.addClass("sidebar-chat-message");
+    chatPost.text(inputVal);
+    chatPostContainer.append(chatPost);
+
+    var wrapper = container;
+    $('.chat-scroll').append(wrapper);
+    $(".chat-scroll").animate({
+        scrollTop: $('.chat-scroll').prop("scrollHeight")
+    }, 400);
+};
+
+$(".chat-input-text").keypress(function (e) {
+    if (e.which == 13) {
+        createPost();
+        jQuery("time.timeago").timeago();
+        $(".chat-input-text").val('');
+    };
+});
+
+$(".send-ico").click(function () {
+    createPost();
+    jQuery("time.timeago").timeago();
+    $(".chat-input-text").val('');
 });

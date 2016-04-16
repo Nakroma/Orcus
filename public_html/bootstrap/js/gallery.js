@@ -44,8 +44,10 @@ $(document).ready(function () {
 
 
     function updateOldVar(a) {
-        window.imageWidth = a;
+        imageWidth = a;
+        imageTotalWidth = imageWidth + imageSpacing;
         updateGalleryPos();
+        setGalleryPos(0);
     }
 
 

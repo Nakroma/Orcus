@@ -1604,7 +1604,7 @@ a:focus {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    margin-left: -25px;
+    margin-left: -25.5px;
     top: -7.5px;
 }
 
@@ -1882,6 +1882,8 @@ a:focus {
 }
 
 .sidebar-chat-username {
+    display:inline-block;
+    vertical-align:top;
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -1898,17 +1900,25 @@ a:focus {
 }
 
 .sidebar-chat-message {
-    display: inline-block;
-    color: #8791a0;
+    color: white;
     letter-spacing: 0.025em;
     margin-top: 2px;
+    left:0;
+    word-break: break-all;
+    width:calc(26vw - 123px);
 }
 
 .sidebar-chat-date {
     color: #788293;
     font-family: 'segoe ui';
     font-weight: 400;
-    margin-left: 12px;
+    font-size:14px;
+    margin-left: 7px;
+    margin-top:1px;
+    display:inline-block;
+    vertical-align: top;
+    padding-left:7px;
+    height:18px;
 }
 
 .squad-chat-title {
@@ -1963,8 +1973,8 @@ a:focus {
     width: 60%;
 }
 
-.squad-chat-post {
-    padding-bottom: 30px;
+.sidebar-chat-post {
+    padding-bottom: 40px;
 }
 
 .sidebar-chat-comments-scrollbar {
@@ -3632,7 +3642,7 @@ input[type=number]::-webkit-outer-spin-button {
 .slideshow-img {
     position: absolute;
     min-height: 46vh;
-    min-width: 66vw;
+    min-width: 100%;
     z-index: -1;
 }
 
@@ -4077,9 +4087,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .chat-content {
+    overflow:hidden;
     margin-left: 5%;
     margin-right: 16.5%;
-    height: calc(100% - 280px)
+    height: calc(100% - 280px);
 }
 
 .chat-input-text {
@@ -4159,7 +4170,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .img02 {
-    margin: 0 -7%;
+    margin: 0 0px;
 }
 
 .img03 {
@@ -4254,4 +4265,44 @@ input[type=number]::-webkit-outer-spin-button {
     float: right;
     right: 8%;
     cursor: pointer;
+}
+
+.chat-ava {
+    display: inline-block;
+    overflow:hidden;
+    height:40px;
+    width:40px;
+    border-radius:50%;
+    border:2px solid #00b4ff;
+}
+
+.chat-post-content {
+    display:inline-block;
+    vertical-align: top;
+    margin-left:6px;
+}
+
+.chat-info {
+}
+
+.chat-scroll {
+    width:110%;
+    overflow-y:scroll;
+    height:100%;
+    margin-left:5%;
+}
+
+.ava-offline {
+    border:2px solid grey;
+    -webkit-filter: grayscale(1);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: gray;
+  filter: grayscale(100%);
+  filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+    background-blend-mode: luminosity, normal;
+}
+
+.chat-ava-img {
+    height:100%;
 }

@@ -42,135 +42,13 @@
 
 <!-- Websocket Startup -->
 <body class=''>
+
     <div class='sidebar-content-dim'></div>
-    <!-- Sidebar -->
-    <div class="gd-sidebar">
-        <img src='<?php echo $path['img']; ?>sidebar_bg.jpg' class='gd-sidebar-bg' id='sidebar'>
-        <a class='sidebar-hide' id='sidebar-visible'>&nbsp;</a>
-        <div class='sidebar-top-links'>
-            <a href='#' class='sidebar-list-link'>All</a>&nbsp;&nbsp;-
-            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
-            <span class='sidebar-list-link-game'>LEAGUE</span>
-        </div>
-        <div class='sidebar-squad'>
-            <span class='squad-title'>Your Squad</span>
-            <a class='squad-leave'>Leave Squad</a>
-            <div class='squad-wrapper'>
-                <div class='squad-ava-wrapper'>
-                    <div class='squad-ava'><img src='<?php echo $path['img']; ?>ava_sample_1.png' class='squad-ava-img'>
-                        <a href="#" class='squad-name' style='margin-top:9px;'><img src='<?php echo $path['img']; ?>lobby_host.svg' class='lobby-host'>TotalBiscuit</a>
-                    </div>
-                </div>
-                <div class='squad-ava-wrapper'>
-                    <div class='squad-ava'><img src='<?php echo $path['img']; ?>ava_sample_2.png' class='squad-ava-img'></div>
-                    <a class='squad-name'>Weaboo_Overlord</a>
-                </div>
-                <div class='squad-ava-wrapper'>
-                    <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
-                </div>
-                <div class='squad-ava-last-2'>
-                    <div class='squad-ava-wrapper'>
-                        <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
-                    </div>
-                    <div class='squad-ava-wrapper'>
-                        <div class='squad-ava'></div><a class='squad-name-blank'>Add Player</a>
-
-                    </div>
-                    <div class='squad-helper'>
-                        <div class='squad-open-switch'>
-                            <input type='checkbox' id="checkbox-switch" class='checkbox-switch' checked>
-                            <label for="checkbox-switch" class='squad-toggle-ico'></label>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class='sidebar-pub-squads'>
-                <a class='queue-pub-squads'>Find Squad</a>
-                <a class='show-pub-squads'>Show Public Squads</a>
-                <div class='queue-bg' id='inactive'></div>
-                <div class='queue-loading-container'>
-                    <img src="<?php echo $path['img']; ?>puff.svg" width="50" alt="" class='queue-loading'>
-                    <span class='queue-status'></span>
-                    <a class='close'> <img src='<?php echo $path['img']; ?>login-close.svg' aria-hidden="true" class='queue-quit'></a>
-                </div>
-            </div>
-        </div>
-
-        <div class='sidebar-chat'>
-            <span class='squad-chat-title'>Squad Chat</span>
-            <a class='chat-inactive' id="chat-option-2">All Chat</a>
-            <div class='sidebar-chat-comments-scrollbar'>
-                <div class='sidebar-chat-comments'>
-                    <span class='sidebar-lobby-note'>You are now connected to the Lobby Chat!</span>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>3 hours ago</span> </a>
-                            <br>
-                            <span class='sidebar-chat-message'>FURION TP TOP FURION TP TOP FURION</span>
-                        </div>
-                    </div>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>2 minutes ago</span></a>
-                            <br>
-                            <span class='sidebar-chat-message'>Me Mid.</span>
-                        </div>
-                    </div>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                            <br>
-                            <span class='sidebar-chat-message'>blyatblyatblyatblya tblyatblyatblyat blyatblyat</span>
-                        </div>
-                    </div>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                            <br>
-                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                        </div>
-                    </div>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                            <br>
-                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                        </div>
-                    </div>
-                    <div class='squad-chat-post'>
-                        <div class='sidebar-chat-ava'></div>
-                        <div class='sidebar-chat-text'>
-                            <a href='#' class='sidebar-chat-username'> Say not to Autism <span class='sidebar-chat-date'>Just now</span></a>
-                            <br>
-                            <span class='sidebar-chat-message'>blyatblyatblyatblyat<br>blyatblyatblyatblyatblyat</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='chat-input'>
-            <input type='text' class='chat-input-box' placeholder='Type a message'>
-            <a href="#" class='chat-input-btn'>&nbsp;</a>
-        </div>
-        <div class='sidebar-bottom-links'>
-            <a href='#' class='sidebar-bot-link'>Support </a>|
-            <a href='#' class='sidebar-bot-link'>Impressum </a>|
-            <a href='#' class='sidebar-bot-link'>Contact Us </a>|
-            <a href='#' class='sidebar-bot-link'>Privacy Policy </a>
-           </div>
-    </div>
-
     <!-- Menu Open -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
+        <a href='#' class='user-menu-name'>TotalBiscuit</a>
+
         <div class='menu-group-1'>
             <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_tournament.svg'>Tournaments</a>
             <a href="#" class='menu-link'><img src='<?php echo $path['img']; ?>lp_header_leaderboard.svg'>Leaderboards</a>
@@ -198,74 +76,400 @@
         </a>
     </div>
 
+    <!-- Queue Status -->
+    <div class='match-queue-status'>
+        <span class='players-ready'>Players Ready: <span class='number'>6/10</span></span>
+        <div class='match-queue-status-desc'>Finding Support...</div>
+        <div class='match-queue-team'>
+            <div class='team-placeholder player-ready'></div>
+            <div class='team-placeholder player-ready'></div>
+            <div class='team-placeholder player-ready'></div>
+            <div class='team-placeholder player-ready'></div>
+            <div class='team-placeholder'></div>
+        </div>
+        <span class='team-1-2'>vs</span>
+        <div class='match-queue-team'>
+            <div class='team-placeholder player-ready-2'></div>
+            <div class='team-placeholder player-ready-2'></div>
+            <div class='team-placeholder player-ready-2'></div>
+            <div class='team-placeholder player-ready-2'></div>
+            <div class='team-placeholder'></div>
+        </div>
+    </div>
+
     <!-- Content -->
     <div class="content">
-        <div class='queue-container'>
-             <div class='find-match-btn' id='find-match'>
-                <img src='<?php echo $path['img']; ?>find_match_bg.png' class='find-match-btn-bg'>
-                <div class='find-match-btn-z-helper'>
-                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
-                    <br>
-                    <span class='cta-btn-text'>Find Match</span>
-                    <br>
-                    <span class='cta-btn-text-desc'><span class='number'>23</span> People in your skill range online!</span>
+        <div class='vid-pattern'></div>
+
+        <img src='<?php echo $path['img']; ?>game_details_bg_league.jpg' class='content-bg'>
+
+        <!-- Menu Bar -->
+        <div class='menu-bar-top'>
+            <a href="#">
+                <img src='<?php echo $path['img']; ?>logo_solo.png' class='menu-logo'>
+                <img src='<?php echo $path['img']; ?>orcus_font.png' class='menu-logo-font'>
+            </a>
+            <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
+            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
+            <span class='sidebar-list-link-game'>League of Legends</span>
+            <div class='menu-options'>
+                <div class='menu-icons'>
+                    <img src='<?php echo $path['img']; ?>friends-ico.svg' class='menu-ico' id='friends'>
+                    <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
+                    <img src='<?php echo $path['img']; ?>invest-ico.svg' class='menu-ico' id='invest'>
+                    <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
+                    <img src='<?php echo $path['img']; ?>tournament-ico.svg' class='menu-ico' id='tournament'>
+                    <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
                 </div>
-            </div>
-            <div class='find-match-btn' id='create-lobby'>
-                <img src='<?php echo $path['img']; ?>create_lobby_bg.png' class='find-match-btn-bg'>
-                <div class='find-match-btn-z-helper'>
-                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
-                    <br>
-                    <span class='cta-btn-text'>Create Lobby</span>
-                    <br>
-                    <span class='cta-btn-text-desc'><span class='number'>4.000</span> People currently in queue!</span>
+                <div class='menu-play'>
+                    <img src='<?php echo $path['img']; ?>play-ico.svg' class='play-ico'>
+                    <span class='play-text'>Play</span>
                 </div>
-            </div>
-             <div class='find-match-btn' id='invest' style='cursor:default;'>
-                <img src='<?php echo $path['img']; ?>invest_bg.png' class='find-match-btn-bg'>
-                <div class='find-match-btn-z-helper'>
-                    <img src='<?php echo $path['img']; ?>find_match_ico.svg' class='find-match-ico'>
-                    <br>
-                    <span class='cta-btn-text'>Invest</span>
-                    <br>
-                    <span class='cta-btn-text-desc'>Coming soon.</span>
+                <div class='menu-create'>
+                    <img src='<?php echo $path['img']; ?>create_lobby_ico.svg' class='create-ico'>
+                    <span class='create-text'>Create Lobby</span>
                 </div>
-            </div>
-        </div>
-        <div class='notification-container'>
-            <img src='<?php echo $path['img']; ?>notification_seperator.png' class='notification-seperator'><br>
-            <div class='notification-wrapper'>
-                <div class='notification-ico'></div>
-                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
-            </div>
-             <div class='notification-wrapper'>
-                <div class='notification-ico'></div>
-                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
-            </div>
-             <div class='notification-wrapper'>
-                <div class='notification-ico'></div>
-                <h5 class='notification-title'>Investment Return<br> <span class='notification-text'>Received 20$ from Meemy</span></h5>
             </div>
         </div>
 
-        <!-- Queue Status -->
-        <div class='match-queue-status'>
-            <span class='players-ready'>Players Ready: <span class='number'>6/10</span></span>
-            <div class='match-queue-status-desc'>Finding Support...</div>
-            <div class='match-queue-team'>
-                <div class='team-placeholder player-ready'></div>
-                <div class='team-placeholder player-ready'></div>
-                <div class='team-placeholder player-ready'></div>
-                <div class='team-placeholder player-ready'></div>
-                <div class='team-placeholder'></div>
+        <!-- Left Side -->
+        <div class='main-content'>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+                <defs>
+                    <filter id="blur">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <div class='news-slideshow'>
+                <ul class="gallery-pictures">
+                    <li class="gallery-picture">
+                        <img src='<?php echo $path['img']; ?>league_ocs_header_img.jpg' class='slideshow-img img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="<?php echo $path['img']; ?>league_aaa_header_img.jpg" class='slideshow-img img02'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='<?php echo $path['img']; ?>league_ocs_header_img.jpg' class='slideshow-img img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="<?php echo $path['img']; ?>league_aaa_header_img.jpg" class='slideshow-img img02'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='<?php echo $path['img']; ?>league_bbb_header_img.jpg' class='slideshow-img img03'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                </ul>
+                <div class='slide-bot-shade'></div>
+                <div class='slide-pagination'>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                </div>
             </div>
-            <span class='team-1-2'>vs</span>
-            <div class='match-queue-team'>
-                <div class='team-placeholder player-ready-2'></div>
-                <div class='team-placeholder player-ready-2'></div>
-                <div class='team-placeholder player-ready-2'></div>
-                <div class='team-placeholder player-ready-2'></div>
-                <div class='team-placeholder'></div>
+            <div class='lower-main-content'>
+                <div class='updates-wrapper'>
+                    <div class='slide-bot-shade'></div>
+                    <div class='updates'>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class='notification-wrapper'>
+                    <div class='notification-ref'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr-ref'>
+                            <div class='ntfc-title-wr-ref-cntr'>
+                                <h1 class='ntfc-title'>Refer a friend<br>& profit.</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'><span class='number'>1K</span> worth giveaway</h1>
+                            <span class='ntfc-txt'>Participate by playing within<br>the next <span class='number'>250</span> matches.
+                            <br><a href="#" class='ntfc-rm'>Read more</a></span>
+                        </div>
+                    </div>
+                    <div class='notification'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right Side / Chat -->
+        <div class='chat'>
+            <div class='chat-groups'>
+                <img src='<?php echo $path['img']; ?>chat_arrow.svg' class='chat-arrow-left'>
+                <div class='chats-groups-wrapper'>
+                    <div class='chat-hrz-wr' id='chat-hrz'>
+                        <div class='chat-group chat-group-active'>
+                            <span class='chat-group-title'>All Chat</span>
+                            <br><span class='chat-group-desc'>590 online</span>
+                        </div>
+                        <div class='chat-group'>
+                            <div class='chat-group-td'>
+                                <span class='chat-group-title'>Squad</span>
+                                <br>
+                                <span class='chat-group-desc'>Main Menu</span>
+                            </div>
+                            <div class='chat-new-msgs msgs-invis'>
+                                5
+                            </div>
+                        </div>
+                        <div class='chat-group'>
+                            <div class='chat-group-td'>
+                                <span class='chat-group-title'>Dendi</span>
+                                <br>
+                                <span class='chat-group-desc'>Idle</span>
+                            </div>
+                            <div class='chat-new-msgs '>
+                                5
+                            </div>
+                        </div>
+                        <div class='chat-group'>
+                            <div class='chat-group-td'>
+                                <span class='chat-group-title'>FatFuckMoh</span>
+                                <br>
+                                <span class='chat-group-desc'>Main Menu</span>
+                            </div>
+                            <div class='chat-new-msgs msgs-invis'>
+                                5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src='<?php echo $path['img']; ?>chat_arrow.svg' class='chat-arrow-right'>
+                <div class='chat-menu-ico-wrapper'>
+                    <img src='<?php echo $path['img']; ?>small_menu_ico.svg' class='chat-menu-ico'>
+                </div>
+                <div class='chat-sub-menu-options'>
+                    <div class='chat-pm'>
+                        <img src='<?php echo $path['img']; ?>chat_add.png' class='chat-add'>
+                        <input type='text' placeholder='Enter player to chat with' class='pm-friend-input'>
+                        <div class='sidebar-entry-error error-hidden' id='chat-group-error'>Not Found</div>
+                    </div>
+                </div>
+                <div class='bottom-border-indicator'>
+                    <div class='triangle-border-left'></div>
+                    <div class='triangle'></div>
+                    <div class='triangle-border-right'></div>
+                </div>
+            </div>
+            <div class='chat-content'>
+                <div class='chat-scroll'>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava ava-offline'><img src='<?php echo $path['img']; ?>ava_sample_2.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>FatFuckMoh</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava ava-offline'><img src='<?php echo $path['img']; ?>ava_sample_2.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>FatFuckMoh</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis BeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <time class='timeago sidebar-chat-date' datetime="2008-07-17T09:24:17Z">Just now</time>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                    <div class='sidebar-chat-post'>
+                        <div class='chat-ava'><img src='<?php echo $path['img']; ?>ava_sample_3.png' class='chat-ava-img'></div>
+                        <div class='chat-post-content'>
+                            <div class='chat-info'>
+                                <a href='#' class='sidebar-chat-username'>Aeon</a>
+                                <div class='sidebar-chat-date'>Just now</div>
+                            </div>
+                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class='chat-input'>
+                <input type=text class='chat-input-text' placeholder="Write something">
+                <img src='<?php echo $path['img']; ?>send-msg-ico.svg' class='send-ico'>
+            </div>
+            <div class='squad'>
+                <div class='squad-ava-self'></div>
+                <div class='squad-ava-self-inf'>
+                    <a href="#" class='squad-self-name'>
+                    TotalBiscuit
+                </a>
+                    <br>
+                    <div class='squad-self-role'>Tank</div>
+                </div>
+                <img src='<?php echo $path['img']; ?>squad-border.png' class='squad-seperator'>
+                <div class='squad-ava-wrapper'>
+                    <div class='squad-ava squad-slot-taken'>
+                        <img src='<?php echo $path['img']; ?>ava_sample_1.png' class='squad-ava-img'>
+                    </div>
+                    <div class='squad-ava'></div>
+                    <div class='squad-ava'></div>
+                    <div class='squad-ava'></div>
+                </div>
+                <div class='squad-menu-ico-wr'>
+                    <img src='<?php echo $path['img']; ?>small_menu_ico.svg' class='squad-menu-ico'>
+                </div>
+
+                <div class='squad-sub-options'>
+                    <div class='squad-invite'>
+                        <img src='<?php echo $path['img']; ?>chat_add.png' class='chat-add'>
+                        <input type='text' placeholder='Enter player to invite' class='squad-inv-input' >
+                        <div class='sidebar-entry-error error-hidden' id='squad-group-error'>Not Found</div>
+                    </div>
+                    <div class='leave-squad'><img src='<?php echo $path['img']; ?>logout.svg' class='leave-squad-ico'></div>
+                </div>
             </div>
         </div>
 
@@ -522,8 +726,17 @@
                         </div>
                     </div>
                     <div class='lobby-player-self'>
-                        <img src='<?php echo $path['img']; ?>lobby_role_bg.png'>
-                        <span class='player-sidebar'></span>
+                        <img src='<?php echo $path['img']; ?>lobby_role_bg.png' class='player-side-bg'>
+                        <div class='lobby-player-content-wr'>
+                            <span class='player-sidebar'>Selected Player</span>
+                            <br>
+                            <span class='player-sidebar-name'>TotalBiscuit |&nbsp</span><span class='player-sidebar-status player-side-ready'>Ready</span>
+                            <div class='player-side-ava player-ava-ready'>
+                                <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='player-img'>
+                            </div>
+                            <div class='player-side-ready-up'>Un-Ready</div>
+                        </div>
+
                     </div>
                     <div class='lobby-player-other'>
 
@@ -534,16 +747,14 @@
         <!-- Menu -->
         <nav class='user-menu'>
             <div class='user-menu-container'>
-                <a href='#' class='user-menu-name'>TotalBiscuit</a>
-                <a href='#' class='user-money'>50.00 <img src='<?php echo $path['img']; ?>currency.svg' style='margin-bottom:3px;'></a>
+                <a href='#' class='user-money'>50.00 <img src='<?php echo $path['img']; ?>currency_dark.svg' style='margin-bottom:3px;'></a>
                 <a class='side-menu'><img src='<?php echo $path['img']; ?>hamburger.svg' class='sidebar-menu-ico'></a>
             </div>
         </nav>
-
-
     </div>
-
+    <script src='bootstrap/js/games_chat.js'></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
+    <script src="bootstrap/js/jquery.timeago.js"></script>
 </body>
 
 

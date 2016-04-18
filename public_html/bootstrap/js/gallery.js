@@ -47,7 +47,7 @@ $(document).ready(function () {
         imageWidth = a;
         imageTotalWidth = imageWidth + imageSpacing;
         updateGalleryPos();
-        setGalleryPos(0);
+        setGalleryPos(currentImage);
     }
 
 

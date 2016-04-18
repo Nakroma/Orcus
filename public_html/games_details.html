@@ -143,10 +143,6 @@
             <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
             <span class='sidebar-list-link-game'>League of Legends</span>
             <div class='menu-options'>
-                <div class='menu-create'>
-                    <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
-                    <span class='create-text'>Create Lobby</span>
-                </div>
                 <div class='menu-icons'>
                     <img src='bootstrap/img/friends-ico.svg' class='menu-ico' id='friends'>
                     <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
@@ -158,6 +154,10 @@
                 <div class='menu-play'>
                     <img src='bootstrap/img/play-ico.svg' class='play-ico'>
                     <span class='play-text'>Play</span>
+                </div>
+                <div class='menu-create'>
+                    <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
+                    <span class='create-text'>Create Lobby</span>
                 </div>
             </div>
         </div>
@@ -413,7 +413,7 @@
                             <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
                         </div>
                     </div>
-                   <div class='sidebar-chat-post'>
+                    <div class='sidebar-chat-post'>
                         <div class='chat-ava ava-offline'><img src='bootstrap/img/ava_sample_2.png' class='chat-ava-img'></div>
                         <div class='chat-post-content'>
                             <div class='chat-info'>
@@ -488,7 +488,18 @@
                     <div class='squad-ava'></div>
                     <div class='squad-ava'></div>
                 </div>
-                <img src='bootstrap/img/small_menu_ico.svg' class='squad-menu-ico'>
+                <div class='squad-menu-ico-wr'>
+                    <img src='bootstrap/img/small_menu_ico.svg' class='squad-menu-ico'>
+                </div>
+
+                <div class='squad-sub-options'>
+                    <div class='squad-invite'>
+                        <img src='bootstrap/img/chat_add.png' class='chat-add'>
+                        <input type='text' placeholder='Enter player to invite' class='squad-inv-input' >
+                        <div class='sidebar-entry-error error-hidden' id='squad-group-error'>Not Found</div>
+                    </div>
+                    <div class='leave-squad'><img src='bootstrap/img/logout.svg' class='leave-squad-ico'></div>
+                </div>
             </div>
         </div>
 
@@ -773,6 +784,7 @@
     </div>
     <script src='bootstrap/js/games_chat.js'></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
+    <script src="bootstrap/js/jquery.timeago.js"></script>
 </body>
 
 </html>

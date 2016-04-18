@@ -1,5 +1,8 @@
 jQuery(document).ready(function () {
     jQuery("time.timeago").timeago();
+    $(".chat-scroll").animate({
+        scrollTop: $('.chat-scroll').prop("scrollHeight")
+    }, 0);
 });
 
 
@@ -27,6 +30,15 @@ function subMenuChatHide() {
     } else {
         $('.chat-groups').addClass('chat-groups-hidden');
         $('.pm-friend-input').focus();
+    }
+}
+
+function subMenuSquadHide() {
+    if ($('.squad').hasClass('squad-hidden')) {
+        $('.squad').removeClass('squad-hidden');
+    } else {
+        $('.squad').addClass('squad-hidden');
+        $('.squad-inv-input').focus();
     }
 }
 
@@ -82,7 +94,6 @@ $(".pm-friend-input").keypress(function (e) {
         var existingNames = [];
         $('#chat-hrz > .chat-group > .chat-group-td > .chat-group-title').each(function () {
             existingNames.push($(this).text());
-            console.log(existingNames)
         });
         /* check for errors */
         if (groupName == 'Benis') { // name in use
@@ -108,17 +119,6 @@ $(".pm-friend-input").keypress(function (e) {
 
 
 
-$('.chat-menu-ico-wrapper').click(subMenuChatHide);
-$('#chat-hrz').on("click", ".chat-group", function () {
-    if ($(this).hasClass('chat-group-active')) {} else {
-        $('.chat-group-active').removeClass('chat-group-active');
-        $(this).addClass('chat-group-active');
-    }
-});
-
-
-
-
 
 
 /* Create Chat Post */
@@ -126,7 +126,6 @@ function createPost() {
 
     var username = $('.squad-self-name').text();
     var date = new Date();
-    date.toISOString();
     var inputVal = $('.chat-input-text').val();
 
     var container = $("<div>");
@@ -184,4 +183,25 @@ $(".send-ico").click(function () {
     createPost();
     jQuery("time.timeago").timeago();
     $(".chat-input-text").val('');
+});
+
+$('.chat-menu-ico-wrapper').click(subMenuChatHide);
+$('#chat-hrz').on("click", ".chat-group", function () {
+    if ($(this).hasClass('chat-group-active')) {} else {
+        $('.chat-group-active').removeClass('chat-group-active');
+        $(this).addClass('chat-group-active');
+    }
+});
+
+
+$('.squad-menu-ico-wr').click(subMenuSquadHide);
+$('.squad-ava').click(subMenuSquadHide);
+
+$(".squad-inv-input").keypress(function (e) {
+    if (e.which == 13) { //always return error
+        $('#squad-group-error').removeClass('error-hidden');
+        setTimeout(function () {
+            $('#squad-group-error').addClass('error-hidden');
+        }, 1200);
+    };
 });

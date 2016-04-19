@@ -688,7 +688,7 @@ div {
     right: 0px;
     height: 100%;
     width: 123px;
-    background-color: #16191e;
+    background-color: #1a1f26;
     text-align: center;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -1440,6 +1440,7 @@ a:focus {
 .team-1 {
     text-align: center;
     display: inline-block;
+    margin-top:18px;
 }
 
 .team-count {
@@ -1980,7 +1981,7 @@ a:focus {
 }
 
 .sidebar-chat-post {
-    padding-bottom: 28px;
+    padding-bottom: 30px;
 }
 
 .sidebar-chat-comments-scrollbar {
@@ -2321,19 +2322,8 @@ a:focus {
 }
 
 .lobby {
-    position: absolute;
-    width: calc(78% - 123px);
-    height: 100%;
-    top: 0;
-    opacity: 0.0;
-    background: #101316;
-    z-index: 2;
-    pointer-events: none;
-    box-shadow: inset 0px 3px 560px rgba(0, 0, 0, 0.20);
-    -webkit-transition-timing-function: cubic-bezier(.21, .84, .83, .67) transition-timing-function: cubic-bezier(.21, .84, .83, .67) -webkit-transition-duration: 0.55s;
-    -moz-transition-duration: 0.55s;
-    -o-transition-duration: 0.55s;
-    transition-duration: 0.55s;
+background:rgba(15,17,23,0.7);
+    height:100vh;
 }
 
 .sidebar-lobby-note {
@@ -2729,9 +2719,10 @@ a:focus {
 }
 
 .sidebar-lobby-header {
-    height: 100px;
+    height: 113px;
     border-bottom: solid 1px #32363e;
     background: url(../img/league_jungler_header.png);
+    background-size:cover;
     text-align: center;
     line-height: 0px;
 }
@@ -3182,22 +3173,17 @@ input[type=number]::-webkit-outer-spin-button {
     width: 22px;
     background: #8791a0;
     border-radius: 100%;
+    margin-right:3px;
 }
 
 .match-queue-team {
     display: inline-block;
-    margin-top: 12px;
-    transition-delay: 0.3s;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.35s;
-    -moz-transition-duration: 0.35s;
-    -o-transition-duration: 0.35s;
-    transition-duration: 0.35s;
+    vertical-align: middle;
+    margin-left:10px;
 }
 
 .player-ready {
-    background: #42d275;
+    background: #00b4ff;
 }
 
 .team-1-2 {
@@ -3840,6 +3826,7 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: top;
     background: rgba(11, 13, 15, 0.70);
     height: calc(100vh - 113px);
+    border-left: solid 1px rgba(135,145,160,0.15);
 }
 
 .ntfc-title-wr-ref {
@@ -4107,7 +4094,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .send-ico {
-    margin-left: 10%;
+    margin-left: 6%;
     margin-bottom: 2px;
     cursor: pointer;
     -webkit-transition-timing-function: ease;
@@ -4239,7 +4226,7 @@ input[type=number]::-webkit-outer-spin-button {
     outline: none;
     margin-left: 1.5%;
     font-size: 16px;
-    width: 160px;
+    width: 185px;
 }
 
 .chat-pm {}
@@ -4291,8 +4278,8 @@ input[type=number]::-webkit-outer-spin-button {
 .chat-ava {
     display: inline-block;
     overflow: hidden;
-    height: 40px;
-    width: 40px;
+    height: 38px;
+    width: 38px;
     border-radius: 50%;
     border: 2px solid #00b4ff;
 }
@@ -4300,7 +4287,7 @@ input[type=number]::-webkit-outer-spin-button {
 .chat-post-content {
     display: inline-block;
     vertical-align: top;
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
 .chat-info {}
@@ -4404,4 +4391,23 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 1.5%;
     font-size: 16px;
     width: 160px;
+}
+
+.lobby-top-teams {
+    width:100%;
+    height:80px;
+    background: rgba(0,0,0,0.6)
+}
+
+.team-name {
+    display:inline-block;
+    margin-top:14px;
+    color:white;
+    font-size:16px;
+    font-weight:500;
+}
+
+.team-wrapper {
+    width:60%;
+    margin:auto;
 }

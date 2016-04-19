@@ -118,9 +118,6 @@ $(".pm-friend-input").keypress(function (e) {
 });
 
 
-
-
-
 /* Create Chat Post */
 function createPost() {
 
@@ -186,10 +183,15 @@ $(".send-ico").click(function () {
 });
 
 $('.chat-menu-ico-wrapper').click(subMenuChatHide);
+
 $('#chat-hrz').on("click", ".chat-group", function () {
+    var nameSelf = $('.squad-self-name').text();
+    var nameOther = $('.chat-group-active > .chat-post-content > .chat-info > .sidebar-chat-username').text();
+    console.log(nameSelf, nameOther);
     if ($(this).hasClass('chat-group-active')) {} else {
         $('.chat-group-active').removeClass('chat-group-active');
         $(this).addClass('chat-group-active');
+        $(".chat-scroll").load("feeds.php #")
     }
 });
 

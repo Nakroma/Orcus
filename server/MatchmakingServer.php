@@ -208,6 +208,38 @@ class MatchmakingServer extends WebSocketServer {
                 }
                 break;
 
+            /**
+             * Sends a chat message
+             * [1] Chat Lobby (ALL, SQUAD, PRIVATE)
+             * [2] Message (LZ-String compressed)
+             * [3] User, if [1] is PRIVATE
+             */
+            case 'CHAT_SEND_MESSAGE':
+                switch ($part[1]) {
+                    // To all connected users
+                    case 'ALL':
+                        $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                        $json = json_encode($jsonUser);
+
+                        foreach ($this->users as $key => $value) {
+                            // Dont send to original user
+                            if ($value != $user) {
+                                $this->send($value, 'N|CHAT_RECEIVE_MESSAGE|' . $part[1] . '|' . $part[2] . '|' . $json);
+                            }
+                        }
+                        break;
+
+                    // To all users in squad
+                    case 'SQUAD':
+
+                        break;
+
+                    // To another private user
+                    case 'PRIVATE':
+
+                        break;
+                }
+                break;
 
             /**
              * Admin info stuff

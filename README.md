@@ -17,6 +17,8 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `SQUAD_SEARCH|(Game)` Searches for an empty squad (gets called repeatedly by the matchmaking queue).  
 `SQUAD_LOCK_CHANGE|(Boolean)` Changes the locked state of a squad. True = Open, False = Closed.  
 
+`CHAT_SEND_MESSAGE|(Lobby)|(LZ-String MSG)|(Opt: User)` Sends a chat message. Lobby: ALL, SQUAD, PRIVATE.  
+
 **Server -> Client**  
 `S`: Success - `E`: Error - `N`: Notice  
 
@@ -34,3 +36,5 @@ These are the internal codes used in the matchmaking server to communicate betwe
 `N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.  
 `N|SQUAD_LEFT|(Json: squad member[id, username])` Notifies the other users with the SID of the left user.  
 `N|SQUAD_DISBAND` Notifies the other users of the disband.  
+
+`N|CHAT_RECEIVE_MESSAGE|(Lobby)|(LZ-String MSG)|(User)` Receives a chat message. Lobby: ALL, SQUAD, PRIVATE.  

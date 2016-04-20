@@ -61,6 +61,11 @@ function init() {
                             resetSquad();
                             break;
 
+                        case 'CHAT_RECEIVE_MESSAGE':
+                            var user = JSON.parse(p[4]);
+                            createPost(user.username, LZString.decompress(p[3]));
+                            break;
+
                         default:
                             break;
                     }

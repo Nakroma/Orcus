@@ -118,54 +118,63 @@ $(".pm-friend-input").keypress(function (e) {
 
 
 /* Create Chat Post */
-function createPost() {
+function createPost(username, inputVal) {
 
-    var username = $('.squad-self-name').text();
+    var ownPost = false;
+
+    if (typeof username === 'undefined') { username = $('.squad-self-name').text(); ownPost = true; }
+    if (typeof inputVal === 'undefined') { inputVal = $('.chat-input-text').val(); }
     var date = new Date();
     var date = date.toISOString();
-    var inputVal = $('.chat-input-text').val();
 
-    var container = $("<div>");
-    container.addClass("sidebar-chat-post");
+    if (inputVal != '') {
+        var container = $("<div>");
+        container.addClass("sidebar-chat-post");
 
-    var chatAvaWr = $("<div>");
-    chatAvaWr.addClass("chat-ava");
-    container.append(chatAvaWr);
+        var chatAvaWr = $("<div>");
+        chatAvaWr.addClass("chat-ava");
+        container.append(chatAvaWr);
 
-    var avaImg = $("<img>");
-    avaImg.attr("src", "bootstrap/img/ava_sample_4.png");
-    avaImg.addClass("chat-ava-img");
-    chatAvaWr.append(avaImg);
+        var avaImg = $("<img>");
+        avaImg.attr("src", "bootstrap/img/ava_sample_4.png");
+        avaImg.addClass("chat-ava-img");
+        chatAvaWr.append(avaImg);
 
-    var chatPostContainer = $("<div>")
-    chatPostContainer.addClass("chat-post-content");
-    container.append(chatPostContainer);
+        var chatPostContainer = $("<div>")
+        chatPostContainer.addClass("chat-post-content");
+        container.append(chatPostContainer);
 
-    var chatInfo = $("<div>");
-    chatInfo.addClass("chat-info");
-    chatPostContainer.append(chatInfo);
+        var chatInfo = $("<div>");
+        chatInfo.addClass("chat-info");
+        chatPostContainer.append(chatInfo);
 
-    var usernameContainer = $("<a>");
-    usernameContainer.text(username);
-    usernameContainer.attr("href", "#")
-    usernameContainer.addClass("sidebar-chat-username");
-    chatInfo.append(usernameContainer);
+        var usernameContainer = $("<a>");
+        usernameContainer.text(username);
+        usernameContainer.attr("href", "#")
+        usernameContainer.addClass("sidebar-chat-username");
+        chatInfo.append(usernameContainer);
 
-    var postDate = $("<span>");
-    postDate.addClass("sidebar-chat-date");
-    postDate.attr("data-livestamp", date)
-    chatInfo.append(postDate);
+        var postDate = $("<span>");
+        postDate.addClass("sidebar-chat-date");
+        postDate.attr("data-livestamp", date)
+        chatInfo.append(postDate);
 
-    var chatPost = $("<div>");
-    chatPost.addClass("sidebar-chat-message");
-    chatPost.text(inputVal);
-    chatPostContainer.append(chatPost);
+        var chatPost = $("<div>");
+        chatPost.addClass("sidebar-chat-message");
+        chatPost.text(inputVal);
+        chatPostContainer.append(chatPost);
 
-    var wrapper = container;
-    $('.chat-scroll').append(wrapper);
-    $(".chat-scroll").animate({
-        scrollTop: $('.chat-scroll').prop("scrollHeight")
-    }, 400);
+        var wrapper = container;
+        $('.chat-scroll').append(wrapper);
+        $(".chat-scroll").animate({
+            scrollTop: $('.chat-scroll').prop("scrollHeight")
+        }, 400);
+
+        // Send to server
+        if (ownPost) {
+            send('CHAT_SEND_MESSAGE|ALL|' + LZString.compress(inputVal));
+        }
+    }
 };
 
 $(".chat-input-text").keypress(function (e) {

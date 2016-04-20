@@ -1441,6 +1441,7 @@ a:focus {
     text-align: center;
     display: inline-block;
     margin-top:18px;
+    padding-right:70px;
 }
 
 .team-count {
@@ -1459,6 +1460,8 @@ a:focus {
 .team-2 {
     text-align: center;
     display: inline-block;
+    margin-top:18px;
+    padding-left:70px;
 }
 
 .gd-sidebar-bg {
@@ -3169,8 +3172,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .team-placeholder {
     display: inline-block;
-    height: 22px;
-    width: 22px;
+    height: 16px;
+    width: 16px;
     background: #8791a0;
     border-radius: 100%;
     margin-right:3px;
@@ -3180,6 +3183,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
     vertical-align: middle;
     margin-left:10px;
+    margin-right:10px;
 }
 
 .player-ready {
@@ -4396,7 +4400,8 @@ input[type=number]::-webkit-outer-spin-button {
 .lobby-top-teams {
     width:100%;
     height:80px;
-    background: rgba(0,0,0,0.6)
+    background: rgba(0,0,0,0.4);
+text-align:center;
 }
 
 .team-name {
@@ -4408,6 +4413,74 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .team-wrapper {
-    width:60%;
+   display:inline-block;
     margin:auto;
+}
+
+.match-status {
+display:inline-block;
+    position:relative;
+    top:-1px;
+}
+
+.queue-ico {
+    height:30px;
+
+}
+
+.match-status-text {
+    color:white;
+    position:relative;
+    top:1px;
+    margin-left:3px;
+    text-transform:uppercase;
+}
+
+.queue-info {
+    width:92.5%;
+    margin:auto;
+    height:80px;
+    border-bottom: 1px solid rgba(130,145,160,0.3);
+    text-align:center;
+}
+
+.info-content {
+    text-align:center;
+    width:80%;
+    margin:auto;
+}
+
+.queue-info-ico {
+    display:inline-block;
+    margin-top:32px;
+    height:18px;
+}
+
+.queue-info-text {
+    display:inline-block;
+    vertical-align: bottom;
+    color:#8791a0;
+    font-size:16px;
+    top:-40px;
+    margin-left:2px;
+    position:relative;
+}
+
+.match-interaction {
+    display:inline-block;
+    width:120px;
+    height:80px;
+    position:relative;
+    top:-14px;
+    border:2px solid #8791a0;
+    margin-left:20%;
+    font-size:16px;
+    color:#8791a0;
+}
+
+.cancel-ready {
+    display:inline-block;
+    position:Relative;
+    top:12px;
+    margin: 5px 15px;
 }

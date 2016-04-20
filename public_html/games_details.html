@@ -12,7 +12,6 @@
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="bootstrap/js/jquery.min.js"></script>
-    <script src="bootstrap/js/jquery.timeago.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
@@ -161,6 +160,7 @@
 
         <!-- Left Side -->
         <div class='main-content'>
+           <!--
             <div class='lobby'>
                 <div class='lobby-top-teams'>
                     <div class='team-wrapper'>
@@ -173,14 +173,33 @@
                                 <div class='team-placeholder player-ready'></div>
                                 <div class='team-placeholder'></div>
                             </div>
+
                         </div>
                         <div class='match-status'>
-                            <img src='bootstrap/img/loading.svg'>
+                            <img src='bootstrap/img/puff.svg' class='queue-ico'>
+                            <span class='match-status-text'>Finding Carry..</span>
+                        </div>
+                         <div class='team-2'>
+                            <div class='match-queue-team'>
+                                <div class='team-placeholder'></div>
+                                <div class='team-placeholder'></div>
+                                <div class='team-placeholder player-ready'></div>
+                                <div class='team-placeholder player-ready'></div>
+                                <div class='team-placeholder player-ready'></div>
+                            </div>
+                        <span class='team-name'>Team Blue</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- News/Notifications
+                <div class='queue-info'>
+                    <div class='info-content'>
+                        <img src="bootstrap/img/friends-ico.svg" class='queue-info-ico'>
+                        <span class='queue-info-text number'>5000 Players online!</span>
+                        <div class='match-interaction'><span class='cancel-ready'>Cancel Queue</span></div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- News/Notifications -->
             <script src='bootstrap/js/gallery.js'></script>
             <script src='bootstrap/js/motionblur.js'></script>
             <script src='bootstrap/js/TweenMax.min.js'></script>
@@ -622,9 +641,10 @@
             </div>
         </nav>
     </div>
-    <script src='bootstrap/js/games_chat.js'></script>
+    <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
-    <script src="bootstrap/js/jquery.timeago.js"></script>
+    <script type="text/javascript" src="bootstrap/js/moment.js"></script>
+    <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 </body>
 
 </html>

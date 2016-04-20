@@ -171,14 +171,12 @@ function createPost() {
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
         createPost();
-        jQuery("time.timeago").timeago();
         $(".chat-input-text").val('');
     };
 });
 
 $(".send-ico").click(function () {
     createPost();
-    jQuery("time.timeago").timeago();
     $(".chat-input-text").val('');
 });
 

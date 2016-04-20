@@ -1,5 +1,4 @@
 jQuery(document).ready(function () {
-    jQuery("time.timeago").timeago();
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);
@@ -123,6 +122,7 @@ function createPost() {
 
     var username = $('.squad-self-name').text();
     var date = new Date();
+    var date = date.toISOString();
     var inputVal = $('.chat-input-text').val();
 
     var container = $("<div>");
@@ -151,9 +151,9 @@ function createPost() {
     usernameContainer.addClass("sidebar-chat-username");
     chatInfo.append(usernameContainer);
 
-    var postDate = $("<time>");
-    postDate.addClass("timeago sidebar-chat-date");
-    postDate.attr("datetime", date)
+    var postDate = $("<span>");
+    postDate.addClass("sidebar-chat-date");
+    postDate.attr("data-livestamp", date)
     chatInfo.append(postDate);
 
     var chatPost = $("<div>");

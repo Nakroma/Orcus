@@ -10,7 +10,7 @@ var username;
 var squadFrequency = 5000;
 var squadInterval = 0;
 
-function init() {
+function SocketClient_init() {
     var host = "ws://127.0.0.1:9000/Orcus/server"; // SET THIS TO YOUR SERVER
     try {
         socket = new WebSocket(host);
@@ -33,11 +33,11 @@ function init() {
                             break;
 
                         case 'SQUAD_JOIN':
-                            findSquad('stop');
-                            queueQuit(); // Visual
+                            SocketClient_findSquad('stop');
+                            GamesLeague_queueQuit(); // Visual
 
                             var user = JSON.parse(p[2]);
-                            setSquadMembers(user);
+                            SocketClient_setSquadMembers(user);
                             break;
 
                         default:
@@ -49,21 +49,21 @@ function init() {
                     switch (p[1]) {
                         case 'SQUAD_JOINED':
                             var user = JSON.parse(p[2]);
-                            addSquadMember(user);
+                            SocketClient_addSquadMember(user);
                             break;
 
                         case 'SQUAD_LEFT':
                             var user = JSON.parse(p[2]);
-                            removeSquadMember(user);
+                            SocketClient_removeSquadMember(user);
                             break;
 
                         case 'SQUAD_DISBAND':
-                            resetSquad();
+                            SocketClient_resetSquad();
                             break;
 
                         case 'CHAT_RECEIVE_MESSAGE':
                             var user = JSON.parse(p[4]);
-                            createPost(user.username, LZString.decompress(p[3]));
+                            GamesChat_createPost(user.username, LZString.decompress(p[3]));
                             break;
 
                         default:
@@ -85,7 +85,7 @@ function init() {
     }
 }
 
-function send(msg){
+function SocketClient_send(msg){
     if(!msg) {
         alert("Message can not be empty");
         return;
@@ -97,7 +97,7 @@ function send(msg){
     }
 }
 
-function quit(){
+function SocketClient_quit(){
     if (socket != null) {
         socket.close();
         socket=null;
@@ -108,7 +108,7 @@ function quit(){
 /** User Functions **/
 
 // Initiates a squad searching loop
-function findSquad(k) {
+function SocketClient_findSquad(k) {
     switch (k) {
         case 'start':
             squadInterval = setInterval(function(){
@@ -124,10 +124,10 @@ function findSquad(k) {
 }
 
 // Creates a new squad and displays it visually
-function resetSquad() {
+function SocketClient_resetSquad() {
     // TODO: Add visual message to let user know their squad was disbanded
     // Clean up all slots
-    cleanSquad();
+    SocketClient_cleanSquad();
 
     // Insert you
     var avatar = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
@@ -139,7 +139,7 @@ function resetSquad() {
 }
 
 // Adds a user to the squad
-function addSquadMember(uObj) {
+function SocketClient_addSquadMember(uObj) {
     // Get wrapper
     var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
 
@@ -149,9 +149,9 @@ function addSquadMember(uObj) {
 }
 
 // Sets users in a squad
-function setSquadMembers(uObj) {
+function SocketClient_setSquadMembers(uObj) {
     // Set everything to an empty player.
-    cleanSquad();
+    SocketClient_cleanSquad();
 
     // Insert the avatars
     var owner;
@@ -177,7 +177,7 @@ function setSquadMembers(uObj) {
 }
 
 // Removes a user in a squad
-function removeSquadMember(uObj) {
+function SocketClient_removeSquadMember(uObj) {
     // Remove squad member
     $('.squad-wrapper .squad-ava-wrapper .squad-ava-other-1 .squad-name').filter(function () {
         return $(this).text() === uObj.username;
@@ -188,7 +188,7 @@ function removeSquadMember(uObj) {
 }
 
 // Sets everything to an empty player
-function cleanSquad() {
+function SocketClient_cleanSquad() {
     var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava-self, .squad-wrapper .squad-ava-wrapper .squad-ava-other-1');
     wrapper.switchClass('squad-ava-self', 'squad-ava', 0);
     wrapper.switchClass('squad-ava-other-1', 'squad-ava', 0);
@@ -196,7 +196,7 @@ function cleanSquad() {
 }
 
 // Changes the lock state
-function squadStatecheck() {
+function SocketClient_squadStatecheck() {
     if (document.getElementById('checkbox-switch').checked) {
         socket.send('SQUAD_LOCK_CHANGE|true');
     } else {

@@ -6,7 +6,7 @@ jQuery(document).ready(function () {
 
 
 /* Horizontal scroll for chat groups */
-function scrollHorizontally(e) {
+function GamesChat_scrollHorizontally(e) {
     e = window.event || e;
     var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
     document.getElementById('chat-hrz').scrollLeft -= (delta * 60);
@@ -14,16 +14,16 @@ function scrollHorizontally(e) {
 }
 if (document.getElementById('chat-hrz').addEventListener) {
     // IE9, Chrome, Safari, Opera
-    document.getElementById('chat-hrz').addEventListener("mousewheel", scrollHorizontally, false);
+    document.getElementById('chat-hrz').addEventListener("mousewheel", GamesChat_scrollHorizontally, false);
     // Firefox
-    document.getElementById('chat-hrz').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    document.getElementById('chat-hrz').addEventListener("DOMMouseScroll", GamesChat_scrollHorizontally, false);
 } else {
     // IE 6/7/8
-    document.getElementById('chat-hrz').attachEvent("onmousewheel", scrollHorizontally);
+    document.getElementById('chat-hrz').attachEvent("onmousewheel", GamesChat_scrollHorizontally);
 }
 
 /* Chat group selection */
-function subMenuChatHide() {
+function GamesChat_subMenuChatHide() {
     if ($('.chat-groups').hasClass('chat-groups-hidden')) {
         $('.chat-groups').removeClass('chat-groups-hidden');
     } else {
@@ -32,7 +32,7 @@ function subMenuChatHide() {
     }
 }
 
-function subMenuSquadHide() {
+function GamesChat_subMenuSquadHide() {
     if ($('.squad').hasClass('squad-hidden')) {
         $('.squad').removeClass('squad-hidden');
     } else {
@@ -43,12 +43,12 @@ function subMenuSquadHide() {
 
 
 /* Create Chat Group to top */
-function createChatGroup() {
+function GamesChat_createChatGroup() {
 
     $('.chat-group-active').removeClass('chat-group-active');
 
     var userStatus = "Main Menu";
-    var groupNameVal = $('.pm-friend-input').val()
+    var groupNameVal = $('.pm-friend-input').val();
 
     var container = $("<div>");
     container.addClass("chat-group chat-group-active");
@@ -102,7 +102,7 @@ $(".pm-friend-input").keypress(function (e) {
             }, 1200);
         } else {
             if ($.inArray(groupName, existingNames) == -1) { // name duplicate error
-                createChatGroup();
+                GamesChat_createChatGroup();
             } else {
                 var sameNameGroup = $("span:contains('" + groupName + "')")
                 $('.chat-group-active').removeClass('chat-group-active');
@@ -118,7 +118,7 @@ $(".pm-friend-input").keypress(function (e) {
 
 
 /* Create Chat Post */
-function createPost(username, inputVal) {
+function GamesChat_createPost(username, inputVal) {
 
     var ownPost = false;
 
@@ -172,24 +172,24 @@ function createPost(username, inputVal) {
 
         // Send to server
         if (ownPost) {
-            send('CHAT_SEND_MESSAGE|ALL|' + LZString.compress(inputVal));
+            SocketClient_send('CHAT_SEND_MESSAGE|ALL|' + LZString.compress(inputVal));
         }
     }
 };
 
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
-        createPost();
+        GamesChat_createPost();
         $(".chat-input-text").val('');
     };
 });
 
 $(".send-ico").click(function () {
-    createPost();
+    GamesChat_createPost();
     $(".chat-input-text").val('');
 });
 
-$('.chat-menu-ico-wrapper').click(subMenuChatHide);
+$('.chat-menu-ico-wrapper').click(GamesChat_subMenuChatHide);
 
 $('#chat-hrz').on("click", ".chat-group", function () {
     var nameSelf = $('.squad-self-name').text();
@@ -203,8 +203,8 @@ $('#chat-hrz').on("click", ".chat-group", function () {
 });
 
 
-$('.squad-menu-ico-wr').click(subMenuSquadHide);
-$('.squad-ava').click(subMenuSquadHide);
+$('.squad-menu-ico-wr').click(GamesChat_subMenuSquadHide);
+$('.squad-ava').click(GamesChat_subMenuSquadHide);
 
 $(".squad-inv-input").keypress(function (e) {
     if (e.which == 13) { //always return error

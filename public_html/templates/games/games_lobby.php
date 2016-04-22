@@ -8,7 +8,7 @@
     $_d = $this->_;
 
     // AUTH STUFF HERE
-    $_SESSION[$skey] = 14;
+    $_SESSION[$skey] = 15;
     $sid = $_SESSION[$skey];
 
     // Get auth info
@@ -30,12 +30,15 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="<?php echo $path['js']; ?>jquery.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
+    <script src='<?php echo $path['js']; ?>gallery.js'></script>
+    <script src='<?php echo $path['js']; ?>motionblur.js'></script>
+    <script src='<?php echo $path['js']; ?>TweenMax.min.js'></script>
     <script language="javascript" src="<?php echo $path['js']; ?>lz-string.js"></script>
 
     <!-- Websocket Server -->
     <script>var sid = <?php echo json_encode($sid); ?></script>
     <script type="text/javascript" src="../server/client.js"></script>
-    <script>init();</script>
+    <script>SocketClient_init();</script>
 </head>
 
 <!-- BEGIN # MODAL LOGIN -->

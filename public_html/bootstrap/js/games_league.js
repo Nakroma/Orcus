@@ -17,9 +17,9 @@ $("#tournament, #tournament-desc").hover(function () {
 
 
 
-$(".queue-quit").click(queueQuit);
+$(".queue-quit").click(GamesLeague_queueQuit);
 // Quit function
-function queueQuit() {
+function GamesLeague_queueQuit() {
     $('.queue-status').css('opacity', '0');
     $('.queue-loading').css('opacity', '0');
     $('.queue-bg').css('margin-left', '600px').css('margin-top', '-1000px');
@@ -69,7 +69,7 @@ $(".sidebar-content-dim").click(function () {
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
-        HideMatchFilters();
+        GamesLeague_HideMatchFilters();
     };
 });
 
@@ -208,7 +208,7 @@ $(".game-mode-box").click(function () {
 
 
 
-function ShowMatchFilters() {
+function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
     $('.content').css('margin-left', '-12%');
     $('.content-bg').css('margin-left', '3%');
@@ -218,7 +218,7 @@ function ShowMatchFilters() {
     $('.match-queue-status').css('left', '36vw');
 };
 
-function HideMatchFilters() {
+function GamesLeague_HideMatchFilters() {
     $('.sidebar-lobby-options').addClass('filters-hidden');
     $('.content').css('margin-left', '');
     $('.content-bg').css('margin-left', '');
@@ -228,24 +228,24 @@ function HideMatchFilters() {
     $('.match-queue-status').css('left', '');
 }
 
-function ShowQueuePlayers() {
+function GamesLeague_ShowQueuePlayers() {
     $('.match-queue-status').addClass('status-visible');
     setTimeout(function () {
         $('.match-queue-status-desc').addClass('animated pulse');
     }, 980);
-    ShowLobby();
+    GamesLeague_ShowLobby();
     setTimeout(function () {
-        HideQueuePlayers();
-        HideMatchFilters();
+        GamesLeague_HideQueuePlayers();
+        GamesLeague_HideMatchFilters();
     }, 4200);
 };
 
-function HideQueuePlayers() {
+function GamesLeague_HideQueuePlayers() {
     $('.match-queue-status').removeClass('status-visible');
     $('.match-queue-status-desc').removeClass('animated pulse');
 };
 
-function ShowLobby() {
+function GamesLeague_ShowLobby() {
     setTimeout(function () {
         $('.lobby').addClass('lobby-visible');
         $('.sidebar-lobby-note').css('display', 'inline-block');
@@ -264,22 +264,22 @@ function ShowLobby() {
 $(".sidebar-queue-start").click(function () {
     if ($(this).hasClass('queue-ready')) {
         if ($('.match-queue-status').hasClass('status-visible')) {
-            HideQueuePlayers();
+            GamesLeague_HideQueuePlayers();
             $('.sidebar-queue-start').addClass('animated pulse queue-ready')
             $('.sidebar-queue-start').text('Find Match');
         } else {
-            ShowQueuePlayers();
+            GamesLeague_ShowQueuePlayers();
             $('.sidebar-queue-start').removeClass('animated pulse queue-ready')
             $('.sidebar-queue-start').text('Cancel Queue');
         };
     } else {};
 });
-$('.queue-create').click(ShowMatchFilters);
+$('.queue-create').click(GamesLeague_ShowMatchFilters);
 $('.menu-play').click(function () {
     $('.sidebar-queue-start').text('Find Match');
-    ShowMatchFilters();
+    GamesLeague_ShowMatchFilters();
 });
 $('.menu-create').click(function () {
     $('.sidebar-queue-start').text('Create Lobby');
-    ShowMatchFilters();
+    GamesLeague_ShowMatchFilters();
 });

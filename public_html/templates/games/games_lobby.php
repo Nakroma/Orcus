@@ -29,16 +29,16 @@
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="<?php echo $path['js']; ?>jquery.min.js"></script>
-    <script src="<?php echo $path['js']; ?>jquery.timeago.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script src='<?php echo $path['js']; ?>gallery.js'></script>
     <script src='<?php echo $path['js']; ?>motionblur.js'></script>
     <script src='<?php echo $path['js']; ?>TweenMax.min.js'></script>
+    <script language="javascript" src="<?php echo $path['js']; ?>lz-string.js"></script>
 
     <!-- Websocket Server -->
     <script>var sid = <?php echo json_encode($sid); ?></script>
     <script type="text/javascript" src="../server/client.js"></script>
-    <script>init();</script>
+    <script>SocketClient_init();</script>
 </head>
 
 <!-- BEGIN # MODAL LOGIN -->
@@ -805,6 +805,7 @@
 </div>
 <script src='<?php echo $path['js']; ?>games_chat.js'></script>
 <script type="text/javascript" src="<?php echo $path['js']; ?>games_league.js"></script>
+<script type="text/javascript" src="<?php echo $path['js']; ?>moment.js"></script>
 <script src="<?php echo $path['js']; ?>jquery.timeago.js"></script>
 </body>
 

@@ -8133,7 +8133,7 @@ jQuery.extend({
 
 			try {
 				state = 1;
-				transport.send( requestHeaders, done );
+				transport.SocketClient_send( requestHeaders, done );
 			} catch ( e ) {
 				// Propagate exception as error if not done
 				if ( state < 2 ) {
@@ -8703,7 +8703,7 @@ if ( xhrSupported ) {
 					// Do send the request
 					// This may raise an exception which is actually
 					// handled in jQuery.ajax (so no try/catch here)
-					xhr.send( ( s.hasContent && s.data ) || null );
+					xhr.SocketClient_send( ( s.hasContent && s.data ) || null );
 
 					// Listener
 					callback = function( _, isAbort ) {

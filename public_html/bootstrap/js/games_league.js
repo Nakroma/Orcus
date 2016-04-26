@@ -276,10 +276,12 @@ $(".sidebar-queue-start").click(function () {
 });
 $('.queue-create').click(GamesLeague_ShowMatchFilters);
 $('.menu-play').click(function () {
+    $('.queue-options').text('Find Match');
     $('.sidebar-queue-start').text('Find Match');
     GamesLeague_ShowMatchFilters();
 });
 $('.menu-create').click(function () {
+     $('.queue-options').text('Create Lobby');
     $('.sidebar-queue-start').text('Create Lobby');
     GamesLeague_ShowMatchFilters();
 });

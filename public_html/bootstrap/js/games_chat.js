@@ -35,9 +35,11 @@ function GamesChat_subMenuChatHide() {
 function GamesChat_subMenuSquadHide() {
     if ($('.squad').hasClass('squad-hidden')) {
         $('.squad').removeClass('squad-hidden');
+            $('.squad-ava-self-inf').css('opacity', '1');
     } else {
         $('.squad').addClass('squad-hidden');
         $('.squad-inv-input').focus();
+            $('.squad-ava-self-inf').css('opacity', '0');
     }
 }
 
@@ -177,6 +179,25 @@ function GamesChat_createPost(username, inputVal) {
     }
 };
 
+function GamesChat_showSquadMemberDetails(){
+    var imageSrc = "bootstrap/img/ava_sample_1.png";
+    var squadMemberName = 'AX.Aeon.피자';
+    var squadMemberRole = 'Support';
+    console.log(imageSrc);
+    $('.squad-ava-img-self-swap').attr('src',imageSrc);
+    $('.squad-ava-swap-helper').css('opacity', '1');
+    $('.squad-ava-self-inf-alt > .squad-self-name-alt').text(squadMemberName);
+    $('.squad-ava-self-inf-alt > .squad-self-role').text(squadMemberRole);
+    $('.squad-ava-self-inf-alt').css('opacity', '1');
+    $('.squad-ava-self-inf').css('opacity', '0');
+}
+
+function GamesChat_hideSquadMemberDetails(){
+    $('.squad-ava-swap-helper').css('opacity', '0');
+    $('.squad-ava-self-inf-alt').css('opacity', '0');
+    $('.squad-ava-self-inf').css('opacity', '1');
+}
+
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
         GamesChat_createPost();
@@ -194,14 +215,12 @@ $('.chat-menu-ico-wrapper').click(GamesChat_subMenuChatHide);
 $('#chat-hrz').on("click", ".chat-group", function () {
     var nameSelf = $('.squad-self-name').text();
     var nameOther = $('.chat-group-active > .chat-post-content > .chat-info > .sidebar-chat-username').text();
-    console.log(nameSelf, nameOther);
     if ($(this).hasClass('chat-group-active')) {} else {
         $('.chat-group-active').removeClass('chat-group-active');
         $(this).addClass('chat-group-active');
         $(".chat-scroll").load("feeds.php #")
     }
 });
-
 
 $('.squad-menu-ico-wr').click(GamesChat_subMenuSquadHide);
 $('.squad-ava').click(GamesChat_subMenuSquadHide);
@@ -214,3 +233,13 @@ $(".squad-inv-input").keypress(function (e) {
         }, 1200);
     };
 });
+
+$(document).on({
+    mouseenter: function(){
+        GamesChat_showSquadMemberDetails()
+    },
+    mouseleave: function(){
+        GamesChat_hideSquadMemberDetails()
+    }
+}, '.squad-slot-taken');
+

@@ -127,7 +127,7 @@
     <div class="content">
         <div class='vid-pattern'></div>
 
-        <img src='bootstrap/img/game_details_bg_league.jpg' class='content-bg'>
+        <img src='bootstrap/img/game_details_bg_league3.jpg' class='content-bg'>
 
         <!-- Menu Bar -->
         <div class='menu-bar-top'>
@@ -175,8 +175,9 @@
 
                         </div>
                         <div class='match-status'>
-                            <img src='bootstrap/img/puff.svg' class='queue-ico'>
-                            <span class='match-status-text'>Finding Carry..</span>
+                            <img src='bootstrap/img/puff.svg' class='queue-ico hidden'>
+                            <span class='match-status-text hidden'>Finding Carry..</span>
+                            <span class='match-status-text'>Preparing Queue</span>
                         </div>
                         <div class='team-2'>
                             <div class='match-queue-team'>
@@ -192,17 +193,99 @@
                     </div>
                 </div>
                 <div class='pick-a-role'>
-                    <span class='par-title'>Select your Role</span>
-                    <br>
+<span class='par-title'> Select a Role</span><br>
+                   <span class='par-sub'>Queue will start when everyone locked in.</span><br>
                     <div class='roles-wrapper'>
-                        <div class='role'>
-                            <img src='bootstrap/img/league_support_role.png' class='role-img support'>
-                            <img src='bootstrap/img/game_role_ico_circle.png' class='role-ico-circle'>
-                            <img src='bootstrap/img/game_support.png' class='role-ico'>
+                        <div class='role-container'>
+                            <div class='role' id='jungler'>
+                                <img src='bootstrap/img/league_jungle_role.png' class='role-img support'>
+                                <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
+                                <img src='bootstrap/img/game_jungle.svg' class='role-ico' style='margin-top:-98px; margin-left:-10px;'>
+                                <div class='role-taken-wr' style='margin-left:38px; margin-top:-108px'>
+                                    <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='role-name'>
+                                <span>Jungler</span>
+                                <br>
+                                <span class='queue-est'>
+                                    Queue Time: 2min
+                                </span>
+                            </div>
                         </div>
-                        <div class='role-name'>
-                            Support
+                        <div class='role-container'>
+                            <div class='role role-taken' id='support'>
+                                <img src='bootstrap/img/league_support_role.png' class='role-img support'>
+                                <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
+                                <img src='bootstrap/img/game_support.svg' class='role-ico'>
+                                <div class='role-taken-wr'>
+                                    <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
+                                </div>
+
+                            </div>
+                            <div class='role-name'>
+                                <span>Support</span>
+                                <br>
+                                <span class='queue-est'>
+                                    AX.Aeon.피자
+                                </span>
+                            </div>
                         </div>
+                        <div class='role-container'>
+                            <div class='role' id='carry'>
+                                <img src='bootstrap/img/league_adc_role.png' class='role-img support'>
+                                <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
+                                <img src='bootstrap/img/game_carry.svg' class='role-ico' style='margin-top:-97px;'>
+                                   <div class='role-taken-wr'>
+                                    <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='role-name'>
+                                <span>Carry</span>
+                                <br>
+                                <span class='queue-est'>
+                                    Queue Time: 4min
+                                </span>
+                            </div>
+                        </div>
+                        <div class='role-container'>
+                            <div class='role role-taken' id='tank'>
+                                <img src='bootstrap/img/league_tank_role.png' class='role-img support'>
+                                <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
+                                <img src='bootstrap/img/game_tank.svg' class='role-ico' style='margin-left:-5px; margin-top:-97px;'>
+<div class='role-taken-wr'>
+                                    <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='role-name'>
+                                <span>Tank</span>
+                                <br>
+                                <span class='queue-est'>
+                                    Queue Time: 1min
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class='role-container'>
+                            <div class='role' id='cc'>
+                                <img src='bootstrap/img/league_cc_role.png' class='role-img support'>
+                                <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
+                                <img src='bootstrap/img/game_cc.svg' class='role-ico'>
+<div class='role-taken-wr'>
+                                    <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='role-name'>
+                                <span>Disabler</span>
+                                <br>
+                                <span class='queue-est'>
+                                    Queue Time: 1min
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='lock-in-role'>
+                        Lock In
                     </div>
                 </div>
                 <div class='lobby-bot-stats'>
@@ -213,12 +296,13 @@
                                 <img src='bootstrap/img/ava_sample_1.png' class='team-ava'>
                             </div>
                             <div class='bot-team-member'>
-                                <img src='bootstrap/img/ava_sample_2.png' class='team-ava'>
+                                <img class='team-ava'>
                             </div>
                             <div class='bot-team-member'>
-                                <img src='bootstrap/img/ava_sample_3.png' class='team-ava'>
+                                <img class='team-ava'>
                             </div>
                             <div class='bot-team-member'>
+                                <img class='team-ava'>
                             </div>
                         </div>
                         <div class='bot-stats-b-left'></div>
@@ -537,7 +621,12 @@
                 <img src='bootstrap/img/send-msg-ico.svg' class='send-ico'>
             </div>
             <div class='squad'>
-                <div class='squad-ava-self'></div>
+                <div class='squad-ava-self'>
+                    <img src='bootstrap/img/ava_sample_4.png' class='squad-ava-img-self'>
+                    <div class='squad-ava-swap-helper'>
+                                            <img  class='squad-ava-img-self-swap'>
+                    </div>
+                </div>
                 <div class='squad-ava-self-inf'>
                     <a href="#" class='squad-self-name'>
                     TotalBiscuit
@@ -545,6 +634,7 @@
                     <br>
                     <div class='squad-self-role'>Tank</div>
                 </div>
+
                 <img src='bootstrap/img/squad-border.png' class='squad-seperator'>
                 <div class='squad-ava-wrapper'>
                     <div class='squad-ava squad-slot-taken'>
@@ -567,14 +657,20 @@
                     <div class='leave-squad'><img src='bootstrap/img/logout.svg' class='leave-squad-ico'></div>
                 </div>
             </div>
+             <div class='squad-ava-self-inf-alt'>
+                    <a href="#" class='squad-self-name-alt'>
+                    TotalBiscuit
+                </a>
+                    <br>
+                    <div class='squad-self-role'>Tank</div>
+                </div>
         </div>
 
         <!-- Sidebar Lobby Options -->
         <div class='sidebar-lobby-options filters-hidden'>
             <div class='sidebar-lobby-header'>
-                <h3 class='queue-options'>TotalBiscuit</h3>
+                <h3 class='queue-options'>Find Match</h3>
                 <br>
-                <a href='#' class='queue-options-hide'>Jungler</a>
             </div>
             <!-- Game Mode -->
             <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>

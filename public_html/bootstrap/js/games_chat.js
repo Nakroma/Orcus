@@ -183,7 +183,6 @@ function GamesChat_showSquadMemberDetails(){
     var imageSrc = "bootstrap/img/ava_sample_1.png";
     var squadMemberName = 'AX.Aeon.피자';
     var squadMemberRole = 'Support';
-    console.log(imageSrc);
     $('.squad-ava-img-self-swap').attr('src',imageSrc);
     $('.squad-ava-swap-helper').css('opacity', '1');
     $('.squad-ava-self-inf-alt > .squad-self-name-alt').text(squadMemberName);

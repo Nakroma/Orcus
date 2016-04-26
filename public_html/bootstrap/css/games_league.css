@@ -1943,7 +1943,7 @@ a:focus {
 .chat-input {
     height: 60px;
     color: white;
-    margin-left: 5%;
+    margin-left: 7%;
     margin-right: 15%;
     border-top: 1px solid rgba(95, 127, 149, 0.36);
     border-bottom: 1px solid rgba(95, 127, 149, 0.36);
@@ -2325,9 +2325,8 @@ a:focus {
 }
 
 .lobby {
-    background: rgba(9, 12, 17, 0.65);
+    background: rgba(9, 12, 17, 0.55);
     height: 100vh;
-        box-shadow: inset 0px 3px 50vw rgba(0, 0, 0, 0.5);
 }
 
 .sidebar-lobby-note {
@@ -3456,7 +3455,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menu-bar-top {
     height: 113px;
-    background: rgba(0, 0, 0, 0.98);
+    background: rgba(0, 0, 0, 0.95);
     width: 100%;
 }
 
@@ -3786,7 +3785,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 33.33%;
     height: calc(25vh - 23.25px);
     overflow: hidden;
-    background: rgba(8, 11, 14, 0.9);
+    background: rgba(8, 11, 14, 0.8);
     text-align: center;
 }
 
@@ -3803,6 +3802,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .lower-main-content {
     display: flex;
+    box-shadow:inset 0px 3px 14vw rgba(0, 0, 0, 0.4);
     height: calc(50vh - 56.5px);
     flex-flow: row wrap;
     align-content: space-between;
@@ -3845,13 +3845,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .chat {
     display: inline-block;
-    width: 29.3%;
+    width: 28.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.84);
-            box-shadow: inset 0px 3px 10vw rgba(0, 0, 0, 0.3);
+    background: rgba(9, 12, 17, 0.75);
+    box-shadow:0px 3px 70px rgba(0, 0, 0, 0.2), inset 0px 3px 10vw rgba(0, 0, 0, 0.3);
     height: calc(100vh - 113px);
-    border-left: solid 1px rgba(135, 145, 160, 0.1);
+        border-left: 1px solid rgba(95, 127, 149, 0.1);
 }
 
 .ntfc-title-wr-ref {
@@ -3952,8 +3952,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .chat-groups {
-    margin-left: 5%;
-    margin-right: 15%;
+    margin-left: 7%;
+    margin-right: 10%;
     margin-top: 41px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -4102,7 +4102,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .chat-content {
     overflow: hidden;
-    margin-left: 5%;
+    margin-left: 7%;
     margin-right: 16.5%;
     height: calc(100% - 280px);
 }
@@ -4135,7 +4135,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .squad {
-    margin-left: 5%;
+    margin-left: 7%;
     margin-right: 15%;
     margin-top: 10px;
     -webkit-transition-timing-function: ease;
@@ -4420,9 +4420,10 @@ input[type=number]::-webkit-outer-spin-button {
 .lobby-top-teams {
     height: 80px;
     margin:auto;
-    background: rgba(9, 12, 17, 0.6);
+    background: rgba(9, 13, 19, 0.5);
     text-align: center;
     border-bottom:1px solid rgba(95, 127, 149, 0.0);
+    box-shadow:0px 3px 30px rgba(0, 0, 0, 0.4), inset 0px 3px 120px rgba(0, 0, 0, 0.3);
 }
 
 .team-name {
@@ -4529,7 +4530,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     font-size: 24px;
     font-weight: 500;
-    margin-top: 10vh;
+    margin-top: 9vh;
     text-transform:uppercase;
 }
 

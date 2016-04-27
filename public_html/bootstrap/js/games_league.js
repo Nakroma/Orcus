@@ -203,11 +203,6 @@ $(".game-mode-box").click(function () {
     };
 });
 
-
-
-
-
-
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
     $('.content').css('margin-left', '-12%');

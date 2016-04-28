@@ -74,6 +74,7 @@
     <div class='menu-open'>
         <div class='menu-ava'></div>
         <a href='#' class='user-menu-name'>TotalBiscuit</a>
+          <a class='side-menu-open'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
 
         <div class='menu-group-1'>
             <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_tournament.svg'>Tournaments</a>
@@ -125,8 +126,6 @@
 
     <!-- Content -->
     <div class="content">
-        <div class='vid-pattern'></div>
-
         <img src='bootstrap/img/game_details_bg_league7.jpg' class='content-bg'>
 
         <!-- Menu Bar -->
@@ -148,8 +147,8 @@
                     <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
                 </div>
                 <div class='menu-play'>
-                    <img src='bootstrap/img/play-ico.svg' class='play-ico'>
-                    <span class='play-text'>Play</span>
+                    <img src='bootstrap/img/play-ico.svg' class='svg play-ico cancel-ico'>
+                    <span class='play-text cancel-text'>Cancel</span>
                 </div>
                 <div class='menu-create'>
                     <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
@@ -160,7 +159,7 @@
 
         <!-- Left Side -->
         <div class='main-content'>
-            <div class='lobby'>
+            <div class='lobby hide'>
                 <div class='lobby-top-teams'>
                     <div class='team-wrapper'>
                         <div class='team-1'>
@@ -270,7 +269,6 @@
                                     Queue Time: 1min
                                 </span>
                             </div>
-
                         </div>
                         <div class='role-container'>
                             <div class='role' id='cc'>
@@ -315,8 +313,8 @@
                         <div class='bot-stats-b-left'></div>
                     </div>
                 </div>
-            </div> -->
-            <!-- News/Notifications
+            </div>
+            <!-- News/Notifications -->
             <script src='bootstrap/js/gallery.js'></script>
             <script src='bootstrap/js/motionblur.js'></script>
             <script src='bootstrap/js/TweenMax.min.js'></script>

@@ -41,19 +41,19 @@ function GamesLeague_queueQuit() {
 }
 
 /* Side Menu Open */
-$(".sidebar-menu-ico").click(function () {
+$(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
         $('.menu-open').css('right', '');
-        $('.content').css('margin-left', '');
-        $('.content-bg').css('margin-left', '');
+        $('.content').css('transform', '');
+        $('.content-bg').css('transform', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
         $('.sidebar-menu-ico').attr('id', "menu-visible");
-        $('.menu-open').css('right', '100px');
-        $('.content').css('margin-left', '-12%');
-        $('.content-bg').css('margin-left', '3%');
+        $('.menu-open').css('transform', 'translateX(100px)');
+        $('.content').css('transform', 'translateX(-12%)');
+        $('.content-bg').css('transform', 'translateX(3%)');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
         $('.sidebar-content-dim').addClass('dim-visible');
     };
@@ -62,9 +62,8 @@ $(".sidebar-menu-ico").click(function () {
 $(".sidebar-content-dim").click(function () {
     if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
         $('.menu-open').css('right', '');
-        $('.gd-sidebar').css('margin-left', '');
-        $('.content').css('margin-left', '');
-        $('.content-bg').css('margin-left', '');
+        $('.content').css('transform', '');
+        $('.content-bg').css('transform', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg');
         $('.sidebar-menu-ico').removeAttr('id');
@@ -205,9 +204,9 @@ $(".game-mode-box").click(function () {
 
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
-    $('.content').css('margin-left', '-12%');
-    $('.content-bg').css('margin-left', '3%');
-    $('.gd-gamebar').css('right', '200px');
+        $('.content').css('transform', 'translateX(-12%)');
+        $('.content-bg').css('transform', 'translateX(3%)');
+    $('.gd-gamebar').css('transform', 'translatex(200px)');
     $('.sidebar-content-dim').addClass('dim-visible');
     $('.user-menu').css('opacity', '0');
     $('.match-queue-status').css('left', '36vw');
@@ -215,9 +214,9 @@ function GamesLeague_ShowMatchFilters() {
 
 function GamesLeague_HideMatchFilters() {
     $('.sidebar-lobby-options').addClass('filters-hidden');
-    $('.content').css('margin-left', '');
-    $('.content-bg').css('margin-left', '');
-    $('.gd-gamebar').css('right', '');
+    $('.content').css('transform', '');
+    $('.content-bg').css('transform', '');
+    $('.gd-gamebar').css('transform', '');
     $('.sidebar-content-dim').removeClass('dim-visible');
     $('.user-menu').css('opacity', '1');
     $('.match-queue-status').css('left', '');

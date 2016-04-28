@@ -751,11 +751,13 @@ div {
 }
 
 .content {
-    position: relative;
+    display:inline-block;
     opacity: 1;
     width: calc(110% - 123px);
     min-height: 100vh;
     overflow: hidden;
+    transform: translateZ(1000px);
+transform-style: preserve-3d;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.75s;
@@ -2160,8 +2162,8 @@ a:focus {
 }
 
 .user-menu {
-    position: fixed;
-    right: 187px;
+    position:absolute;
+    right: 237px;
     top: 49px;
     z-index: 5;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -2228,12 +2230,13 @@ a:focus {
 }
 
 .menu-open {
-    position: absolute;
+    position:absolute;
     right: -300px;
     height: 100%;
     width: 400px;
     background: #21272f;
     z-index: 4;
+    transform: translateZ(1em);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
@@ -2249,7 +2252,8 @@ a:focus {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
-    z-index: 4;
+    z-index:4;
+    transform: translateZ(2em);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.3s;
@@ -2713,6 +2717,8 @@ a:focus {
     top: 0;
     right: 0;
     z-index: 6;
+    transform: translateZ(1000px);
+transform-style: preserve-3d;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
@@ -3465,7 +3471,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     z-index: -1;
     opacity: 0.9;
-    max-width:100vw;
+    min-width:100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -3605,7 +3611,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0px 30px;
     height: 113px;
     line-height: 120px;
-    margin-right: calc(34vw - 153px);
+    margin-right: calc(43vw - 320px);
     text-align: center;
     cursor: pointer;
     -webkit-transition-timing-function: ease;
@@ -4830,14 +4836,33 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-.full-width {
-    width: calc(100vw - 123px);
-}
-
-.full-width ~ .chat { //make overflow hidden parent isntead
-    width: 0;
-}
 .role-img-bg {
     margin-top: -25px;
     margin-left: -25px;
+}
+
+.cancel-ico {
+    filter:grayscale(90%);
+      -webkit-filter: grayscale(90%);
+    filter:gray;
+      fill: red;
+    transform:rotate(180deg);
+}
+
+.cancel-text {
+    color:#8791a0;
+    font-weight:500;
+}
+
+
+
+
+.side-menu-open {
+        display:inline-block;
+    margin-left:97px;
+    width:35px;
+    text-align:center;
+    vertical-align: top;
+    margin-top:52px;
+    cursor:pointer;
 }

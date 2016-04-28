@@ -1608,8 +1608,8 @@ a:focus {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    margin-left: -25.5px;
-    top: -7.5px;
+    margin-left: -26px;
+    top: -6.5px;
 }
 
 .squad-ava-self {
@@ -2325,7 +2325,7 @@ a:focus {
 }
 
 .lobby {
-    background: rgba(9, 12, 17, 0.55);
+    background: rgba(9, 12, 17, 0.65);
     height: 100vh;
 }
 
@@ -3465,7 +3465,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     z-index: -1;
     opacity: 0.9;
-    min-width:100vw;
+    max-width:100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -4432,11 +4432,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .lobby-top-teams {
     height: 80px;
+    width:90%;
     margin: auto;
-    background: rgba(9, 13, 19, 0.4);
+
     text-align: center;
-    border-bottom: 1px solid rgba(95, 127, 149, 0.0);
-    box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.4), inset 0px 3px 120px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(95, 127, 149, 0.35);
+
 }
 
 .team-name {
@@ -4784,8 +4785,8 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
     position: absolute;
     top: calc(100% - 280px);
-    margin-top: 75px;
-    margin-left: 93px;
+    margin-top: 73px;
+    margin-left: 104px;
     color: #8791a0;
     cursor: pointer;
     -webkit-transition-timing-function: ease;

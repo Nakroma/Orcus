@@ -43,7 +43,7 @@ function GamesLeague_queueQuit() {
 /* Side Menu Open */
 $(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
-        $('.menu-open').css('right', '');
+        $('.menu-open').css('transform', '');
         $('.content').css('transform', '');
         $('.content-bg').css('transform', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
@@ -51,7 +51,7 @@ $(".side-menu, .side-menu-open").click(function () {
         $('.sidebar-menu-ico').removeAttr('id');
     } else {
         $('.sidebar-menu-ico').attr('id', "menu-visible");
-        $('.menu-open').css('transform', 'translateX(100px)');
+        $('.menu-open').css('transform', 'translateX(calc(100vw - 473px))');
         $('.content').css('transform', 'translateX(-12%)');
         $('.content-bg').css('transform', 'translateX(3%)');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
@@ -61,7 +61,7 @@ $(".side-menu, .side-menu-open").click(function () {
 
 $(".sidebar-content-dim").click(function () {
     if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
-        $('.menu-open').css('right', '');
+        $('.menu-open').css('transform', '');
         $('.content').css('transform', '');
         $('.content-bg').css('transform', '');
         $('.sidebar-content-dim').removeClass('dim-visible');
@@ -204,22 +204,18 @@ $(".game-mode-box").click(function () {
 
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden');
-        $('.content').css('transform', 'translateX(-12%)');
-        $('.content-bg').css('transform', 'translateX(3%)');
-    $('.gd-gamebar').css('transform', 'translatex(200px)');
+    $('.content').css('transform', 'translateX(-12%)');
+    $('.content-bg').css('transform', 'translateX(3%)');
     $('.sidebar-content-dim').addClass('dim-visible');
     $('.user-menu').css('opacity', '0');
-    $('.match-queue-status').css('left', '36vw');
 };
 
 function GamesLeague_HideMatchFilters() {
     $('.sidebar-lobby-options').addClass('filters-hidden');
     $('.content').css('transform', '');
     $('.content-bg').css('transform', '');
-    $('.gd-gamebar').css('transform', '');
     $('.sidebar-content-dim').removeClass('dim-visible');
     $('.user-menu').css('opacity', '1');
-    $('.match-queue-status').css('left', '');
 }
 
 function GamesLeague_ShowQueuePlayers() {

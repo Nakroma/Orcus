@@ -70,63 +70,10 @@
 <body class=''>
 
     <div class='sidebar-content-dim'></div>
-    <!-- Menu Open -->
-    <div class='menu-open'>
-        <div class='menu-ava'></div>
-        <a href='#' class='user-menu-name'>TotalBiscuit</a>
-          <a class='side-menu-open'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
-
-        <div class='menu-group-1'>
-            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_tournament.svg'>Tournaments</a>
-            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_leaderboard.svg'>Leaderboards</a>
-            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_games.svg' style='margin-left:2px;'>Games</a>
-        </div>
-        <div class='menu-group-2'>
-            <a href="#" class='menu-link'><img src='bootstrap/img/currency.svg' class='menu-currency'>Charge</a>
-            <a href="#" class='menu-link'><img src='bootstrap/img/settings.svg' class='menu-settings'>Settings</a>
-        </div>
-        <div class='menu-group-3'>
-            <a href="#" class='menu-link'><img src='bootstrap/img/logout.svg' class='menu-settings'>Logout</a>
-        </div>
-    </div>
-
-    <!-- Game Bar -->
-    <div class="gd-gamebar">
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_dota.png">
-        </a>
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_csgo.png">
-        </a>
-        <a href='#' class="gd-game">
-            <img src="bootstrap/img/gd_gamebar_hs.png">
-        </a>
-    </div>
-
-    <!-- Queue Status -->
-    <div class='match-queue-status'>
-        <span class='players-ready'>Players Ready: <span class='number'>6/10</span></span>
-        <div class='match-queue-status-desc'>Finding Support...</div>
-        <div class='match-queue-team'>
-            <div class='team-placeholder player-ready'></div>
-            <div class='team-placeholder player-ready'></div>
-            <div class='team-placeholder player-ready'></div>
-            <div class='team-placeholder player-ready'></div>
-            <div class='team-placeholder'></div>
-        </div>
-        <span class='team-1-2'>vs</span>
-        <div class='match-queue-team'>
-            <div class='team-placeholder player-ready-2'></div>
-            <div class='team-placeholder player-ready-2'></div>
-            <div class='team-placeholder player-ready-2'></div>
-            <div class='team-placeholder player-ready-2'></div>
-            <div class='team-placeholder'></div>
-        </div>
-    </div>
 
     <!-- Content -->
     <div class="content">
-        <img src='bootstrap/img/game_details_bg_league7.jpg' class='content-bg'>
+        <img src='bootstrap/img/game_details_bg_league5.jpg' class='content-bg'>
 
         <!-- Menu Bar -->
         <div class='menu-bar-top'>
@@ -159,7 +106,7 @@
 
         <!-- Left Side -->
         <div class='main-content'>
-            <div class='lobby hide'>
+            <div class='lobby'>
                 <div class='lobby-top-teams'>
                     <div class='team-wrapper'>
                         <div class='team-1'>
@@ -314,7 +261,12 @@
                     </div>
                 </div>
             </div>
-            <!-- News/Notifications -->
+
+
+
+
+
+            <!-- News/Notifications
             <script src='bootstrap/js/gallery.js'></script>
             <script src='bootstrap/js/motionblur.js'></script>
             <script src='bootstrap/js/TweenMax.min.js'></script>
@@ -457,8 +409,12 @@
         </div>
 
 
+
+
+
         <!-- Right Side / Chat -->
         <div class='chat'>
+           <div class='chat-container'>
             <div class='chat-groups'>
                 <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>
                 <div class='chats-groups-wrapper'>
@@ -670,8 +626,26 @@
                 <div class='squad-self-role'>Tank</div>
             </div>
         </div>
+        </div>
 
-        <!-- Sidebar Lobby Options -->
+
+
+
+
+        <!-- Menu -->
+        <nav class='user-menu'>
+            <div class='user-menu-container'>
+                <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency_dark.svg' style='margin-bottom:3px;'></a>
+                <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+
+       <!-- Sidebar Lobby Options -->
         <div class='sidebar-lobby-options filters-hidden'>
             <div class='sidebar-lobby-header'>
                 <h3 class='queue-options'>Find Match</h3>
@@ -756,18 +730,50 @@
                     <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
                 </div>
             </div>
-
         </div>
 
 
-        <!-- Menu -->
-        <nav class='user-menu'>
-            <div class='user-menu-container'>
-                <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency_dark.svg' style='margin-bottom:3px;'></a>
-                <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
-            </div>
-        </nav>
+
+
+
+
+
+      <!-- Menu Open -->
+    <div class='menu-open'>
+        <div class='menu-ava'></div>
+        <a href='#' class='user-menu-name'>TotalBiscuit</a>
+          <a class='side-menu-open'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
+
+        <div class='menu-group-1'>
+            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_tournament.svg'>Tournaments</a>
+            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_leaderboard.svg'>Leaderboards</a>
+            <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_games.svg' style='margin-left:2px;'>Games</a>
+        </div>
+        <div class='menu-group-2'>
+            <a href="#" class='menu-link'><img src='bootstrap/img/currency.svg' class='menu-currency'>Charge</a>
+            <a href="#" class='menu-link'><img src='bootstrap/img/settings.svg' class='menu-settings'>Settings</a>
+        </div>
+        <div class='menu-group-3'>
+            <a href="#" class='menu-link'><img src='bootstrap/img/logout.svg' class='menu-settings'>Logout</a>
+        </div>
     </div>
+
+
+
+
+    <!-- Game Bar -->
+    <div class="gd-gamebar">
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_dota.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_csgo.png">
+        </a>
+        <a href='#' class="gd-game">
+            <img src="bootstrap/img/gd_gamebar_hs.png">
+        </a>
+    </div>
+
     <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
     <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>

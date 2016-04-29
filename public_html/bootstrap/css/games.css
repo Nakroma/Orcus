@@ -1306,7 +1306,6 @@ a:hover {
 
 .menu-open {
     position: absolute;
-    right: -300px;
     height: 100%;
     width: 400px;
     background: #22262c;

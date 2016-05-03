@@ -751,13 +751,13 @@ div {
 }
 
 .content {
-    display:inline-block;
+    display: inline-block;
     opacity: 1;
     width: calc(110% - 123px);
     min-height: 100vh;
     overflow: hidden;
     transform: translateZ(1000px);
-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.75s;
@@ -1986,7 +1986,7 @@ a:focus {
 }
 
 .sidebar-chat-post {
-    padding-bottom: 33px;
+    padding: 18px 0px;
 }
 
 .sidebar-chat-comments-scrollbar {
@@ -2162,7 +2162,7 @@ a:focus {
 }
 
 .user-menu {
-    position:absolute;
+    position: absolute;
     right: 237px;
     top: 49px;
     z-index: 5;
@@ -2230,9 +2230,9 @@ a:focus {
 }
 
 .menu-open {
-    position:fixed;
+    position: fixed;
     height: 100%;
-top:0;
+    top: 0;
     width: 350px;
     background: #21272f;
     z-index: 4;
@@ -2253,7 +2253,7 @@ top:0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
-    z-index:4;
+    z-index: 4;
     transform: translateZ(2em);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -2330,7 +2330,7 @@ top:0;
 }
 
 .lobby {
-    background: rgba(9, 12, 17, 0.65);
+    background: rgba(9, 12, 17, 0.55);
     height: 100vh;
 }
 
@@ -2719,7 +2719,7 @@ top:0;
     right: 0;
     z-index: 6;
     transform: translateZ(1000px);
-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
@@ -3471,8 +3471,8 @@ input[type=number]::-webkit-outer-spin-button {
 .content-bg {
     position: absolute;
     z-index: -1;
-    opacity: 0.9;
-    min-width:100vw;
+    opacity: 1;
+    min-width: 100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -3649,6 +3649,7 @@ input[type=number]::-webkit-outer-spin-button {
 .main-content {
     display: inline-block;
     width: 66vw;
+    height: calc(100vh - 113px);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -3799,7 +3800,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 33.33%;
     height: calc(25vh - 23.25px);
     overflow: hidden;
-    background: rgba(8, 11, 14, 0.8);
+    background: rgba(8, 11, 14, 0.7);
     text-align: center;
 }
 
@@ -3811,7 +3812,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .ntf-alt {
-    background: rgba(11, 14, 19, 0.9);
+    background: rgba(11, 14, 17, 0.85);
 }
 
 .lower-main-content {
@@ -3862,10 +3863,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.75);
+    background: rgba(9, 12, 17, 0.65);
     height: calc(100vh - 113px);
     border-left: 1px solid rgba(95, 127, 149, 0.1);
-        -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
     -moz-transition-duration: 0.55s;
@@ -4249,16 +4250,19 @@ input[type=number]::-webkit-outer-spin-button {
 .chat-groups-hidden .chat-arrow-left {
     opacity: 0;
     pointer-events: none;
+    transform: scale(90%);
 }
 
 .chat-groups-hidden .chat-arrow-right {
     opacity: 0;
     pointer-events: none;
+    transform: scale(90%);
 }
 
 .chat-groups-hidden .chats-groups-wrapper {
     opacity: 0;
     pointer-events: none;
+    transform: scale(90%);
 }
 
 .pm-friend-input {
@@ -4320,8 +4324,8 @@ input[type=number]::-webkit-outer-spin-button {
 .chat-ava {
     display: inline-block;
     overflow: hidden;
-    height: 38px;
-    width: 38px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
     border: 2px solid #00b4ff;
 }
@@ -4435,12 +4439,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .lobby-top-teams {
     height: 80px;
-    width:90%;
+    width: 90%;
     margin: auto;
-
+    background: rgba(16, 22, 28, 0.0);
     text-align: center;
-    border-bottom: 1px solid rgba(95, 127, 149, 0.35);
-
+    border-bottom: 1px solid rgba(95, 127, 149, 0.36);
 }
 
 .team-name {
@@ -4547,7 +4550,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     font-size: 24px;
     font-weight: 500;
-    margin-top: 9vh;
+    margin-top: 11vh;
     text-transform: uppercase;
 }
 
@@ -4567,7 +4570,7 @@ input[type=number]::-webkit-outer-spin-button {
 .lobby-bot-stats {
     position: absolute;
     bottom: 0px;
-    height: 30vh;
+    height: 15%;
     width: 66vw;
 }
 
@@ -4600,6 +4603,7 @@ input[type=number]::-webkit-outer-spin-button {
 .team-ava {
     position: absolute;
     height: 100%;
+    border-radius: 50%;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
@@ -4616,14 +4620,16 @@ input[type=number]::-webkit-outer-spin-button {
 .role {
     width: 120px;
     height: 120px;
-    -webkit-transform-origin: 50%  51%;
+    -webkit-transform-origin: 50% 51%;
     cursor: pointer;
-    background:transparent;
+    background: transparent;
 }
 
 .role-img {
     opacity: 0;
     margin-top: -192px;
+            -webkit-filter: grayscale(100%);
+    filter:grayscale(100%);
     margin-left: -25px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -4654,7 +4660,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .role:hover .role-ico-circle {
-    transform:  rotate(-270deg);
+    transform: rotate(-270deg);
 }
 
 .role-name {
@@ -4675,7 +4681,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .role:hover ~ .role-name {
-    top: 45px;
+    transform: translateY(-15px);
     opacity: 1;
 }
 
@@ -4684,7 +4690,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .role:hover ~ .role-name .queue-est {
-    top: -4px;
+    transform: translateY(-3px);
     opacity: 1;
 }
 
@@ -4696,9 +4702,10 @@ input[type=number]::-webkit-outer-spin-button {
 .queue-est {
     color: #8791a0;
     font-size: 14px;
+    display: inline-block;
     font-family: 'segoe ui';
     position: relative;
-    top: 6px;
+    transform: translateY(0px);
     opacity: 0;
     transition-delay: 0.15s;
     -webkit-transition-timing-function: ease;
@@ -4710,7 +4717,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .role-taken .role-img {
-    opacity: 0.3;
+    opacity: 0.8;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
@@ -4724,15 +4731,19 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 38px;
     margin-top: -123px;
     border: 2px solid #00b4ff;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
 }
 
 .role-taken-img {
     height: 100%;
 }
 
-.role-taken {
-
-}
+.role-taken {}
 
 .role .role-taken-wr {
     opacity: 0;
@@ -4740,6 +4751,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .role-taken .role-taken-wr {
     opacity: 1;
+}
+
+.role-taken .role-ico-circle {
+    transform: rotate(-270deg);
 }
 
 .lock-in-role {
@@ -4787,9 +4802,9 @@ input[type=number]::-webkit-outer-spin-button {
 .squad-ava-self-inf-alt {
     display: inline-block;
     position: absolute;
-    top: calc(100% - 280px);
+    top: calc(100% - 149px);
     margin-top: 73px;
-    margin-left: 104px;
+    margin-left: 103px;
     color: #8791a0;
     cursor: pointer;
     -webkit-transition-timing-function: ease;
@@ -4826,7 +4841,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .self-taken .role-img {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .self-taken:hover .role-img {
@@ -4839,34 +4854,138 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cancel-ico {
-    filter:grayscale(90%);
-      -webkit-filter: grayscale(90%);
-    filter:gray;
-      fill: red;
-    transform:rotate(180deg);
+    filter: grayscale(90%);
+    -webkit-filter: grayscale(90%);
+    filter: gray;
+    fill: red;
+    transform: rotate(180deg);
 }
 
 .cancel-text {
-    color:#8791a0;
-    font-weight:500;
+    color: #8791a0;
+    font-weight: 500;
 }
 
-
-
-
 .side-menu-open {
-        display:inline-block;
-    margin-left:69px;
-    width:35px;
-    text-align:center;
+    display: inline-block;
+    margin-left: 69px;
+    width: 35px;
+    text-align: center;
     vertical-align: top;
-    margin-top:52px;
-    cursor:pointer;
+    margin-top: 52px;
+    cursor: pointer;
 }
 
 .chat-container {
-    width:27.5vw;
-    height:100%;
-    padding-top:40px;
-    box-shadow: 0px 3px 70px rgba(0, 0, 0, 0.2), inset 0px 3px 10vw rgba(10, 19, 29, 0.5);
+    width: 27.5vw;
+    height: 100%;
+    padding-top: 40px;
+    box-shadow: 0px 3px 70px rgba(0, 0, 0, 0.2), inset 0px 3px 10vw rgba(8, 11, 14, 0.2);
+}
+
+.bot-team-member-wr {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.lobby-user-stats {
+    text-align: center;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.stats-number {
+    color: white;
+    font-family: 'titillium web';
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.stats-title {
+    position: relative;
+    top: -5px;
+    color: white;
+    font-size: 12px;
+    right:2px;
+    text-transform: uppercase;
+}
+
+.lobby-user-stats-sub {
+    display: inline-block;
+    padding: 0px 15px;
+}
+
+.chat-groups-hidden {
+    transform: scale(100%);
+}
+
+.locked-in-status {
+    position: absolute;
+    color: white;
+    padding: 17px 17px;
+    border-radius: 50%;
+    margin-left: -5px;
+    background: #42d275;
+    display: block;
+    -webkit-transform: skew(-45deg);
+    -moz-transform: skew(-45deg);
+    -ms-transform: skew(-45deg);
+    transform: scale(0.5) skew(-45deg);
+    opacity: 0;
+    -webkit-transition-timing-function: cubic-bezier(.55, 1.55, .93, .95);
+    transition-timing-function: cubic-bezier(.55, 1.55, .93, .95);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.locked-in-helper {
+    width: 90px;
+    height: 42px;
+    margin-top: -124px;
+    margin-left: 100px;
+    position: absolute;
+    overflow: hidden;
+    -webkit-transform: skew(45deg);
+    -moz-transform: skew(45deg);
+    -ms-transform: skew(45deg);
+    transform: skew(45deg);
+}
+
+.locked-in-text {
+    color: white;
+    position: relative;
+    margin-left: 29px;
+    top: 2px;
+}
+
+.locked-in-visible {
+    -webkit-transform: skew(-45deg);
+    -moz-transform: skew(-45deg);
+    -ms-transform: skew(-45deg);
+    transform: scale(1) skew(-45deg);
+    opacity: 1;
+}
+
+.check-ico {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    margin-top: -7px;
+    margin-left: -5px;
+}
+
+.role-ready .role-taken-wr {
+    border: 2px solid #42d275;
+}
+
+.role-ready .role-img{
+        -webkit-filter: grayscale(25%);
+    filter:grayscale(25%);
+}
+
+.odometer-value{
+    font-family:'titillium web';
 }

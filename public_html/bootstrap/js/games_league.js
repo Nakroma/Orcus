@@ -53,7 +53,7 @@ $(".side-menu, .side-menu-open").click(function () {
         $('.sidebar-menu-ico').attr('id', "menu-visible");
         $('.menu-open').css('transform', 'translateX(calc(100vw - 473px))');
         $('.content').css('transform', 'translateX(-12%)');
-        $('.content-bg').css('transform', 'translateX(3%)');
+        $('.content-bg').css('transform', 'translateX(4%)');
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg');
         $('.sidebar-content-dim').addClass('dim-visible');
     };

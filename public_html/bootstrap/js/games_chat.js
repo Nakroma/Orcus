@@ -1,4 +1,11 @@
 jQuery(document).ready(function () {
+    $.ajax({
+        url: "bootstrap/chat/all_chat.html",
+        cache: false,
+        success: function (html) {
+            $(".chat-scroll").append(html);
+        }
+    });
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);
@@ -35,11 +42,11 @@ function GamesChat_subMenuChatHide() {
 function GamesChat_subMenuSquadHide() {
     if ($('.squad').hasClass('squad-hidden')) {
         $('.squad').removeClass('squad-hidden');
-            $('.squad-ava-self-inf').css('opacity', '1');
+        $('.squad-ava-self-inf').css('opacity', '1');
     } else {
         $('.squad').addClass('squad-hidden');
         $('.squad-inv-input').focus();
-            $('.squad-ava-self-inf').css('opacity', '0');
+        $('.squad-ava-self-inf').css('opacity', '0');
     }
 }
 
@@ -124,8 +131,13 @@ function GamesChat_createPost(username, inputVal) {
 
     var ownPost = false;
 
-    if (typeof username === 'undefined') { username = $('.squad-self-name').text(); ownPost = true; }
-    if (typeof inputVal === 'undefined') { inputVal = $('.chat-input-text').val(); }
+    if (typeof username === 'undefined') {
+        username = $('.squad-self-name').text();
+        ownPost = true;
+    }
+    if (typeof inputVal === 'undefined') {
+        inputVal = $('.chat-input-text').val();
+    }
     var date = new Date();
     var date = date.toISOString();
 
@@ -179,11 +191,11 @@ function GamesChat_createPost(username, inputVal) {
     }
 };
 
-function GamesChat_showSquadMemberDetails(){
+function GamesChat_showSquadMemberDetails() {
     var imageSrc = "bootstrap/img/ava_sample_1.png";
     var squadMemberName = 'AX.Aeon.피자';
     var squadMemberRole = 'Support';
-    $('.squad-ava-img-self-swap').attr('src',imageSrc);
+    $('.squad-ava-img-self-swap').attr('src', imageSrc);
     $('.squad-ava-swap-helper').css('opacity', '1');
     $('.squad-ava-self-inf-alt > .squad-self-name-alt').text(squadMemberName);
     $('.squad-ava-self-inf-alt > .squad-self-role').text(squadMemberRole);
@@ -191,7 +203,7 @@ function GamesChat_showSquadMemberDetails(){
     $('.squad-ava-self-inf').css('opacity', '0');
 }
 
-function GamesChat_hideSquadMemberDetails(){
+function GamesChat_hideSquadMemberDetails() {
     $('.squad-ava-swap-helper').css('opacity', '0');
     $('.squad-ava-self-inf-alt').css('opacity', '0');
     $('.squad-ava-self-inf').css('opacity', '1');
@@ -234,11 +246,10 @@ $(".squad-inv-input").keypress(function (e) {
 });
 
 $(document).on({
-    mouseenter: function(){
+    mouseenter: function () {
         GamesChat_showSquadMemberDetails()
     },
-    mouseleave: function(){
+    mouseleave: function () {
         GamesChat_hideSquadMemberDetails()
     }
 }, '.squad-slot-taken');
-

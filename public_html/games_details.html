@@ -9,11 +9,16 @@
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
+    <link href="bootstrap/css/odometer.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 </head>
+
+
+
 
 <!-- BEGIN # MODAL LOGIN -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -67,13 +72,18 @@
 </div>
 <!-- END # MODAL LOGIN -->
 
-<body class=''>
 
+
+
+
+
+<body class=''>
     <div class='sidebar-content-dim'></div>
 
     <!-- Content -->
     <div class="content">
         <img src='bootstrap/img/game_details_bg_league5.jpg' class='content-bg'>
+
 
         <!-- Menu Bar -->
         <div class='menu-bar-top'>
@@ -85,7 +95,7 @@
             <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
             <span class='sidebar-list-link-game'>League of Legends</span>
             <div class='menu-options'>
-                <div class='menu-icons'>
+                <div class='menu-icons hidden'>
                     <img src='bootstrap/img/friends-ico.svg' class='menu-ico' id='friends'>
                     <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
                     <img src='bootstrap/img/invest-ico.svg' class='menu-ico' id='invest'>
@@ -98,11 +108,19 @@
                     <span class='play-text cancel-text'>Cancel</span>
                 </div>
                 <div class='menu-create'>
-                    <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
-                    <span class='create-text'>Create Lobby</span>
+                    <div class='menu-create-normal'>
+                        <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
+                        <span class='create-text'>Create Lobby</span>
+                    </div>
+                    <div class='menu-create-filters'>
+
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
 
         <!-- Left Side -->
         <div class='main-content'>
@@ -133,13 +151,13 @@
                                 <div class='team-placeholder player-ready-2'></div>
                                 <div class='team-placeholder player-ready-2'></div>
                             </div>
-
                             <span class='team-name'>Team Green</span>
                         </div>
                     </div>
                 </div>
                 <div class='pick-a-role'>
-                    <span class='par-title'> Select a Role</span>
+                    <!-- Make scrollable for responsive -->
+                    <span class='par-title'>choose your Role</span>
                     <br>
                     <span class='par-sub'>Queue will start when everyone locked in.</span>
                     <br>
@@ -150,8 +168,13 @@
                                 <img src='bootstrap/img/league_jungle_role.png' class='role-img support'>
                                 <img src='bootstrap/img/game_role_ico_circle.svg' class='role-ico-circle'>
                                 <img src='bootstrap/img/game_jungle.svg' class='role-ico' style='margin-left:-12px;'>
-                                <div class='role-taken-wr' >
+                                <div class='role-taken-wr'>
                                     <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='locked-in-helper'>
+                                <div class='locked-in-status '>
+                                    <img src='bootstrap/img/check.svg' class='check-ico'>
                                 </div>
                             </div>
                             <div class='role-name'>
@@ -171,8 +194,13 @@
                                 <div class='role-taken-wr'>
                                     <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
                                 </div>
-
                             </div>
+                            <div class='locked-in-helper'>
+                                <div class='locked-in-status '>
+                                    <img src='bootstrap/img/check.svg' class='check-ico'>
+                                </div>
+                            </div>
+
                             <div class='role-name'>
                                 <span>Support</span>
                                 <br>
@@ -189,6 +217,11 @@
                                 <img src='bootstrap/img/game_carry.svg' class='role-ico' style='margin-top:-112px; margin-left:-12px;'>
                                 <div class='role-taken-wr'>
                                     <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
+                                </div>
+                            </div>
+                            <div class='locked-in-helper'>
+                                <div class='locked-in-status'>
+                                    <img src='bootstrap/img/check.svg' class='check-ico'>
                                 </div>
                             </div>
                             <div class='role-name'>
@@ -209,6 +242,11 @@
                                     <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
                                 </div>
                             </div>
+                            <div class='locked-in-helper'>
+                                <div class='locked-in-status'>
+                                    <img src='bootstrap/img/check.svg' class='check-ico'>
+                                </div>
+                            </div>
                             <div class='role-name'>
                                 <span>Tank</span>
                                 <br>
@@ -227,6 +265,11 @@
                                     <img src='bootstrap/img/ava_sample_1.png' class='role-taken-img'>
                                 </div>
                             </div>
+                            <div class='locked-in-helper'>
+                                <div class='locked-in-status '>
+                                    <img src='bootstrap/img/check.svg' class='check-ico'>
+                                </div>
+                            </div>
                             <div class='role-name'>
                                 <span>Disabler</span>
                                 <br>
@@ -240,11 +283,13 @@
                         Lock In
                     </div>
                 </div>
+
+
                 <div class='lobby-bot-stats'>
                     <div class='bot-stats-members'>
                         <div class='bot-stats-b-left'></div>
                         <div class='bot-stats-team'>
-                            <div class='bot-team-member'>
+                            <div class='bot-team-member team-slot-taken'>
                                 <img src='bootstrap/img/ava_sample_1.png' class='team-ava'>
                             </div>
                             <div class='bot-team-member'>
@@ -259,8 +304,26 @@
                         </div>
                         <div class='bot-stats-b-left'></div>
                     </div>
+                    <div class='lobby-user-stats'>
+                        <div class='lobby-user-stats-sub'>
+                            <span class='stats-number' id='wins'>33</span>
+                            <br>
+                            <span class='stats-title'>Wins</span>
+                        </div>
+                        <div class='lobby-user-stats-sub'>
+                            <span class='stats-number' id='skill'>433</span>
+                            <br>
+                            <span class='stats-title'>Skill</span>
+                        </div>
+                        <div class='lobby-user-stats-sub'>
+                            <span class='stats-number' id='lost'>7</span>
+                            <br>
+                            <span class='stats-title'>Lost</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
 
 
 
@@ -414,218 +477,123 @@
 
         <!-- Right Side / Chat -->
         <div class='chat'>
-           <div class='chat-container'>
-            <div class='chat-groups'>
-                <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>
-                <div class='chats-groups-wrapper'>
-                    <div class='chat-hrz-wr' id='chat-hrz'>
-                        <div class='chat-group chat-group-active'>
-                            <span class='chat-group-title'>All Chat</span>
-                            <br><span class='chat-group-desc'>590 online</span>
-                        </div>
-                        <div class='chat-group'>
-                            <div class='chat-group-td'>
-                                <span class='chat-group-title'>Squad</span>
-                                <br>
-                                <span class='chat-group-desc'>Main Menu</span>
+            <div class='chat-container'>
+                <div class='chat-groups'>
+                    <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>
+                    <div class='chats-groups-wrapper'>
+                        <div class='chat-hrz-wr' id='chat-hrz'>
+                            <div class='chat-group chat-group-active'>
+                                <span class='chat-group-title'>All Chat</span>
+                                <br><span class='chat-group-desc'>590 online</span>
                             </div>
-                            <div class='chat-new-msgs msgs-invis'>
-                                5
+                            <div class='chat-group'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>Squad</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Main Menu</span>
+                                </div>
+                                <div class='chat-new-msgs msgs-invis'>
+                                    5
+                                </div>
                             </div>
-                        </div>
-                        <div class='chat-group'>
-                            <div class='chat-group-td'>
-                                <span class='chat-group-title'>Dendi</span>
-                                <br>
-                                <span class='chat-group-desc'>Idle</span>
+                            <div class='chat-group'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>Dendi</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Idle</span>
+                                </div>
+                                <div class='chat-new-msgs '>
+                                    5
+                                </div>
                             </div>
-                            <div class='chat-new-msgs '>
-                                5
+                            <div class='chat-group'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>FatFuckMoh</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Main Menu</span>
+                                </div>
+                                <div class='chat-new-msgs msgs-invis'>
+                                    5
+                                </div>
                             </div>
-                        </div>
-                        <div class='chat-group'>
-                            <div class='chat-group-td'>
-                                <span class='chat-group-title'>FatFuckMoh</span>
-                                <br>
-                                <span class='chat-group-desc'>Main Menu</span>
-                            </div>
-                            <div class='chat-new-msgs msgs-invis'>
-                                5
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-right'>
-                <div class='chat-menu-ico-wrapper'>
-                    <img src='bootstrap/img/small_menu_ico.svg' class='chat-menu-ico'>
-                </div>
-                <div class='chat-sub-menu-options'>
-                    <div class='chat-pm'>
-                        <img src='bootstrap/img/chat_add.png' class='chat-add'>
-                        <input type='text' placeholder='Enter player to chat with' class='pm-friend-input'>
-                        <div class='sidebar-entry-error error-hidden' id='chat-group-error'>Not Found</div>
-                    </div>
-                </div>
-                <div class='bottom-border-indicator'>
-                    <div class='triangle-border-left'></div>
-                    <div class='triangle'></div>
-                    <div class='triangle-border-right'></div>
-                </div>
-            </div>
-            <div class='chat-content'>
-                <div class='chat-scroll'>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
                         </div>
                     </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
+                    <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-right'>
+                    <div class='chat-menu-ico-wrapper'>
+                        <img src='bootstrap/img/small_menu_ico.svg' class='chat-menu-ico'>
+                    </div>
+                    <div class='chat-sub-menu-options'>
+                        <div class='chat-pm'>
+                            <img src='bootstrap/img/chat_add.png' class='chat-add'>
+                            <input type='text' placeholder='Enter player to chat with' class='pm-friend-input'>
+                            <div class='sidebar-entry-error error-hidden' id='chat-group-error'>Not Found</div>
                         </div>
                     </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava ava-offline'><img src='bootstrap/img/ava_sample_2.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>FatFuckMoh</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava ava-offline'><img src='bootstrap/img/ava_sample_2.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>FatFuckMoh</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis BeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnisBeffnis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <time class='timeago sidebar-chat-date' datetime="2008-07-17T09:24:17Z">Just now</time>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
-                    </div>
-                    <div class='sidebar-chat-post'>
-                        <div class='chat-ava'><img src='bootstrap/img/ava_sample_3.png' class='chat-ava-img'></div>
-                        <div class='chat-post-content'>
-                            <div class='chat-info'>
-                                <a href='#' class='sidebar-chat-username'>Aeon</a>
-                                <div class='sidebar-chat-date'>Just now</div>
-                            </div>
-                            <div class='sidebar-chat-message'>Benis Beffnis Benis Benis</div>
-                        </div>
+                    <div class='bottom-border-indicator'>
+                        <div class='triangle-border-left'></div>
+                        <div class='triangle'></div>
+                        <div class='triangle-border-right'></div>
                     </div>
                 </div>
 
-            </div>
-            <div class='chat-input'>
-                <input type=text class='chat-input-text' placeholder="Write something">
-                <img src='bootstrap/img/send-msg-ico.svg' class='send-ico'>
-            </div>
-            <div class='squad'>
-                <div class='squad-ava-self'>
-                    <img src='bootstrap/img/ava_sample_4.png' class='squad-ava-img-self'>
-                    <div class='squad-ava-swap-helper'>
-                        <img class='squad-ava-img-self-swap'>
+
+                <!-- Chat Messages -->
+                <div class='chat-content'>
+                    <div class='chat-scroll'>
+
                     </div>
                 </div>
-                <div class='squad-ava-self-inf'>
-                    <a href="#" class='squad-self-name'>
+
+
+                <div class='chat-input'>
+                    <input type=text class='chat-input-text' placeholder="Write something">
+                    <img src='bootstrap/img/send-msg-ico.svg' class='send-ico'>
+                </div>
+                <div class='squad'>
+                    <div class='squad-ava-self'>
+                        <img src='bootstrap/img/ava_sample_4.png' class='squad-ava-img-self'>
+                        <div class='squad-ava-swap-helper'>
+                            <img class='squad-ava-img-self-swap'>
+                        </div>
+                    </div>
+                    <div class='squad-ava-self-inf'>
+                        <a href="#" class='squad-self-name'>
+                    TotalBiscuit
+                </a>
+                        <br>
+                        <div class='squad-self-role'>Tank</div>
+                    </div>
+
+                    <img src='bootstrap/img/squad-border.png' class='squad-seperator'>
+                    <div class='squad-ava-wrapper'>
+                        <div class='squad-ava squad-slot-taken'>
+                            <img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>
+                        </div>
+                        <div class='squad-ava'></div>
+                        <div class='squad-ava'></div>
+                        <div class='squad-ava'></div>
+                    </div>
+                    <div class='squad-menu-ico-wr'>
+                        <img src='bootstrap/img/small_menu_ico.svg' class='squad-menu-ico'>
+                    </div>
+
+                    <div class='squad-sub-options'>
+                        <div class='squad-invite'>
+                            <img src='bootstrap/img/chat_add.png' class='chat-add'>
+                            <input type='text' placeholder='Enter player to invite' class='squad-inv-input'>
+                            <div class='sidebar-entry-error error-hidden' id='squad-group-error'>Not Found</div>
+                        </div>
+                        <div class='leave-squad'><img src='bootstrap/img/logout.svg' class='leave-squad-ico'></div>
+                    </div>
+                </div>
+                <div class='squad-ava-self-inf-alt'>
+                    <a href="#" class='squad-self-name-alt'>
                     TotalBiscuit
                 </a>
                     <br>
                     <div class='squad-self-role'>Tank</div>
                 </div>
-
-                <img src='bootstrap/img/squad-border.png' class='squad-seperator'>
-                <div class='squad-ava-wrapper'>
-                    <div class='squad-ava squad-slot-taken'>
-                        <img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>
-                    </div>
-                    <div class='squad-ava'></div>
-                    <div class='squad-ava'></div>
-                    <div class='squad-ava'></div>
-                </div>
-                <div class='squad-menu-ico-wr'>
-                    <img src='bootstrap/img/small_menu_ico.svg' class='squad-menu-ico'>
-                </div>
-
-                <div class='squad-sub-options'>
-                    <div class='squad-invite'>
-                        <img src='bootstrap/img/chat_add.png' class='chat-add'>
-                        <input type='text' placeholder='Enter player to invite' class='squad-inv-input'>
-                        <div class='sidebar-entry-error error-hidden' id='squad-group-error'>Not Found</div>
-                    </div>
-                    <div class='leave-squad'><img src='bootstrap/img/logout.svg' class='leave-squad-ico'></div>
-                </div>
             </div>
-            <div class='squad-ava-self-inf-alt'>
-                <a href="#" class='squad-self-name-alt'>
-                    TotalBiscuit
-                </a>
-                <br>
-                <div class='squad-self-role'>Tank</div>
-            </div>
-        </div>
         </div>
 
 
@@ -645,92 +613,92 @@
 
 
 
-       <!-- Sidebar Lobby Options -->
-        <div class='sidebar-lobby-options filters-hidden'>
-            <div class='sidebar-lobby-header'>
-                <h3 class='queue-options'>Find Match</h3>
-                <br>
-            </div>
-            <!-- Game Mode -->
-            <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>
-            <div class='queue-filters'>
-                <div class='sidebar-lobby-options-wrapper'>
-                    <div class='sidebar-lobby-mode'>
-                        <h4 class='sidebar-game-mode'>Game Mode</h4>
-                        <div class='queue-filter-arrow-ico' id='modes'></div>
-                    </div>
-                    <div class='sidebar-lobby-mode-wrapper'>
-                        <div class='sidebar-lobby-mode-filters'>
-                            <div class='game-mode-box'>
-                                All Pick
-                            </div>
-                            <div class='game-mode-box'>
-                                ARAM
-                            </div>
-                            <div class='game-mode-box'>
-                                SWAG
-                            </div>
-                            <div class='game-mode-box'>
-                                Captain's Draft
-                            </div>
+    <!-- Sidebar Lobby Options -->
+    <div class='sidebar-lobby-options filters-hidden'>
+        <div class='sidebar-lobby-header'>
+            <h3 class='queue-options'>Find Match</h3>
+            <br>
+        </div>
+        <!-- Game Mode -->
+        <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>
+        <div class='queue-filters'>
+            <div class='sidebar-lobby-options-wrapper'>
+                <div class='sidebar-lobby-mode'>
+                    <h4 class='sidebar-game-mode'>Game Mode</h4>
+                    <div class='queue-filter-arrow-ico' id='modes'></div>
+                </div>
+                <div class='sidebar-lobby-mode-wrapper'>
+                    <div class='sidebar-lobby-mode-filters'>
+                        <div class='game-mode-box'>
+                            All Pick
                         </div>
-                        <div class='game-mode-players'>
-                            <div class='game-mode-box'>
-                                <span class='number'>5 vs 5</span>
-                            </div>
-                            <div class='game-mode-box'>
-                                <span class='number'>1 vs 1</span>
-                            </div>
+                        <div class='game-mode-box'>
+                            ARAM
+                        </div>
+                        <div class='game-mode-box'>
+                            SWAG
+                        </div>
+                        <div class='game-mode-box'>
+                            Captain's Draft
+                        </div>
+                    </div>
+                    <div class='game-mode-players'>
+                        <div class='game-mode-box'>
+                            <span class='number'>5 vs 5</span>
+                        </div>
+                        <div class='game-mode-box'>
+                            <span class='number'>1 vs 1</span>
                         </div>
                     </div>
                 </div>
-                <!-- Entry -->
-                <div class='sidebar-lobby-options-wrapper-entry'>
-                    <div class='sidebar-lobby-entry'>
-                        <h4 class='sidebar-game-mode'>Select Entry</h4>
-                        <div class='queue-filter-arrow-ico' id='entries'>
-                        </div>
-                        <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
+            </div>
+            <!-- Entry -->
+            <div class='sidebar-lobby-options-wrapper-entry'>
+                <div class='sidebar-lobby-entry'>
+                    <h4 class='sidebar-game-mode'>Select Entry</h4>
+                    <div class='queue-filter-arrow-ico' id='entries'>
                     </div>
-                    <div class='sidebar-lobby-entry-wrapper'>
-                        <div class='sidebar-lobby-entry-filters'>
-                            <div class='game-mode-box number'>
-                                5 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
-                            </div>
-                            <div class='game-mode-box number'>
-                                10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
-                            </div>
-                            <div class='game-mode-box number'>
-                                20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
-                            </div>
-                            <div class='game-mode-box number'>
-                                50 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
-                            </div>
-                            <div class='game-mode-box number' style='width:110px;'>
-                                <input type="number" name="custom entry" class='custom-entry' placeholder='Custom'>
-                            </div>
+                    <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
+                </div>
+                <div class='sidebar-lobby-entry-wrapper'>
+                    <div class='sidebar-lobby-entry-filters'>
+                        <div class='game-mode-box number'>
+                            5 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
                         </div>
-                        <div class='game-entry-invest'>
-                            <div class='game-mode-box'>
-                                <span class='number'>20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
-                            </div>
-                            <div class='game-mode-box'>
-                                <span class='number'>10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
-                            </div>
+                        <div class='game-mode-box number'>
+                            10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
                         </div>
+                        <div class='game-mode-box number'>
+                            20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number'>
+                            50 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number' style='width:110px;'>
+                            <input type="number" name="custom entry" class='custom-entry' placeholder='Custom'>
+                        </div>
+                    </div>
+                    <div class='game-entry-invest'>
+                        <div class='game-mode-box'>
+                            <span class='number'>20 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
+                        </div>
+                        <div class='game-mode-box'>
+                            <span class='number'>10 <img src='bootstrap/img/currency.svg' class='entry-currency-ico'></span>
+                        </div>
+                    </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class='sidebar-queue-status-wrapper'>
-                <div class='sidebar-queue-status-desc'>
-                    <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
-                </div>
-                <div class='sidebar-queue-start-cancel'>
-                    <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
                 </div>
             </div>
         </div>
+        <div class='sidebar-queue-status-wrapper'>
+            <div class='sidebar-queue-status-desc'>
+                <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
+            </div>
+            <div class='sidebar-queue-start-cancel'>
+                <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -738,11 +706,11 @@
 
 
 
-      <!-- Menu Open -->
+    <!-- Menu Open -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
         <a href='#' class='user-menu-name'>TotalBiscuit</a>
-          <a class='side-menu-open'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
+        <a class='side-menu-open'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
 
         <div class='menu-group-1'>
             <a href="#" class='menu-link'><img src='bootstrap/img/lp_header_tournament.svg'>Tournaments</a>
@@ -775,10 +743,10 @@
     </div>
 
     <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
-    <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
     <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
     <script type="text/javascript" src="bootstrap/js/moment.js"></script>
     <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
+    <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 </body>
 
 </html>

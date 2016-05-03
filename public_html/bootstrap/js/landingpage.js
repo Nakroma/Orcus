@@ -1,8 +1,7 @@
-/* Mobile Check */
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script src="bootstrap/js/parallax.js"></script>');
+    $('head').append('<script type="text/javascript" src="bootstrap/js/parallax.js"></script>');
+        $('body').append('<script type="text/javascript" src="bootstrap/js/parallax.js"></script>');
 }
-
 /* Navbar */
 $(document).ready(function () {
     var scroll_start = 0;

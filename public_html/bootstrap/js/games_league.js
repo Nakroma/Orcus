@@ -271,7 +271,57 @@ $('.menu-play').click(function () {
     GamesLeague_ShowMatchFilters();
 });
 $('.menu-create').click(function () {
-     $('.queue-options').text('Create Lobby');
+    $('.queue-options').text('Create Lobby');
     $('.sidebar-queue-start').text('Create Lobby');
     GamesLeague_ShowMatchFilters();
 });
+
+
+
+
+
+/* Squad Invite Functions */
+
+function GamesChat_showSquadMemberDetails() {
+    var imageSrc = "bootstrap/img/ava_sample_1.png";
+    var squadMemberName = 'El Kappa';
+    $('.squad-invite-ava-img-self-swap').attr('src', imageSrc);
+    $('.squad-invite-ava-swap-helper').css('opacity', '1');
+    $('.squad-invite-self-name-alt').text(squadMemberName);
+    $('.squad-invite-self-name-alt').css('opacity', '1');
+    $('.squad-invite-self-name').css('opacity', '0');
+}
+
+function GamesChat_hideSquadMemberDetails() {
+    $('.squad-invite-self-name-alt').css('opacity', '0');
+    $('.squad-invite-self-name').css('opacity', '1');
+    $('.squad-invite-ava-swap-helper').css('opacity', '0');
+    $('.squad-ava-self-inf').css('opacity', '1');
+}
+
+$('.squad-invite-block-box').click(function () {
+    if ($(this).hasClass('block-box-selected')) {
+        $(this).removeClass('block-box-selected');
+    } else {
+        $(this).addClass('block-box-selected');
+    }
+});
+
+$(document).on({
+    mouseenter: function () {
+        GamesChat_showSquadMemberDetails()
+    },
+    mouseleave: function () {
+        GamesChat_hideSquadMemberDetails()
+    }
+}, '.squad-slot-taken');
+
+setTimeout(function () {
+    $('.squad-invite-wr').removeClass('squad-invite-hidden');
+}, 1200);
+
+$('.squad-invite-accept-decline').on('click', '.squad-invite-accept, .squad-invite-decline', function () {
+            $('.squad-invite-wr').addClass('squad-invite-hidden');
+        });
+
+

@@ -1476,7 +1476,7 @@ a:focus {
 
 .sidebar-list-link {
     display: inline-block;
-    margin-top: 48px;
+    margin-top: 44px;
     z-index: 1;
     margin-left: 5px;
     color: #788293;
@@ -2164,7 +2164,7 @@ a:focus {
 .user-menu {
     position: absolute;
     right: 237px;
-    top: 49px;
+    top: 45px;
     z-index: 5;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -2283,7 +2283,7 @@ a:focus {
 }
 
 .menu-group-1 {
-    margin-top: 29px;
+    margin-top: 23px;
     padding-bottom: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
@@ -2299,7 +2299,7 @@ a:focus {
 
 .menu-ava {
     display: inline-block;
-    margin-top: 42px;
+    margin-top: 38px;
     margin-left: 60px;
     height: 35px;
     width: 35px;
@@ -3461,8 +3461,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .menu-bar-top {
-    height: 113px;
-    background: rgba(0, 0, 0, 0.95);
+    height: 103px;
+    background: rgba(0, 0, 0, 0.9);
     width: 100%;
 }
 
@@ -3485,7 +3485,7 @@ input[type=number]::-webkit-outer-spin-button {
 .menu-logo {
     vertical-align: top;
     height: 32px;
-    margin-top: 42px;
+    margin-top: 37px;
     padding-left: 100px;
     padding-right: 4px;
 }
@@ -3493,7 +3493,7 @@ input[type=number]::-webkit-outer-spin-button {
 .menu-logo-font {
     vertical-align: top;
     height: 16px;
-    margin-top: 51px;
+    margin-top: 46px;
 }
 
 .sidebar-list-link:first-of-type {
@@ -3502,7 +3502,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menu-play {
     display: inline-block;
-    height: 113px;
+    height: 103px;
     line-height: 120px;
     cursor: pointer;
     padding: 0 63px;
@@ -3521,6 +3521,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .play-text {
+    position:relative;
+    top:-4px;
     height: 16px;
     font-family: 'titillium web';
     font-weight: 600;
@@ -3532,6 +3534,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .play-ico {
     display: inline-block;
+    position:relative;
+    top:-3px;
     margin-bottom: 6px;
     margin-right: 5px;
     width: 20px;
@@ -3545,6 +3549,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menu-icons {
     display: inline-block;
+    vertical-align: super;
+    position:relative;
+    top:1px;
 }
 
 .menu-ico-desc {
@@ -3610,7 +3617,7 @@ input[type=number]::-webkit-outer-spin-button {
 .menu-create {
     display: inline-block;
     padding: 0px 30px;
-    height: 113px;
+    height: 103px;
     line-height: 120px;
     margin-right: calc(43vw - 320px);
     text-align: center;
@@ -3629,11 +3636,13 @@ input[type=number]::-webkit-outer-spin-button {
     text-transform: uppercase;
     color: #8791a0;
     letter-spacing: 0.1em;
+    position:relative;
+    top:-4px;
 }
 
 .create-ico {
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     margin-right: 2px;
     width: 23px;
 }
@@ -3760,7 +3769,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: hidden;
     position: relative;
     width: 25%;
-    height: calc(50vh - 56.5px);
+    height: calc(50vh - 46.5px);
 }
 
 .update-date {
@@ -3798,7 +3807,7 @@ input[type=number]::-webkit-outer-spin-button {
 .notification {
     position: relative;
     width: 33.33%;
-    height: calc(25vh - 23.25px);
+    height: calc(25vh - 18.25px);
     overflow: hidden;
     background: rgba(8, 11, 14, 0.7);
     text-align: center;
@@ -3863,9 +3872,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.65);
-    height: calc(100vh - 113px);
-    border-left: 1px solid rgba(95, 127, 149, 0.1);
+    background: rgba(9, 12, 17, 0.75);
+    height: calc(100vh - 103px);
+    border-left: 1px solid rgba(95, 127, 149, 0.2);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -3884,10 +3893,10 @@ input[type=number]::-webkit-outer-spin-button {
 .notification-ref {
     position: relative;
     width: 33.33%;
-    height: calc(25vh - 23.25px);
+    height: calc(25vh - 18.25px);
     overflow: hidden;
     background: url(../img/refer_a_friend_bg.jpg) center;
-    background-size: calc(55vh - 23.25px);
+    background-size: calc(55vh - 18.25px);
     text-align: center;
     cursor: pointer;
     -webkit-transition-timing-function: ease;
@@ -4215,9 +4224,7 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
-.squad-slot-taken {
-    border: 2px solid #00b4ff;
-}
+
 
 .img02 {
     margin: 0 0px;
@@ -4872,7 +4879,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 35px;
     text-align: center;
     vertical-align: top;
-    margin-top: 52px;
+    margin-top: 47px;
     cursor: pointer;
 }
 
@@ -4988,4 +4995,338 @@ input[type=number]::-webkit-outer-spin-button {
 
 .odometer-value{
     font-family:'titillium web';
+}
+
+.squad-invite-notification {
+    z-index:6;
+    position:relative;
+    display:inline-block;
+    width:500px;
+    vertical-align: middle;
+    box-shadow: 0px 3px 90px rgba(0, 0, 0, 0.4);
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.squad-invite-wr {
+    position:absolute;
+    top:0;
+    width:100vw;
+    height:100vh;
+    z-index:5;
+    text-align:center;
+      background: rgba( 0, 0, 0, 0.4);
+            -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.squad-invite-helper {
+    display:inline-block;
+    height:45%;
+}
+
+.invite-title {
+    color:white;
+    display:inline-block;
+    margin-left:10%;
+    margin-top:4%;
+    margin-bottom:2%;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.invite-title-border {
+    border-bottom:1px solid rgba(95, 127, 149, 0.36);
+        width:90%;
+    margin:auto;
+}
+
+.squad-invite-title {
+    color:white;
+    font-size:16px;
+    font-weight:200;
+}
+
+.squad-invite-ico {
+    display:inline-block;
+    margin-bottom:5px;
+}
+
+.invite-player {
+    margin-left:3px;
+    color:white;
+    font-weight:600;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.15s;
+    -moz-transition-duration: 0.15s;
+    -o-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+}
+
+.invite-player:hover {
+    color:#00b4ff;
+}
+
+.squad-invite-preview {
+    text-align:left;
+    height:130px;
+    padding:30px 25px 20px;
+    background:rgba(8,11,15,0.9);
+}
+
+.squad-invite-ava-self {
+        overflow: hidden;
+    display: inline-block;
+    margin-top: 3.5%;
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    border: 2px solid #00b4ff;
+    background-size: 100%;
+    margin-left: 55px;
+    text-align: center;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.squad-invite-notification-wr {
+       padding:42px 0px 0px 0px;
+        background: #151920;
+    height:100px;
+}
+
+.squad-invite-ava-self-inf {
+        display: inline-block;
+    position: relative;
+    top: -3px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.squad-self-status {
+        display: inline-block;
+    position: relative;
+    top: -4px;
+    margin-left: 5px;
+    color: #8791a0;
+    text-transform: uppercase;
+    font-size:12px;
+}
+
+.squad-invite-seperator {
+        display: inline-block;
+    vertical-align: top;
+    margin-top: -2px;
+    margin-left: 10px;
+}
+
+.squad-invite-team-wr {
+    display:inline-block;
+    position:relative;
+    top:4px;
+}
+
+.squad-invite-ava {
+        overflow: hidden;
+    display: inline-block;
+    margin-top: 10px;
+    height: 39px;
+    width: 39px;
+    border-radius: 50px;
+    border: 2px solid #4c525e;
+    background: #14191f url('../img/ava_blank.svg') center no-repeat;
+    background-size: 50%;
+    margin-left: 3px;
+    text-align: center;
+}
+
+.squad-slot-taken {
+    border: 2px solid #00b4ff;
+}
+.squad-invite-accept-decline {
+            background: #151920;
+    height:80px;
+}
+
+.squad-invite-accept {
+    display:inline-block;
+    margin:0px 5px;
+        margin-top:23px;
+    padding:5px 18px;
+    border:2px solid #42d275;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+            -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.squad-invite-decline {
+       display:inline-block;
+    margin:0px 5px;
+        margin-top:16px;
+    padding:5px 18px;
+    border:2px solid #7b8492;
+    color:#8791a0;
+    font-size:14px;
+    cursor:pointer;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.squad-invite-decline:hover {
+    background:#7b8492;
+    color:white;
+}
+
+.squad-invite-accept:hover {
+    background:#42d275;
+    color:white;
+}
+
+.squad-invite-decline-block {
+    background:#07080a;
+    height:30px;
+    color:#5c636d;
+    font-size:12px;
+    line-height:2.7;
+}
+
+.squad-invite-block-box {
+    position:relative;
+    top:1px;
+    display:inline-block;
+    height:12px;
+    width:12px;
+    border-radius:1px;
+    border: 1px solid #5c636d;
+    cursor:pointer;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+
+.squad-invite-block-box:hover {
+    background:rgba(92,99,109,0.2);
+}
+
+.block-box-selected {
+    background:#5c636d;
+}
+
+.block-box-selected:hover {
+    background:#5c636d;
+}
+
+.squad-invite-box-shade {
+    position:absolute;
+    height:100%;
+    width:100%;
+    box-shadow: inset 0px 3px 140px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.squad-invite-ava-self-inf-alt {
+        display: inline-block;
+    position: absolute;
+    top: 0;
+    margin-top: 73px;
+    margin-left: 103px;
+    color: #8791a0;
+    cursor: pointer;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    opacity: 1;
+}
+
+.squad-invite-self-name-alt {
+    position:absolute;
+    left:0;
+    margin-left: 5px;
+    font-size: 16px;
+    color: white;
+    opacity:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+.squad-invite-hidden {
+    opacity:0;
+}
+
+.squad-invite-hidden .squad-invite-notification {
+        transform:scale(0.7);
+    opacity:0;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.squad-invite-self-name {
+       margin-top: 6.5%;
+    margin-left: 5px;
+    font-size: 16px;
+    color: white;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+
+.squad-invite-ava-swap-helper {
+       height: 100%;
+    margin-top: -100%;
+    overflow: hidden;
+    border-radius: 200px;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.squad-invite-ava-img-self-swap {
+        height: 105%;
 }

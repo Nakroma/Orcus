@@ -1,15 +1,13 @@
 jQuery(document).ready(function () {
-    $.ajax({
-        url: "bootstrap/chat/all_chat.html",
-        cache: false,
-        success: function (html) {
-            $(".chat-scroll").append(html);
-        }
+    $("<div>").load('../chat/all_chat.html', function () {
+        $(".chat-scroll").append($(this).html());
     });
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);
 });
+
+
 
 
 /* Horizontal scroll for chat groups */

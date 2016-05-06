@@ -5003,7 +5003,6 @@ input[type=number]::-webkit-outer-spin-button {
     display:inline-block;
     width:500px;
     vertical-align: middle;
-    pointer-events:all;
     box-shadow: 0px 3px 90px rgba(0, 0, 0, 0.4);
         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -5019,7 +5018,7 @@ input[type=number]::-webkit-outer-spin-button {
     width:100vw;
     height:100vh;
     z-index:5;
-    pointer-events: none;
+    pointer-events: all;
     text-align:center;
       background: rgba( 0, 0, 0, 0.4);
             -webkit-transition-timing-function: ease;
@@ -5212,7 +5211,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .squad-invite-decline-block {
-    background:#07080a;
+    background:#0b0c0f;
     height:30px;
     color:#5c636d;
     font-size:12px;
@@ -5290,6 +5289,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .squad-invite-hidden {
     opacity:0;
+    pointer-events:none !important;
 }
 
 .squad-invite-hidden .squad-invite-notification {
@@ -5331,4 +5331,48 @@ input[type=number]::-webkit-outer-spin-button {
 
 .squad-invite-ava-img-self-swap {
         height: 105%;
+}
+
+.menu-create-filters {
+    position:absolute;
+    top:0px;
+    line-height:0;
+    cursor:auto;
+}
+
+.filter-mode {
+    display:inline-block;
+    padding:9px 10px;
+    color:#00b4ff;
+    font-size:12px;
+    font-weight:600;
+    border:1.5pt solid #00b4ff;
+}
+
+.filter-game-modes {
+    margin-top:35px;
+}
+
+.filter-entry {
+    display:inline-block;
+    position:absolute;
+    line-height:0;
+    top:70px;
+    margin-left:-75px;
+    cursor:auto;
+}
+
+.filter-entry-text {
+    color:#8791a0;
+    text-transform: uppercase;
+    font-size:12px;
+}
+
+.filter-entry-value {
+    font-family:'titillium web';
+    color:white;
+}
+
+.invis {
+    visibility:hidden;
 }

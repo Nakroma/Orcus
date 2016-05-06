@@ -1,4 +1,3 @@
-var username = $('.squad-self-name').text();
 var userImgSrc = 'bootstrap/img/ava_sample_4.png'
 var queueTimes = []
 
@@ -24,6 +23,7 @@ setTimeout(function () {
 
 
 function GamesLobby_selectRole() {
+    var username = $('.squad-self-name').text();
     if ($(this).hasClass('other-taken')) {} else {
         queueTimes.push($(this).siblings('.role-name').children('.queue-est').text());
         if (queueTimes.length > 2) {
@@ -39,6 +39,7 @@ function GamesLobby_selectRole() {
         $(this).parent().addClass('self-taken');
         $(this).find('.role-taken-img').attr('src', userImgSrc);
         $(this).siblings('.role-name').children('.queue-est').text(username);
+        console.log(username);
     }
 };
 

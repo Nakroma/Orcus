@@ -71,18 +71,56 @@ class MatchmakingServer extends WebSocketServer {
                 $this->stdout("Squad created with ID ".$lastkey." (".$_prc['args'][0].")");
                 break;
 
+
+            /**
+             * Sends a chat message
+             *
+             * @argument Chat Lobby (ALL, SQUAD, PRIVATE)
+             * @argument Message (LZ-String compressed)
+             * @argument User to send to (only if arg0 is PRIVATE)
+             */
+            case 'CHAT_SEND_MESSAGE':
+                switch ($_prc['args'][0]) {
+                    // To all connected users
+                    case 'ALL':
+                        $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+
+                        foreach ($this->users as $key => $value) {
+                            // Dont send to original user
+                            if ($value != $user) {
+                                $json = $this->prep("NOTICE_CHAT_RECEIVE_MESSAGE", $_prc['args'][0], $_prc['args'][1], $jsonUser);
+                                $this->send($value, $json);
+                            }
+                        }
+                        break;
+
+                    // To all users in squad
+                    case 'SQUAD':
+
+                        break;
+
+                    // To another private user
+                    case 'PRIVATE':
+
+                        break;
+                }
+                break;
         }
     }
 
     /**
-     * Prepares a statement for client communication
-     * @param $code Server/Client code
-     * @param $args Arguments to send
+     * Prepares a statement for client communication. Takes infinite arguments for args
+     * @param $code String Communication code
      * @return string JSON array
      */
-    protected function prep($code, $args) {
-        $arr = array("code" => $code, "args" => array($args));
-        return json_encode($arr);
+    protected function prep($code) {
+        $args = array();
+
+        for ($i = 1; $i < func_num_args(); $i++) {
+            $args[] = func_get_arg($i);
+        }
+
+        return json_encode(array("code" => $code, "args" => $args));
     }
 
     /**
@@ -115,19 +153,15 @@ class MatchmakingServer extends WebSocketServer {
                     for ($k = 0; $k < count($u); $k++) {
                         if ($o == $user) {
                             if ($this->lobbies[$i]->type == 'lobby') {
-                                $this->send($u[$k], 'N|LOBBY_DISBAND');
+                                $this->send($u[$k], $this->prep("NOTICE_LOBBY_DISBAND"));
                             } else if ($this->lobbies[$i]->type == 'squad') {
-                                $this->send($u[$k], 'N|SQUAD_DISBAND');
+                                $this->send($u[$k], $this->prep("NOTICE_SQUAD_DISBAND"));
                             }
                         } else {
                             if ($this->lobbies[$i]->type == 'lobby') {
-                                $this->send($u[$k], 'N|LOBBY_LEFT|' . $user->session_id);
+                                $this->send($u[$k], $this->prep("NOTICE_LOBBY_LEFT", $user->session_id));
                             } else if ($this->lobbies[$i]->type == 'squad') {
-                                // Prepare JSON
-                                $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
-                                $json = json_encode($jsonUser);
-
-                                $this->send($u[$k], 'N|SQUAD_LEFT|' . $json);
+                                $this->send($u[$k], $this->prep("NOTICE_SQUAD_LEFT", $user->session_id));
                             }
                         }
                     }
@@ -174,15 +208,15 @@ class MatchmakingServer extends WebSocketServer {
             foreach ($u as $i => $value) {
                 if ($o == $user) {
                     if ($lo->type == 'lobby') {
-                        $this->send($u[$i], 'N|LOBBY_DISBAND');
+                        $this->send($u[$i], $this->prep("NOTICE_LOBBY_DISBAND"));
                     } else if ($lo->type == 'squad') {
-                        $this->send($u[$i], 'N|SQUAD_DISBAND');
+                        $this->send($u[$i], $this->prep("NOTICE_SQUAD_DISBAND"));
                     }
                 } else {
                     if ($lo->type == 'lobby') {
-                        $this->send($u[$i], 'N|LOBBY_LEFT|' . $user->session_id);
+                        $this->send($u[$i], $this->prep("NOTICE_LOBBY_LEFT", $user->session_id));
                     } else if ($lo->type == 'squad') {
-                        $this->send($u[$i], 'N|SQUAD_LEFT|' . $user->session_id);
+                        $this->send($u[$i], $this->prep("NOTICE_SQUAD_LEFT", $user->session_id));
                     }
                 }
             }

@@ -38,6 +38,19 @@ function SocketClient_init() {
                     break;
 
 
+                /**
+                 * Receives a chat message
+                 *
+                 * @argument Chat Lobby (ALL, SQUAD, PRIVATE)
+                 * @argument Message (LZ-String compressed)
+                 * @argument Author of the message
+                 */
+                case 'NOTICE_CHAT_RECEIVE_MESSAGE':
+                    var user = _prc.args[2];
+                    GamesChat_createPost(user.username, LZString.decompress(_prc.args[1]));
+                    break;
+
+
                 default:
                     console.log('Couldnt parse code: ' + _prc.code);
                     break;
@@ -114,16 +127,21 @@ function SocketClient_send(code, args) {
     var json = '{ "code": "' + code + '", "args": [';
 
     // Checks if args is array, if not makes it one
-    if (!args.isArray) {
+    if (args.constructor !== Array) {
        args = [args];
     }
 
     // Add arguments
     for (var i = 0; i < args.length; i++) {
-        if (isNaN(args[i])) {
-            json +=  '"' + args[i] + '"';
-        } else {
+        if (typeof args[i] === 'number') {
             json += args[i];
+        } else {
+            json +=  '"' + args[i] + '"';
+        }
+
+        // Not last entry
+        if (i != args.length -1) {
+            json += ",";
         }
     }
 

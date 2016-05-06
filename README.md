@@ -1,9 +1,9 @@
-# Development Branch #
+# Development Branch
 Use this branch to develop the ongoing project.  
 When the content is ready for a new release, merge into the master branch.  
 
 
-## Matchmaking Server/Client Communication ##  
+## Matchmaking Server/Client Communication 
 Server and Client communicate via JSON.  
 Default JSON template:  
 ```json
@@ -16,7 +16,7 @@ Default JSON template:
 ```
 
 
-### Matchmaking Server/Client Codes ###  
+### Matchmaking Server/Client Codes  
 **Client -> Server**  
 
 ```
@@ -24,7 +24,12 @@ SESSIONID_SET	// Sets the session ID for a WebSocket user. Required for everythi
 	0: SID	// Session ID
 
 SQUAD_CREATE	// Creates a new squad and sets the calling user as the owner.
-	0: Game	// Game
+	0: Game	// Game (lol, dota, hs)
+
+CHAT_SEND_MESSAGE	// Sends a chat message
+	0: Lobby	// Chat Lobby (ALL, SQUAD, PRIVATE)
+	1: Message	// Message (LZ-String compressed)
+	2: User		// User to send to (only if Lobby is PRIVATE)
 ```
 
 
@@ -33,11 +38,24 @@ SQUAD_CREATE	// Creates a new squad and sets the calling user as the owner.
 ```
 SUCCESS_SESSIONID_SET	// Signals the successful setting of the session ID
 	0: User JSON	// JSON array containing user data (id, username)
+
+NOTICE_LOBBY_DISBAND	// Signals the disbanding of the lobby
+NOTICE_LOBBY_LEFT	// Signals that a user left the lobby
+	0: User SID	// Session ID of the user
+
+NOTICE_SQUAD_DISBAND	// Signals the disbanding of the squad
+NOTICE_SQUAD_LEFT	// Signals that a user left the squad
+	0: User SID	// Session ID of the user
+
+NOTICE_CHAT_RECEIVE_MESSAGE	// Client receives a chat message
+	0: Lobby	// Chat Lobby (ALL, SQUAD, PRIVATE)
+	1: Message	// Message (LZ-String compressed)
+	2: User		// Author of the message
 ```
 
 
 
-## Matchmaking Server - Internal Codes [OUT OF USE]##
+## Matchmaking Server - Internal Codes [OUT OF USE]
 These are the internal codes used in the matchmaking server to communicate between server and client.  
 `CODENAME|(VAR1)|(VAR2)`  
 

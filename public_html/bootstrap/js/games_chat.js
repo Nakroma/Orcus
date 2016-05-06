@@ -184,7 +184,7 @@ function GamesChat_createPost(username, inputVal) {
 
         // Send to server
         if (ownPost) {
-            SocketClient_send('CHAT_SEND_MESSAGE|ALL|' + LZString.compress(inputVal));
+            SocketClient_send('CHAT_SEND_MESSAGE', ['ALL', LZString.compress(inputVal)]);
         }
     }
 }

@@ -89,7 +89,7 @@ function GamesChat_createChatGroup() {
         scrollLeft: $('#chat-hrz').prop("scrollWidth")
     }, 400);
 
-};
+}
 
 
 /* Check errors, then create group */
@@ -120,7 +120,7 @@ $(".pm-friend-input").keypress(function (e) {
                 $('.chat-groups').removeClass('chat-groups-hidden');
             }
         }
-    };
+    }
 });
 
 
@@ -187,7 +187,7 @@ function GamesChat_createPost(username, inputVal) {
             SocketClient_send('CHAT_SEND_MESSAGE|ALL|' + LZString.compress(inputVal));
         }
     }
-};
+}
 
 function GamesChat_showSquadMemberDetails() {
     var imageSrc = "bootstrap/img/ava_sample_1.png";
@@ -211,7 +211,7 @@ $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
         GamesChat_createPost();
         $(".chat-input-text").val('');
-    };
+    }
 });
 
 $(".send-ico").click(function () {
@@ -240,7 +240,7 @@ $(".squad-inv-input").keypress(function (e) {
         setTimeout(function () {
             $('#squad-group-error').addClass('error-hidden');
         }, 1200);
-    };
+    }
 });
 
 $(document).on({

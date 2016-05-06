@@ -3,7 +3,41 @@ Use this branch to develop the ongoing project.
 When the content is ready for a new release, merge into the master branch.  
 
 
-## Matchmaking Server - Internal Codes ##
+## Matchmaking Server/Client Communication ##  
+Server and Client communicate via JSON.  
+Default JSON template:  
+```json
+{
+  "code": "SESSIONID_SET",
+  "args": [
+    23, "nakroma"
+  ]
+}
+```
+
+
+### Matchmaking Server/Client Codes ###  
+**Client -> Server**  
+
+```
+SESSIONID_SET	// Sets the session ID for a WebSocket user. Required for everything to work.
+	0: SID	// Session ID
+
+SQUAD_CREATE	// Creates a new squad and sets the calling user as the owner.
+	0: Game	// Game
+```
+
+
+**Server -> Client**
+
+```
+SUCCESS_SESSIONID_SET	// Signals the successful setting of the session ID
+	0: User JSON	// JSON array containing user data (id, username)
+```
+
+
+
+## Matchmaking Server - Internal Codes [OUT OF USE]##
 These are the internal codes used in the matchmaking server to communicate between server and client.  
 `CODENAME|(VAR1)|(VAR2)`  
 

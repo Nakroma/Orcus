@@ -17,14 +17,33 @@ function SocketClient_init() {
         socket.onopen    = function(msg) {
             // NUR ZUSAGEN WENN SESSION ID GESETZT WURDE!!!!
             // NEEDS 'sid' passed!!!!!
-            socket.send('SESSIONID_SET|' + sid);
-            socket.send('SQUAD_CREATE|lol');
+            SocketClient_send('SESSIONID_SET', sid);
+            SocketClient_send('SQUAD_CREATE', 'lol');
         };
 
         socket.onmessage = function(msg) {
             console.log(msg);
-            var p = msg['data'].split('|');
-            switch (p[0]) {
+
+            var _prc = JSON.parse(msg['data']);
+
+            switch (_prc.code) {
+
+                /**
+                 * Signals the successful setting of the session ID
+                 *
+                 * @argument Userdata JSON array containing user data (id, username)
+                 */
+                case 'SUCCESS_SESSIONID_SET':
+                    username = _prc.args[0].username;
+                    break;
+
+
+                default:
+                    console.log('Couldnt parse code: ' + _prc.code);
+                    break;
+            }
+
+            /*switch (p[0]) {
                 case 'S':
                     switch(p[1]) {
                         case 'SESSIONID_SET':
@@ -73,7 +92,7 @@ function SocketClient_init() {
 
                 default:
                     break;
-            }
+            }*/
         };
 
         socket.onclose   = function(msg) {
@@ -85,7 +104,39 @@ function SocketClient_init() {
     }
 }
 
-function SocketClient_send(msg){
+/**
+ * Sends a message to the server
+ * @param code Communication Code
+ * @param args Array of arguments
+ */
+function SocketClient_send(code, args) {
+    // Add code
+    var json = '{ "code": "' + code + '", "args": [';
+
+    // Checks if args is array, if not makes it one
+    if (!args.isArray) {
+       args = [args];
+    }
+
+    // Add arguments
+    for (var i = 0; i < args.length; i++) {
+        if (isNaN(args[i])) {
+            json +=  '"' + args[i] + '"';
+        } else {
+            json += args[i];
+        }
+    }
+
+    // Finish JSON and send to server
+    json += ']}';
+    try {
+        socket.send(json);
+    } catch(ex) {
+
+    }
+}
+
+/*function SocketClient_send(msg){
     if(!msg) {
         alert("Message can not be empty");
         return;
@@ -95,7 +146,7 @@ function SocketClient_send(msg){
     } catch(ex) {
 
     }
-}
+}*/
 
 function SocketClient_quit(){
     if (socket != null) {

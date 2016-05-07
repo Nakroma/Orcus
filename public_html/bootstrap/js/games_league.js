@@ -174,6 +174,24 @@ $(".game-mode-box").click(function () {
                 $('.mode-child:contains(' + mode + ')').remove()
             }, 120)
 
+            //remove game mode from menu bar
+            var modeOne = 'All Pick';
+            var modeOneAcr = 'AP'
+            var modeTwo = 'ARAM';
+            var modeTwoAcr = 'ARAM';
+            var modeThree = 'SWAG';
+            var modeThreeAcr = 'SWAG';
+            var modeFour = "Captain's Draft";
+            var modeFourAcr = "CD";
+            var gameModes = [modeOne, modeOneAcr, modeTwo, modeTwoAcr, modeThree, modeThreeAcr, modeFour, modeFourAcr];
+            var modeAmount = gameModes.length;
+
+            for (i = 0; i < modeAmount; i += 2) {
+                if ($(this).text() == gameModes[i]) {
+                    $('.filter-mode[id=' + gameModes[i + 1] + ']').remove();
+                } else {};
+            };
+
         } else {
             if ($('.game-entry-invest').children('div').hasClass('active') || $('.sidebar-lobby-entry-filters').children('div').hasClass('active')) {} else {
                 $('.sidebar-queue-start').addClass('queue-not-ready')
@@ -206,21 +224,17 @@ $(".game-mode-box").click(function () {
             var modeTwo = 'ARAM';
             var modeTwoAcr = 'ARAM';
             var modeThree = 'SWAG';
+            var modeThreeAcr = 'SWAG';
             var modeFour = "Captain's Draft";
-            var gameModes = [modeOne, modeOneAcr, modeTwo, modeTwoAcr];
+            var modeFourAcr = "CD";
+            var gameModes = [modeOne, modeOneAcr, modeTwo, modeTwoAcr, modeThree, modeThreeAcr, modeFour, modeFourAcr];
             var modeAmount = gameModes.length;
 
             for (i = 0; i < modeAmount; i += 2) {
-                console.log(gameModes[i])
-                console.log($(this).text())
                 if ($(this).text() == gameModes[i]) {
-                    $('.filter-game-modes').append($("<div></div>").addClass('filter-mode').html(gameModes[i + 1])); // wird nicht getriggert
-                } else {
-                    console.log(gameModes[i]) // wird immer getriggert
-                };
+                    $('.filter-game-modes').append($("<div></div>").addClass("filter-mode").attr('id', gameModes[i + 1]).html(gameModes[i + 1]));
+                } else {};
             };
-
-
         } else {
             if ($('.game-entry-invest').children('div').hasClass('active') || $('.sidebar-lobby-entry-filters').children('div').hasClass('active')) {
                 $('.sidebar-queue-start').removeClass('queue-not-ready')
@@ -264,17 +278,44 @@ function GamesLeague_HideMatchFilters() {
     $('.user-menu').css('opacity', '1')
 }
 
+function GamesLeague_queueStartTransforms() {
+    $('.play-text').addClass('cancel-text').text('Cancel');
+    $('.play-ico').addClass('cancel-ico');
+    $('.menu-create-normal').addClass('invis');
+    $('.menu-create-filters').removeClass('invis');
+    $('.filter-entry').removeClass('invis');
+}
+
+function GamesLeague_queueCancelTransforms() {
+    $('.play-text').removeClass('cancel-text').text('Play');;
+    $('.play-ico').removeClass('cancel-ico');
+    $('.menu-create-normal').removeClass('invis');
+    $('.menu-create-filters').addClass('invis');
+    $('.filter-entry').addClass('invis');
+}
+
+function GamesLeague_queueLoadLobby() {
+    setTimeout(function () {
+        $('.news-notifications').removeClass('news-visible');
+        setTimeout(function () {
+            $('.lobby').addClass('lobby-visible');
+        }, 300)
+    }, 450)
+}
+
+function GamesLeague_queueLoadMain() {
+    $('.lobby').removeClass('lobby-visible');
+    setTimeout(function () {
+        $('.news-notifications').addClass('news-visible');
+    }, 150)
+
+}
+
 $(".sidebar-queue-start").click(function () {
     if ($(this).hasClass('queue-ready')) {
-        if ($('.match-queue-status').hasClass('status-visible')) {
-            GamesLeague_HideQueuePlayers()
-            $('.sidebar-queue-start').addClass('animated pulse queue-ready')
-            $('.sidebar-queue-start').text('Find Match')
-        } else {
-            GamesLeague_ShowQueuePlayers()
-            $('.sidebar-queue-start').removeClass('animated pulse queue-ready')
-            $('.sidebar-queue-start').text('Cancel Queue')
-        }
+        GamesLeague_queueStartTransforms();
+        GamesLeague_HideMatchFilters();
+        GamesLeague_queueLoadLobby();
     } else {}
 })
 
@@ -282,9 +323,14 @@ $(".sidebar-queue-start").click(function () {
 /* Modify Filters for Queue/Lobby creation */
 $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
-    $('.queue-options').text('Find Match')
-    $('.sidebar-queue-start').text('Find Match')
-    GamesLeague_ShowMatchFilters()
+    if ($(this).children().hasClass('cancel-text')) {
+        GamesLeague_queueLoadMain();
+        GamesLeague_queueCancelTransforms()
+    } else {
+        $('.queue-options').text('Find Match')
+        $('.sidebar-queue-start').text('Find Match')
+        GamesLeague_ShowMatchFilters()
+    }
 })
 $('.menu-create').click(function () {
     $('.queue-options').text('Create Lobby')

@@ -136,7 +136,7 @@
 
     <!-- Content -->
     <div class="content">
-        <img src='bootstrap/img/game_details_bg_league3.jpg' class='content-bg'>
+        <img src='bootstrap/img/game_details_bg_league4.jpg' class='content-bg'>
 
 
         <!-- Menu Bar -->
@@ -158,24 +158,21 @@
                     <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
                 </div>
                 <div class='menu-play'>
-                    <img src='bootstrap/img/play-ico.svg' class='svg play-ico cancel-ico'>
-                    <span class='play-text cancel-text'>Cancel</span>
+                    <img src='bootstrap/img/play-ico.svg' class='svg play-ico'>
+                    <span class='play-text'>Play</span>
                 </div>
-                <div class='menu-create'>
-                    <div class='menu-create-normal invis'>
+                <div class='menu-create show-filters'>
+                    <div class='menu-create-normal '>
                         <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
                         <span class='create-text'>Create Lobby</span>
                     </div>
-                    <div class='menu-create-filters'>
+                    <div class='menu-create-filters invis'>
                         <div class='filter-game-modes'>
-                            <div class='filter-mode'>AP</div>
-                            <div class='filter-mode'>CD</div>
-                            <div class='filter-mode'>SD</div>
                         </div>
                     </div>
-                    <div class='filter-entry'>
+                    <div class='filter-entry invis'>
                         <span class='filter-entry-text'>Entry</span>
-                        <span class='filter-entry-value'>5-20$</span>
+                        <span class='filter-entry-value'></span>
                     </div>
                 </div>
             </div>
@@ -186,6 +183,153 @@
 
         <!-- Left Side -->
         <div class='main-content'>
+            <!-- News/Notifications -->
+            <div class='news-notifications news-visible'>
+            <script src='bootstrap/js/gallery.js'></script>
+            <script src='bootstrap/js/motionblur.js'></script>
+            <script src='bootstrap/js/TweenMax.min.js'></script>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+                <defs>
+                    <filter id="blur">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <div class='news-slideshow'>
+                <ul class="gallery-pictures">
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                    <li class="gallery-picture">
+                        <img src='bootstrap/img/league_bbb_header_img.jpg' class='slideshow-img img03'>
+                        <h2 class='slideshow-category'>Tournament News</h2>
+                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
+                    </li>
+                </ul>
+                <div class='slide-bot-shade'></div>
+                <div class='slide-pagination'>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                    <div class='pagination-size-incr'>
+                        <div class='slide-pagination-circle'></div>
+                    </div>
+                </div>
+            </div>
+            <div class='lower-main-content'>
+                <div class='updates-wrapper'>
+                    <div class='slide-bot-shade'></div>
+                    <div class='updates'>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                        <div class='update-content'>
+                            <span class='update-date'>06/03/2016</span>
+                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
+                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class='notification-wrapper'>
+                    <div class='notification-ref'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr-ref'>
+                            <div class='ntfc-title-wr-ref-cntr'>
+                                <h1 class='ntfc-title'>Refer a friend<br>& profit.</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'><span class='number'>1K</span> worth giveaway</h1>
+                            <span class='ntfc-txt'>Participate by playing within<br>the next <span class='number'>250</span> matches.
+                            <br><a href="#" class='ntfc-rm'>Read more</a></span>
+                        </div>
+                    </div>
+                    <div class='notification'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                    <div class='notification ntf-alt'>
+                        <div class='ntfc-title-hlpr'></div>
+                        <div class='ntfc-title-wr'>
+                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
+                            <span class='ntfc-txt'>From investing in Meemy.</span>
+                        </div>
+                        <div class='top-ntf'>
+                            +20$
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+
             <div class='lobby'>
                 <div class='lobby-top-teams'>
                     <div class='team-wrapper'>
@@ -391,148 +535,10 @@
 
 
 
-            <!-- News/Notifications
-            <script src='bootstrap/js/gallery.js'></script>
-            <script src='bootstrap/js/motionblur.js'></script>
-            <script src='bootstrap/js/TweenMax.min.js'></script>
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
-                <defs>
-                    <filter id="blur">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
-                    </filter>
-                </defs>
-            </svg>
 
-            <div class='news-slideshow'>
-                <ul class="gallery-pictures">
-                    <li class="gallery-picture">
-                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
-                        <h2 class='slideshow-category'>Tournament News</h2>
-                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                    </li>
-                    <li class="gallery-picture">
-                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
-                        <h2 class='slideshow-category'>Tournament News</h2>
-                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                    </li>
-                    <li class="gallery-picture">
-                        <img src='bootstrap/img/league_ocs_header_img.jpg' class='slideshow-img img01'>
-                        <h2 class='slideshow-category'>Tournament News</h2>
-                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                    </li>
-                    <li class="gallery-picture">
-                        <img src="bootstrap/img/league_aaa_header_img.jpg" class='slideshow-img img02'>
-                        <h2 class='slideshow-category'>Tournament News</h2>
-                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                    </li>
-                    <li class="gallery-picture">
-                        <img src='bootstrap/img/league_bbb_header_img.jpg' class='slideshow-img img03'>
-                        <h2 class='slideshow-category'>Tournament News</h2>
-                        <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                    </li>
-                </ul>
-                <div class='slide-bot-shade'></div>
-                <div class='slide-pagination'>
-                    <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle'></div>
-                    </div>
-                    <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle'></div>
-                    </div>
-                    <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle'></div>
-                    </div>
-                    <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle'></div>
-                    </div>
-                    <div class='pagination-size-incr'>
-                        <div class='slide-pagination-circle'></div>
-                    </div>
-                </div>
-            </div>
-            <div class='lower-main-content'>
-                <div class='updates-wrapper'>
-                    <div class='slide-bot-shade'></div>
-                    <div class='updates'>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
-                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
-                        </div>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
-                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
-                        </div>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
-                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
-                        </div>
-                    </div>
-                </div>
-                <div class='notification-wrapper'>
-                    <div class='notification-ref'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr-ref'>
-                            <div class='ntfc-title-wr-ref-cntr'>
-                                <h1 class='ntfc-title'>Refer a friend<br>& profit.</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='notification ntf-alt'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr'>
-                            <h1 class='ntfc-title'><span class='number'>1K</span> worth giveaway</h1>
-                            <span class='ntfc-txt'>Participate by playing within<br>the next <span class='number'>250</span> matches.
-                            <br><a href="#" class='ntfc-rm'>Read more</a></span>
-                        </div>
-                    </div>
-                    <div class='notification'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr'>
-                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                            <span class='ntfc-txt'>From investing in Meemy.</span>
-                        </div>
-                        <div class='top-ntf'>
-                            +20$
-                        </div>
-                    </div>
-                    <div class='notification ntf-alt'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr'>
-                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                            <span class='ntfc-txt'>From investing in Meemy.</span>
-                        </div>
-                        <div class='top-ntf'>
-                            +20$
-                        </div>
-                    </div>
-                    <div class='notification'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr'>
-                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                            <span class='ntfc-txt'>From investing in Meemy.</span>
-                        </div>
-                        <div class='top-ntf'>
-                            +20$
-                        </div>
-                    </div>
-                    <div class='notification ntf-alt'>
-                        <div class='ntfc-title-hlpr'></div>
-                        <div class='ntfc-title-wr'>
-                            <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                            <span class='ntfc-txt'>From investing in Meemy.</span>
-                        </div>
-                        <div class='top-ntf'>
-                            +20$
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
+
         </div>
-
+        <!-- End Main Content -->
 
 
 
@@ -691,18 +697,10 @@
                 </div>
                 <div class='sidebar-lobby-mode-wrapper'>
                     <div class='sidebar-lobby-mode-filters'>
-                        <div class='game-mode-box'>
-                            All Pick
-                        </div>
-                        <div class='game-mode-box'>
-                            ARAM
-                        </div>
-                        <div class='game-mode-box'>
-                            SWAG
-                        </div>
-                        <div class='game-mode-box'>
-                            Captain's Draft
-                        </div>
+                        <div class='game-mode-box'>All Pick</div>
+                        <div class='game-mode-box'>ARAM</div>
+                        <div class='game-mode-box'>SWAG</div>
+                        <div class='game-mode-box'>Captain's Draft</div>
                     </div>
                     <div class='game-mode-players'>
                         <div class='game-mode-box'>

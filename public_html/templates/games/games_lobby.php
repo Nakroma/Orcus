@@ -8,7 +8,7 @@ $templateSidebar = $this->_['templateSidebar'];
 $_d = $this->_;
 
 // AUTH STUFF HERE
-$_SESSION[$skey] = 15;
+$_SESSION[$skey] = 12;
 $sid = $_SESSION[$skey];
 
 // Get auth info
@@ -37,7 +37,7 @@ $_u = Model::getUser($sid, 'username, okken');
     <!-- Websocket Server -->
     <script>var sid = <?php echo json_encode($sid); ?></script>
     <script type="text/javascript" src="../server/client.js"></script>
-    <script>SocketClient_init();</script
+    <script>SocketClient_init();</script>
 </head>
 
 
@@ -98,7 +98,7 @@ $_u = Model::getUser($sid, 'username, okken');
 
 
 <!-- Squad Invite -->
-<div class='squad-invite-wr squad-invite-hidden' style="display:none;">
+<div class='squad-invite-wr squad-invite-hidden'>
     <div class='squad-invite-helper'></div>
     <div class='squad-invite-notification'>
         <div class='squad-invite-box-shade'></div>
@@ -120,6 +120,9 @@ $_u = Model::getUser($sid, 'username, okken');
                 <a href="#" class='squad-invite-self-name-alt'>
                     TotalBiscuit
                 </a>
+                <a href="#" class='squad-invite-self-name-alt'>
+                    TotalBiscuit
+                </a>
                 <br>
                 <div class='squad-self-status'>In Lobby</div>
             </div>
@@ -127,9 +130,8 @@ $_u = Model::getUser($sid, 'username, okken');
                 <img src='<?php echo $path['img']; ?>squad-border.png' class='squad-invite-seperator'>
                 <div class='squad-ava-wrapper'>
                     <div class='squad-invite-ava squad-slot-taken'>
-                        <img src='<?php echo $path['img']; ?>ava_sample_1.png' class='squad-ava-img'>
                     </div>
-                    <div class='squad-invite-ava'></div>
+                    <div class='squad-invite-ava squad-slot-taken'></div>
                     <div class='squad-invite-ava'></div>
                     <div class='squad-invite-ava'></div>
                 </div>
@@ -637,8 +639,16 @@ $_u = Model::getUser($sid, 'username, okken');
                 <a href="#" class='squad-self-name'>
                     <?php echo $_u['username']; ?>
                 </a>
+                <a href="#" class='squad-self-name-alt'></a>
+                <a href="#" class='squad-self-name-alt'></a>
+                <a href="#" class='squad-self-name-alt'></a>
+                <a href="#" class='squad-self-name-alt'></a>
                 <br>
                 <div class='squad-self-role'>Tank</div>
+                <div class='squad-self-role-alt'></div>
+                <div class='squad-self-role-alt'></div>
+                <div class='squad-self-role-alt'></div>
+                <div class='squad-self-role-alt'></div>
             </div>
 
             <img src='<?php echo $path['img']; ?>squad-border.png' class='squad-seperator'>
@@ -662,13 +672,6 @@ $_u = Model::getUser($sid, 'username, okken');
                 </div>
                 <div class='leave-squad'><img src='<?php echo $path['img']; ?>logout.svg' class='leave-squad-ico'></div>
             </div>
-        </div>
-        <div class='squad-ava-self-inf-alt'>
-            <a href="#" class='squad-self-name-alt'>
-                TotalBiscuit
-            </a>
-            <br>
-            <div class='squad-self-role'>Tank</div>
         </div>
     </div>
 </div>

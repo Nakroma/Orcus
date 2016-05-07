@@ -4838,10 +4838,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .squad-self-name-alt {
-    margin-top: 6.5%;
+    position:absolute;
+    left:0;
     margin-left: 5px;
     font-size: 16px;
     color: white;
+    opacity:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .squad-ava-swap-helper {
@@ -5418,4 +5426,20 @@ input[type=number]::-webkit-outer-spin-button {
 .news-visible {
     opacity:1;
     transform:scale(1);
+}
+
+.squad-self-role-alt {
+        position:absolute;
+    left:0;
+    top:19px;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #8791a0;
+    opacity:0;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }

@@ -25,6 +25,10 @@ SESSIONID_SET	// Sets the session ID for a WebSocket user. Required for everythi
 
 SQUAD_CREATE	// Creates a new squad and sets the calling user as the owner.
 	0: Game	// Game (lol, dota, hs)
+SQUAD_INVITE_USER	// Invites a user to the squad
+	0: Name	// Name of the user
+SQUAD_JOIN_USER	// Joins a squad
+	0: Squad ID	// ID of the squad
 
 CHAT_SEND_MESSAGE	// Sends a chat message
 	0: Lobby	// Chat Lobby (ALL, SQUAD, PRIVATE)
@@ -43,50 +47,24 @@ NOTICE_LOBBY_DISBAND	// Signals the disbanding of the lobby
 NOTICE_LOBBY_LEFT	// Signals that a user left the lobby
 	0: User SID	// Session ID of the user
 
+SUCCESS_SQUAD_JOIN	// Signals the successful joining of a squad
+	0: Squad JSON	// JSON array containing 'info' and 'owner' bool for each member
 NOTICE_SQUAD_DISBAND	// Signals the disbanding of the squad
 NOTICE_SQUAD_LEFT	// Signals that a user left the squad
-	0: User SID	// Session ID of the user
+	0: Username	// Name of the user
+NOTICE_SQUAD_INVITE_USER	// Signals a user if his invite was successful
+	0: True/False	// Was the invite successful?
+NOTICE_SQUAD_INVITATION	// Sends a squad invitation
+	0: Squad ID	// Squad ID
+	1: Owner JSON	// JSON array containing owner data
+	//2: Members	// Members of the squad
+NOTICE_SQUAD_NEW_JOIN	// Signals that a new user joined the squad
+	0: User JSON	// JSON array containing user data
+ERROR_SQUAD_JOIN	// Notifies the user that the join failed
+	0: Error	// Error message
 
 NOTICE_CHAT_RECEIVE_MESSAGE	// Client receives a chat message
 	0: Lobby	// Chat Lobby (ALL, SQUAD, PRIVATE)
 	1: Message	// Message (LZ-String compressed)
 	2: User		// Author of the message
-```
-
-
-
-## Matchmaking Server - Internal Codes [OUT OF USE]
-These are the internal codes used in the matchmaking server to communicate between server and client.  
-`CODENAME|(VAR1)|(VAR2)`  
-
-**Client -> Server**  
-`SESSIONID_SET|(SID)` Sets the session ID (mysql info) for the WebSocket user. This is required to do anything.  
-
-`LOBBY_CREATE|(Game)|(Teamsize)` Creates a new lobby and sets the calling user as the owner.  
-`LOBBY_JOIN|(LobbyID)` The calling user joins a lobby. Broadcasts this to everyone else in the lobby. (also squads)  
-
-`SQUAD_CREATE|(Game)` Creates a new squad and sets the calling user as the owner.  
-`SQUAD_SEARCH|(Game)` Searches for an empty squad (gets called repeatedly by the matchmaking queue).  
-`SQUAD_LOCK_CHANGE|(Boolean)` Changes the locked state of a squad. True = Open, False = Closed.  
-
-`CHAT_SEND_MESSAGE|(Lobby)|(LZ-String MSG)|(Opt: User)` Sends a chat message. Lobby: ALL, SQUAD, PRIVATE.  
-
-**Server -> Client**  
-`S`: Success - `E`: Error - `N`: Notice  
-
-`S|SESSIONID_SET|(Username)` Confirms that the SID was set to the client.  
-`S|LOBBY_JOIN` Confirms the successful joining in a lobby.  
-`S|SQUAD_JOIN|(Json: squad members[][id, username])` Confirms the successful joining of a squad.  
-
-`E|LOBBY_FULL` Signals that the lobby is full.  
-`E|LOBBY_NOSPACE` Signals that the lobby doesn't have enough space for the squad.  
-`E|SQUAD_FULL` Signals that the squad is full.  
-
-`N|LOBBY_JOINED|(SID)` Notifies the other users with the SID of the new user.  
-`N|LOBBY_LEFT|(SID)` Notifies the other users with the SID of the left user.   
-`N|LOBBY_DISBAND` Notifies the other users of the disband.  
-`N|SQUAD_JOINED|(Json: squad member[id, username])` Notifies the other users with the SID of the new user.  
-`N|SQUAD_LEFT|(Json: squad member[id, username])` Notifies the other users with the SID of the left user.  
-`N|SQUAD_DISBAND` Notifies the other users of the disband.  
-
-`N|CHAT_RECEIVE_MESSAGE|(Lobby)|(LZ-String MSG)|(User)` Receives a chat message. Lobby: ALL, SQUAD, PRIVATE.  
+``` 

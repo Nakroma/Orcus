@@ -10,6 +10,9 @@ var username;
 var squadFrequency = 5000;
 var squadInterval = 0;
 
+// Other vars
+var squadCurrentInvite = -1;
+
 function SocketClient_init() {
     var host = "ws://127.0.0.1:9000/Orcus/server"; // SET THIS TO YOUR SERVER
     try {
@@ -18,7 +21,7 @@ function SocketClient_init() {
             // NUR ZUSAGEN WENN SESSION ID GESETZT WURDE!!!!
             // NEEDS 'sid' passed!!!!!
             SocketClient_send('SESSIONID_SET', sid);
-            SocketClient_send('SQUAD_CREATE', 'lol');
+            SocketClient_resetSquad();
         };
 
         socket.onmessage = function(msg) {
@@ -51,61 +54,92 @@ function SocketClient_init() {
                     break;
 
 
+                /**
+                 * Signals the successful joining of a squad
+                 *
+                 * @argument JSON array containing 'info' and 'owner' bool for each member
+                 */
+                case 'SUCCESS_SQUAD_JOIN':
+                    SocketClient_setSquadMembers(_prc.args[0]);
+                    break;
+
+
+                /**
+                 * Signals the disbanding of the squad
+                 */
+                case 'NOTICE_SQUAD_DISBAND':
+                    SocketClient_resetSquad();
+                    break;
+
+                /**
+                 * Signals that a user left the squad
+                 *
+                 * @argument JSON array containing user data
+                 */
+                case 'NOTICE_SQUAD_LEFT':
+                    SocketClient_removeSquadMember(_prc.args[0]);
+                    break;
+
+                /**
+                 *  Signals a user if his invite was successful
+                 *
+                 *  @argument Was the invite successful? (True/False)
+                 */
+                case 'NOTICE_SQUAD_INVITE_USER':
+                    if (_prc.args[0]) {
+                        // Found user: Reset GVAR and hide input
+                        GamesChat_Reset_Invite_Input();
+                        GamesChat_subMenuSquadHide();
+                    } else {
+                        // Didnt find user: Reset GVAR and dipslay error
+                        GamesChat_Reset_Invite_Input();
+                        $('.squad-sub-options .squad-invite #squad-group-error').removeClass('error-hidden');
+                    }
+                    break;
+
+                /**
+                 *  Sends a squad invitation
+                 *
+                 *  @argument Squad ID
+                 *  @argument Owner of the squad
+                 */
+                case 'NOTICE_SQUAD_INVITATION':
+                    var oName = _prc.args[1].username;
+
+                    // Set content
+                    $('.squad-invite-notification-wr .squad-invite-title .invite-player').text(oName);
+                    $('.squad-invite-preview .squad-invite-ava-self-inf .squad-invite-self-name').text(oName);
+
+                    // Make invite visible
+                    $('.squad-invite-wr.squad-invite-hidden').removeClass('squad-invite-hidden');
+
+                    // Save squad id into variable
+                    squadCurrentInvite = _prc.args[0];
+                    break;
+
+                /**
+                 * Signals that a new user joined the squad
+                 *
+                 * @argument JSON array containing the user data
+                 */
+                case 'NOTICE_SQUAD_NEW_JOIN':
+                    SocketClient_addSquadMember(_prc.args[0]);
+                    break;
+
+                /**
+                 * Notifies the user that the join failed
+                 *
+                 * @argument Error message
+                 */
+                case 'ERROR_SQUAD_JOIN':
+                    alert(_prc.args[0]); // TODO: Add better visuals
+                    break;
+
+
                 default:
                     console.log('Couldnt parse code: ' + _prc.code);
                     break;
             }
-
-            /*switch (p[0]) {
-                case 'S':
-                    switch(p[1]) {
-                        case 'SESSIONID_SET':
-                            var user = JSON.parse(p[2]);
-                            username = user.username;
-                            break;
-
-                        case 'SQUAD_JOIN':
-                            SocketClient_findSquad('stop');
-                            GamesLeague_queueQuit(); // Visual
-
-                            var user = JSON.parse(p[2]);
-                            SocketClient_setSquadMembers(user);
-                            break;
-
-                        default:
-                            break;
-                    }
-                    break;
-
-                case 'N':
-                    switch (p[1]) {
-                        case 'SQUAD_JOINED':
-                            var user = JSON.parse(p[2]);
-                            SocketClient_addSquadMember(user);
-                            break;
-
-                        case 'SQUAD_LEFT':
-                            var user = JSON.parse(p[2]);
-                            SocketClient_removeSquadMember(user);
-                            break;
-
-                        case 'SQUAD_DISBAND':
-                            SocketClient_resetSquad();
-                            break;
-
-                        case 'CHAT_RECEIVE_MESSAGE':
-                            var user = JSON.parse(p[4]);
-                            GamesChat_createPost(user.username, LZString.decompress(p[3]));
-                            break;
-
-                        default:
-                            break;
-                    }
-                    break;
-
-                default:
-                    break;
-            }*/
         };
 
         socket.onclose   = function(msg) {
@@ -154,18 +188,6 @@ function SocketClient_send(code, args) {
     }
 }
 
-/*function SocketClient_send(msg){
-    if(!msg) {
-        alert("Message can not be empty");
-        return;
-    }
-    try {
-        socket.send(msg);
-    } catch(ex) {
-
-    }
-}*/
-
 function SocketClient_quit(){
     if (socket != null) {
         socket.close();
@@ -176,99 +198,93 @@ function SocketClient_quit(){
 
 /** User Functions **/
 
-// Initiates a squad searching loop
-function SocketClient_findSquad(k) {
-    switch (k) {
-        case 'start':
-            squadInterval = setInterval(function(){
-                socket.send('SQUAD_SEARCH|lol');
-            }, squadFrequency);
-            break;
-
-        case 'stop':
-        default:
-            clearInterval(squadInterval);
-            break;
-    }
-}
-
-// Creates a new squad and displays it visually
+/**
+ * Creates a new squad from scratch
+ */
 function SocketClient_resetSquad() {
     // TODO: Add visual message to let user know their squad was disbanded
     // Clean up all slots
     SocketClient_cleanSquad();
 
     // Insert you
-    var avatar = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
-    avatar.switchClass('squad-ava', 'squad-ava-self', 0);
-    avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + username + "</a>");
+    //$('.squad .squad-ava-self .squad-ava-img-self') TODO: Change image
+    $('.squad .squad-ava-self-inf .squad-self-name').text(username);
 
     // Create new squad
-    socket.send('SQUAD_CREATE|lol');
+    SocketClient_send('SQUAD_CREATE', 'lol');
 }
 
-// Adds a user to the squad
+/**
+ * Sets everything to an empty player
+ */
+function SocketClient_cleanSquad() {
+    var slotsTaken = $('.squad .squad-ava-wrapper .squad-ava.squad-slot-taken');
+
+    slotsTaken.removeClass('squad-slot-taken');
+    slotsTaken.html('');
+}
+
+/**
+ * Adds a user to the squad
+ * @param uObj JSON array
+ */
 function SocketClient_addSquadMember(uObj) {
     // Get wrapper
-    var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
+    var wrapper = $('.squad .squad-ava-wrapper .squad-ava:not(.squad-slot-taken)').first();
 
     // Change name and class
-    wrapper.html("<a class='squad-name'>" + uObj.username + "</a>");
-    wrapper.switchClass('squad-ava', 'squad-ava-other-1');
+    wrapper.addClass('squad-slot-taken');
+    wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().index());
+    $('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().text(uObj.username);
+
+
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(0)').text());
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(1)').text());
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(2)').text());
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(3)').text());
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(4)').text());
+    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(5)').text());
 }
 
-// Sets users in a squad
+/**
+ * Sets users in a squad
+ * @param uObj JSON array
+ */
 function SocketClient_setSquadMembers(uObj) {
     // Set everything to an empty player.
     SocketClient_cleanSquad();
 
-    // Insert the avatars
-    var owner;
     for (var i = 0; i < uObj.length; i++) {
-        // Select the first free avatar
-        var avatar = $('.squad-wrapper .squad-ava-wrapper .squad-ava').first();
-
-        // Insert user
-        if (uObj[i].owner) {
-            avatar.switchClass('squad-ava', 'squad-ava-self', 0);
-            avatar.html("<a class='squad-name'><img src='bootstrap/img/lobby_host.svg' class='lobby-host'>" + uObj[i].username + "</a>");
-            owner = uObj[i].id;
+        if (uObj[i]['owner']) {
+            // Add into owner tab
+            //$('.squad .squad-ava-self .squad-ava-img-self') TODO: Change image
+            $('.squad .squad-ava-self-inf .squad-self-name').text(uObj[i]['info']['username']);
         } else {
-            avatar.switchClass('squad-ava', 'squad-ava-other-1', 0);
-            avatar.html("<a class='squad-name'>" + uObj[i].username + "</a>");
+            var wrapper = $('.squad .squad-ava-wrapper .squad-ava:not(.squad-slot-taken)').first();
+
+            // Change name and class
+            wrapper.addClass('squad-slot-taken');
+            wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
+            $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("")').first().text(uObj[i]['info']['username']);
         }
     }
-
-    // Hide lock if not owner (technically not necessary but maybe I want the function called not only on join somewhere)
-    if (owner != sid) {
-        $('.squad-helper').fadeOut();
-    }
 }
 
-// Removes a user in a squad
+/**
+ * Removes a user in a squad
+ * @param uObj JSON array
+ */
 function SocketClient_removeSquadMember(uObj) {
-    // Remove squad member
-    $('.squad-wrapper .squad-ava-wrapper .squad-ava-other-1 .squad-name').filter(function () {
-        return $(this).text() === uObj.username;
-    }).parent().parent().remove();
+    // Select user
+    var user = $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("' + uObj + '")');
+    var index = user.index(); // No -1 needed because :nth child is 1-indexed
+    console.log(index);
 
-    // Add empty squad slot
-    $('.squad-wrapper .squad-ava-wrapper').last().after("<div class='squad-ava-wrapper'><div class='squad-ava'><a class='squad-name-blank'>Click to add player</a></div></div>");
-}
+    // Remove name
+    user.text('');
 
-// Sets everything to an empty player
-function SocketClient_cleanSquad() {
-    var wrapper = $('.squad-wrapper .squad-ava-wrapper .squad-ava-self, .squad-wrapper .squad-ava-wrapper .squad-ava-other-1');
-    wrapper.switchClass('squad-ava-self', 'squad-ava', 0);
-    wrapper.switchClass('squad-ava-other-1', 'squad-ava', 0);
-    wrapper.html("<a class='squad-name-blank'>Click to add player</a>");
-}
-
-// Changes the lock state
-function SocketClient_squadStatecheck() {
-    if (document.getElementById('checkbox-switch').checked) {
-        socket.send('SQUAD_LOCK_CHANGE|true');
-    } else {
-        socket.send('SQUAD_LOCK_CHANGE|false');
-    }
+    // Remove avatar
+    $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').removeClass('squad-slot-taken');
+    $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').html('');
 }

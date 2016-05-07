@@ -360,10 +360,40 @@ $('.squad-invite-block-box').click(function () {
     }
 })
 
-setTimeout(function () {
-    $('.squad-invite-wr').removeClass('squad-invite-hidden')
-}, 1900)
+$(document).on({
+    mouseenter: function () {
+        GamesChat_showSquadMemberDetails()
+    },
+    mouseleave: function () {
+        GamesChat_hideSquadMemberDetails()
+    }
+}, '.squad-slot-taken')
 
-$('.squad-invite-accept-decline').on('click', '.squad-invite-accept, .squad-invite-decline', function () {
+/*setTimeout(function () {
+    $('.squad-invite-wr').removeClass('squad-invite-hidden')
+}, 1200)*/
+
+$('.squad-invite-accept-decline').on('click', '.squad-invite-decline', function () {
     $('.squad-invite-wr').addClass('squad-invite-hidden')
-})
+});
+$('.squad-invite-accept-decline').on('click', '.squad-invite-accept', function () {
+    $('.squad-invite-wr').addClass('squad-invite-hidden');
+    // Accepts invite
+    SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
+});
+
+// Invites a user into a squad
+var GamesChat_GVAR_requested = false;
+$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function() {
+    // The GVAR protects from spamming the button
+    if (!GamesChat_GVAR_requested) {
+        GamesChat_GVAR_requested = true;
+
+        // Send input to server
+        var name = $('.squad-sub-options .squad-invite .squad-inv-input').val();
+        SocketClient_send('SQUAD_INVITE_USER', name);
+    }
+});
+function GamesChat_Reset_Invite_Input() {
+    GamesChat_GVAR_requested = false;
+}

@@ -44,6 +44,9 @@ class MatchmakingServer extends WebSocketServer {
                 // Prepare User JSON
                 $jsonUser = Model::getUser($user->session_id, 'id, username');
 
+                // Sets username
+                $user->username = $jsonUser['username'];
+
                 // Prepare Master JSON
                 $json = $this->prep("SUCCESS_SESSIONID_SET", $jsonUser);
 
@@ -69,6 +72,85 @@ class MatchmakingServer extends WebSocketServer {
                 $user->squad_id = $lastkey;
 
                 $this->stdout("Squad created with ID ".$lastkey." (".$_prc['args'][0].")");
+                break;
+
+            /**
+             * Invites a user to the squad
+             *
+             * @argument Name of the user
+             */
+            case 'SQUAD_INVITE_USER':
+                // Looks if user exists or self invite
+                $foundUser = false;
+                if ($_prc['args'][0] != $user->username) {
+                    foreach ($this->users as $key => $value) {
+                        if ($value->username == $_prc['args'][0]) {
+                            $foundUser = $value;
+                            break;
+                        }
+                    }
+                }
+
+                // Sends inviting user a response
+                if (!$foundUser) {
+                    $json = $this->prep("NOTICE_SQUAD_INVITE_USER", false);
+                    $this->send($user, $json);
+                } else {
+                    $json = $this->prep("NOTICE_SQUAD_INVITE_USER", true);
+                    $this->send($user, $json);
+
+                    // Prepares invite info
+                    // TODO: add pictures
+                    $squad = $this->lobbies[$user->squad_id];
+                    $jsonOwner = Model::getUser($squad->getOwner()->session_id, 'id, username');
+                    /*$jsonMembers = array();
+                    foreach ($squad->getUsers() as $key => $value) {
+                        $jsonMembers[] = Model::getUser($value->session_id, 'id, username');
+                    }*/
+
+                    // Sends invited person the invite
+                    $json = $this->prep("NOTICE_SQUAD_INVITATION", $user->squad_id, $jsonOwner);
+                    $this->send($foundUser, $json);
+                }
+                break;
+
+            /**
+             * Joins a squad
+             *
+             * @argument ID of the squad
+             */
+            case 'SQUAD_JOIN_USER':
+                $squad = $this->lobbies[$_prc['args'][0]]; // Selects squad
+                if ($squad->getUserCount() < $squad->teamsize) {
+                    // Add user to squad
+                    $squad->joinUser($user);
+
+                    // Notifies squad members
+                    $newSquad = array();
+                    $squadMembers = $squad->getUsers();
+                    $squadOwner = $squad->getOwner();
+                    $jsonUser = Model::getUser($user->session_id, 'id, username');
+                    $json = $this->prep("NOTICE_SQUAD_NEW_JOIN", $jsonUser);
+
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        if ($squadMembers[$i] != $user) {
+                            // Send new user info
+                            $this->send($squadMembers[$i], $json);
+                        }
+
+                        // Add info to array
+                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username'); // TODO: Picture
+                        $newSquad[] = array('info' => $info, 'owner' => filter_var(var_export($squadOwner == $squadMembers[$i], true), FILTER_VALIDATE_BOOLEAN));
+                    }
+
+                    // Send squad info to user
+                    $json = $this->prep("SUCCESS_SQUAD_JOIN", $newSquad);
+                    $this->send($user, $json);
+                } else {
+                    // Send error: Squad full
+                    $json = $this->prep("ERROR_SQUAD_JOIN", "The squad is full.");
+                    $this->send($user, $json);
+                }
                 break;
 
 
@@ -159,9 +241,9 @@ class MatchmakingServer extends WebSocketServer {
                             }
                         } else {
                             if ($this->lobbies[$i]->type == 'lobby') {
-                                $this->send($u[$k], $this->prep("NOTICE_LOBBY_LEFT", $user->session_id));
+                                $this->send($u[$k], $this->prep("NOTICE_LOBBY_LEFT", $user->username));
                             } else if ($this->lobbies[$i]->type == 'squad') {
-                                $this->send($u[$k], $this->prep("NOTICE_SQUAD_LEFT", $user->session_id));
+                                $this->send($u[$k], $this->prep("NOTICE_SQUAD_LEFT", $user->username));
                             }
                         }
                     }
@@ -214,9 +296,9 @@ class MatchmakingServer extends WebSocketServer {
                     }
                 } else {
                     if ($lo->type == 'lobby') {
-                        $this->send($u[$i], $this->prep("NOTICE_LOBBY_LEFT", $user->session_id));
+                        $this->send($u[$i], $this->prep("NOTICE_LOBBY_LEFT", $user->username));
                     } else if ($lo->type == 'squad') {
-                        $this->send($u[$i], $this->prep("NOTICE_SQUAD_LEFT", $user->session_id));
+                        $this->send($u[$i], $this->prep("NOTICE_SQUAD_LEFT", $user->username));
                     }
                 }
             }

@@ -11,15 +11,17 @@ window.odometerOptions = {
     selector: '.stats-number'
 };
 
-
-setTimeout(function () {
-    $('#support').addClass('role-taken other-taken');
-    $('#support').siblings('.role-name').find('.queue-est').text('AX.Aeon.피자')
+function GamesLobby_simulateOther() {
     setTimeout(function () {
-        $('#support').siblings('.locked-in-helper').find('.locked-in-status').addClass('locked-in-visible');
-        $('#support').addClass('role-ready');
-    }, 1200);
-}, 5200);
+        $('#support').addClass('role-taken other-taken');
+        $('#support').siblings('.role-name').find('.queue-est').text('AX.Aeon.피자')
+        setTimeout(function () {
+            $('#support').siblings('.locked-in-helper').find('.locked-in-status').addClass('locked-in-visible');
+            $('#support').addClass('role-ready');
+        }, 1200);
+    }, 5200);
+}
+
 
 
 function GamesLobby_selectRole() {

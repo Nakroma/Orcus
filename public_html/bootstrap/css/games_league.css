@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #8791a0;
+    background-color: #272f37;
     overflow: hidden;
 }
 
@@ -2333,7 +2333,7 @@ a:focus {
     position:absolute;
     top:103px;
     left:0;
-    background: rgba(9, 12, 17, 0.55);
+    background: rgba(9, 12, 17, 0.65);
     height: calc(100% - 103px);
     width:66vw;
     opacity:0;
@@ -3886,7 +3886,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.75);
+    background: rgba(9, 12, 17, 0.85);
     height: calc(100vh - 103px);
     border-left: 1px solid rgba(95, 127, 149, 0.2);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);

@@ -313,13 +313,10 @@ function GamesLeague_queueLoadMain() {
 
 $(".sidebar-queue-start").click(function () {
     if ($(this).hasClass('queue-ready')) {
-        $.get('lobby.html')
-            .success(function (data) {
-                $('.main-content').html(data);
-            });
         GamesLeague_queueStartTransforms();
         GamesLeague_HideMatchFilters();
         GamesLeague_queueLoadLobby();
+        GamesLobby_simulateOther();
     } else {}
 })
 

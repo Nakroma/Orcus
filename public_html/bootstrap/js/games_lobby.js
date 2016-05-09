@@ -18,8 +18,8 @@ function GamesLobby_simulateOther() {
         setTimeout(function () {
             $('#support').siblings('.locked-in-helper').find('.locked-in-status').addClass('locked-in-visible');
             $('#support').addClass('role-ready');
-        }, 1200);
-    }, 5200);
+        }, 2200);
+    }, 4200);
 }
 
 

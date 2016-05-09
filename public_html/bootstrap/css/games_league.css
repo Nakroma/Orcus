@@ -3887,7 +3887,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.65);
+    background: rgba(9, 12, 17, 0.8);
     height: calc(100vh - 103px);
     border-left: 1px solid rgba(95, 127, 149, 0.2);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -4596,7 +4596,7 @@ input[type=number]::-webkit-outer-spin-button {
     bottom: 0px;
     height: 15%;
     width: 66vw;
-    text-align:left;
+    text-align:center;
 }
 
 .bot-stats-b-left {
@@ -4640,6 +4640,7 @@ input[type=number]::-webkit-outer-spin-button {
 .bot-stats-members {
     width: 90%;
     margin: auto;
+    text-align:left;
 }
 
 .role {
@@ -4913,7 +4914,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 27.5vw;
     height: 100%;
     padding-top: 40px;
-    box-shadow: 0px 3px 70px rgba(0, 0, 0, 0.2), inset 0px 3px 10vw rgba(8, 11, 14, 0.2);
+    box-shadow: 0px 3px 70px rgba(0, 0, 0, 0.4);
 }
 
 .bot-team-member-wr {
@@ -4923,9 +4924,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .lobby-user-stats {
+    display:inline-block;
     text-align: center;
     margin: auto;
-    margin-top: 1%;
+    vertical-align:middle;
 }
 
 .stats-number {
@@ -5468,11 +5470,13 @@ input[type=number]::-webkit-outer-spin-button {
     width: auto;
     height: auto;
     z-index: -1;
-    opacity:0.4;
+    opacity:0.3;
     transform: translateX(-50%) translateY(-50%);
     background-color: black;
     background-size: cover;
     overflow: hidden;
+    -webkit-filter:grayscale(0%) brightness(1);
+    filter:grayscale(50%);
 }
 
 .vid-container {
@@ -5490,4 +5494,10 @@ input[type=number]::-webkit-outer-spin-button {
     width:100%;
     margin-left:0;
     margin-top:0;
+}
+
+.lobby-user-stats-helper {
+    display:inline-block;
+    height:30%;
+
 }

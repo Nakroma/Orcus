@@ -2333,12 +2333,13 @@ a:focus {
     position:absolute;
     top:103px;
     left:0;
-    background: rgba(9, 12, 17, 0.65);
+    background: rgba(9, 12, 17, 0.55);
     height: calc(100% - 103px);
     width:66vw;
     opacity:0;
     transform:scale(1.1);
     pointer-events:none;
+    text-align:center;
         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.6s;
@@ -3823,7 +3824,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 33.33%;
     height: calc(25vh - 18.25px);
     overflow: hidden;
-    background: rgba(8, 11, 14, 0.7);
+    background: rgba(8, 11, 14, 0.5);
     text-align: center;
 }
 
@@ -3835,7 +3836,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .ntf-alt {
-    background: rgba(11, 14, 17, 0.85);
+    background: rgba(11, 14, 17, 0.7);
 }
 
 .lower-main-content {
@@ -3886,7 +3887,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.85);
+    background: rgba(9, 12, 17, 0.65);
     height: calc(100vh - 103px);
     border-left: 1px solid rgba(95, 127, 149, 0.2);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -4570,12 +4571,13 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
     color: white;
     font-size: 24px;
-    font-weight: 500;
-    margin-top: 11vh;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
 .pick-a-role {
+    display:inline-block;
+    vertical-align: middle;
     text-align: center;
 }
 
@@ -4593,6 +4595,7 @@ input[type=number]::-webkit-outer-spin-button {
     bottom: 0px;
     height: 15%;
     width: 66vw;
+    text-align:left;
 }
 
 .bot-stats-b-left {
@@ -5442,4 +5445,15 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-transition-duration: 0.2s;
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
+}
+
+.play-bloom {
+    position:absolute;
+    top:0;
+    margin-left:-60px;
+}
+
+.pick-a-role-helper {
+    display:inline-block;
+    height:36%;
 }

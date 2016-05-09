@@ -282,6 +282,7 @@ function GamesLeague_queueStartTransforms() {
     $('.play-text').addClass('cancel-text').text('Cancel');
     $('.play-ico').addClass('cancel-ico');
     $('.menu-create-normal').addClass('invis');
+        $('.play-bloom').addClass('invis');
     $('.menu-create-filters').removeClass('invis');
     $('.filter-entry').removeClass('invis');
 }
@@ -290,6 +291,7 @@ function GamesLeague_queueCancelTransforms() {
     $('.play-text').removeClass('cancel-text').text('Play');;
     $('.play-ico').removeClass('cancel-ico');
     $('.menu-create-normal').removeClass('invis');
+    $('.play-bloom').removeClass('invis');
     $('.menu-create-filters').addClass('invis');
     $('.filter-entry').addClass('invis');
 }

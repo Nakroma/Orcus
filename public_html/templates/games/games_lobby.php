@@ -8,7 +8,7 @@ $templateSidebar = $this->_['templateSidebar'];
 $_d = $this->_;
 
 // AUTH STUFF HERE
-$_SESSION[$skey] = 12;
+$_SESSION[$skey] = 13;
 $sid = $_SESSION[$skey];
 
 // Get auth info

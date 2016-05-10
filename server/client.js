@@ -235,16 +235,7 @@ function SocketClient_addSquadMember(uObj) {
     // Change name and class
     wrapper.addClass('squad-slot-taken');
     wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().index());
     $('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().text(uObj.username);
-
-
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(0)').text());
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(1)').text());
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(2)').text());
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(3)').text());
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(4)').text());
-    console.log($('.squad .squad-ava-self-inf .squad-self-name-alt:nth-child(5)').text());
 }
 
 /**
@@ -266,7 +257,7 @@ function SocketClient_setSquadMembers(uObj) {
             // Change name and class
             wrapper.addClass('squad-slot-taken');
             wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
-            $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("")').first().text(uObj[i]['info']['username']);
+            $('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().text(uObj[i]['info']['username']);
         }
     }
 }
@@ -279,7 +270,6 @@ function SocketClient_removeSquadMember(uObj) {
     // Select user
     var user = $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("' + uObj + '")');
     var index = user.index(); // No -1 needed because :nth child is 1-indexed
-    console.log(index);
 
     // Remove name
     user.text('');

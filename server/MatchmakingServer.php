@@ -122,6 +122,11 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_JOIN_USER':
                 $squad = $this->lobbies[$_prc['args'][0]]; // Selects squad
                 if ($squad->getUserCount() < $squad->teamsize) {
+                    // Is user in another squad?
+                    if (isset($user->squad_id)) {
+                        $this->removeUser($user, 'squad');
+                    }
+
                     // Add user to squad
                     $squad->joinUser($user);
 
@@ -144,6 +149,7 @@ class MatchmakingServer extends WebSocketServer {
                     }
 
                     // Send squad info to user
+                    $user->squad_id = $_prc['args'][0];
                     $json = $this->prep("SUCCESS_SQUAD_JOIN", $newSquad);
                     $this->send($user, $json);
                 } else {

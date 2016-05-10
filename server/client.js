@@ -5,6 +5,7 @@
 // Websocket vars
 var socket;
 var username;
+var userid;
 
 // Squadfinding vars
 var squadFrequency = 5000;
@@ -21,7 +22,6 @@ function SocketClient_init() {
             // NUR ZUSAGEN WENN SESSION ID GESETZT WURDE!!!!
             // NEEDS 'sid' passed!!!!!
             SocketClient_send('SESSIONID_SET', sid);
-            SocketClient_resetSquad();
         };
 
         socket.onmessage = function(msg) {
@@ -38,6 +38,8 @@ function SocketClient_init() {
                  */
                 case 'SUCCESS_SESSIONID_SET':
                     username = _prc.args[0].username;
+                    userid = _prc.args[0].id;
+                    SocketClient_resetSquad();
                     break;
 
 
@@ -207,7 +209,7 @@ function SocketClient_resetSquad() {
     SocketClient_cleanSquad();
 
     // Insert you
-    //$('.squad .squad-ava-self .squad-ava-img-self') TODO: Change image
+    $('.squad .squad-ava-self .squad-ava-img-self').attr('src', 'bootstrap/img/avatars/' + userid.toString() + '_small.png');
     $('.squad .squad-ava-self-inf .squad-self-name').text(username);
 
     // Create new squad
@@ -234,7 +236,7 @@ function SocketClient_addSquadMember(uObj) {
 
     // Change name and class
     wrapper.addClass('squad-slot-taken');
-    wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
+    wrapper.html("<img src='bootstrap/img/avatars/"+ uObj.id.toString() +"_small.png' class='squad-ava-img'>");
     $('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().text(uObj.username);
 }
 
@@ -249,14 +251,14 @@ function SocketClient_setSquadMembers(uObj) {
     for (var i = 0; i < uObj.length; i++) {
         if (uObj[i]['owner']) {
             // Add into owner tab
-            //$('.squad .squad-ava-self .squad-ava-img-self') TODO: Change image
+            $('.squad .squad-ava-self .squad-ava-img-self').attr('src', 'bootstrap/img/avatars/' + uObj[i]['info']['id'].toString() + '_small.png');
             $('.squad .squad-ava-self-inf .squad-self-name').text(uObj[i]['info']['username']);
         } else {
             var wrapper = $('.squad .squad-ava-wrapper .squad-ava:not(.squad-slot-taken)').first();
 
             // Change name and class
             wrapper.addClass('squad-slot-taken');
-            wrapper.html("<img src='bootstrap/img/ava_sample_1.png' class='squad-ava-img'>"); //TODO: Add picture
+            wrapper.html("<img src='bootstrap/img/avatars/"+ uObj[i]['info']['id'] +"_small.png' class='squad-ava-img'>");
             $('.squad .squad-ava-self-inf .squad-self-name-alt:empty').first().text(uObj[i]['info']['username']);
         }
     }

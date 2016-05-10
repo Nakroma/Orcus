@@ -16,7 +16,7 @@
     <link href="<?php echo $path['css']; ?>landingpage.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,500' rel='stylesheet' type='text/css'>
-    <script src="bootstrap/ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?php echo $path['js']; ?>ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script src="<?php echo $path['js']; ?>landingpage.js"></script>
 </head>

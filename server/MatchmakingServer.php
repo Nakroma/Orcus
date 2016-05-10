@@ -100,7 +100,6 @@ class MatchmakingServer extends WebSocketServer {
                     $this->send($user, $json);
 
                     // Prepares invite info
-                    // TODO: add pictures
                     $squad = $this->lobbies[$user->squad_id];
                     $jsonOwner = Model::getUser($squad->getOwner()->session_id, 'id, username');
                     /*$jsonMembers = array();
@@ -144,7 +143,7 @@ class MatchmakingServer extends WebSocketServer {
                         }
 
                         // Add info to array
-                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username'); // TODO: Picture
+                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username');
                         $newSquad[] = array('info' => $info, 'owner' => filter_var(var_export($squadOwner == $squadMembers[$i], true), FILTER_VALIDATE_BOOLEAN));
                     }
 
@@ -171,7 +170,7 @@ class MatchmakingServer extends WebSocketServer {
                 switch ($_prc['args'][0]) {
                     // To all connected users
                     case 'ALL':
-                        $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                        $jsonUser = Model::getUser($user->session_id, 'id, username');
 
                         foreach ($this->users as $key => $value) {
                             // Dont send to original user

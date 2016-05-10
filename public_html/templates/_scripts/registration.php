@@ -9,6 +9,7 @@
 // Assign data variables for easier use
 $data = $this->_['data'];
 $db = $this->_['db'];
+$imgPath = $this->_['path']['img'];
 
 // Create connection
 $mConn = mysqli_connect($db['host'], $db['username'], $db['password'], $db['dbname']);
@@ -22,6 +23,7 @@ if (!$mConn) {
 // Prepare statement
 $mStmt = mysqli_stmt_init($mConn);
 $mPrep = mysqli_stmt_prepare($mStmt, "INSERT INTO orcus_users (email, password) VALUES (?, ?)");
+$mInsert = -1;
 
 if (!Model::isEmptyOrSpaces($data['email']) && !Model::isEmptyOrSpaces($data['password'])) {
     if ($mPrep) {
@@ -38,6 +40,9 @@ if (!Model::isEmptyOrSpaces($data['email']) && !Model::isEmptyOrSpaces($data['pa
             // Execute
             mysqli_stmt_execute($mStmt);
 
+            // Get insert id
+            $mInsert = mysqli_stmt_insert_id($mStmt);
+
             // Close statement
             mysqli_stmt_close($mStmt);
         }
@@ -53,6 +58,10 @@ mysqli_close($mConn);
 
 // Insert
 if ($mPrep) {
+    // Create avatar
+    copy($imgPath . 'ava_default.png', $imgPath . 'avatars/' . $mInsert . '_small.png');
+
+    // Success
     echo json_encode(array('type' => 'success', 'text' => 'was'));
 } else {
     echo json_encode(array('type' => 'error', 'text' => mysqli_error($mConn)));

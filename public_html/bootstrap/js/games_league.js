@@ -1,8 +1,8 @@
-var browser=navigator.userAgent.toLowerCase();
+/* var browser=navigator.userAgent.toLowerCase();
 if(browser.indexOf('firefox') > -1) {
     $('.video').remove();
     $('.content-bg').removeClass('hidden');
-}
+}*/
 
 /* Show Icon Description */
 $("#friends, #friends-desc").hover(function () {

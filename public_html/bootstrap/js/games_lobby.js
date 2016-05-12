@@ -13,10 +13,12 @@ window.odometerOptions = {
 
 function GamesLobby_simulateOther() {
     setTimeout(function () {
-        $('#support').addClass('role-taken other-taken');
-        $('#support').siblings('.role-name').find('.queue-est').text('AX.Aeon.피자')
+        $('#support').addClass('other-taken');
+        $('#support').parent().addClass('role-taken');
+        $('#support').find('.queue-est-text').text('role taken by')
+        $('#support').find('.queue-est').text('AX.Aeon.피자')
         setTimeout(function () {
-            $('#support').siblings('.locked-in-helper').find('.locked-in-status').addClass('locked-in-visible');
+            $('#support').parent().addClass('locked-in');
             $('#support').addClass('role-ready');
         }, 2200);
     }, 4200);
@@ -26,22 +28,22 @@ function GamesLobby_simulateOther() {
 
 function GamesLobby_selectRole() {
     var username = $('.squad-self-name').text();
-    if ($(this).hasClass('other-taken')) {} else {
-        queueTimes.push($(this).siblings('.role-name').children('.queue-est').text());
+    if ($(this).children().hasClass('other-taken')) {} else {
+        queueTimes.push($(this).find('.queue-est').text());
         if (queueTimes.length > 2) {
             queueTimes.shift()
         };
-        $('.self-taken').children('.role-name').children('.queue-est').text(queueTimes[0]);
-
-        $('.self-taken').children('.role').removeClass('role-taken');
-        $('.self-taken').find('.locked-in-status').removeClass('locked-in-visible');
-        $('.self-taken').find('.role').removeClass('role-ready');
+        $('.self-taken').find('.queue-est-text').text('avg queue time');
+        $('.self-taken').find('.queue-est').text(queueTimes[0]);
+        $('.self-taken').removeClass('role-taken');
+        $('.self-taken').removeClass('locked-in');
+        $('.self-taken').removeClass('role-ready');
         $('.self-taken').removeClass('self-taken');
         $(this).addClass('role-taken');
-        $(this).parent().addClass('self-taken');
+        $(this).addClass('self-taken');
         $(this).find('.role-taken-img').attr('src', userImgSrc);
-        $(this).siblings('.role-name').children('.queue-est').text(username);
-        console.log(username);
+        $(this).find('.queue-est').text(username);
+        $(this).find('.queue-est-text').text('role taken by');
     }
 };
 
@@ -67,11 +69,11 @@ function GamesLobby_userStatsReset() {
 
 
 
-$('.role').click(GamesLobby_selectRole);
+$('.role-container').click(GamesLobby_selectRole);
 
 $('.lock-in-role').click(function () {
-    $('.self-taken').find('.locked-in-status').addClass('locked-in-visible');
-    $('.self-taken').find('.role').addClass('role-ready');
+    $('.self-taken').addClass('locked-in');
+    $('.self-taken').addClass('role-ready');
 })
 
 $(document).on({

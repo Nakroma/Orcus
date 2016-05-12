@@ -190,11 +190,7 @@ function GamesChat_createPost(username, inputVal) {
 }
 
 function GamesChat_showSquadMemberDetails() {
-<<<<<<< HEAD
-    var imageSrc = "bootstrap/img/ava_default.png";
-=======
-    /*var imageSrc = "bootstrap/img/ava_sample_1.png";
->>>>>>> origin/development
+    /*var imageSrc = "bootstrap/img/ava_default.png";
     var squadMemberName = 'AX.Aeon.피';
     var squadMemberRole = 'Support';
     $('.squad-ava-img-self-swap').attr('src', imageSrc);

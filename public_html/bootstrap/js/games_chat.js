@@ -190,7 +190,11 @@ function GamesChat_createPost(username, inputVal) {
 }
 
 function GamesChat_showSquadMemberDetails() {
+<<<<<<< HEAD
     var imageSrc = "bootstrap/img/ava_default.png";
+=======
+    /*var imageSrc = "bootstrap/img/ava_sample_1.png";
+>>>>>>> origin/development
     var squadMemberName = 'AX.Aeon.피';
     var squadMemberRole = 'Support';
     $('.squad-ava-img-self-swap').attr('src', imageSrc);
@@ -198,15 +202,17 @@ function GamesChat_showSquadMemberDetails() {
     $('.squad-self-name-alt').text(squadMemberName).css('opacity', '1');
     $('.squad-self-role-alt').text(squadMemberRole).css('opacity', '1');
     $('.squad-self-name').css('opacity', '0');
-    $('.squad-self-role').css('opacity', '0');
+    $('.squad-self-role').css('opacity', '0');*/
 }
 
 function GamesChat_hideSquadMemberDetails() {
+    /*
     $('.squad-ava-swap-helper').css('opacity', '0');
     $('.squad-self-name-alt').css('opacity', '0');
     $('.squad-self-role-alt').css('opacity', '0');
        $('.squad-self-name').css('opacity', '1');
     $('.squad-self-role').css('opacity', '1');
+    */
 }
 
 $(".chat-input-text").keypress(function (e) {

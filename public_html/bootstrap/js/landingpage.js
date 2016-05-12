@@ -53,6 +53,9 @@ modal.find('.login-btn').click(function() {
         }).done(function(data) {
             // Get data back
             console.log(data);
+        }).fail(function(xhr, textStatus, errorThrown){
+            // Get error
+            console.log(xhr);
         });
     }
 
@@ -68,7 +71,7 @@ modal2.find('.login-btn').click(function() {
     var password = modal2.find('#password').val();
 
     if (!isEmptyOrSpaces(email) && !isEmptyOrSpaces(password)) {
-        // Call registration script
+        // Call login script
         $.ajax({
             url: 'index.php?view=scr_login',
             type: 'POST',

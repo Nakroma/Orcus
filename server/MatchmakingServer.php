@@ -100,7 +100,6 @@ class MatchmakingServer extends WebSocketServer {
                     $this->send($user, $json);
 
                     // Prepares invite info
-                    // TODO: add pictures
                     $squad = $this->lobbies[$user->squad_id];
                     $jsonOwner = Model::getUser($squad->getOwner()->session_id, 'id, username');
                     /*$jsonMembers = array();
@@ -122,6 +121,11 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_JOIN_USER':
                 $squad = $this->lobbies[$_prc['args'][0]]; // Selects squad
                 if ($squad->getUserCount() < $squad->teamsize) {
+                    // Is user in another squad?
+                    if (isset($user->squad_id)) {
+                        $this->removeUser($user, 'squad');
+                    }
+
                     // Add user to squad
                     $squad->joinUser($user);
 
@@ -139,11 +143,12 @@ class MatchmakingServer extends WebSocketServer {
                         }
 
                         // Add info to array
-                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username'); // TODO: Picture
+                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username');
                         $newSquad[] = array('info' => $info, 'owner' => filter_var(var_export($squadOwner == $squadMembers[$i], true), FILTER_VALIDATE_BOOLEAN));
                     }
 
                     // Send squad info to user
+                    $user->squad_id = $_prc['args'][0];
                     $json = $this->prep("SUCCESS_SQUAD_JOIN", $newSquad);
                     $this->send($user, $json);
                 } else {
@@ -165,7 +170,7 @@ class MatchmakingServer extends WebSocketServer {
                 switch ($_prc['args'][0]) {
                     // To all connected users
                     case 'ALL':
-                        $jsonUser = Model::getUser($user->session_id, 'id, username'); // TODO: add picture
+                        $jsonUser = Model::getUser($user->session_id, 'id, username');
 
                         foreach ($this->users as $key => $value) {
                             // Dont send to original user

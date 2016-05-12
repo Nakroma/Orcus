@@ -4651,12 +4651,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .role-img {
-    position:absolute;
-    top:0;
+    position:relative;
+    top:-250px;
     left:0;
     opacity: 0;
       height:100%;
-   margin:auto;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.55s;
@@ -5508,6 +5507,7 @@ margin:auto;
    margin:auto;
     opacity:0.6;
     -webkit-filter:grayscale(70%) brightness(0.5);
+    filter:grayscale(70%) brightness(0.5);
         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.55s;

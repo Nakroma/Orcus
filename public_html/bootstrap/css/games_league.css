@@ -5517,12 +5517,7 @@ margin:auto;
     opacity:1;
 }
 
-.video-shade {
-    position:absolute;
-    height:250px;
-    width:190px;
-        box-shadow:inset 0px 3px 100px rgba(0, 0, 0, 0.60)
-}
+
 
 .role-name-border {
     position:relative;

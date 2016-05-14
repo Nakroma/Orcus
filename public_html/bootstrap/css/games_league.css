@@ -2234,8 +2234,7 @@ a:focus {
     width: 350px;
     background: #21272f;
     z-index: 4;
-    transform: translateZ(1000px) translatex(100vw);
-    transform-style: preserve-3d;
+    transform: translatex(100vw);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
@@ -2252,7 +2251,6 @@ a:focus {
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     z-index: 4;
-    transform: translateZ(2em);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.3s;
@@ -2730,8 +2728,6 @@ a:focus {
     top: 0;
     right: 0;
     z-index: 6;
-    transform: translateZ(1000px);
-    transform-style: preserve-3d;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
@@ -3484,7 +3480,7 @@ input[type=number]::-webkit-outer-spin-button {
 .content-bg {
     position: absolute;
     z-index: -2;
-    opacity: 0.3;
+    opacity: 0.5;
     min-width: 100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -4645,7 +4641,7 @@ input[type=number]::-webkit-outer-spin-button {
     position:relative;
     width: 190px;
     height: 250px;
-    background:#131a20;
+    background:#1b2936;
 }
 
 .role-img {
@@ -4754,14 +4750,14 @@ margin-top:18px;
 }
 
 .role-taken .role .role-img {
-    opacity: 0.4;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    opacity: 0.8;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
 }
 .role-taken:hover .role .role-img {
-    opacity: 0.4;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    opacity: 0.8;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
 }
 
 .role-taken-wr {
@@ -4888,10 +4884,6 @@ margin:auto;
     transition-duration: 0.2s;
 }
 
-.self-taken .role {
-    background: transparent;
-}
-
 .self-taken .role-img {
     opacity: 1;
     filter:grayscale(0);
@@ -4903,7 +4895,7 @@ margin:auto;
 
 .other-taken .role-img {
     opacity: 1;
-    filter:grayscale(0;)
+    filter:grayscale(0)
 }
 
 
@@ -5001,7 +4993,7 @@ margin:auto;
 .locked-in-helper {
     width: 42px;
     height: 42px;
-    margin-top: -54px;
+    margin-top: -55px;
     margin-left: 90px;
     position: absolute;
     overflow: hidden;
@@ -5664,3 +5656,7 @@ margin:auto;
     opacity:0;
 }
 
+
+.lock-in-ready {
+    border:2px solid #42d275;
+}

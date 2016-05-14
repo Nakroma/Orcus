@@ -44,6 +44,7 @@ function GamesLobby_selectRole() {
         $(this).find('.role-taken-img').attr('src', userImgSrc);
         $(this).find('.queue-est').text(username);
         $(this).find('.queue-est-text').text('role taken by');
+        $('.lock-in-role').addClass('lock-in-ready');
     }
 };
 

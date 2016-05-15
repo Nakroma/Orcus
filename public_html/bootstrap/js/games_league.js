@@ -21,7 +21,7 @@ $("#tournament, #tournament-desc").hover(function () {
     $("#tournament-desc").addClass("desc-hidden-3")
 })
 
-
+$( ".main-content" ).load( "ajax/lobby.html" );
 
 
 /* Sidebar Functions */
@@ -55,13 +55,15 @@ $(".side-menu, .side-menu-open").click(function () {
         $('.menu-open').css('transform', '')
         $('.content').css('transform', '')
         $('.content-bg').css('transform', '')
+        $('.user-menu').css('transform', '')
         $('.sidebar-content-dim').removeClass('dim-visible')
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
         $('.sidebar-menu-ico').removeAttr('id')
     } else {
         $('.sidebar-menu-ico').attr('id', "menu-visible")
-        $('.menu-open').css('transform', 'translateX(calc(100vw - 473px))')
+        $('.menu-open').css('transform', 'translateX(-437px)')
         $('.content').css('transform', 'translateX(-12%)')
+        $('.user-menu').css('transform', 'translateX(-12%)')
         $('.content-bg').css('transform', 'translateX(4%)')
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg')
         $('.sidebar-content-dim').addClass('dim-visible')
@@ -265,6 +267,9 @@ $(".game-mode-box").click(function () {
         }
     })
 })
+
+
+
 
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden')

@@ -21,8 +21,8 @@ $("#tournament, #tournament-desc").hover(function () {
     $("#tournament-desc").addClass("desc-hidden-3")
 })
 
-$( ".main-content" ).load( "ajax/lobby.html" );
 
+$("#main").load("test.html");
 
 /* Sidebar Functions */
 
@@ -328,6 +328,7 @@ $(".sidebar-queue-start").click(function () {
         GamesLeague_HideMatchFilters();
         GamesLeague_queueLoadLobby();
         GamesLobby_simulateOther();
+        $("#main").load("lobby.html");
     } else {}
 })
 

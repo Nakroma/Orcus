@@ -75,6 +75,7 @@ $('.role-container').click(GamesLobby_selectRole);
 $('.lock-in-role').click(function () {
     $('.self-taken').addClass('locked-in');
     $('.self-taken').addClass('role-ready');
+    $('.lock-in-ready').removeClass('lock-in-ready')
 })
 
 $(document).on({

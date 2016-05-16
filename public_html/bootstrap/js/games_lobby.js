@@ -25,30 +25,6 @@ function GamesLobby_simulateOther() {
 }
 
 
-
-function GamesLobby_selectRole() {
-    var username = $('.squad-self-name').text();
-    if ($(this).children().hasClass('other-taken')) {} else {
-        queueTimes.push($(this).find('.queue-est').text());
-        if (queueTimes.length > 2) {
-            queueTimes.shift()
-        };
-        $('.self-taken').find('.queue-est-text').text('avg queue time');
-        $('.self-taken').find('.queue-est').text(queueTimes[0]);
-        $('.self-taken').removeClass('role-taken');
-        $('.self-taken').removeClass('locked-in');
-        $('.self-taken').removeClass('role-ready');
-        $('.self-taken').removeClass('self-taken');
-        $(this).addClass('role-taken');
-        $(this).addClass('self-taken');
-        $(this).find('.role-taken-img').attr('src', userImgSrc);
-        $(this).find('.queue-est').text(username);
-        $(this).find('.queue-est-text').text('role taken by');
-        $('.lock-in-role').addClass('lock-in-ready');
-    }
-};
-
-
 function GamesLobby_userStatsUpdate() {
     var wins = '53';
     var skill = '890';
@@ -68,15 +44,36 @@ function GamesLobby_userStatsReset() {
 };
 
 
+/* select role */
+$(document.body).on('click', '.role-container', function () {
+         var username = $('.squad-self-name').text();
+    if ($(this).children().hasClass('other-taken')) {} else {
+        queueTimes.push($(this).find('.queue-est').text());
+        if (queueTimes.length > 2) {
+            queueTimes.shift()
+        };
+        $('.self-taken').find('.queue-est-text').text('avg queue time');
+        $('.self-taken').find('.queue-est').text(queueTimes[0]);
+        $('.self-taken').removeClass('role-taken');
+        $('.self-taken').removeClass('locked-in');
+        $('.self-taken').removeClass('role-ready');
+        $('.self-taken').removeClass('self-taken');
+        $(this).addClass('role-taken');
+        $(this).addClass('self-taken');
+        $(this).find('.role-taken-img').attr('src', userImgSrc);
+        $(this).find('.queue-est').text(username);
+        $(this).find('.queue-est-text').text('role taken by');
+        $('.lock-in-role').addClass('lock-in-ready');
+    }
+});
 
-
-$('.role-container').click(GamesLobby_selectRole);
-
-$('.lock-in-role').click(function () {
+/* role lock in */
+$(document.body).on('click', '.lock-in-role', function () {
     $('.self-taken').addClass('locked-in');
     $('.self-taken').addClass('role-ready');
     $('.lock-in-ready').removeClass('lock-in-ready')
 })
+
 
 $(document).on({
     mouseenter: function () {

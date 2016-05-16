@@ -141,10 +141,10 @@
 
 
         <!-- Backgrounds -->
-        <img src='bootstrap/img/game_details_bg_league5.jpg' class='content-bg hidden'>
-        <video loop muted autoplay poser="bootstrap/img/lp_header.png" class="video">
+        <img src='bootstrap/img/game_details_bg_league5.jpg' class='content-bg'>
+        <!-- <video loop muted autoplay poser="bootstrap/img/lp_header.png" class="video">
             <source src="bootstrap/video/game_hub_bg2.webm" type="video/webm">
-        </video>
+        </video> -->
 
 
 
@@ -601,8 +601,8 @@
 
 <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
 <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
-<!-- <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script> -->
-<script type="text/javascript" src="bootstrap/js/lobby-data.js"></script>
+<script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
+<script type="text/javascript" src="bootstrap/js/lobby-data-league.js"></script>
 <script type="text/javascript" src="bootstrap/js/moment.js"></script>
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
@@ -614,7 +614,7 @@
             GamesLeague_queueLoadLobby();
             $('.main-content').append('<div>' + lobbyData["Framework"] + '<div>');
             $(lobbyData["Lobby Role"]).insertAfter($('.lobby-top-teams'));
-            clearInterval(galleryLoop); //stop unnecessary slideshow calculations
+            clearInterval(galleryLoop);
             GamesLobby_simulateOther();
         }else{};
     })

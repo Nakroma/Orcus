@@ -74,6 +74,14 @@ $(document.body).on('click', '.lock-in-role', function () {
     $('.lock-in-ready').removeClass('lock-in-ready')
 })
 
+function GamesLobby_SwapChat(){
+        $('.chat-group-active').removeClass('chat-group-active');
+        $('#squad-chat').addClass('chat-group-active');
+        $(".chat-scroll").load("feeds.php #")
+        $('.chat-lobby-notification').text('You are now connected to the Lobby!')
+}
+
+
 
 $(document).on({
     mouseenter: function () {

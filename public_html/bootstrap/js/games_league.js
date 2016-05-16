@@ -22,33 +22,6 @@ $("#tournament, #tournament-desc").hover(function () {
 })
 
 
- $("#main").load("lobby.html");
-
-/* Sidebar Functions */
-
-$(".queue-quit").click(GamesLeague_queueQuit)
-    // Quit function
-function GamesLeague_queueQuit() {
-    $('.queue-status').css('opacity', '0')
-    $('.queue-loading').css('opacity', '0')
-    $('.queue-bg').css('margin-left', '600px').css('margin-top', '-1000px')
-    setTimeout(function () {
-        $('.queue-bg').css('display', 'none')
-        $('.queue-bg').css('width', '200px').css('height', '200px')
-        $('.queue-bg').css('margin-left', '-290px').css('margin-top', '-200px')
-        $('.queue-status').text('')
-        $('.queue-quit').css('display', 'none')
-        $('.queue-loading-container').css('display', 'none')
-        setTimeout(function () {
-            $('.queue-bg').css('display', 'block')
-        }, 400)
-    }, 600)
-    setTimeout(function () {
-        $('.queue-pub-squads').css('display', 'inline-block')
-        $('.show-pub-squads').css('display', 'inline-block')
-    }, 600)
-}
-
 /* Side Menu Open */
 $(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
@@ -269,8 +242,6 @@ $(".game-mode-box").click(function () {
 })
 
 
-
-
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden')
     $('.content').css('transform', 'translateX(-12%)')
@@ -303,6 +274,7 @@ function GamesLeague_queueCancelTransforms() {
     $('.play-bloom').removeClass('invis');
     $('.menu-create-filters').addClass('invis');
     $('.filter-entry').addClass('invis');
+    $('.chat-lobby-notification').text('');
 }
 
 function GamesLeague_queueLoadLobby() {
@@ -353,8 +325,6 @@ $('.menu-create').click(function () {
     $('.sidebar-queue-start').text('Create Lobby')
     GamesLeague_ShowMatchFilters()
 })
-
-
 
 
 

@@ -337,9 +337,6 @@
 
 
 
-
-
-
         </div>
         <!-- End Main Content -->
 
@@ -353,11 +350,11 @@
                     <img src='bootstrap/img/chat_arrow.svg' class='chat-arrow-left'>
                     <div class='chats-groups-wrapper'>
                         <div class='chat-hrz-wr' id='chat-hrz'>
-                            <div class='chat-group chat-group-active'>
+                            <div class='chat-group chat-group-active' id='all-chat'>
                                 <span class='chat-group-title'>All Chat</span>
                                 <br><span class='chat-group-desc'>590 online</span>
                             </div>
-                            <div class='chat-group'>
+                            <div class='chat-group' id='squad-chat'>
                                 <div class='chat-group-td'>
                                     <span class='chat-group-title'>Squad</span>
                                     <br>
@@ -411,7 +408,7 @@
                 <!-- Chat Messages -->
                 <div class='chat-content'>
                     <div class='chat-scroll'>
-
+                    <span class='chat-lobby-notification'></span>
                     </div>
                 </div>
 
@@ -602,7 +599,7 @@
 <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
 <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
 <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
-<script type="text/javascript" src="bootstrap/js/lobby-data-league.js"></script>
+<script type="text/javascript" src="bootstrap/data/lobby-data-league.js"></script>
 <script type="text/javascript" src="bootstrap/js/moment.js"></script>
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
@@ -615,6 +612,7 @@
             $('.main-content').append('<div>' + lobbyData["Framework"] + '<div>');
             $(lobbyData["Lobby Role"]).insertAfter($('.lobby-top-teams'));
             clearInterval(galleryLoop);
+            GamesLobby_SwapChat();
             GamesLobby_simulateOther();
         }else{};
     })

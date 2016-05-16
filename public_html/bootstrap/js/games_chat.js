@@ -1,7 +1,4 @@
 jQuery(document).ready(function () {
-    $("<div>").load('../chat/all_chat.html', function () {
-        $(".chat-scroll").append($(this).html());
-    });
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);

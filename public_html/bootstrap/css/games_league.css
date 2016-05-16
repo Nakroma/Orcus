@@ -3462,7 +3462,7 @@ input[type=number]::-webkit-outer-spin-button {
 .content-bg {
     position: absolute;
     z-index: -2;
-    opacity: 0.3;
+    opacity: 0.4;
     min-width: 100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);

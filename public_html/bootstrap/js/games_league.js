@@ -339,6 +339,9 @@ $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
         GamesLeague_queueLoadMain();
         GamesLeague_queueCancelTransforms()
+        setTimeout(function(){
+            $('.main-content').find('.lobby').remove();
+        }, 400)
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')

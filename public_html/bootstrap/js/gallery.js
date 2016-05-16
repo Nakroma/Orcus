@@ -189,8 +189,8 @@ $(document).ready(function () {
     setGalleryPos(0, false);
 
 
-
-    window.setInterval(function galleryAutoUpdate() {
+$(document).on('ready',function(){
+    galleryLoop = setInterval(function galleryAutoUpdate() {
         if (dragging) {
         } else {
             GalPos = currentImage;
@@ -202,5 +202,6 @@ $(document).ready(function () {
             setGalleryPos(GalPos);
         };
     }, 5000);
+});
 
 })

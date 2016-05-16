@@ -156,7 +156,7 @@
             </a>
             <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
             <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
-            <span class='sidebar-list-link-game'>League of Legends</span>
+            <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
             <div class='menu-options'>
                 <div class='menu-icons'>
                     <img src='bootstrap/img/friends-ico.svg' class='menu-ico' id='friends'>
@@ -597,14 +597,27 @@
             <img src="bootstrap/img/gd_gamebar_hs.png">
         </a>
     </div>
-
-
-
-    <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
-    <script type="text/javascript" src="bootstrap/js/games_league.js"></script>
-    <script type="text/javascript" src="bootstrap/js/moment.js"></script>
-    <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
-    <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 </body>
+
+<script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
+<script type="text/javascript" src="bootstrap/js/games_league.js"></script>
+<!-- <script type="text/javascript" src="bootstrap/js/games_lobby.js"></script> -->
+<script type="text/javascript" src="bootstrap/js/lobby-data.js"></script>
+<script type="text/javascript" src="bootstrap/js/moment.js"></script>
+<script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
+<script type="text/javascript" src="bootstrap/js/odometer.js"></script>
+<script>
+    $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+        if ($(this).hasClass('queue-ready') || $(this).hasClass('sidebar-list-link-game')){
+             GamesLeague_queueStartTransforms();
+            GamesLeague_HideMatchFilters();
+            GamesLeague_queueLoadLobby();
+            $('.main-content').append('<div>' + lobbyData["Framework"] + '<div>');
+            $(lobbyData["Lobby Role"]).insertAfter($('.lobby-top-teams'));
+            clearInterval(galleryLoop); //stop unnecessary slideshow calculations
+            GamesLobby_simulateOther();
+        }else{};
+    })
+</script>
 
 </html>

@@ -22,7 +22,7 @@ $("#tournament, #tournament-desc").hover(function () {
 })
 
 
-$("#main").load("test.html");
+ $("#main").load("lobby.html");
 
 /* Sidebar Functions */
 

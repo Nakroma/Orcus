@@ -4710,7 +4710,7 @@ margin-top:18px;
 }
 
 .role-container {
-    margin: 5px 5px;
+    margin: 5px 9px;
     display: inline-block;
     overflow:hidden;
         cursor: pointer;
@@ -5474,8 +5474,8 @@ margin:auto;
 .role-video {
     height:100%;
    margin:auto;
-    opacity:0.3;
-    -webkit-filter:grayscale(30%) brightness(0.7);
+    opacity:0.9;
+    -webkit-filter:grayscale(90%) brightness(0.7);
     filter:grayscale(70%) brightness(0.5);
         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -5656,4 +5656,14 @@ margin:auto;
     display:inline-block;
 
     overflow-y:scroll;
+}
+
+.queue-est-taken{
+    color:#00b4ff;
+    font-weight:600;
+}
+
+.queue-est-locked{
+    color:#42d275;
+
 }

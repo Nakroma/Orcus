@@ -17,9 +17,11 @@ function GamesLobby_simulateOther() {
         $('#support').parent().addClass('role-taken');
         $('#support').find('.queue-est-text').text('role taken by')
         $('#support').find('.queue-est').text('AX.Aeon.피자')
+        $('#support').parent().find('.queue-est').addClass('queue-est-taken');
         setTimeout(function () {
             $('#support').parent().addClass('locked-in');
             $('#support').addClass('role-ready');
+            $('#support').parent().find('.queue-est-taken').addClass('queue-est-locked');
         }, 2200);
     }, 4200);
 }
@@ -58,10 +60,12 @@ $(document.body).on('click', '.role-container', function () {
         $('.self-taken').removeClass('locked-in');
         $('.self-taken').removeClass('role-ready');
         $('.self-taken').removeClass('self-taken');
+        $('.queue-est').removeClass('queue-est-taken')
+        $('.queue-est').removeClass('queue-est-locked')
         $(this).addClass('role-taken');
         $(this).addClass('self-taken');
         $(this).find('.role-taken-img').attr('src', userImgSrc);
-        $(this).find('.queue-est').text(username);
+        $(this).find('.queue-est').text(username).addClass('queue-est-taken');
         $(this).find('.queue-est-text').text('role taken by');
         $('.lock-in-role').addClass('lock-in-ready');
     }
@@ -71,7 +75,8 @@ $(document.body).on('click', '.role-container', function () {
 $(document.body).on('click', '.lock-in-role', function () {
     $('.self-taken').addClass('locked-in');
     $('.self-taken').addClass('role-ready');
-    $('.lock-in-ready').removeClass('lock-in-ready')
+    $('.queue-est-taken').addClass('queue-est-locked');
+    $('.lock-in-ready').removeClass('lock-in-ready');
 })
 
 function GamesLobby_SwapChat(){

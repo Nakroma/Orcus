@@ -262,7 +262,7 @@ function GamesLeague_queueStartTransforms() {
     $('.play-text').addClass('cancel-text').text('Cancel');
     $('.play-ico').addClass('cancel-ico');
     $('.menu-create-normal').addClass('invis');
-        $('.play-bloom').addClass('invis');
+    $('.play-bloom').addClass('invis');
     $('.menu-create-filters').removeClass('invis');
     $('.filter-entry').removeClass('invis');
 }
@@ -311,7 +311,7 @@ $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
         GamesLeague_queueLoadMain();
         GamesLeague_queueCancelTransforms()
-        setTimeout(function(){
+        setTimeout(function () {
             $('.main-content').find('.lobby').remove();
         }, 400)
     } else {
@@ -366,7 +366,7 @@ $('.squad-invite-accept-decline').on('click', '.squad-invite-accept', function (
 
 // Invites a user into a squad
 var GamesChat_GVAR_requested = false;
-$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function() {
+$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function () {
     // The GVAR protects from spamming the button
     if (!GamesChat_GVAR_requested) {
         GamesChat_GVAR_requested = true;
@@ -376,6 +376,7 @@ $('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function() {
         SocketClient_send('SQUAD_INVITE_USER', name);
     }
 });
+
 function GamesChat_Reset_Invite_Input() {
     GamesChat_GVAR_requested = false;
 }

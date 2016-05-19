@@ -4007,7 +4007,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .chat-group-title {
-    font-family: 'titillium web';
+    font-family: 'raleway';
     font-weight: 500;
     font-size: 18px;
     color: white;
@@ -4015,7 +4015,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .chat-group-desc {
     position: relative;
-    font-family: 'titillium web';
+    font-family: 'raleway';
     color: #8791a0;
     font-size: 16px;
     top: -5px;
@@ -5667,4 +5667,11 @@ margin:auto;
 .queue-est-locked{
     color:#42d275;
 
+}
+
+.feedback-ico {
+    height:20px;
+    margin-bottom:7px;
+    margin-right:18px;
+    transform:rotate(45deg);
 }

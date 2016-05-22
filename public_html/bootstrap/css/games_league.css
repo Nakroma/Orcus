@@ -5871,3 +5871,8 @@ display:inline-block;
         -webkit-filter:grayscale(100%);
     filter:grayscale(100%);
 }
+
+.par-hidden{
+    opacity:0;
+    pointer-events:none;
+}

@@ -89,7 +89,7 @@ $(document.body).on('click', '.lock-in-role', function () {
     $('.lock-in-ready').removeClass('lock-in-ready');
 
     if (player_amount.length == roles_amount.length) {
-        $('.pick-a-role').css('opacity', '0');
+        $('.pick-a-role').addClass('par-hidden')
         $(lobbyData["Lobby"]).insertAfter($('.lobby-top-teams'));
         setTimeout(function () {
             $('.lobby-content').css('opacity', '1');

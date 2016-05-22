@@ -2315,7 +2315,7 @@ a:focus {
     position:absolute;
     top:103px;
     left:0;
-    background: rgba(9, 12, 17, 0.6);
+    background: rgba(9, 12, 17, 0.5);
     height: calc(100% - 103px);
     width:66vw;
     opacity:0;
@@ -2612,12 +2612,15 @@ a:focus {
 }
 
 .lobby-content {
-    -webkit-transition-timing-function: ease;
+    position:absolute;
+    width:66vw;
+    opacity:0;
+         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
-    -webkit-transition-duration: 0.35s;
-    -moz-transition-duration: 0.35s;
-    -o-transition-duration: 0.35s;
-    transition-duration: 0.35s;
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    -o-transition-duration: 0.6s;
+    transition-duration: 0.6s;
 }
 
 .squad-ava-img {
@@ -3879,7 +3882,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.7);
+    background: rgba(9, 12, 17, 0.6);
     height: calc(100vh - 103px);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -4574,6 +4577,12 @@ input[type=number]::-webkit-outer-spin-button {
     width:99%;
     height:calc(100vh - 300px);
     overflow:hidden;
+           -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    -o-transition-duration: 0.6s;
+    transition-duration: 0.6s;
 }
 
 .size-small {}
@@ -5492,7 +5501,7 @@ margin:auto;
    margin:auto;
     opacity:1;
     box-shadow:0px 0px 70px rgba(0, 0, 0, 0.60);
-    -webkit-filter:grayscale(0%) brightness(0.5);
+    -webkit-filter:grayscale(0%) brightness(0.8);
     filter:grayscale(0%) brightness(0.5);
         -webkit-transition-timing-function: ease;
     transition-timing-function: ease;

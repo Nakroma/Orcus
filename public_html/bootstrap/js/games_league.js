@@ -327,11 +327,6 @@ $('.menu-create').click(function () {
 })
 
 
-
-
-
-
-
 /* Squad Invite Functions */
 
 $('.squad-invite-block-box').click(function () {

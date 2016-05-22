@@ -71,12 +71,31 @@ $(document.body).on('click', '.role-container', function () {
     }
 });
 
-/* role lock in */
+/* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
+    var player_amount = []
+    var roles_amount = []
+
+    $(this).children('.squad-slot-taken').each(function () {
+        player_amount.push('taken');
+    });
+    $(this).children('.role').each(function () {
+        roles_amount.push('taken');
+    });
+
     $('.self-taken').addClass('locked-in');
     $('.self-taken').addClass('role-ready');
     $('.queue-est-taken').addClass('queue-est-locked');
     $('.lock-in-ready').removeClass('lock-in-ready');
+
+    if (player_amount.length == roles_amount.length) {
+        $('.pick-a-role').css('opacity', '0');
+        $(lobbyData["Lobby"]).insertAfter($('.lobby-top-teams'));
+        setTimeout(function () {
+            $('.lobby-content').css('opacity', '1');
+        }, 1);
+    }
+
 })
 
 function GamesLobby_SwapChat() {
@@ -96,6 +115,13 @@ $(document).on({
         GamesLobby_userStatsReset();
     }
 }, '.team-slot-taken');
+
+
+
+
+
+
+
 
 
 /* Lobby display Functions */

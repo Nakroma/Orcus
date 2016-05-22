@@ -48,7 +48,7 @@ function GamesLobby_userStatsReset() {
 
 /* select role */
 $(document.body).on('click', '.role-container', function () {
-         var username = $('.squad-self-name').text();
+    var username = $('.squad-self-name').text();
     if ($(this).children().hasClass('other-taken')) {} else {
         queueTimes.push($(this).find('.queue-est').text());
         if (queueTimes.length > 2) {
@@ -79,11 +79,11 @@ $(document.body).on('click', '.lock-in-role', function () {
     $('.lock-in-ready').removeClass('lock-in-ready');
 })
 
-function GamesLobby_SwapChat(){
-        $('.chat-group-active').removeClass('chat-group-active');
-        $('#squad-chat').addClass('chat-group-active');
-        $(".chat-scroll").load("feeds.php #")
-        $('.chat-lobby-notification').text('You are now connected to the Lobby!')
+function GamesLobby_SwapChat() {
+    $('.chat-group-active').removeClass('chat-group-active');
+    $('#squad-chat').addClass('chat-group-active');
+    $(".chat-scroll").load("feeds.php #")
+    $('.chat-lobby-notification').text('You are now connected to the Lobby!')
 }
 
 
@@ -96,3 +96,118 @@ $(document).on({
         GamesLobby_userStatsReset();
     }
 }, '.team-slot-taken');
+
+
+/* Lobby display Functions */
+$(document).on({
+    mouseenter: function () {
+        $('.lane-text, .lane-inactive-shade').css('opacity', '0', 'pointer-events', 'none');
+    },
+    mouseleave: function () {
+        if ($(this).hasClass('lobby-lane-taken')) {} else {
+            $('.lane-text, .lane-inactive-shade').css('opacity', '1');
+        }
+    }
+}, '.lobby-lane');
+
+
+$(document).on({
+    mouseenter: function () {
+        if ($(this).find('.lane-self-taken')) {
+            if ($(this).hasClass('top-lane')) {
+
+                /* start top lane function */
+                var topStatus = [];
+                $(this).children('.lane-ava-visible').each(function () {
+                    topStatus.push('taken');
+                });
+                var topCount = topStatus.length;
+                if (topCount > 0) {
+                    if (topCount > 1) {
+                        if (topCount > 2) { //lane full
+                        } else {
+                            $('.top-3').addClass('lane-ava-preview lane-self-preview');
+                        }
+                    } else {
+                        $('.top-2').addClass('lane-ava-preview lane-self-preview');
+                    }
+                } else {
+                    $('.top-1').addClass('lane-ava-preview lane-self-preview');
+                }
+
+
+            } else {
+                if ($(this).hasClass('mid-lane')) {
+
+                    /* start mid lane function */
+                    var topStatus = [];
+                    $(this).children('.lane-ava-visible').each(function () {
+                        topStatus.push('taken');
+                    });
+                    var topCount = topStatus.length;
+                    if (topCount > 0) {
+                        if (topCount > 1) { //lane full
+                        } else {
+                            $('.mid-2').addClass('lane-ava-preview lane-self-preview');
+                        }
+                    } else {
+                        $('.mid-1').addClass('lane-ava-preview lane-self-preview');
+                    }
+
+
+                } else {
+                    if ($(this).hasClass('bot-lane')) {
+
+                        /* start bot lane function */
+                        var topStatus = [];
+                        $(this).children('.lane-ava-visible').each(function () {
+                            topStatus.push('taken');
+                        });
+                        var topCount = topStatus.length;
+                        if (topCount > 0) {
+                            if (topCount > 1) {
+                                if (topCount > 2) { //lane full
+                                } else {
+                                    $('.bot-3').addClass('lane-ava-preview lane-self-preview');
+                                }
+                            } else {
+                                $('.bot-2').addClass('lane-ava-preview lane-self-preview');
+                            }
+                        } else {
+                            $('.bot-1').addClass('lane-ava-preview lane-self-preview');
+                        }
+                    }
+                }
+            }
+        }
+
+    },
+    mouseleave: function () {
+        if ($(this).hasClass('lobby-lane-taken')) {} else {
+            $('.lane-self-preview').removeClass('lane-ava-preview');
+            $('.lane-self-preview').removeClass('lane-self-preview');
+        }
+    }
+}, '.top-lane, .mid-lane, .bot-lane');
+
+$(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
+    var dis = $(this) //i hate javascript
+    if ($(dis).children().hasClass('lane-self-taken')) {
+        setTimeout(function () { //will trigger twice on mouseup w/o timeout
+
+            $('.lane-self-taken').removeClass('lane-self-taken lane-ava-visible')
+            $('.lobby-lane').removeClass('lobby-lane-taken');
+            console.log('penis')
+
+        }, 1);
+    } else {
+        setTimeout(function () { //will trigger twice on mouseup w/o timeout
+
+            $('.lane-self-taken').removeClass('lane-self-taken lane-ava-visible')
+            $(dis).find('.lane-self-preview').addClass('lane-ava-visible lane-self-taken').removeClass('lane-ava-preview');
+            $('.lobby-lane').addClass('lobby-lane-taken');
+            console.log('benis')
+
+        }, 1);
+    }
+})

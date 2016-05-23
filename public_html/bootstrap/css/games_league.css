@@ -2315,7 +2315,7 @@ a:focus {
     position:absolute;
     top:103px;
     left:0;
-    background: rgba(9, 12, 17, 0.5);
+    background: rgba(9, 12, 17, 0.75);
     height: calc(100% - 103px);
     width:66vw;
     opacity:0;
@@ -3819,7 +3819,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 33.33%;
     height: calc(25vh - 18.25px);
     overflow: hidden;
-    background: rgba(8, 11, 14, 0.3);
+    background: rgba(8, 11, 14, 0.8);
     text-align: center;
 }
 
@@ -3882,7 +3882,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 31.3%;
     margin-left: -3.7px;
     vertical-align: top;
-    background: rgba(9, 12, 17, 0.6);
+    background: rgba(9, 12, 17, 0.85);
     height: calc(100vh - 103px);
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);

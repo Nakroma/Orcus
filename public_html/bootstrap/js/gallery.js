@@ -201,7 +201,7 @@ $(document).on('ready',function(){
             };
             setGalleryPos(GalPos);
         };
-    }, 5000);
+    }, 4000);
 });
 
 })

@@ -140,6 +140,7 @@ li a {
     text-align: center;
     margin-top: 30vh;
     margin-bottom:15px;
+    font-weight:400;
 }
 
 .header .container h2 {
@@ -405,6 +406,7 @@ li a {
     font-size: 36px;
     font-family: 'titillium web';
     color: white;
+    font-weight:300;
     margin-top: 85px;
     padding-bottom: 10px;
 }
@@ -490,7 +492,7 @@ li a {
 .bot-cta-bold {
     font-family: 'titillium web';
     font-size: 26px;
-        font-weight:500;
+        font-weight:400;
     color: #00b4ff;
 }
 
@@ -524,6 +526,7 @@ li a {
     font-family: 'raleway';
     font-size: 22px;
     color: #00b4ff;
+    font-weight:400;
     margin-bottom: 0px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;

@@ -47,8 +47,7 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
             $('.role-default').removeClass('role-default role-preview')
             $('.self-taken').parent().removeClass('role-preview')
             $('.self-taken').removeClass('self-taken');
-            $('.queue-est').removeClass('queue-est-taken')
-            $('.queue-est').removeClass('queue-est-locked')
+            $('.queue-est').removeClass('queue-est-taken queue-est-locked')
             $(role).addClass('role-taken');
             $(role).addClass('self-taken');
             $(role).parent().addClass('role-preview');

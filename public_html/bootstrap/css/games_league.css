@@ -4632,9 +4632,9 @@ margin-top:20px;
     margin: auto;
     vertical-align:middle;
     text-align: center;
-    width:99.7%;
+    width:100%;
     position:relative;
-    left:-0.2%;
+left:1px;
     height:500px;
     white-space: nowrap;
     overflow:hidden;
@@ -4888,11 +4888,6 @@ margin-top:20px;
 
 .self-taken:hover .role-img {
     opacity: 1;
-}
-
-.other-taken .role-img {
-    opacity: 1;
-    filter: grayscale(0);
 }
 
 .role-img-bg {
@@ -5465,6 +5460,8 @@ margin-top:20px;
 .pick-a-role-helper {
     display: inline-block;
     height: 55%;
+    width:0;
+    margin-left:-5px;
 }
 
 .video {
@@ -5934,7 +5931,7 @@ margin-top:20px;
 
 .role-wrapper-helper {
     position:relative;
-    left:20%;
+    left:10%;
     width:80.4%;
         -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
@@ -6035,4 +6032,14 @@ margin-top:20px;
 .drag-ico {
     margin-right:5px;
     margin-bottom:2px;
+}
+
+.other-taken img:first-of-type {
+    opacity: 0.6;
+    -webkit-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+
+.other-taken .role-stats{
+    opacity:1;
 }

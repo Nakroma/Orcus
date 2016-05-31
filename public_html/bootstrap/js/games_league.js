@@ -25,10 +25,7 @@ $("#tournament, #tournament-desc").hover(function () {
 /* Side Menu Open */
 $(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
-        $('.menu-open').css('transform', '')
-        $('.content').css('transform', '')
-        $('.content-bg').css('transform', '')
-        $('.user-menu').css('transform', '')
+        $('.content-bg, .user-menu, .content, .menu-ope').css('transform', '')
         $('.sidebar-content-dim').removeClass('dim-visible')
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
         $('.sidebar-menu-ico').removeAttr('id')
@@ -45,12 +42,11 @@ $(".side-menu, .side-menu-open").click(function () {
 
 $(".sidebar-content-dim").click(function () {
     if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
-        $('.menu-open').css('transform', '')
-        $('.content').css('transform', '')
-        $('.content-bg').css('transform', '')
+        $('.content, .content-bg, .menu-open').css('transform', '')
         $('.sidebar-content-dim').removeClass('dim-visible')
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
         $('.sidebar-menu-ico').removeAttr('id')
+        $('.chat').removeClass('chat-visible');
     } else {
         GamesLeague_HideMatchFilters()
     }
@@ -135,9 +131,13 @@ $(".sidebar-lobby-entry").click(function () {
     }
 })
 
+
+
+
+
+
+
 /* Select Filters */
-
-
 $(".game-mode-box").click(function () {
     if ($(this).hasClass('active')) {
         $(this).removeClass('active')
@@ -242,6 +242,10 @@ $(".game-mode-box").click(function () {
 })
 
 
+
+
+
+
 function GamesLeague_ShowMatchFilters() {
     $('.sidebar-lobby-options').removeClass('filters-hidden')
     $('.content').css('transform', 'translateX(-12%)')
@@ -252,29 +256,34 @@ function GamesLeague_ShowMatchFilters() {
 
 function GamesLeague_HideMatchFilters() {
     $('.sidebar-lobby-options').addClass('filters-hidden')
-    $('.content').css('transform', '')
-    $('.content-bg').css('transform', '')
+    $('.content, .content-bg').css('transform', '')
     $('.sidebar-content-dim').removeClass('dim-visible')
     $('.user-menu').css('opacity', '1')
 }
 
 function GamesLeague_queueStartTransforms() {
+    $('#normal-bg').addClass('invis')
+    $('#blur-bg').removeClass('invis')
     $('.play-text').addClass('cancel-text').text('Cancel');
     $('.play-ico').addClass('cancel-ico');
-    $('.menu-create-normal').addClass('invis');
-    $('.play-bloom').addClass('invis');
-    $('.menu-create-filters').removeClass('invis');
-    $('.filter-entry').removeClass('invis');
+    $('.menu-create-normal, .play-bloom').css('visibility', 'hidden');
+    $('.menu-create-filters, .filter-entry').removeClass('invis');
+     $('#squad-chat > .chat-group-td > .chat-group-desc').text('Queueing')
+    $(".chat-scroll").load("feeds.php #")
+    $('.chat-lobby-notification').text('You are now connected to the Lobby!')
 }
 
 function GamesLeague_queueCancelTransforms() {
-    $('.play-text').removeClass('cancel-text').text('Play');;
+     $('#normal-bg').removeClass('invis')
+    $('#blur-bg').addClass('invis')
+    $('.play-text').removeClass('cancel-text').text('Play');
     $('.play-ico').removeClass('cancel-ico');
-    $('.menu-create-normal').removeClass('invis');
-    $('.play-bloom').removeClass('invis');
-    $('.menu-create-filters').addClass('invis');
-    $('.filter-entry').addClass('invis');
+    $('.menu-create-normal, .play-bloom').css('visibility', 'visible');
+    $('.menu-create-filters, .filter-entry').addClass('invis');
     $('.chat-lobby-notification').text('');
+    $('.chat-group-active').removeClass('chat-group-active')
+    $('#all-chat').addClass('chat-group-active');
+    $('#squad-chat > .chat-group-td > .chat-group-desc').text('Main Menu')
 }
 
 function GamesLeague_queueLoadLobby() {
@@ -282,7 +291,7 @@ function GamesLeague_queueLoadLobby() {
         $('.news-notifications').removeClass('news-visible');
         setTimeout(function () {
             $('.lobby').addClass('lobby-visible');
-        }, 300)
+        }, 0)
     }, 450)
 }
 
@@ -303,6 +312,21 @@ $(".sidebar-queue-start").click(function () {
         $("#main").load("lobby.html");
     } else {}
 })
+
+
+
+
+/* Show Full Chat */
+$('.chat-preview-wr, .chat-input').click(function() {
+    if($('.chat').hasClass('chat-visible')){
+    } else {
+        $('.chat').addClass('chat-visible');
+                $('.sidebar-content-dim').addClass('dim-visible')
+    }
+})
+
+
+
 
 
 /* Modify Filters for Queue/Lobby creation */
@@ -346,9 +370,9 @@ $(document).on({
     }
 }, '.squad-slot-taken')
 
-/*setTimeout(function () {
+/* setTimeout(function () {
     $('.squad-invite-wr').removeClass('squad-invite-hidden')
-}, 1200)*/
+}, 1200) */
 
 $('.squad-invite-accept-decline').on('click', '.squad-invite-decline', function () {
     $('.squad-invite-wr').addClass('squad-invite-hidden')

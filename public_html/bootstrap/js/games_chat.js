@@ -2,6 +2,20 @@ jQuery(document).ready(function () {
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);
+
+    /* Simulate Chat */
+    setTimeout(function () {
+        GamesChat_createChatPreview('TotalBiscuit', 'plebbplebplebpleb')
+        GamesChat_createPost('TotalBiscuit', 'plebbplebplebpleb')
+    }, 3400)
+    setTimeout(function () {
+        GamesChat_createChatPreview('TotalBiscuit', 'I must have lost my ability to can.')
+        GamesChat_createPost('TotalBiscuit', 'I must have lost my ability to can.')
+    }, 8400)
+    setTimeout(function () {
+        GamesChat_createChatPreview('Benis', 'memes')
+         GamesChat_createPost('Benis', 'memes')
+    }, 5400)
 });
 
 
@@ -175,6 +189,9 @@ function GamesChat_createPost(username, inputVal) {
 
         var wrapper = container;
         $('.chat-scroll').append(wrapper);
+         setTimeout(function () {
+        wrapper.css('opacity', '1');
+               }, 1);
         $(".chat-scroll").animate({
             scrollTop: $('.chat-scroll').prop("scrollHeight")
         }, 400);
@@ -185,6 +202,54 @@ function GamesChat_createPost(username, inputVal) {
         }
     }
 }
+
+/* Chat preview */
+function GamesChat_createChatPreview(username, inputVal) {
+    if (typeof username === 'undefined') {
+        username = $('.squad-self-name').text();
+        ownPost = true;
+    }
+    if (typeof inputVal === 'undefined') {
+        inputVal = $('.chat-input-text').val();
+    }
+
+    if (inputVal != '') {
+        var container = $("<div>");
+        container.addClass("sidebar-chat-post").css('opacity', '0');
+
+        var chatPostContainer = $("<div>")
+        chatPostContainer.addClass("chat-post-content");
+        container.append(chatPostContainer);
+
+        var chatInfo = $("<div>");
+        chatInfo.addClass("chat-info");
+        chatPostContainer.append(chatInfo);
+
+        var usernameContainer = $("<a>");
+        usernameContainer.text(username);
+        usernameContainer.addClass("sidebar-chat-username");
+        chatInfo.append(usernameContainer);
+
+        var chatPost = $("<div>");
+        chatPost.addClass("sidebar-chat-message");
+        chatPost.text(inputVal);
+        chatPostContainer.append(chatPost);
+
+        var wrapper = container;
+        $('.chat-scroll-preview').append(wrapper);
+        setTimeout(function () {
+            $('.sidebar-chat-post').css('opacity', '1');
+        }, 1);
+        $(".chat-scroll-preview").animate({
+            scrollTop: $('.chat-scroll-preview').prop("scrollHeight")
+        }, 400);
+        setTimeout(function () {
+            $('.chat-scroll-preview').find('.sidebar-chat-post').css('opacity', '0');
+        }, 9000);
+    }
+}
+
+
 
 function GamesChat_showSquadMemberDetails() {
     /*var imageSrc = "bootstrap/img/ava_default.png";
@@ -210,14 +275,16 @@ function GamesChat_hideSquadMemberDetails() {
 
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
+          GamesChat_createChatPreview();
         GamesChat_createPost();
-        $(".chat-input-text").val('');
+        $(".chat-input-text").val(''); //not getting called due to socket error in .html
     }
 });
 
 $(".send-ico").click(function () {
+        GamesChat_createChatPreview();
     GamesChat_createPost();
-    $(".chat-input-text").val('');
+    $(".chat-input-text").val(''); //not getting called due to socket error in .html
 });
 
 $('.chat-menu-ico-wrapper').click(GamesChat_subMenuChatHide);

@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var
-        $gallery = $(".news-slideshow"),
-        $galleryPictures = $(".gallery-pictures"),
-        $galleryPicture = $(".gallery-picture"),
+        $gallery = $(".roles-wrapper"),
+        $galleryPictures = $(".role-wrapper-helper"),
+        $galleryPicture = $(".role-p-s"),
         lastPos = {
             x: 0
         },
@@ -11,7 +11,7 @@ $(document).ready(function () {
         },
         GalPos = 0,
         currentImage = 1,
-        imageWidth = $('.news-slideshow').width() * 1.0000,
+        imageWidth = $($galleryPicture).width() * 1.1,
         imageSpacing = 0,
         imageTotalWidth = imageWidth + imageSpacing,
         speedLog = [],
@@ -35,10 +35,10 @@ $(document).ready(function () {
 
 
 
-    $(window).resize(function () {
-        var NewVariable; // null initially
+   /* $(window).resize(function () {
+        var NewVariable;
 
-        NewVariable = $('.news-slideshow').width() * 1.00;
+        NewVariable = $($gallery.width() * 1.00;
         updateOldVar(NewVariable);
     });
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
         imageTotalWidth = imageWidth + imageSpacing;
         updateGalleryPos();
         setGalleryPos(currentImage);
-    }
+    } */
 
 
 
@@ -63,9 +63,7 @@ $(document).ready(function () {
 
     $galleryPictures.css({
         webkitFilter: "url('#blur')",
-        /* filter: "url('#blur')"
-        //Not Working in Firefox?? becomes invisible
-        */
+        // filter: "url('#blur')", //invis in FF
     });
     $galleryPicture.each(function (i) {
         var cur = $(this);
@@ -129,6 +127,7 @@ $(document).ready(function () {
 
     function updateGalleryPosLoop() {
         if (dragging) {
+            $('.roles-drag-note').addClass('invis');
             updateGalleryPos();
             var dist = dragPos.x - lastDragPos.x;
             lastDragPos.x = dragPos.x;
@@ -186,22 +185,6 @@ $(document).ready(function () {
         }
     }
 
-    setGalleryPos(0, false);
-
-
-$(document).on('ready',function(){
-    galleryLoop = setInterval(function galleryAutoUpdate() {
-        if (dragging) {
-        } else {
-            GalPos = currentImage;
-            if (GalPos == 4) {
-                GalPos = 0;
-            } else {
-                GalPos = GalPos + 1;
-            };
-            setGalleryPos(GalPos);
-        };
-    }, 4000);
-});
+    setGalleryPos(1, false);
 
 })

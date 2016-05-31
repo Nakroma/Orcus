@@ -1,4 +1,3 @@
-var userImgSrc = 'bootstrap/img/ava_sample_4.png'
 var queueTimes = []
 
 var winsSelf = $('#wins').text();
@@ -10,21 +9,6 @@ window.odometerOptions = {
     duration: 1300,
     selector: '.stats-number'
 };
-
-function GamesLobby_simulateOther() {
-    setTimeout(function () {
-        $('#support').addClass('other-taken');
-        $('#support').parent().addClass('role-taken');
-        $('#support').find('.queue-est-text').text('role taken by')
-        $('#support').find('.queue-est').text('AX.Aeon.피자')
-        $('#support').parent().find('.queue-est').addClass('queue-est-taken');
-        setTimeout(function () {
-            $('#support').parent().addClass('locked-in');
-            $('#support').addClass('role-ready');
-            $('#support').parent().find('.queue-est-taken').addClass('queue-est-locked');
-        }, 2200);
-    }, 4200);
-}
 
 
 function GamesLobby_userStatsUpdate() {
@@ -46,30 +30,58 @@ function GamesLobby_userStatsReset() {
 };
 
 
-/* select role */
-$(document.body).on('click', '.role-container', function () {
-    var username = $('.squad-self-name').text();
-    if ($(this).children().hasClass('other-taken')) {} else {
-        queueTimes.push($(this).find('.queue-est').text());
-        if (queueTimes.length > 2) {
-            queueTimes.shift()
-        };
-        $('.self-taken').find('.queue-est-text').text('avg queue time');
-        $('.self-taken').find('.queue-est').text(queueTimes[0]);
-        $('.self-taken').removeClass('role-taken');
-        $('.self-taken').removeClass('locked-in');
-        $('.self-taken').removeClass('role-ready');
-        $('.self-taken').removeClass('self-taken');
-        $('.queue-est').removeClass('queue-est-taken')
-        $('.queue-est').removeClass('queue-est-locked')
-        $(this).addClass('role-taken');
-        $(this).addClass('self-taken');
-        $(this).find('.role-taken-img').attr('src', userImgSrc);
-        $(this).find('.queue-est').text(username).addClass('queue-est-taken');
-        $(this).find('.queue-est-text').text('role taken by');
+/* role selection */
+
+
+function GamesLobby_selectRole(username, userImgSrc, role, type) {
+    console.log(type)
+    if (type === 'own') {
+        if (role.hasClass('other-taken')) {} else {
+            queueTimes.push($(role).find('.queue-est').text());
+            if (queueTimes.length > 2) {
+                queueTimes.shift()
+            }
+            $('.self-taken').find('.queue-est-text').text('avg queue time');
+            $('.self-taken').find('.queue-est').text(queueTimes[0]);
+            $('.self-taken').removeClass('locked-in role-ready role-taken');
+            $('.role-default').removeClass('role-default role-preview')
+            $('.self-taken').parent().removeClass('role-preview')
+            $('.self-taken').removeClass('self-taken');
+            $('.queue-est').removeClass('queue-est-taken')
+            $('.queue-est').removeClass('queue-est-locked')
+            $(role).addClass('role-taken');
+            $(role).addClass('self-taken');
+            $(role).parent().addClass('role-preview');
+            $(role).find('.role-taken-img').attr('src', userImgSrc);
+            $(role).find('.queue-est').text(username).addClass('queue-est-taken');
+            $(role).find('.queue-est-text').text('role taken by');
+            $('.lock-in-role').addClass('lock-in-ready');
+            $('.roles-drag-note').addClass('invis');
+            console.log('benis')
+        }
+    } else {
+        $(role).addClass('role-taken');
+        $(role).addClass('other-taken');
+        $(role).parent().addClass('role-preview');
+        $(role).find('.role-taken-img').attr('src', userImgSrc);
+        $(role).find('.queue-est').text(username).addClass('queue-est-taken');
+        $(role).find('.queue-est-text').text('role taken by');
         $('.lock-in-role').addClass('lock-in-ready');
+        console.log('penis')
     }
-});
+}
+
+$(document.body).on('click', '.role-p-sub', function () {
+    var username = $('.squad-self-name').text();
+    var userImgSrc = 'bootstrap/img/ava_sample_4.png'
+    var role = $(this)
+    GamesLobby_selectRole(username, userImgSrc, role, 'own');
+})
+
+
+
+
+
 
 /* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
@@ -87,22 +99,20 @@ $(document.body).on('click', '.lock-in-role', function () {
     $('.self-taken').addClass('role-ready');
     $('.queue-est-taken').addClass('queue-est-locked');
     $('.lock-in-ready').removeClass('lock-in-ready');
-
-    if (player_amount.length == roles_amount.length) {
-        $('.pick-a-role').addClass('par-hidden')
-        $(lobbyData["Lobby"]).insertAfter($('.lobby-top-teams'));
-        setTimeout(function () {
-            $('.lobby-content').css('opacity', '1');
-        }, 1);
-    }
-
+    $(lobbyData["Lobby"]).insertAfter($('.lobby-wr'));
+    setTimeout(function () {
+        if (player_amount.length == roles_amount.length) {
+            $('.pick-a-role').addClass('par-hidden')
+            setTimeout(function () {
+                $('.lobby-content').css('opacity', '1');
+            }, 1);
+        }
+    }, 1000);
 })
 
 function GamesLobby_SwapChat() {
     $('.chat-group-active').removeClass('chat-group-active');
     $('#squad-chat').addClass('chat-group-active');
-    $(".chat-scroll").load("feeds.php #")
-    $('.chat-lobby-notification').text('You are now connected to the Lobby!')
 }
 
 
@@ -123,8 +133,10 @@ $(document).on({
 
 
 
+/*
+Lane Selection
+*/
 
-/* Lobby display Functions */
 $(document).on({
     mouseenter: function () {
         $('.lane-text, .lane-inactive-shade').css('opacity', '0', 'pointer-events', 'none');

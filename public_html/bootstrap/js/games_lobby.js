@@ -48,29 +48,26 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
             $('.self-taken').parent().removeClass('role-preview')
             $('.self-taken').removeClass('self-taken');
             $('.queue-est').removeClass('queue-est-taken queue-est-locked')
-            $(role).addClass('role-taken');
-            $(role).addClass('self-taken');
-            $(role).parent().addClass('role-preview');
+            $(role).find('.role-p-sub').addClass('role-taken');
+            $(role).find('.role-p-sub').addClass('self-taken');
+            $(role).addClass('role-preview');
             $(role).find('.role-taken-img').attr('src', userImgSrc);
             $(role).find('.queue-est').text(username).addClass('queue-est-taken');
             $(role).find('.queue-est-text').text('role taken by');
             $('.lock-in-role').addClass('lock-in-ready');
             $('.roles-drag-note').addClass('invis');
-            console.log('benis')
         }
     } else {
-        $(role).addClass('role-taken');
-        $(role).addClass('other-taken');
-        $(role).parent().addClass('role-preview');
+        $(role).find('.role-p-sub').addClass('role-taken');
+        $(role).find('.role-p-sub').addClass('other-taken');
+        $(role).addClass('role-preview');
         $(role).find('.role-taken-img').attr('src', userImgSrc);
         $(role).find('.queue-est').text(username).addClass('queue-est-taken');
         $(role).find('.queue-est-text').text('role taken by');
-        $('.lock-in-role').addClass('lock-in-ready');
-        console.log('penis')
     }
 }
 
-$(document.body).on('click', '.role-p-sub', function () {
+$(document.body).on('click', '.role-p-s', function () {
     var username = $('.squad-self-name').text();
     var userImgSrc = 'bootstrap/img/ava_sample_4.png'
     var role = $(this)

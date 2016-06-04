@@ -11,7 +11,7 @@
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
     <link href="bootstrap/css/odometer.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
@@ -307,7 +307,7 @@
                     <div class='ntfc-title-hlpr'></div>
                     <div class='ntfc-title-wr-ref'>
                         <div class='ntfc-title-wr-ref-cntr'>
-                            <h1 class='ntfc-title'>Invite a friend<br>& profit.</h1>
+                            <h1 class='ntfc-title ntfc-inv-title'>Invite a friend<br>& profit.</h1>
                         </div>
                     </div>
                 </div>
@@ -388,9 +388,9 @@
                             <!-- Support -->
                             <div class='role-p-s role-preview role-default'>
                                 <div class='role role-p-sub'  id='support'>
-                                    <img src='bootstrap/img/league_role_jungle.png'>
+                                    <img src='bootstrap/img/league_role_support.png'>
                                     <br>
-                                    <span class='role-name'>Jungler</span>
+                                    <span class='role-name'>Support</span>
                                     <br>
                                     <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
                                      <div class='role-taken-wr'>
@@ -398,7 +398,7 @@
                                 </div>
                                 <div class='locked-in-helper'> <div class='locked-in-status '> <img src='bootstrap/img/check.svg' class='check-ico'> </div> </div>
                                 </div>
-                                <div class='role-stats'>
+                                <div class='role-stats stats-support'>
                                     <div class='role-skill'>
                                         <div class='line-skill'></div>
                                         <span class='role-stats-text'><span class='number'>230</span> Role skill
@@ -426,17 +426,17 @@
                             <!-- Carry -->
                             <div class='role-p-s'>
                                 <div class='role role-p-sub'  id='carry'>
-                                    <img src='bootstrap/img/league_role_jungle.png'>
+                                    <img src='bootstrap/img/league_role_carry.png' style='position:relative; left:30px;'>
                                     <br>
-                                    <span class='role-name'>Jungler</span>
+                                    <span class='role-name'>ADC</span>
                                     <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
+                                    <span class='queue-est'><span class='number'>3</span> Minute Queue</span>
                                      <div class='role-taken-wr'>
                                     <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
                                 </div>
                                 <div class='locked-in-helper'> <div class='locked-in-status '> <img src='bootstrap/img/check.svg' class='check-ico'> </div> </div>
                                 </div>
-                                <div class='role-stats'>
+                                <div class='role-stats stats-carry'>
                                     <div class='role-skill'>
                                         <div class='line-skill'></div>
                                         <span class='role-stats-text'><span class='number'>230</span> Role skill
@@ -460,13 +460,52 @@
                                     </div>
                                 </div>
                             </div>
+
+                           <!-- Top -->
+                            <div class='role-p-s'>
+                                <div class='role role-p-sub' id='top'>
+                                    <img src='bootstrap/img/league_role_tank.png'>
+                                    <br>
+                                    <span class='role-name'>Top</span>
+                                    <br>
+                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
+                                     <div class='role-taken-wr'>
+                                    <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
+                                </div>
+                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='bootstrap/img/check.svg' class='check-ico'> </div> </div>
+                                </div>
+                                <div class='role-stats stats-tank'>
+                                    <div class='role-skill'>
+                                        <div class='line-skill'></div>
+                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
+                                        <br>
+                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
+                                        </span>
+                                    </div>
+                                    <div class='role-wins'>
+                                        <div class='line-wins'></div>
+                                        <span class='role-stats-text'><span class='number'>32</span> Wins
+                                        <br>
+                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
+                                        </span>
+                                    </div>
+                                    <div class='role-win-rate'>
+                                        <div class='line-win-rate'></div>
+                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
+                                        <br>
+                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <!-- Mid -->
                             <div class='role-p-s'>
                                 <div class='role role-p-sub' id='mid'>
-                                    <img src='bootstrap/img/league_role_jungle.png'>
+                                    <img src='bootstrap/img/league_role_mid.png'>
                                     <br>
-                                    <span class='role-name'>Jungler</span>
+                                    <span class='role-name'>Mid</span>
                                     <br>
                                     <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
                                      <div class='role-taken-wr'>
@@ -474,7 +513,7 @@
                                 </div>
                                 <div class='locked-in-helper'> <div class='locked-in-status '> <img src='bootstrap/img/check.svg' class='check-ico'> </div> </div>
                                 </div>
-                                <div class='role-stats'>
+                                <div class='role-stats stats-tank'>
                                     <div class='role-skill'>
                                         <div class='line-skill'></div>
                                         <span class='role-stats-text'><span class='number'>230</span> Role skill
@@ -499,43 +538,7 @@
                                 </div>
                             </div>
 
-                            <!-- Top -->
-                            <div class='role-p-s'>
-                                <div class='role role-p-sub' id='top'>
-                                    <img src='bootstrap/img/league_role_jungle.png'>
-                                    <br>
-                                    <span class='role-name'>Jungler</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='bootstrap/img/ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='bootstrap/img/check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                    <div class='roles-drag-note'>

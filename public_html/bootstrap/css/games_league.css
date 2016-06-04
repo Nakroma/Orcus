@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #293038;
+    background-color: #1e2837;
     overflow: hidden;
 }
 
@@ -3718,10 +3718,10 @@ input[type=number]::-webkit-outer-spin-button {
     bottom: 0;
     z-index: 1;
     pointer-events: none;
-    background: -webkit-linear-gradient(transparent, #0e141b);
-    background: -o-linear-gradient(transparent, #0e141b);
-    background: -moz-linear-gradient(transparent, #0e141b);
-    background: linear-gradient(transparent, #0e141b);
+    background: -webkit-linear-gradient(transparent, #141c24);
+    background: -o-linear-gradient(transparent, #141c24);
+    background: -moz-linear-gradient(transparent, #141c24);
+    background: linear-gradient(transparent, #141c24);
 }
 
 .updates {
@@ -3731,7 +3731,7 @@ input[type=number]::-webkit-outer-spin-button {
     left: 0;
     right: -19px;
     overflow-y: scroll;
-    background:linear-gradient(to top, #121519, #161b21);
+     background: linear-gradient(to top, #141c24, #212d3a);
 }
 
 .slide-pagination-circle {
@@ -3780,8 +3780,9 @@ input[type=number]::-webkit-outer-spin-button {
     font-family: 'titillium web';
     font-size: 14px;
     text-transform: uppercase;
-    color: #8791a0;
+    color: white;
     letter-spacing: 0.05em;
+    font-weight:200;
     margin-left: 100px;
     margin-top: 79px;
 }
@@ -3791,6 +3792,8 @@ input[type=number]::-webkit-outer-spin-button {
     text-transform: uppercase;
     margin-left: 100px;
     margin-top: -15px;
+    font-size:36px;
+    font-weight:800;
 }
 
 .updates-wrapper {
@@ -3843,7 +3846,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: calc((95vh - 293px) * 0.32);
     overflow: hidden;
           box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
-    background: linear-gradient(to top, #121519, #161b21);
+    background: linear-gradient(to top, #141c24, #212d3a);
     text-align: center;
 }
 
@@ -4635,7 +4638,7 @@ margin-top:20px;
     width:100%;
     position:relative;
 left:1px;
-    height:500px;
+    height:710px;
     white-space: nowrap;
     overflow:hidden;
         -webkit-transform: translate3d(0,0,0);
@@ -4716,7 +4719,7 @@ left:1px;
     position: Relative;
     color: white;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 28px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.4s;
@@ -4729,7 +4732,8 @@ left:1px;
     color: white;
     font-family: 'raleway';
     font-weight: 600;
-    margin-top: -14px;
+    position:relative;
+    top:-5px;
     opacity: 1;
     font-size: 16px;
     text-transform:uppercase;
@@ -5416,7 +5420,7 @@ left:1px;
 
 .news-notifications {
     opacity: 0;
-    width:68%;
+    width:65%;
     height:calc(95vh - 293px);
     margin: 30px auto;
     transform: scale(0.965);
@@ -5903,13 +5907,13 @@ left:1px;
 }
 
 #blur-bg {
-    opacity:0.6
+    opacity:0.5
 }
 
 .role-p-s {
     display:inline-block;
     vertical-align: bottom;
-    padding:0px 20px;
+    padding:0px 40px;
     position:relative;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
@@ -5931,7 +5935,7 @@ left:1px;
 
 .role-wrapper-helper {
     position:relative;
-    left:10%;
+    left:20%;
     width:80.4%;
         -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
@@ -6042,4 +6046,56 @@ left:1px;
 
 .other-taken .role-stats{
     opacity:1;
+}
+
+.other-taken .queue-est{
+    color:#00b4ff;
+}
+
+.ntfc-inv-title {
+    font-size:22px;
+    font-weight:600;
+}
+
+
+
+.role-preview .stats-carry{
+    margin-left:330px;
+    opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.role-preview .stats-tank{
+    margin-left:330px;
+    opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.role-preview .stats-support{
+    margin-left:330px;
+    opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.stats-carry{
+    margin-left:280px;
+    opacity:0;
+        margin-top:20px;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}.stats-tank{
+    margin-left:280px;
+    opacity:0;
+        margin-top:40px;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.stats-support{
+    margin-left:280px;
+        margin-top:60px;
+    opacity:0;
+        -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }

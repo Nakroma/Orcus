@@ -11,7 +11,7 @@ $(document).ready(function () {
         },
         GalPos = 0,
         currentImage = 1,
-        imageWidth = $($galleryPicture).width() * 1.1,
+        imageWidth = $($galleryPicture).width() * 1.0,
         imageSpacing = 0,
         imageTotalWidth = imageWidth + imageSpacing,
         speedLog = [],

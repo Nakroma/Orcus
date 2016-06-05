@@ -174,7 +174,7 @@ $_u = Model::getUser($sid, 'username, okken');
 
         <!-- Menu Bar -->
         <div class='menu-bar-top'>
-           <div class="lock-in-role"> Lock In </div>
+            <div class="lock-in-role"> Lock In </div>
             <a href="#">
                 <img src='<?php echo $path['img']; ?>logo_solo.png' class='menu-logo'>
                 <img src='<?php echo $path['img']; ?>orcus_font.png' class='menu-logo-font'>
@@ -361,225 +361,9 @@ $_u = Model::getUser($sid, 'username, okken');
 
 
             <div class="lobby">
-            <div class='lobby-wr'>
-            </div>
-                <div class="pick-a-role">
-                    <div class="pick-a-role-helper"></div>
-
-                    <div class="roles-wrapper">
-                        <div class='role-wrapper-helper'>
-
-                            <!-- Jungler -->
-                            <div class='role-p-s' >
-                              <div class='role role-p-sub' id='jungle'>
-                                    <img src='<?php echo $path['img']; ?>league_role_jungle.png'>
-                                    <br>
-                                    <span class='role-name'>Jungler</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='<?php echo $path['img']; ?>check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- Support -->
-                            <div class='role-p-s role-preview role-default'>
-                                <div class='role role-p-sub'  id='support'>
-                                    <img src='<?php echo $path['img']; ?>league_role_support.png'>
-                                    <br>
-                                    <span class='role-name'>Support</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='<?php echo $path['img']; ?>check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats stats-support'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Carry -->
-                            <div class='role-p-s'>
-                                <div class='role role-p-sub'  id='carry'>
-                                    <img src='<?php echo $path['img']; ?>league_role_carry.png' style='position:relative; left:30px;'>
-                                    <br>
-                                    <span class='role-name'>ADC</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>3</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='<?php echo $path['img']; ?>check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats stats-carry'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                           <!-- Top -->
-                            <div class='role-p-s'>
-                                <div class='role role-p-sub' id='top'>
-                                    <img src='<?php echo $path['img']; ?>league_role_tank.png'>
-                                    <br>
-                                    <span class='role-name'>Top</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='<?php echo $path['img']; ?>check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats stats-tank'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- Mid -->
-                            <div class='role-p-s'>
-                                <div class='role role-p-sub' id='mid'>
-                                    <img src='<?php echo $path['img']; ?>league_role_mid.png'>
-                                    <br>
-                                    <span class='role-name'>Mid</span>
-                                    <br>
-                                    <span class='queue-est'><span class='number'>5</span> Minute Queue</span>
-                                     <div class='role-taken-wr'>
-                                    <img src='<?php echo $path['img']; ?>ava_sample_4.png' class='role-taken-img'>
-                                </div>
-                                <div class='locked-in-helper'> <div class='locked-in-status '> <img src='<?php echo $path['img']; ?>check.svg' class='check-ico'> </div> </div>
-                                </div>
-                                <div class='role-stats stats-tank'>
-                                    <div class='role-skill'>
-                                        <div class='line-skill'></div>
-                                        <span class='role-stats-text'><span class='number'>230</span> Role skill
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>430</span> avg skill</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-wins'>
-                                        <div class='line-wins'></div>
-                                        <span class='role-stats-text'><span class='number'>32</span> Wins
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                    <div class='role-win-rate'>
-                                        <div class='line-win-rate'></div>
-                                        <span class='role-stats-text'><span class='number'>41%</span> Win Rate
-                                        <br>
-                                        <span class='role-stats-sub-text'>/ <span class='number'>56</span> Lost</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                   <div class='roles-drag-note'>
-                       <img src='<?php echo $path['img']; ?>drag-ico.svg' class='drag-ico animated pulse'>
-                       Drag and click to select role
-                   </div>
-                    </div>
-
-
+                <div class='lobby-wr'>
                 </div>
             </div>
-
-
-
-
-
-
-
 
 
 
@@ -862,13 +646,15 @@ $_u = Model::getUser($sid, 'username, okken');
             GamesLeague_queueStartTransforms();
             GamesLeague_HideMatchFilters();
             GamesLeague_queueLoadLobby();
-            /* $('.main-content').append('<div>' + lobbyData["Framework"] + '<div>');
-            $(lobbyData["Lobby Role"]).insertAfter($('.lobby-top-teams'));*/
+            $(lobbyData["Lobby Role"]).insertAfter($('.lobby-wr'));
+            setTimeout(function () {
+                GamesLobby_Roles();
+            }, 500);
             clearInterval(galleryLoop);
             GamesLobby_SwapChat();
-              setTimeout(function () {
-            GamesLobby_selectRole('AX.Aeon.피자', '<?php echo $path['img']; ?>ava_sample_3.png', '#support', 'other');
-                  }, 6000);
+            setTimeout(function () {
+                GamesLobby_selectRole('AX.Aeon.피자', '<?php echo $path['img']; ?>ava_sample_3.png', '#support', 'other');
+            }, 6000);
         } else {};
     })
 </script>

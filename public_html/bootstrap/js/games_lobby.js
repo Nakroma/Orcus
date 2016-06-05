@@ -95,7 +95,7 @@ $(document.body).on('click', '.lock-in-role', function () {
     $('.self-taken').addClass('role-ready');
     $('.queue-est-taken').addClass('queue-est-locked');
     $('.lock-in-ready').removeClass('lock-in-ready');
-    $(lobbyData["Lobby"]).insertAfter($('.lobby-wr'));
+    $(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
     setTimeout(function () {
         if (player_amount.length == roles_amount.length) {
             $('.pick-a-role').addClass('par-hidden')

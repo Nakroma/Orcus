@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function GamesLobby_Roles() {
     var
         $gallery = $(".roles-wrapper"),
         $galleryPictures = $(".role-wrapper-helper"),
@@ -35,20 +35,20 @@ $(document).ready(function () {
 
 
 
-   /* $(window).resize(function () {
-        var NewVariable;
+    /* $(window).resize(function () {
+         var NewVariable;
 
-        NewVariable = $($gallery.width() * 1.00;
-        updateOldVar(NewVariable);
-    });
+         NewVariable = $($gallery.width() * 1.00;
+         updateOldVar(NewVariable);
+     });
 
 
-    function updateOldVar(a) {
-        imageWidth = a;
-        imageTotalWidth = imageWidth + imageSpacing;
-        updateGalleryPos();
-        setGalleryPos(currentImage);
-    } */
+     function updateOldVar(a) {
+         imageWidth = a;
+         imageTotalWidth = imageWidth + imageSpacing;
+         updateGalleryPos();
+         setGalleryPos(currentImage);
+     } */
 
 
 
@@ -186,5 +186,4 @@ $(document).ready(function () {
     }
 
     setGalleryPos(1, false);
-
-})
+}

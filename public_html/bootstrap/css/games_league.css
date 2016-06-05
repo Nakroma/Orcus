@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #1e2837;
+    background-color: #242c37;
     overflow: hidden;
 }
 
@@ -2412,6 +2412,7 @@ a:focus {
 
 .lobby-teams {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .lobby-player-self {
@@ -2423,12 +2424,15 @@ a:focus {
 }
 
 .lobby-main {
-    width: 100%;
+    width: calc(100% - 5px);
+    padding:60px 0px;
+    display:inline-block;
+    vertical-align: middle;
+    background:rgba(18,25,30,0.5);
 }
 
 .lobby-team-1 {
     display: inline-block;
-    margin-top: 10vh;
     margin-right: 35px;
     vertical-align: top;
 }
@@ -2437,14 +2441,14 @@ a:focus {
     display: inline-block;
     color: white;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     padding-right: 90px;
 }
 
 .team-status {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: #8791a0;
 }
@@ -2527,7 +2531,6 @@ a:focus {
 
 .lobby-teams-middle {
     display: inline-block;
-    margin-top: calc(10vh + 17px);
     text-align: center;
     vertical-align: top;
     width: 254px;
@@ -2541,7 +2544,6 @@ a:focus {
 
 .lobby-team-2 {
     display: inline-block;
-    margin-top: 10vh;
     vertical-align: top;
     margin-left: 35px;
 }
@@ -2550,7 +2552,7 @@ a:focus {
     display: inline-block;
     color: white;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     padding-left: 90px;
@@ -6098,4 +6100,13 @@ left:1px;
     opacity:0;
         -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
+}
+
+.lobby-teams-helper {
+    display:inline-block;
+    height:35vh;
+}
+
+.role-preview {
+    z-index:1;
 }

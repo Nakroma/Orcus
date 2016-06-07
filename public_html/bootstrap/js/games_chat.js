@@ -272,14 +272,12 @@ function GamesChat_hideSquadMemberDetails() {
 
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
-          GamesChat_createChatPreview();
         GamesChat_createPost();
         $(".chat-input-text").val(''); //not getting called due to socket error in .html
     }
 });
 
 $(".send-ico").click(function () {
-        GamesChat_createChatPreview();
     GamesChat_createPost();
     $(".chat-input-text").val(''); //not getting called due to socket error in .html
 });
@@ -299,15 +297,31 @@ $('#chat-hrz').on("click", ".chat-group", function () {
 $('.squad-menu-ico-wr').click(GamesChat_subMenuSquadHide);
 $('.squad-ava').click(GamesChat_subMenuSquadHide);
 
+// Invites a user into a squad
+var GamesChat_GVAR_requested = false;
+$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function () {
+    GamesChat_Invite_User();
+});
 $(".squad-inv-input").keypress(function (e) {
-    // TODO: Fix enter on squad invite
     if (e.which == 13) { //always return error
-        $('#squad-group-error').removeClass('error-hidden');
-        setTimeout(function () {
-            $('#squad-group-error').addClass('error-hidden');
-        }, 1200);
+        GamesChat_Invite_User();
     }
 });
+
+function GamesChat_Reset_Invite_Input() {
+    GamesChat_GVAR_requested = false;
+}
+
+function GamesChat_Invite_User() {
+    // The GVAR protects from spamming the button
+    if (!GamesChat_GVAR_requested) {
+        GamesChat_GVAR_requested = true;
+
+        // Send input to server
+        var name = $('.squad-sub-options .squad-invite .squad-inv-input').val();
+        SocketClient_send('SQUAD_INVITE_USER', name);
+    }
+}
 
 $(document).on({
     mouseenter: function () {

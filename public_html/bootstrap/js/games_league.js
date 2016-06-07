@@ -382,20 +382,3 @@ $('.squad-invite-accept-decline').on('click', '.squad-invite-accept', function (
     // Accepts invite
     SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
 });
-
-// Invites a user into a squad
-var GamesChat_GVAR_requested = false;
-$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function () {
-    // The GVAR protects from spamming the button
-    if (!GamesChat_GVAR_requested) {
-        GamesChat_GVAR_requested = true;
-
-        // Send input to server
-        var name = $('.squad-sub-options .squad-invite .squad-inv-input').val();
-        SocketClient_send('SQUAD_INVITE_USER', name);
-    }
-});
-
-function GamesChat_Reset_Invite_Input() {
-    GamesChat_GVAR_requested = false;
-}

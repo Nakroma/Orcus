@@ -3452,7 +3452,7 @@ background-image:linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,tra
 background-image:-webkit-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
 background-image:-o-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
 background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
- background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,transparent), color-stop(50%,rgba(21,29,39,0.6)),color-stop(100%,transparent));
+ background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,transparent), color-stop(50%,rgba(21,29,39,0.3)),color-stop(100%,transparent));
 }
 
 .player-sidebar-name {

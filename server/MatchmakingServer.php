@@ -27,7 +27,7 @@ class MatchmakingServer extends WebSocketServer {
         //$part = explode("|", $message);
 
         $this->stdout($message);
-
+        
         // Decode JSON message
         $_prc = json_decode($message, true);
 

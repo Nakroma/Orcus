@@ -231,7 +231,6 @@ $(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
 
             $('.lane-self-taken').removeClass('lane-self-taken lane-ava-visible')
             $('.lobby-lane').removeClass('lobby-lane-taken');
-            console.log('penis')
 
         }, 1);
     } else {
@@ -240,7 +239,6 @@ $(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
             $('.lane-self-taken').removeClass('lane-self-taken lane-ava-visible')
             $(dis).find('.lane-self-preview').addClass('lane-ava-visible lane-self-taken').removeClass('lane-ava-preview');
             $('.lobby-lane').addClass('lobby-lane-taken');
-            console.log('benis')
 
         }, 1);
     }

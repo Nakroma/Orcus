@@ -1,12 +1,13 @@
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {} else {
-    $('head').append('<script type="text/javascript" src="bootstrap/js/parallax.js"></script>');
-        $('body').append('<script type="text/javascript" src="bootstrap/js/parallax.js"></script>');
+    $('body').append('<script type="text/javascript" src="bootstrap/js/parallax.js"></script>');
 }
+
 /* Navbar */
 $(document).ready(function () {
     var scroll_start = 0;
     var startchange = $('.navbar');
     var offset = startchange.offset();
+
     $(document).scroll(function () {
         scroll_start = $(this).scrollTop();
         if (scroll_start > offset.top) {
@@ -32,9 +33,55 @@ $(document).ready(function () {
     });
 });
 
+
+// Modal functions
+var errorType = '';
+// E-mail interaction (error handling not working)
+$(document).on({
+    blur: function () {
+        var mailInput = $('.input_mail ').val();
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) {
+            if (errorType == 'benis') {} else {
+                $('.input-content').text(mailInput)
+            }
+        } else {
+            errorType = 'benis';
+            //Display error
+            console.log(errorType)
+            $('.input-content').text('')
+
+        }
+    },
+
+    keypress: function (e) {
+        var mailInput = $('.input_mail ').val();
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) {
+            if (e.which == 13) {
+                var mailInput = $('.input_mail ').val()
+                $('.input-content').text(mailInput)
+                $('.input_password').focus()
+            }
+        } else {
+            errorType = 'benis';
+            //Display error
+            $('.input-content').text('')
+        }
+    }
+}, '.input_mail');
+
+
+
+/*$(".input_mail").keypress(function (e){
+    var mailInput = $('.input_mail ').val()
+        $('.input-content').text(mailInput)
+    $.focus('.input_password')
+}*/
+
+
+
 // Modal Signup PHP script interaction
 var modal = $('#signup-modal');
-modal.find('.login-btn').click(function() {
+modal.find('.login-btn').click(function () {
     $(this).prop('disabled', true);
 
     var email = modal.find('#email').val();
@@ -50,10 +97,10 @@ modal.find('.login-btn').click(function() {
                 email: email,
                 password: password
             }
-        }).done(function(data) {
+        }).done(function (data) {
             // Get data back
             console.log(data);
-        }).fail(function(xhr, textStatus, errorThrown){
+        }).fail(function (xhr, textStatus, errorThrown) {
             // Get error
             console.log(xhr);
         });
@@ -64,7 +111,7 @@ modal.find('.login-btn').click(function() {
 
 // Modal Login PHP script interaction
 var modal2 = $('#login-modal');
-modal2.find('.login-btn').click(function() {
+modal2.find('.login-btn').click(function () {
     $(this).prop('disabled', true);
 
     var email = modal2.find('#email').val();
@@ -80,7 +127,7 @@ modal2.find('.login-btn').click(function() {
                 email: email,
                 password: password
             }
-        }).done(function(data) {
+        }).done(function (data) {
             // Get data back
             console.log(data);
         });

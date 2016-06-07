@@ -3,9 +3,8 @@ jQuery(document).ready(function () {
         scrollTop: $('.chat-scroll').prop("scrollHeight")
     }, 0);
 
-    /* Simulate Chat */
+    /* Simulate Chat
     setTimeout(function () {
-        GamesChat_createChatPreview('TotalBiscuit', 'plebbplebplebpleb')
         GamesChat_createPost('TotalBiscuit', 'plebbplebplebpleb')
     }, 3400)
     setTimeout(function () {
@@ -15,7 +14,7 @@ jQuery(document).ready(function () {
     setTimeout(function () {
         GamesChat_createChatPreview('Benis', 'memes')
          GamesChat_createPost('Benis', 'memes')
-    }, 5400)
+    }, 5400) */
 });
 
 
@@ -136,9 +135,11 @@ $(".pm-friend-input").keypress(function (e) {
 
 
 /* Create Chat Post */
-function GamesChat_createPost(username, inputVal) {
-
+function GamesChat_createPost(username, inputVal, userid) {
     var ownPost = false;
+
+    // Set default
+    userid = typeof userid !== 'undefined' ? userid : sid;
 
     if (typeof username === 'undefined') {
         username = $('.squad-self-name').text();
@@ -147,6 +148,10 @@ function GamesChat_createPost(username, inputVal) {
     if (typeof inputVal === 'undefined') {
         inputVal = $('.chat-input-text').val();
     }
+
+    // Create chat preview
+    GamesChat_createChatPreview(username, inputVal);
+
     var date = new Date();
     var date = date.toISOString();
 
@@ -159,7 +164,7 @@ function GamesChat_createPost(username, inputVal) {
         container.append(chatAvaWr);
 
         var avaImg = $("<img>");
-        avaImg.attr("src", "bootstrap/img/ava_sample_4.png");
+        avaImg.attr("src", "bootstrap/img/avatars/" + userid + "_small.png");
         avaImg.addClass("chat-ava-img");
         chatAvaWr.append(avaImg);
 
@@ -198,21 +203,13 @@ function GamesChat_createPost(username, inputVal) {
 
         // Send to server
         if (ownPost) {
-            SocketClient_send('CHAT_SEND_MESSAGE', ['ALL', LZString.compress(inputVal)]);
+            SocketClient_send('CHAT_SEND_MESSAGE', ['ALL', LZString.compressToUTF16(inputVal)]);
         }
     }
 }
 
 /* Chat preview */
 function GamesChat_createChatPreview(username, inputVal) {
-    if (typeof username === 'undefined') {
-        username = $('.squad-self-name').text();
-        ownPost = true;
-    }
-    if (typeof inputVal === 'undefined') {
-        inputVal = $('.chat-input-text').val();
-    }
-
     if (inputVal != '') {
         var container = $("<div>");
         container.addClass("sidebar-chat-post").css('opacity', '0');
@@ -275,14 +272,12 @@ function GamesChat_hideSquadMemberDetails() {
 
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
-          GamesChat_createChatPreview();
         GamesChat_createPost();
         $(".chat-input-text").val(''); //not getting called due to socket error in .html
     }
 });
 
 $(".send-ico").click(function () {
-        GamesChat_createChatPreview();
     GamesChat_createPost();
     $(".chat-input-text").val(''); //not getting called due to socket error in .html
 });
@@ -302,14 +297,31 @@ $('#chat-hrz').on("click", ".chat-group", function () {
 $('.squad-menu-ico-wr').click(GamesChat_subMenuSquadHide);
 $('.squad-ava').click(GamesChat_subMenuSquadHide);
 
+// Invites a user into a squad
+var GamesChat_GVAR_requested = false;
+$('.squad-sub-options .leave-squad .leave-squad-ico').on('click', function () {
+    GamesChat_Invite_User();
+});
 $(".squad-inv-input").keypress(function (e) {
     if (e.which == 13) { //always return error
-        $('#squad-group-error').removeClass('error-hidden');
-        setTimeout(function () {
-            $('#squad-group-error').addClass('error-hidden');
-        }, 1200);
+        GamesChat_Invite_User();
     }
 });
+
+function GamesChat_Reset_Invite_Input() {
+    GamesChat_GVAR_requested = false;
+}
+
+function GamesChat_Invite_User() {
+    // The GVAR protects from spamming the button
+    if (!GamesChat_GVAR_requested) {
+        GamesChat_GVAR_requested = true;
+
+        // Send input to server
+        var name = $('.squad-sub-options .squad-invite .squad-inv-input').val();
+        SocketClient_send('SQUAD_INVITE_USER', name);
+    }
+}
 
 $(document).on({
     mouseenter: function () {

@@ -52,7 +52,7 @@ function SocketClient_init() {
                  */
                 case 'NOTICE_CHAT_RECEIVE_MESSAGE':
                     var user = _prc.args[2];
-                    GamesChat_createPost(user.username, LZString.decompress(_prc.args[1]));
+                    GamesChat_createPost(user.username, LZString.decompressFromUTF16(_prc.args[1]), user.id);
                     break;
 
 

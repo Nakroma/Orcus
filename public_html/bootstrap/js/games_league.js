@@ -26,12 +26,13 @@ $("#tournament, #tournament-desc").hover(function () {
 $(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
         $('.content-bg, .user-menu, .content, .menu-ope').css('transform', '')
+                $('.menu-open').css('transform', '')
         $('.sidebar-content-dim').removeClass('dim-visible')
         $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
         $('.sidebar-menu-ico').removeAttr('id')
     } else {
         $('.sidebar-menu-ico').attr('id', "menu-visible")
-        $('.menu-open').css('transform', 'translateX(-437px)')
+        $('.menu-open').css('transform', 'translateX(-350px)')
         $('.content').css('transform', 'translateX(-12%)')
         $('.user-menu').css('transform', 'translateX(-12%)')
         $('.content-bg').css('transform', 'translateX(4%)')

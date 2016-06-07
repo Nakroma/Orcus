@@ -5699,20 +5699,20 @@ left:1px;
 
 .lane-nexus {
     position: absolute;
-    margin-left: -203px;
+    margin-left: -213px;
     margin-top: -20px;
 }
 
 .lane-bot {
     position: relative;
     top: -190px;
-    left: 10px;
+    left: -0px;
 }
 
 .lane-mid {
     position: absolute;
     margin-top: -264px;
-    margin-left: -137px;
+    margin-left: -148px;
 }
 
 .lane-inactive-shade {
@@ -5777,7 +5777,7 @@ left:1px;
 .mid-lane {
     position: absolute;
     margin-top: -298px;
-    margin-left: -125px;
+    margin-left: -135px;
     display: inline-block;
     padding: 20px;
 }

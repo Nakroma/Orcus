@@ -303,17 +303,6 @@ function GamesLeague_queueLoadMain() {
 
 }
 
-$(".sidebar-queue-start").click(function () {
-    if ($(this).hasClass('queue-ready')) {
-        GamesLeague_queueStartTransforms();
-        GamesLeague_HideMatchFilters();
-        GamesLeague_queueLoadLobby();
-        GamesLobby_simulateOther();
-        $("#main").load("lobby.html");
-    } else {}
-})
-
-
 
 
 /* Show Full Chat */

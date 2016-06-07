@@ -300,6 +300,7 @@ $('.squad-menu-ico-wr').click(GamesChat_subMenuSquadHide);
 $('.squad-ava').click(GamesChat_subMenuSquadHide);
 
 $(".squad-inv-input").keypress(function (e) {
+    // TODO: Fix enter on squad invite
     if (e.which == 13) { //always return error
         $('#squad-group-error').removeClass('error-hidden');
         setTimeout(function () {

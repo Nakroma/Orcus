@@ -8,7 +8,7 @@ $templateSidebar = $this->_['templateSidebar'];
 $_d = $this->_;
 
 // AUTH STUFF HERE
-$_SESSION[$skey] = 14;
+$_SESSION[$skey] = 13;
 $sid = $_SESSION[$skey];
 
 // Get auth info
@@ -378,10 +378,16 @@ $_u = Model::getUser($sid, 'username, okken');
                     </div>
                 </div>
                 <div class='squad-ava-self-inf'>
-                    <a href="#" class='squad-self-name'>TotalBiscuit</a>
+                    <a href="#" class='squad-self-name'><?php echo $_u['username']; ?></a>
+                    <a href="#" class='squad-self-name-alt'></a>
+                    <a href="#" class='squad-self-name-alt'></a>
+                    <a href="#" class='squad-self-name-alt'></a>
                     <a href="#" class='squad-self-name-alt'></a>
                     <br>
                     <div class='squad-self-role'>Tank</div>
+                    <div class='squad-self-role-alt'></div>
+                    <div class='squad-self-role-alt'></div>
+                    <div class='squad-self-role-alt'></div>
                     <div class='squad-self-role-alt'></div>
                 </div>
 

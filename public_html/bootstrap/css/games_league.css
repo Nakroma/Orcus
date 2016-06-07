@@ -3444,15 +3444,15 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     position:relative;
     top:5vh;
-    height:85vh;
+    height:calc(85vh - 200px);
     width:calc(100% + 5px);
     right:5px;
-    background-image:-moz-linear-gradient(top, transparent 0%, #151d27 50%,transparent 100%);
-background-image:linear-gradient(top, transparent 0%, #151d27 50%,transparent 100%);
-background-image:-webkit-linear-gradient(top, transparent 0%, #151d27 50%,transparent 100%);
-background-image:-o-linear-gradient(top, transparent 0%, #151d27 50%,transparent 100%);
-background-image:-ms-linear-gradient(top, transparent 0%, #151d27 50%,transparent 100%);
- background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,transparent), color-stop(50%,#232a32),color-stop(100%,#232a32));
+    background-image:-moz-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
+background-image:linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
+background-image:-webkit-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
+background-image:-o-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
+background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.6) 50%,transparent 100%);
+ background-image:-webkit-gradient(linear, right top, right bottom, color-stop(0%,transparent), color-stop(50%,rgba(21,29,39,0.6)),color-stop(100%,transparent));
 }
 
 .player-sidebar-name {

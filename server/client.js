@@ -140,6 +140,14 @@ function SocketClient_init() {
                     break;
 
                 /**
+                 * Cancels the matchmaking process
+                 */
+                case 'NOTICE_SQUAD_CANCEL_MATCHMAKING':
+                    GamesLeague_CancelCurrentScreen();
+                    break;
+
+
+                /**
                  * Notifies the user that the join failed
                  *
                  * @argument Error message

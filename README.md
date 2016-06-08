@@ -31,6 +31,7 @@ SQUAD_JOIN_USER	// Joins a squad
 	0: Squad ID	// ID of the squad
 SQUAD_START_MATCHMAKING	// Starts the matchmaking of a squad
 	0: Matchmaking parameters	// Parameters for the matchmaking (Mode, Size, Entry)
+SQUAD_CANCEL_MATCHMAKING	// Cancels the matchmaking
 
 CHAT_SEND_MESSAGE	// Sends a chat message
 	0: Lobby	// Chat Lobby (ALL, SQUAD, PRIVATE)

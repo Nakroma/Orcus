@@ -191,6 +191,28 @@ class MatchmakingServer extends WebSocketServer {
                 }
                 break;
 
+            /**
+             * Cancels the current matchmaking process
+             */
+            case 'SQUAD_CANCEL_MATCHMAKING':
+                $squad = $this->lobbies[$user->squad_id];
+
+                // If user is owner
+                if ($user == $squad->getOwner() && $squad->state != STATE_OPEN) {
+                    $squadMembers = $squad->getUsers();
+
+                    // Inform other members
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        // Send info to user
+                        $json = $this->prep("NOTICE_SQUAD_CANCEL_MATCHMAKING");
+                        $this->send($squadMembers[$i], $json);
+                    }
+
+                    // Set state to role selection
+                    $squad->state = STATE_OPEN;
+                }
+                break;
+
 
             /**
              * Sends a chat message

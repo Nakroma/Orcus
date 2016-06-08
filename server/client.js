@@ -146,6 +146,24 @@ function SocketClient_init() {
                     GamesLeague_CancelCurrentScreen();
                     break;
 
+                /**
+                 * Notifies that a user selected a role
+                 *
+                 * @argument JSON array containing user data (id, username)
+                 * @argument Role Jquery object
+                 */
+                case 'NOTICE_SQUAD_ROLE_SELECTION':
+                    var o = 'own';
+                    if (_prc.args[0].id != sid) {
+                        o = 'other';
+
+                        // Remove classes and stuff
+                        GamesLobby_removeRole(_prc.args[0].username);
+                    }
+                    var image = 'bootstrap/img/avatars/' + _prc.args[0].id.toString() +  '_small.png';
+                    GamesLobby_selectRole(_prc.args[0].username, image, _prc.args[1], o);
+                    break;
+
 
                 /**
                  * Notifies the user that the join failed
@@ -292,6 +310,7 @@ function SocketClient_setSquadMembers(uObj) {
  */
 function SocketClient_removeSquadMember(uObj) {
     // Select user
+    // TODO: Change contains to a filter
     var user = $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("' + uObj + '")');
     var index = user.index(); // No -1 needed because :nth child is 1-indexed
 
@@ -301,4 +320,7 @@ function SocketClient_removeSquadMember(uObj) {
     // Remove avatar
     $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').removeClass('squad-slot-taken');
     $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').html('');
+
+    // Remove name if in role selection
+    GamesLobby_removeRole(uObj);
 }

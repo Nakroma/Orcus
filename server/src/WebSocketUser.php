@@ -7,6 +7,8 @@ class WebSocketUser {
     public $lobby_id;
     public $squad_id;
     public $username;
+    public $role;
+    public $lockedin;
     public $headers = array();
     public $handshake = false;
     public $handlingPartialPacket = false;

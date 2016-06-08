@@ -34,9 +34,11 @@ function GamesLobby_userStatsReset() {
 
 
 function GamesLobby_selectRole(username, userImgSrc, role, type) {
-    console.log(type)
+    //console.log(type);
+    role = $(role).parent();
     if (type === 'own') {
-        if (role.hasClass('other-taken')) {} else {
+
+        if ($(role).hasClass('other-taken')) {} else {
             queueTimes.push($(role).find('.queue-est').text());
             if (queueTimes.length > 2) {
                 queueTimes.shift()
@@ -60,25 +62,24 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
     } else {
         $(role).find('.role-p-sub').addClass('role-taken');
         $(role).find('.role-p-sub').addClass('other-taken');
-        $(role).addClass('role-preview');
+        //$(role).addClass('role-preview');
         $(role).find('.role-taken-img').attr('src', userImgSrc);
         $(role).find('.queue-est').text(username).addClass('queue-est-taken');
         $(role).find('.queue-est-text').text('role taken by');
     }
 }
 
-$(document.body).on('click', '.role-p-s', GamesLobby_SelectOwnRole);
-
-function GamesLobby_SelectOwnRole() {
-    var username = $('.squad-self-name').text();
-    var userImgSrc = 'bootstrap/img/ava_sample_4.png'
-    var role = $(this)
-    GamesLobby_selectRole(username, userImgSrc, role, 'own');
+function GamesLobby_removeRole(username) {
+    // Find role by username
+    $('.role-taken .queue-est').filter(function() {
+        return $(this).text() === username;
+    }).text(queueTimes[0]).removeClass('queue-est-taken').parent().removeClass('role-taken').removeClass('other-taken');
 }
 
-
-
-
+$(document.body).on('click', '.role-p-s', function() {
+    var role = '#' + $(this).find('.role-p-sub').attr('id');
+    SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+});
 
 
 /* role lock in & load lobby */

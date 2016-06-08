@@ -181,6 +181,9 @@ class MatchmakingServer extends WebSocketServer {
 
                     // Inform other members
                     for ($i = 0; $i < count($squadMembers); $i++) {
+                        // Clean out roles meanwhile
+                        unset($squadMembers[$i]->role);
+
                         // Send info to user
                         $json = $this->prep("NOTICE_SQUAD_START_ROLE_SELECTION", $squad->mm_params);
                         $this->send($squadMembers[$i], $json);
@@ -210,6 +213,42 @@ class MatchmakingServer extends WebSocketServer {
 
                     // Set state to role selection
                     $squad->state = STATE_OPEN;
+                }
+                break;
+
+            /**
+             * Selects a role in role selection
+             *
+             * @argument ID of the role
+             */
+            case 'SQUAD_SELECT_ROLE':
+                $squad = $this->lobbies[$user->squad_id];
+                $role = $_prc['args'][0];
+
+                if ($squad->state == STATE_ROLE_SELECTION) {
+                    $squadMembers = $squad->getUsers();
+
+                    // See if role is already chosen
+                    $fRole = false;
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        if ($squadMembers[$i]->role == $role) {
+                            $fRole = true;
+                            break;
+                        }
+                    }
+
+                    if (!$fRole) {
+                        // Select role
+                        $user->role = $role;
+
+                        $info = Model::getUser($user->session_id, 'id, username');
+
+                        // Notifiy other users
+                        for ($i = 0; $i < count($squadMembers); $i++) {
+                            $json = $this->prep("NOTICE_SQUAD_ROLE_SELECTION", $info, $role);
+                            $this->send($squadMembers[$i], $json);
+                        }
+                    }
                 }
                 break;
 

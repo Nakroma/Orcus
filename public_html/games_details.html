@@ -622,7 +622,9 @@
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 <script>
-    $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+    $(".sidebar-queue-start, .sidebar-list-link-game").click(Debug_LobbyStart);
+
+    function Debug_LobbyStart() {
         if ($(this).hasClass('queue-ready') || $(this).hasClass('sidebar-list-link-game')) {
             GamesLeague_queueStartTransforms();
             GamesLeague_HideMatchFilters();
@@ -637,7 +639,7 @@
                 GamesLobby_selectRole('AX.Aeon.피자', 'bootstrap/img/ava_sample_3.png', '#support', 'other');
             }, 6000);
         } else {};
-    })
+    }
 </script>
 
 </html>

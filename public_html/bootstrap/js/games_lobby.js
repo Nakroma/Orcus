@@ -67,12 +67,14 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
     }
 }
 
-$(document.body).on('click', '.role-p-s', function () {
+$(document.body).on('click', '.role-p-s', GamesLobby_SelectOwnRole);
+
+function GamesLobby_SelectOwnRole() {
     var username = $('.squad-self-name').text();
     var userImgSrc = 'bootstrap/img/ava_sample_4.png'
     var role = $(this)
     GamesLobby_selectRole(username, userImgSrc, role, 'own');
-})
+}
 
 
 
@@ -81,7 +83,7 @@ $(document.body).on('click', '.role-p-s', function () {
 
 /* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
-    var player_amount = []
+    /*var player_amount = []
     var roles_amount = []
 
     $(this).children('.squad-slot-taken').each(function () {
@@ -89,13 +91,11 @@ $(document.body).on('click', '.lock-in-role', function () {
     });
     $(this).children('.role').each(function () {
         roles_amount.push('taken');
-    });
+    });*/
 
-    $('.self-taken').addClass('locked-in');
-    $('.self-taken').addClass('role-ready');
-    $('.queue-est-taken').addClass('queue-est-locked');
-    $('.lock-in-ready').removeClass('lock-in-ready');
-    $(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
+    GamesLobby_LockInRole();
+
+    /*$(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
     setTimeout(function () {
         if (player_amount.length == roles_amount.length) {
             $('.pick-a-role').addClass('par-hidden')
@@ -103,8 +103,27 @@ $(document.body).on('click', '.lock-in-role', function () {
                 $('.lobby-content').css('opacity', '1');
             }, 1);
         }
-    }, 1000);
+    }, 1000);*/
+
+    GamesLobby_StartLobby();
 })
+
+function GamesLobby_LockInRole() {
+    $('.self-taken').addClass('locked-in');
+    $('.self-taken').addClass('role-ready');
+    $('.queue-est-taken').addClass('queue-est-locked');
+    $('.lock-in-ready').removeClass('lock-in-ready');
+}
+
+function GamesLobby_StartLobby() {
+    $(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
+    setTimeout(function () {
+        $('.pick-a-role').addClass('par-hidden')
+        setTimeout(function () {
+            $('.lobby-content').css('opacity', '1');
+        }, 1);
+    }, 1000);
+}
 
 function GamesLobby_SwapChat() {
     $('.chat-group-active').removeClass('chat-group-active');
@@ -224,7 +243,9 @@ $(document).on({
     }
 }, '.top-lane, .mid-lane, .bot-lane');
 
-$(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
+$(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', GamesLobby_SelectLane);
+
+function GamesLobby_SelectLane() {
     var dis = $(this) //i hate javascript
     if ($(dis).children().hasClass('lane-self-taken')) {
         setTimeout(function () { //will trigger twice on mouseup w/o timeout
@@ -242,4 +263,4 @@ $(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
 
         }, 1);
     }
-})
+}

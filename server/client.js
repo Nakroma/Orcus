@@ -12,6 +12,7 @@ var squadFrequency = 5000;
 var squadInterval = 0;
 
 // Other vars
+// TODO: Change this from js to php variable
 var squadCurrentInvite = -1;
 
 function SocketClient_init() {
@@ -129,6 +130,16 @@ function SocketClient_init() {
                     break;
 
                 /**
+                 * Signals that the role selection starts
+                 *
+                 * @argument // Parameters for the matchmaking (Mode, Size, Entry)
+                 */
+                case 'NOTICE_SQUAD_START_ROLE_SELECTION':
+                    // TODO: Display parameters for other users
+                    GamesLobby_StartRoleSelection();
+                    break;
+
+                /**
                  * Notifies the user that the join failed
                  *
                  * @argument Error message
@@ -205,6 +216,9 @@ function SocketClient_quit(){
  */
 function SocketClient_resetSquad() {
     // TODO: Add visual message to let user know their squad was disbanded
+    // Gets back to the startscreen
+    GamesLeague_CancelCurrentScreen();
+
     // Clean up all slots
     SocketClient_cleanSquad();
 

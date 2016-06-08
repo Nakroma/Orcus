@@ -622,9 +622,15 @@
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 <script>
-    $(".sidebar-queue-start, .sidebar-list-link-game").click(Debug_LobbyStart);
+    $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+        // Initiate role selection
+        //SocketClient_send('SQUAD_START_ROLE_SELECTION', []);
 
-    function Debug_LobbyStart() {
+        // Get into role selection
+        Debug_RoleStart.call($(this));
+    });
+
+    function Debug_RoleStart() {
         if ($(this).hasClass('queue-ready') || $(this).hasClass('sidebar-list-link-game')) {
             GamesLeague_queueStartTransforms();
             GamesLeague_HideMatchFilters();

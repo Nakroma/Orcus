@@ -200,7 +200,7 @@ $(".game-mode-box").click(function () {
 
             //add game modes to menu bar
             var modeOne = 'All Pick';
-            var modeOneAcr = 'AP'
+            var modeOneAcr = 'AP';
             var modeTwo = 'ARAM';
             var modeTwoAcr = 'ARAM';
             var modeThree = 'SWAG';
@@ -317,6 +317,14 @@ $('.chat-preview-wr, .chat-input').click(function() {
 
 
 
+/* Get back to the startscreen */
+function GamesLeague_CancelCurrentScreen() {
+    GamesLeague_queueCancelTransforms();
+    GamesLeague_queueLoadMain();
+    setTimeout(function () {
+        $('.main-content').find('.lobby-wr').siblings().remove();
+    }, 400);
+}
 
 
 /* Modify Filters for Queue/Lobby creation */

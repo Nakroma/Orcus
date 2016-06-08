@@ -264,3 +264,26 @@ function GamesLobby_SelectLane() {
         }, 1);
     }
 }
+
+$(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+    // Initiate role selection
+    SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
+
+    // Get into role selection
+    //GamesLobby_StartRoleSelection.call($(this));
+});
+
+function GamesLobby_StartRoleSelection() {
+    var sidebar = $(".sidebar-queue-start, .sidebar-list-link-game");
+    if (sidebar.hasClass('queue-ready') || sidebar.hasClass('sidebar-list-link-game')) {
+        GamesLeague_queueStartTransforms();
+        GamesLeague_HideMatchFilters();
+        GamesLeague_queueLoadLobby();
+        $(lobbyData["Lobby Role"]).insertAfter($('.lobby-wr'));
+        setTimeout(function () {
+            GamesLobby_Roles();
+        }, 500);
+        clearInterval(galleryLoop);
+        GamesLobby_SwapChat();
+    } else {};
+}

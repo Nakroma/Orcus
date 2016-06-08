@@ -6,6 +6,11 @@
  * Time: 20:30
  */
 
+// Define state constants
+define('STATE_OPEN', 0);
+define('STATE_ROLE_SELECTION', 1);
+define('STATE_IN_LOBBY', 2);
+
 class MatchmakingLobby {
 
     public $game;
@@ -14,7 +19,8 @@ class MatchmakingLobby {
     public $team1 = array();
     public $team2 = array();
     public $type; // lobby / squad
-    public $open = true;
+    public $state = STATE_OPEN; // 0: open, 1: role selection, 2: in lobby
+    public $mm_params = array();    // Mode, Size, Entry
 
     function __construct($g, $ts, $o, $t = 'lobby') {
         $this->game = $g;

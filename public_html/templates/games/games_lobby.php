@@ -8,7 +8,7 @@ $templateSidebar = $this->_['templateSidebar'];
 $_d = $this->_;
 
 // AUTH STUFF HERE
-$_SESSION[$skey] = 14;
+$_SESSION[$skey] = 15;
 $sid = $_SESSION[$skey];
 
 // Get auth info
@@ -646,24 +646,6 @@ $_u = Model::getUser($sid, 'username, okken');
 <script type="text/javascript" src="bootstrap/js/moment.js"></script>
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
-<script>
-    $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
-        if ($(this).hasClass('queue-ready') || $(this).hasClass('sidebar-list-link-game')) {
-            GamesLeague_queueStartTransforms();
-            GamesLeague_HideMatchFilters();
-            GamesLeague_queueLoadLobby();
-            $(lobbyData["Lobby Role"]).insertAfter($('.lobby-wr'));
-            setTimeout(function () {
-                GamesLobby_Roles();
-            }, 500);
-            clearInterval(galleryLoop);
-            GamesLobby_SwapChat();
-            setTimeout(function () {
-                GamesLobby_selectRole('AX.Aeon.피자', '<?php echo $path['img']; ?>ava_sample_3.png', '#support', 'other');
-            }, 6000);
-        } else {};
-    })
-</script>
 
 
 </html>

@@ -557,7 +557,6 @@ button:focus {
 
 .number {
     font-family: 'arial';
-    font-weight: 400;
 }
 
 .orcus-logo-menu {
@@ -4819,7 +4818,7 @@ left:1px;
 }
 
 .lock-in-role {
-    line-height: 65px;
+    line-height: 63px;
     color: White;
     font-size:20px;
     font-weight: 800;
@@ -4828,7 +4827,9 @@ left:1px;
     text-align:center;
     letter-spacing: 0.12em;
     margin:auto;
-    z-index:10;
+    position:relative;
+    z-index:5;
+    border:2px solid transparent;
     background:rgba(0,0,0,0.3);
     text-transform: uppercase;
     -webkit-transition-timing-function: ease;
@@ -4838,11 +4839,10 @@ left:1px;
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
     cursor: pointer;
-
 }
 
 .lock-in-role:hover {
-    border: solid 2px white;
+    border: solid 2px #313d4b;
 }
 
 .par-sub {
@@ -5634,7 +5634,7 @@ left:1px;
 }
 
 .lock-in-ready {
-    border: 2px solid #42d275;
+    border: 2px solid #00b4ff;
 }
 
 .chat-lobby-notification {
@@ -5954,12 +5954,6 @@ bottom:-70px;
     transform:scale(0.95);
     -webkit-filter: blur(1px) brightness(0.75) grayscale(85%);
     filter: blur(1px) brightness(0.75) grayscale(85%);
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.45s;
-    -moz-transition-duration: 0.45s;
-    -o-transition-duration: 0.45s;
-    transition-duration: 0.45s;
 }
 
 
@@ -6068,10 +6062,19 @@ bottom:-70px;
     margin-bottom:2px;
 }
 
+.role img{
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.45s;
+    -moz-transition-duration: 0.45s;
+    -o-transition-duration: 0.45s;
+    transition-duration: 0.45s;
+}
+
 .other-taken img:first-of-type {
     opacity: 0.6;
-    -webkit-filter: grayscale(50%);
-    filter: grayscale(50%);
+    -webkit-filter: grayscale(50%) blur(0);
+    filter: grayscale(50%) blur(0);
 }
 
 .other-taken .role-stats{
@@ -6218,6 +6221,14 @@ bottom:-70px;
     font-size:30px;
     margin-left:calc(2% + 234px);
     letter-spacing: 0.12em;
+    transform:scale(0.95);
+    opacity:0;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.60s;
+    -moz-transition-duration: 0.60s;
+    -o-transition-duration: 0.60s;
+    transition-duration: 0.60s;
 }
 
 .lobby-bot-bar {
@@ -6228,5 +6239,66 @@ bottom:-70px;
     top:-80px;
        background:rgba(25,32,40,0.8);
     border-top:solid 1px #39414b;
-    z-index:-1;
+}
+
+
+
+.lobby-queue-ava {
+    height:40px;
+    width:40px;
+    border-radius:40px;
+    overflow:hidden;
+    display:inline-block;
+    border:2px solid #364352;
+        background: #151a20 url('../img/ava_blank.svg') center no-repeat;
+    background-size:45%;
+}
+
+.lobby-queue-players {
+    position:absolute;
+    bottom:12px;
+    left:calc(2px + 540px);
+        transform:scale(0.95);
+    opacity:0;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.60s;
+    -moz-transition-duration: 0.60s;
+    -o-transition-duration: 0.60s;
+    transition-duration: 0.60s;
+}
+
+.lobby-title-visible {
+    opacity:1;
+    transform:scale(1);
+}
+
+.locked-in-done {
+    border:2px solid #25282e;
+       color:#25282e;
+}
+.locked-in-done:hover {
+    border:2px solid #25282e;
+       color:#25282e;
+}
+
+
+
+.lobby-queue-img {
+    height:100%;
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.40s;
+    -moz-transition-duration: 0.40s;
+    -o-transition-duration: 0.40s;
+    transition-duration: 0.40s;
+}
+
+.role {
+        -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.45s;
+    -moz-transition-duration: 0.45s;
+    -o-transition-duration: 0.45s;
+    transition-duration: 0.45s;
 }

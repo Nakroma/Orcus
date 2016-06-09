@@ -1,5 +1,7 @@
 var queueTimes = []
 
+var userAvaSrc = 'bootstrap/img/ava_sample_4.png';
+
 var winsSelf = $('#wins').text();
 var skillSelf = $('#skill').text();
 var lostSelf = $('#lost').text();
@@ -34,7 +36,7 @@ function GamesLobby_userStatsReset() {
 
 
 function GamesLobby_selectRole(username, userImgSrc, role, type) {
-    //console.log(type);
+
     role = $(role).parent();
     if (type === 'own') {
 
@@ -50,8 +52,7 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
             $('.self-taken').parent().removeClass('role-preview')
             $('.self-taken').removeClass('self-taken');
             $('.queue-est').removeClass('queue-est-taken queue-est-locked')
-            $(role).find('.role-p-sub').addClass('role-taken');
-            $(role).find('.role-p-sub').addClass('self-taken');
+            $(role).find('.role-p-sub').addClass('role-taken self-taken');
             $(role).addClass('role-preview');
             $(role).find('.role-taken-img').attr('src', userImgSrc);
             $(role).find('.queue-est').text(username).addClass('queue-est-taken');
@@ -60,8 +61,7 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
             $('.roles-drag-note').addClass('invis');
         }
     } else {
-        $(role).find('.role-p-sub').addClass('role-taken');
-        $(role).find('.role-p-sub').addClass('other-taken');
+        $(role).find('.role-p-sub').addClass('role-taken other-taken');
         //$(role).addClass('role-preview');
         $(role).find('.role-taken-img').attr('src', userImgSrc);
         $(role).find('.queue-est').text(username).addClass('queue-est-taken');
@@ -71,46 +71,87 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
 
 function GamesLobby_removeRole(username) {
     // Find role by username
-    $('.role-taken .queue-est').filter(function() {
+    $('.role-taken .queue-est').filter(function () {
         return $(this).text() === username;
     }).text(queueTimes[0]).removeClass('queue-est-taken').parent().removeClass('role-taken').removeClass('other-taken');
 }
 
-$(document.body).on('click', '.role-p-s', function() {
+$(document.body).on('click', '.role-p-s', function () {
     if (!$('.self-taken').hasClass('locked-in')) {
         var role = '#' + $(this).find('.role-p-sub').attr('id');
-        SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+        //SocketClient_send('SQUAD_SELECT_ROLE', [role]);
     }
 });
+
+
+
+
+
+
 
 
 /* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
     // Lock in role
     if (!$('.self-taken').hasClass('locked-in')) {
-        SocketClient_send('SQUAD_LOCK_ROLE', []);
+        //SocketClient_send('SQUAD_LOCK_ROLE', []);
     }
-
-    //GamesLobby_LockInRole();
-    //GamesLobby_StartLobby();
+    GamesLobby_LockInRole();
+    GamesLobby_StartQueue()
 })
 
+
+
 function GamesLobby_LockInRole(role) {
-    $(role).addClass('locked-in');
-    $(role).addClass('role-ready');
+    $(role).addClass('locked-in role-ready');
     $(role).find('.queue-est').addClass('queue-est-locked');
     $(role).find('.lock-in-ready').removeClass('lock-in-ready');
 }
 
+
+
+function GamesLobby_StartQueue() {
+    $('.lock-in-role').addClass('locked-in-done')
+    $('#role-text').removeClass('lobby-title-visible')
+    $('#queue-text, .lobby-queue-players').addClass('lobby-title-visible')
+
+    // Add own img
+    $('.lobby-queue-ava-free:first-of-type').removeClass('lobby-queue-ava-free').find('.lobby-queue-img').attr('src', userAvaSrc).removeClass('invis');
+
+    // Add Random img for simulation
+    var time = 1000;
+    $('.lobby-queue-ava-free').each(function () {
+        setTimeout(function () {
+            $('.lobby-queue-ava-free').removeClass('lobby-queue-ava-free').find('.lobby-queue-img').attr('src', 'bootstrap/img/ava_default.png').removeClass('invis');
+
+            // Display user's role
+            GamesLobby_selectRole('Benis', 'bootstrap/img/ava_default.png', '#jungle', 'other')
+            GamesLobby_selectRole('Benis', 'bootstrap/img/ava_default.png', '#carry', 'other')
+            GamesLobby_selectRole('Benis', 'bootstrap/img/ava_default.png', '#top', 'other')
+            GamesLobby_selectRole('Benis', 'bootstrap/img/ava_default.png', '#mid', 'other')
+        }, 1000);
+
+    })
+
+    // Call Lobby When done
+    GamesLobby_StartLobby();
+}
+
+
+
 function GamesLobby_StartLobby() {
     $(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
     setTimeout(function () {
+        $('#queue-text, .lobby-queue-players').removeClass('lobby-title-visible')
+        $('#lobby-text').addClass('lobby-title-visible')
         $('.pick-a-role').addClass('par-hidden')
         setTimeout(function () {
             $('.lobby-content').css('opacity', '1');
         }, 1);
-    }, 1000);
+    }, 2000);
 }
+
+
 
 function GamesLobby_SwapChat() {
     $('.chat-group-active').removeClass('chat-group-active');
@@ -119,25 +160,13 @@ function GamesLobby_SwapChat() {
 
 
 
-$(document).on({
-    mouseenter: function () {
-        GamesLobby_userStatsUpdate();
-    },
-    mouseleave: function () {
-        GamesLobby_userStatsReset();
-    }
-}, '.team-slot-taken');
 
 
 
 
 
 
-
-
-/*
-Lane Selection
-*/
+/* Lane Selection */
 
 $(document).on({
     mouseenter: function () {
@@ -254,7 +283,7 @@ function GamesLobby_SelectLane() {
 
 $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
     // Initiate role selection
-    SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
+    //SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
 
     // Get into role selection
     //GamesLobby_StartRoleSelection.call($(this));

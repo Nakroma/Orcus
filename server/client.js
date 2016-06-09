@@ -150,7 +150,7 @@ function SocketClient_init() {
                  * Notifies that a user selected a role
                  *
                  * @argument JSON array containing user data (id, username)
-                 * @argument Role Jquery object
+                 * @argument Role ID
                  */
                 case 'NOTICE_SQUAD_ROLE_SELECTION':
                     var o = 'own';
@@ -162,6 +162,15 @@ function SocketClient_init() {
                     }
                     var image = 'bootstrap/img/avatars/' + _prc.args[0].id.toString() +  '_small.png';
                     GamesLobby_selectRole(_prc.args[0].username, image, _prc.args[1], o);
+                    break;
+
+                /**
+                 * Signals that a user locked in a role
+                 *
+                 * @argument Role ID
+                 */
+                case 'NOTICE_SQUAD_LOCK_ROLE':
+                    GamesLobby_LockInRole(_prc.args[0]);
                     break;
 
 

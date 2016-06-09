@@ -183,6 +183,7 @@ class MatchmakingServer extends WebSocketServer {
                     for ($i = 0; $i < count($squadMembers); $i++) {
                         // Clean out roles meanwhile
                         unset($squadMembers[$i]->role);
+                        $squadMembers[$i]->locked = false;
 
                         // Send info to user
                         $json = $this->prep("NOTICE_SQUAD_START_ROLE_SELECTION", $squad->mm_params);
@@ -237,7 +238,7 @@ class MatchmakingServer extends WebSocketServer {
                         }
                     }
 
-                    if (!$fRole) {
+                    if (!$fRole && !$user->locked) {
                         // Select role
                         $user->role = $role;
 
@@ -249,6 +250,34 @@ class MatchmakingServer extends WebSocketServer {
                             $this->send($squadMembers[$i], $json);
                         }
                     }
+                }
+                break;
+
+            /**
+             * Locks in a role
+             */
+            case 'SQUAD_LOCK_ROLE':
+                // Lock user
+                $user->locked = true;
+
+                // Send squad the information
+                $squad = $this->lobbies[$user->squad_id];
+                $squadMembers = $squad->getUsers();
+
+                $allLocked = true;
+                for ($i = 0; $i < count($squadMembers); $i++) {
+                    $json = $this->prep("NOTICE_SQUAD_LOCK_ROLE", $user->role);
+                    $this->send($squadMembers[$i], $json);
+
+                    // See if everyone is locked
+                    if (!$squadMembers[$i]->locked && $allLocked) {
+                        $allLocked = false;
+                    }
+                }
+
+                // Start matchmaking if everyone is locked
+                if ($allLocked) {
+
                 }
                 break;
 

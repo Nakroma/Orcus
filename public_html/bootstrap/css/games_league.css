@@ -721,7 +721,7 @@ div {
 }
 
 .game-desc-bg {
-    background: url('../img/game_desc_bg.png');
+    /*background: url('../img/game_desc_bg.png');*/
     height: 42.6%;
 }
 
@@ -1115,9 +1115,7 @@ div {
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-image: url("/img/grid_view.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url("../img/grid_view.svg") no-repeat center;
 }
 
 .view-ico-list {
@@ -1126,7 +1124,7 @@ div {
     width: 20px;
     margin-bottom: 2px;
     margin-left: 5px;
-    background: url(/img/list_view.svg) no-repeat center;
+    background: url('../img/list_view.svg') no-repeat center;
 }
 
 .view-wrapper {
@@ -1199,7 +1197,7 @@ div {
     border-radius: 108px;
     margin-left: 29%;
     margin-top: 20px;
-    background-image: url(/img/suggested_match_ava.png);
+    /*background-image: url('../img/suggested_match_ava.png');*/
     box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
@@ -5658,7 +5656,7 @@ left:1px;
 }
 
 .queue-est-locked {
-    color: #42d275;
+    color: #42d275 !important;
 }
 
 .feedback-ico {

@@ -77,43 +77,29 @@ function GamesLobby_removeRole(username) {
 }
 
 $(document.body).on('click', '.role-p-s', function() {
-    var role = '#' + $(this).find('.role-p-sub').attr('id');
-    SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+    if (!$('.self-taken').hasClass('locked-in')) {
+        var role = '#' + $(this).find('.role-p-sub').attr('id');
+        SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+    }
 });
 
 
 /* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
-    /*var player_amount = []
-    var roles_amount = []
+    // Lock in role
+    if (!$('.self-taken').hasClass('locked-in')) {
+        SocketClient_send('SQUAD_LOCK_ROLE', []);
+    }
 
-    $(this).children('.squad-slot-taken').each(function () {
-        player_amount.push('taken');
-    });
-    $(this).children('.role').each(function () {
-        roles_amount.push('taken');
-    });*/
-
-    GamesLobby_LockInRole();
-
-    /*$(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
-    setTimeout(function () {
-        if (player_amount.length == roles_amount.length) {
-            $('.pick-a-role').addClass('par-hidden')
-            setTimeout(function () {
-                $('.lobby-content').css('opacity', '1');
-            }, 1);
-        }
-    }, 1000);*/
-
-    GamesLobby_StartLobby();
+    //GamesLobby_LockInRole();
+    //GamesLobby_StartLobby();
 })
 
-function GamesLobby_LockInRole() {
-    $('.self-taken').addClass('locked-in');
-    $('.self-taken').addClass('role-ready');
-    $('.queue-est-taken').addClass('queue-est-locked');
-    $('.lock-in-ready').removeClass('lock-in-ready');
+function GamesLobby_LockInRole(role) {
+    $(role).addClass('locked-in');
+    $(role).addClass('role-ready');
+    $(role).find('.queue-est').addClass('queue-est-locked');
+    $(role).find('.lock-in-ready').removeClass('lock-in-ready');
 }
 
 function GamesLobby_StartLobby() {

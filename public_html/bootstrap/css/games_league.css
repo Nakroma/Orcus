@@ -1925,7 +1925,7 @@ a:focus {
     position:absolute;
     right:-10%;
     width:23%;
-    z-index:11;
+    z-index:10;
     top:55px;
     height: 60px;
     color: white;
@@ -2324,7 +2324,6 @@ a:focus {
 .lobby {
     position: absolute;
     top: 103px;
-    height: calc(100% - 103px);
     width: 100vw;
     opacity: 0;
     transform:scale(0.965);
@@ -2453,10 +2452,10 @@ a:focus {
 .team-1-name {
     display: inline-block;
     color: white;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 200;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.15em;
     padding-right: 90px;
 }
 
@@ -2547,7 +2546,6 @@ a:focus {
     text-align: center;
     vertical-align: top;
     width: 254px;
-    overflow: hidden;
 }
 
 .versus {
@@ -2564,10 +2562,10 @@ a:focus {
 .team-2-name {
     display: inline-block;
     color: white;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 200;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.15em;
     padding-left: 90px;
 }
 
@@ -3501,6 +3499,8 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
 }
 
 .menu-bar-top {
+    position:relative;
+    z-index:1;
     height: 131px;
     background: -webkit-linear-gradient(to bottom, transparent, #0e141b);
     background: -o-linear-gradient(transparent, #0e141b);
@@ -4243,9 +4243,10 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
 .squad {
     display:inline-block;
     left: 5%;
-    position:absolute;
-    text-align:left;
     top:55px;
+    position:absolute;
+    z-index: 1;
+    text-align:left;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.2s;
@@ -4257,7 +4258,7 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
 .squad-self-name {
     margin-top: 6.5%;
     margin-left: 5px;
-    font-size: px;
+    font-size: 18px;
     color: white;
 }
 
@@ -4646,7 +4647,7 @@ margin-top:20px;
     vertical-align: middle;
     text-align: center;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 180px);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.6s;
@@ -4821,14 +4822,17 @@ left:1px;
 }
 
 .lock-in-role {
-    line-height: 38px;
+    line-height: 65px;
     color: White;
-    font-weight: 500;
-    position:absolute;
-    left:calc(50% - 50px);
-    width:100px;
+    font-size:20px;
+    font-weight: 800;
+    width:210px;
+    height:62px;
     text-align:center;
-    top:42px;
+    letter-spacing: 0.12em;
+    margin:auto;
+    z-index:10;
+    background:rgba(0,0,0,0.3);
     text-transform: uppercase;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -5448,8 +5452,9 @@ left:1px;
 .news-notifications {
     opacity: 0;
     width:65%;
-    height:calc(95vh - 293px);
+    height:calc(95vh - 343px);
     margin: 30px auto;
+    margin-top:-180px;
     transform: scale(0.965);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -5682,7 +5687,7 @@ left:1px;
 
 .lane-bg {
     border: 0.2em solid #364053;
-    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.5);
+    box-shadow: 0px 3px 60px rgba(15, 24, 33, 0.3);
 }
 
 .lane-opponent {
@@ -5847,10 +5852,11 @@ left:1px;
 }
 
 .bot-content {
-    position:absolute;
-    bottom:0;
+    position:relative;
+bottom:-70px;
     height:150px;
     width:100%;
+    z-index:5;
     text-align:center;
         background: -webkit-linear-gradient(bottom, #080c11, transparent);
     background: -o-linear-gradient(transparent, #0e141b);
@@ -5861,9 +5867,10 @@ left:1px;
 .bot-mid-notifications {
     display:inline-block;
     width:calc(50% - 200px);
- border-width: 1px;
     position:relative;
-    top:1px;
+    top:5px;
+    z-index:1;
+ border-width: 1px;
     border-style: solid;
     -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(95, 127, 149, 0.36)), to(rgba(0, 0, 0, 0))) 1 100%;
     -webkit-border-image: -webkit-linear-gradient(rgba(95, 127, 149, 0.36), rgba(0, 0, 0, 0)) 1 100%;
@@ -6165,7 +6172,7 @@ left:1px;
     color:white;
     font-family:'titillium web';
     font-size:24px;
-    font-weight:200;
+    font-weight:300;
 }
 
 .player-side-stats-text {
@@ -6191,4 +6198,39 @@ left:1px;
     -moz-transition-duration: 0.35s;
     -o-transition-duration: 0.35s;
     transition-duration: 0.35s;
+}
+
+.bold {
+    font-weight:600;
+}
+
+.lobby-top-bar {
+    position:relative;
+    top:-150px;
+    height:190px;
+    background:rgba(25,32,40,0.8);
+    border-bottom:solid 1px #39414b;
+    z-index:0;
+}
+
+.lobby-role-selection-title {
+    position:absolute;
+    display:inline-block;
+    bottom:-5px;
+    color:white;
+    text-transform: uppercase;
+    font-size:30px;
+    margin-left:calc(2% + 234px);
+    letter-spacing: 0.12em;
+}
+
+.lobby-bot-bar {
+    height:150px;
+    width:100%;
+    position:relative;
+    text-align: center;
+    top:-80px;
+       background:rgba(25,32,40,0.8);
+    border-top:solid 1px #39414b;
+    z-index:-1;
 }

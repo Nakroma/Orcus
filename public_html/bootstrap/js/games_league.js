@@ -324,7 +324,7 @@ function GamesLeague_CancelCurrentScreen() {
 $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
-        //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')

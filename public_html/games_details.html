@@ -930,6 +930,14 @@
 <script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 <script>
     $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+        // Initiate role selection
+        //SocketClient_send('SQUAD_START_ROLE_SELECTION', []);
+
+        // Get into role selection
+        Debug_RoleStart.call($(this));
+    });
+
+    function Debug_RoleStart() {
         if ($(this).hasClass('queue-ready') || $(this).hasClass('sidebar-list-link-game')) {
             GamesLeague_queueStartTransforms();
             GamesLeague_HideMatchFilters();
@@ -944,7 +952,7 @@
                 GamesLobby_selectRole('AX.Aeon.피자', 'bootstrap/img/ava_sample_3.png', '#support', 'other');
             }, 6000);
         } else {};
-    })
+    }
 </script>
 
 </html>

@@ -121,40 +121,163 @@ class MatchmakingServer extends WebSocketServer {
             case 'SQUAD_JOIN_USER':
                 $squad = $this->lobbies[$_prc['args'][0]]; // Selects squad
                 if ($squad->getUserCount() < $squad->teamsize) {
-                    // Is user in another squad?
-                    if (isset($user->squad_id)) {
-                        $this->removeUser($user, 'squad');
-                    }
-
-                    // Add user to squad
-                    $squad->joinUser($user);
-
-                    // Notifies squad members
-                    $newSquad = array();
-                    $squadMembers = $squad->getUsers();
-                    $squadOwner = $squad->getOwner();
-                    $jsonUser = Model::getUser($user->session_id, 'id, username');
-                    $json = $this->prep("NOTICE_SQUAD_NEW_JOIN", $jsonUser);
-
-                    for ($i = 0; $i < count($squadMembers); $i++) {
-                        if ($squadMembers[$i] != $user) {
-                            // Send new user info
-                            $this->send($squadMembers[$i], $json);
+                    if ($squad->state == STATE_OPEN) {
+                        // Is user in another squad?
+                        if (isset($user->squad_id)) {
+                            $this->removeUser($user, 'squad');
                         }
 
-                        // Add info to array
-                        $info = Model::getUser($squadMembers[$i]->session_id, 'id, username');
-                        $newSquad[] = array('info' => $info, 'owner' => filter_var(var_export($squadOwner == $squadMembers[$i], true), FILTER_VALIDATE_BOOLEAN));
-                    }
+                        // Add user to squad
+                        $squad->joinUser($user);
 
-                    // Send squad info to user
-                    $user->squad_id = $_prc['args'][0];
-                    $json = $this->prep("SUCCESS_SQUAD_JOIN", $newSquad);
-                    $this->send($user, $json);
+                        // Notifies squad members
+                        $newSquad = array();
+                        $squadMembers = $squad->getUsers();
+                        $squadOwner = $squad->getOwner();
+                        $jsonUser = Model::getUser($user->session_id, 'id, username');
+                        $json = $this->prep("NOTICE_SQUAD_NEW_JOIN", $jsonUser);
+
+                        for ($i = 0; $i < count($squadMembers); $i++) {
+                            if ($squadMembers[$i] != $user) {
+                                // Send new user info
+                                $this->send($squadMembers[$i], $json);
+                            }
+
+                            // Add info to array
+                            $info = Model::getUser($squadMembers[$i]->session_id, 'id, username');
+                            $newSquad[] = array('info' => $info, 'owner' => filter_var(var_export($squadOwner == $squadMembers[$i], true), FILTER_VALIDATE_BOOLEAN));
+                        }
+
+                        // Send squad info to user
+                        $user->squad_id = $_prc['args'][0];
+                        $json = $this->prep("SUCCESS_SQUAD_JOIN", $newSquad);
+                        $this->send($user, $json);
+                    } else {
+                        // Send error: Squad full
+                        $json = $this->prep("ERROR_SQUAD_JOIN", "The squad is currently busy.");
+                        $this->send($user, $json);
+                    }
                 } else {
                     // Send error: Squad full
                     $json = $this->prep("ERROR_SQUAD_JOIN", "The squad is full.");
                     $this->send($user, $json);
+                }
+                break;
+
+            /**
+             * Gets the squad into role selection
+             *
+             * @argument Parameters for the matchmaking (Mode, Size, Entry)
+             */
+            case 'SQUAD_START_MATCHMAKING':
+                $squad = $this->lobbies[$user->squad_id];
+
+                // If user is owner
+                if ($user == $squad->getOwner() && $squad->state == STATE_OPEN) {
+                    $squadMembers = $squad->getUsers();
+
+                    // Set matchmaking parameters
+                    $squad->mm_params = $_prc['args'][0];
+
+                    // Inform other members
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        // Clean out roles meanwhile
+                        unset($squadMembers[$i]->role);
+                        $squadMembers[$i]->locked = false;
+
+                        // Send info to user
+                        $json = $this->prep("NOTICE_SQUAD_START_ROLE_SELECTION", $squad->mm_params);
+                        $this->send($squadMembers[$i], $json);
+                    }
+
+                    // Set state to role selection
+                    $squad->state = STATE_ROLE_SELECTION;
+                }
+                break;
+
+            /**
+             * Cancels the current matchmaking process
+             */
+            case 'SQUAD_CANCEL_MATCHMAKING':
+                $squad = $this->lobbies[$user->squad_id];
+
+                // If user is owner
+                if ($user == $squad->getOwner() && $squad->state != STATE_OPEN) {
+                    $squadMembers = $squad->getUsers();
+
+                    // Inform other members
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        // Send info to user
+                        $json = $this->prep("NOTICE_SQUAD_CANCEL_MATCHMAKING");
+                        $this->send($squadMembers[$i], $json);
+                    }
+
+                    // Set state to role selection
+                    $squad->state = STATE_OPEN;
+                }
+                break;
+
+            /**
+             * Selects a role in role selection
+             *
+             * @argument ID of the role
+             */
+            case 'SQUAD_SELECT_ROLE':
+                $squad = $this->lobbies[$user->squad_id];
+                $role = $_prc['args'][0];
+
+                if ($squad->state == STATE_ROLE_SELECTION) {
+                    $squadMembers = $squad->getUsers();
+
+                    // See if role is already chosen
+                    $fRole = false;
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        if ($squadMembers[$i]->role == $role) {
+                            $fRole = true;
+                            break;
+                        }
+                    }
+
+                    if (!$fRole && !$user->locked) {
+                        // Select role
+                        $user->role = $role;
+
+                        $info = Model::getUser($user->session_id, 'id, username');
+
+                        // Notifiy other users
+                        for ($i = 0; $i < count($squadMembers); $i++) {
+                            $json = $this->prep("NOTICE_SQUAD_ROLE_SELECTION", $info, $role);
+                            $this->send($squadMembers[$i], $json);
+                        }
+                    }
+                }
+                break;
+
+            /**
+             * Locks in a role
+             */
+            case 'SQUAD_LOCK_ROLE':
+                // Lock user
+                $user->locked = true;
+
+                // Send squad the information
+                $squad = $this->lobbies[$user->squad_id];
+                $squadMembers = $squad->getUsers();
+
+                $allLocked = true;
+                for ($i = 0; $i < count($squadMembers); $i++) {
+                    $json = $this->prep("NOTICE_SQUAD_LOCK_ROLE", $user->role);
+                    $this->send($squadMembers[$i], $json);
+
+                    // See if everyone is locked
+                    if (!$squadMembers[$i]->locked && $allLocked) {
+                        $allLocked = false;
+                    }
+                }
+
+                // Start matchmaking if everyone is locked
+                if ($allLocked) {
+
                 }
                 break;
 

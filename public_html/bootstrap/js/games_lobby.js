@@ -34,9 +34,11 @@ function GamesLobby_userStatsReset() {
 
 
 function GamesLobby_selectRole(username, userImgSrc, role, type) {
-    console.log(type)
+    //console.log(type);
+    role = $(role).parent();
     if (type === 'own') {
-        if (role.hasClass('other-taken')) {} else {
+
+        if ($(role).hasClass('other-taken')) {} else {
             queueTimes.push($(role).find('.queue-est').text());
             if (queueTimes.length > 2) {
                 queueTimes.shift()
@@ -60,51 +62,55 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
     } else {
         $(role).find('.role-p-sub').addClass('role-taken');
         $(role).find('.role-p-sub').addClass('other-taken');
-        $(role).addClass('role-preview');
+        //$(role).addClass('role-preview');
         $(role).find('.role-taken-img').attr('src', userImgSrc);
         $(role).find('.queue-est').text(username).addClass('queue-est-taken');
         $(role).find('.queue-est-text').text('role taken by');
     }
 }
 
-$(document.body).on('click', '.role-p-s', function () {
-    var username = $('.squad-self-name').text();
-    var userImgSrc = 'bootstrap/img/ava_sample_4.png'
-    var role = $(this)
-    GamesLobby_selectRole(username, userImgSrc, role, 'own');
-})
+function GamesLobby_removeRole(username) {
+    // Find role by username
+    $('.role-taken .queue-est').filter(function() {
+        return $(this).text() === username;
+    }).text(queueTimes[0]).removeClass('queue-est-taken').parent().removeClass('role-taken').removeClass('other-taken');
+}
 
-
-
-
+$(document.body).on('click', '.role-p-s', function() {
+    if (!$('.self-taken').hasClass('locked-in')) {
+        var role = '#' + $(this).find('.role-p-sub').attr('id');
+        SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+    }
+});
 
 
 /* role lock in & load lobby */
 $(document.body).on('click', '.lock-in-role', function () {
-    var player_amount = []
-    var roles_amount = []
+    // Lock in role
+    if (!$('.self-taken').hasClass('locked-in')) {
+        SocketClient_send('SQUAD_LOCK_ROLE', []);
+    }
 
-    $(this).children('.squad-slot-taken').each(function () {
-        player_amount.push('taken');
-    });
-    $(this).children('.role').each(function () {
-        roles_amount.push('taken');
-    });
+    //GamesLobby_LockInRole();
+    //GamesLobby_StartLobby();
+})
 
-    $('.self-taken').addClass('locked-in');
-    $('.self-taken').addClass('role-ready');
-    $('.queue-est-taken').addClass('queue-est-locked');
-    $('.lock-in-ready').removeClass('lock-in-ready');
+function GamesLobby_LockInRole(role) {
+    $(role).addClass('locked-in');
+    $(role).addClass('role-ready');
+    $(role).find('.queue-est').addClass('queue-est-locked');
+    $(role).find('.lock-in-ready').removeClass('lock-in-ready');
+}
+
+function GamesLobby_StartLobby() {
     $(lobbyData["Lobby-5"]).insertAfter($('.lobby-wr'));
     setTimeout(function () {
-        if (player_amount.length == roles_amount.length) {
-            $('.pick-a-role').addClass('par-hidden')
-            setTimeout(function () {
-                $('.lobby-content').css('opacity', '1');
-            }, 1);
-        }
+        $('.pick-a-role').addClass('par-hidden')
+        setTimeout(function () {
+            $('.lobby-content').css('opacity', '1');
+        }, 1);
     }, 1000);
-})
+}
 
 function GamesLobby_SwapChat() {
     $('.chat-group-active').removeClass('chat-group-active');
@@ -224,7 +230,9 @@ $(document).on({
     }
 }, '.top-lane, .mid-lane, .bot-lane');
 
-$(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
+$(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', GamesLobby_SelectLane);
+
+function GamesLobby_SelectLane() {
     var dis = $(this) //i hate javascript
     if ($(dis).children().hasClass('lane-self-taken')) {
         setTimeout(function () { //will trigger twice on mouseup w/o timeout
@@ -242,4 +250,27 @@ $(document.body).on('click', '.top-lane, .bot-lane, .mid-lane', function () {
 
         }, 1);
     }
-})
+}
+
+$(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
+    // Initiate role selection
+    SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
+
+    // Get into role selection
+    //GamesLobby_StartRoleSelection.call($(this));
+});
+
+function GamesLobby_StartRoleSelection() {
+    var sidebar = $(".sidebar-queue-start, .sidebar-list-link-game");
+    if (sidebar.hasClass('queue-ready') || sidebar.hasClass('sidebar-list-link-game')) {
+        GamesLeague_queueStartTransforms();
+        GamesLeague_HideMatchFilters();
+        GamesLeague_queueLoadLobby();
+        $(lobbyData["Lobby Role"]).insertAfter($('.lobby-wr'));
+        setTimeout(function () {
+            GamesLobby_Roles();
+        }, 500);
+        clearInterval(galleryLoop);
+        GamesLobby_SwapChat();
+    } else {};
+}

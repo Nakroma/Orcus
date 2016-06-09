@@ -200,7 +200,7 @@ $(".game-mode-box").click(function () {
 
             //add game modes to menu bar
             var modeOne = 'All Pick';
-            var modeOneAcr = 'AP'
+            var modeOneAcr = 'AP';
             var modeTwo = 'ARAM';
             var modeTwoAcr = 'ARAM';
             var modeThree = 'SWAG';
@@ -317,17 +317,21 @@ $('.chat-preview-wr, .chat-input').click(function() {
 
 
 
+/* Get back to the startscreen */
+function GamesLeague_CancelCurrentScreen() {
+    GamesLeague_queueCancelTransforms();
+    GamesLeague_queueLoadMain();
+    setTimeout(function () {
+        $('.main-content').find('.lobby-wr').siblings().remove();
+    }, 400);
+}
 
 
 /* Modify Filters for Queue/Lobby creation */
 $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
-        GamesLeague_queueLoadMain();
-        GamesLeague_queueCancelTransforms()
-        setTimeout(function () {
-            $('.main-content').find('.lobby-wr').siblings().remove();
-        }, 400)
+        SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')

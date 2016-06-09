@@ -12,6 +12,7 @@ var squadFrequency = 5000;
 var squadInterval = 0;
 
 // Other vars
+// TODO: Change this from js to php variable
 var squadCurrentInvite = -1;
 
 function SocketClient_init() {
@@ -129,6 +130,51 @@ function SocketClient_init() {
                     break;
 
                 /**
+                 * Signals that the role selection starts
+                 *
+                 * @argument // Parameters for the matchmaking (Mode, Size, Entry)
+                 */
+                case 'NOTICE_SQUAD_START_ROLE_SELECTION':
+                    // TODO: Display parameters for other users
+                    GamesLobby_StartRoleSelection();
+                    break;
+
+                /**
+                 * Cancels the matchmaking process
+                 */
+                case 'NOTICE_SQUAD_CANCEL_MATCHMAKING':
+                    GamesLeague_CancelCurrentScreen();
+                    break;
+
+                /**
+                 * Notifies that a user selected a role
+                 *
+                 * @argument JSON array containing user data (id, username)
+                 * @argument Role ID
+                 */
+                case 'NOTICE_SQUAD_ROLE_SELECTION':
+                    var o = 'own';
+                    if (_prc.args[0].id != sid) {
+                        o = 'other';
+
+                        // Remove classes and stuff
+                        GamesLobby_removeRole(_prc.args[0].username);
+                    }
+                    var image = 'bootstrap/img/avatars/' + _prc.args[0].id.toString() +  '_small.png';
+                    GamesLobby_selectRole(_prc.args[0].username, image, _prc.args[1], o);
+                    break;
+
+                /**
+                 * Signals that a user locked in a role
+                 *
+                 * @argument Role ID
+                 */
+                case 'NOTICE_SQUAD_LOCK_ROLE':
+                    GamesLobby_LockInRole(_prc.args[0]);
+                    break;
+
+
+                /**
                  * Notifies the user that the join failed
                  *
                  * @argument Error message
@@ -205,6 +251,9 @@ function SocketClient_quit(){
  */
 function SocketClient_resetSquad() {
     // TODO: Add visual message to let user know their squad was disbanded
+    // Gets back to the startscreen
+    GamesLeague_CancelCurrentScreen();
+
     // Clean up all slots
     SocketClient_cleanSquad();
 
@@ -270,6 +319,7 @@ function SocketClient_setSquadMembers(uObj) {
  */
 function SocketClient_removeSquadMember(uObj) {
     // Select user
+    // TODO: Change contains to a filter
     var user = $('.squad .squad-ava-self-inf .squad-self-name-alt:contains("' + uObj + '")');
     var index = user.index(); // No -1 needed because :nth child is 1-indexed
 
@@ -279,4 +329,7 @@ function SocketClient_removeSquadMember(uObj) {
     // Remove avatar
     $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').removeClass('squad-slot-taken');
     $('.squad .squad-ava-wrapper .squad-ava:nth-child(' + index + ')').html('');
+
+    // Remove name if in role selection
+    GamesLobby_removeRole(uObj);
 }

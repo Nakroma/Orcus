@@ -7,29 +7,6 @@ var skillSelf = $('#skill').text();
 var lostSelf = $('#lost').text();
 
 
-window.odometerOptions = {
-    duration: 1300,
-    selector: '.stats-number'
-};
-
-
-function GamesLobby_userStatsUpdate() {
-    var wins = '53';
-    var skill = '890';
-    var lost = '2';
-
-    $('#wins').text(wins);
-    $('#skill').text(skill);
-    setTimeout(function () { //won't animate on chrome w/o timeout
-        $('#lost').text(lost);
-    }, 1);
-};
-
-function GamesLobby_userStatsReset() {
-    $('#wins').text(winsSelf);
-    $('#skill').text(skillSelf);
-    $('#lost').text(lostSelf);
-};
 
 
 /* role selection */
@@ -79,7 +56,7 @@ function GamesLobby_removeRole(username) {
 $(document.body).on('click', '.role-p-s', function () {
     if (!$('.self-taken').hasClass('locked-in')) {
         var role = '#' + $(this).find('.role-p-sub').attr('id');
-        SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+        //SocketClient_send('SQUAD_SELECT_ROLE', [role]);
     }
 });
 
@@ -94,7 +71,7 @@ $(document.body).on('click', '.role-p-s', function () {
 $(document.body).on('click', '.lock-in-role', function () {
     // Lock in role
     if (!$('.self-taken').hasClass('locked-in')) {
-        SocketClient_send('SQUAD_LOCK_ROLE', []);
+        //SocketClient_send('SQUAD_LOCK_ROLE', []);
     }
     GamesLobby_LockInRole();
     GamesLobby_StartQueue()
@@ -283,7 +260,7 @@ function GamesLobby_SelectLane() {
 
 $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
     // Initiate role selection
-    SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
+    //SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
 
     // Get into role selection
     //GamesLobby_StartRoleSelection.call($(this));

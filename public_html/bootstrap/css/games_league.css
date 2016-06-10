@@ -2429,9 +2429,9 @@ a:focus {
     width: 69%;
     padding:60px 0px;
     display:inline-block;
+    opacity:0;
     vertical-align: middle;
     background:rgba(18,25,30,0.0);
-    opacity:0;
             -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.35s;
@@ -3438,7 +3438,7 @@ input[type=number]::-webkit-outer-spin-button {
 .lobby-player-content-wr {
     text-align: center;
     position:relative;
-    top:5vh;
+    top:11vh;
     height:calc(85vh - 200px);
     width:calc(100% + 5px);
     right:5px;
@@ -3865,7 +3865,7 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
     position: relative;
     width: calc(33.33% - 10px);
     margin:5px;
-    height: calc((95vh - 293px) * 0.32);
+    height: calc((95vh - 198px) * 0.32);
     overflow: hidden;
           box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
     background: linear-gradient(to top, #141c24, #212d3a);
@@ -4828,6 +4828,7 @@ left:1px;
     letter-spacing: 0.12em;
     margin:auto;
     position:relative;
+    margin-top:;
     z-index:5;
     border:2px solid transparent;
     background:rgba(0,0,0,0.3);
@@ -5451,7 +5452,7 @@ left:1px;
     width:65%;
     height:calc(95vh - 343px);
     margin: 30px auto;
-    margin-top:-180px;
+    margin-top:-160px;
     transform: scale(0.965);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -5634,7 +5635,7 @@ left:1px;
 }
 
 .lock-in-ready {
-    border: 2px solid #00b4ff;
+    border: 2px solid transparent;
 }
 
 .chat-lobby-notification {
@@ -5849,7 +5850,7 @@ left:1px;
 
 .bot-content {
     position:relative;
-bottom:-70px;
+bottom:-48px;
     height:150px;
     width:100%;
     z-index:5;
@@ -6135,7 +6136,7 @@ bottom:-70px;
 
 .lobby-teams-helper {
     display:inline-block;
-    height:35vh;
+    height:39vh;
 }
 
 .role-preview {
@@ -6209,7 +6210,15 @@ bottom:-70px;
     height:190px;
     background:rgba(25,32,40,0.8);
     border-bottom:solid 1px #39414b;
+    opacity:0;
+    transform:scale(0.95);
     z-index:0;
+            -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.60s;
+    -moz-transition-duration: 0.60s;
+    -o-transition-duration: 0.60s;
+    transition-duration: 0.60s;
 }
 
 .lobby-role-selection-title {
@@ -6236,8 +6245,16 @@ bottom:-70px;
     width:100%;
     position:relative;
     text-align: center;
-    top:-80px;
+    top:-103px;
        background:rgba(25,32,40,0.8);
+    opacity:0;
+    transform:scale(0.95);
+         -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: 0.60s;
+    -moz-transition-duration: 0.60s;
+    -o-transition-duration: 0.60s;
+    transition-duration: 0.60s;
     border-top:solid 1px #39414b;
 }
 

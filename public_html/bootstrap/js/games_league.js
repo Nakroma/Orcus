@@ -257,8 +257,6 @@ function GamesLeague_HideMatchFilters() {
 }
 
 function GamesLeague_queueStartTransforms() {
-    $('#normal-bg').addClass('invis')
-    $('#blur-bg').removeClass('invis')
     $('.play-text').addClass('cancel-text').text('Cancel');
     $('.play-ico').addClass('cancel-ico');
     $('.menu-create-normal, .play-bloom').css('visibility', 'hidden');
@@ -266,6 +264,9 @@ function GamesLeague_queueStartTransforms() {
     $('#squad-chat > .chat-group-td > .chat-group-desc').text('Queueing')
     $(".chat-scroll").load("feeds.php #")
     $('.chat-lobby-notification').text('You are now connected to the Lobby!')
+    setTimeout(function () {
+        $('.lobby-top-bar, .lobby-bot-bar').addClass('lobby-title-visible')
+            }, 450)
 }
 
 function GamesLeague_queueCancelTransforms() {
@@ -279,6 +280,7 @@ function GamesLeague_queueCancelTransforms() {
     $('.chat-group-active').removeClass('chat-group-active')
     $('#all-chat').addClass('chat-group-active');
     $('#squad-chat > .chat-group-td > .chat-group-desc').text('Main Menu')
+     $('.lobby-top-bar, .lobby-bot-bar').removeClass('lobby-title-visible')
 }
 
 function GamesLeague_queueLoadLobby() {
@@ -324,7 +326,7 @@ function GamesLeague_CancelCurrentScreen() {
 $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
-        SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')
@@ -367,5 +369,5 @@ $('.squad-invite-accept-decline').on('click', '.squad-invite-decline', function 
 $('.squad-invite-accept-decline').on('click', '.squad-invite-accept', function () {
     $('.squad-invite-wr').addClass('squad-invite-hidden');
     // Accepts invite
-    SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
+    //SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
 });

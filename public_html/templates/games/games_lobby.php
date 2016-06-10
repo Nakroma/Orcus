@@ -164,8 +164,8 @@ $_u = Model::getUser($sid, 'username, okken');
 
 
         <!-- Backgrounds -->
-        <img src='<?php echo $path['img']; ?>game_details_bg_league5.jpg' class='content-bg' id='normal-bg'>
-        <img src='<?php echo $path['img']; ?>game_details_bg_league5_blur.jpg' class='content-bg invis' id='blur-bg'>
+        <img src='<?php echo $path['img']; ?>game_details_bg_league5.jpg' class='content-bg invis' id='normal-bg'>
+        <img src='<?php echo $path['img']; ?>game_details_bg_league5_blur.jpg' class='content-bg' id='blur-bg'>
         <!-- <video loop muted autoplay poser="<?php echo $path['img']; ?>lp_header.png" class="video">
             <source src="bootstrap/video/game_hub_bg2.mp4" type="video/mp4">
         </video>
@@ -174,7 +174,6 @@ $_u = Model::getUser($sid, 'username, okken');
 
         <!-- Menu Bar -->
         <div class='menu-bar-top'>
-            <div class="lock-in-role"> Lock In </div>
             <a href="#">
                 <img src='<?php echo $path['img']; ?>logo_solo.png' class='menu-logo'>
                 <img src='<?php echo $path['img']; ?>orcus_font.png' class='menu-logo-font'>
@@ -184,8 +183,8 @@ $_u = Model::getUser($sid, 'username, okken');
             <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
             <div class='menu-options'>
                 <div class='menu-icons'>
-                    <img src='<?php echo $path['img']; ?>feedback-ico.svg' class='feedback-ico hidden'>
-                    <span class='menu-ico-desc hidden' style='margin-right:20px;'>Feedback</span>
+                    <img src='<?php echo $path['img']; ?>feedback-ico.svg' class='feedback-ico'>
+                    <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
 
 
 
@@ -222,6 +221,28 @@ $_u = Model::getUser($sid, 'username, okken');
                         <a class='side-menu'><img src='<?php echo $path['img']; ?>hamburger.svg' class='sidebar-menu-ico'></a>
                     </div>
                 </nav>
+            </div>
+        </div>
+        <div class='lobby-top-bar'>
+            <h1 class='lobby-role-selection-title lobby-title-visible' id='role-text'>Role Selection</h1>
+            <h1 class='lobby-role-selection-title' id='queue-text'>Finding Team</h1>
+            <h1 class='lobby-role-selection-title' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
+            <div class='lobby-queue-players'>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
             </div>
         </div>
 
@@ -361,8 +382,18 @@ $_u = Model::getUser($sid, 'username, okken');
 
 
             <div class="lobby">
+
                 <div class='lobby-wr'>
                 </div>
+
+
+
+
+
+
+
+
+
             </div>
 
 
@@ -378,16 +409,10 @@ $_u = Model::getUser($sid, 'username, okken');
                     </div>
                 </div>
                 <div class='squad-ava-self-inf'>
-                    <a href="#" class='squad-self-name'><?php echo $_u['username']; ?></a>
-                    <a href="#" class='squad-self-name-alt'></a>
-                    <a href="#" class='squad-self-name-alt'></a>
-                    <a href="#" class='squad-self-name-alt'></a>
+                    <a href="#" class='squad-self-name'>TotalBiscuit</a>
                     <a href="#" class='squad-self-name-alt'></a>
                     <br>
                     <div class='squad-self-role'>Tank</div>
-                    <div class='squad-self-role-alt'></div>
-                    <div class='squad-self-role-alt'></div>
-                    <div class='squad-self-role-alt'></div>
                     <div class='squad-self-role-alt'></div>
                 </div>
 
@@ -518,8 +543,9 @@ $_u = Model::getUser($sid, 'username, okken');
                     <img src='<?php echo $path['img']; ?>send-msg-ico.svg' class='send-ico'>
                 </div>
             </div>
-
-
+        </div>
+        <div class='lobby-bot-bar'>
+            <div class="lock-in-role lock-in-ready"> Lock In </div>
         </div>
 
     </div>
@@ -637,6 +663,7 @@ $_u = Model::getUser($sid, 'username, okken');
 
     <!-- Game Bar -->
 </body>
+
 
 <script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
 <script type="text/javascript" src="bootstrap/js/games_league.js"></script>

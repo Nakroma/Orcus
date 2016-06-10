@@ -8,7 +8,7 @@ $templateSidebar = $this->_['templateSidebar'];
 $_d = $this->_;
 
 // AUTH STUFF HERE
-$_SESSION[$skey] = 15;
+$_SESSION[$skey] = 13;
 $sid = $_SESSION[$skey];
 
 // Get auth info
@@ -33,6 +33,7 @@ $_u = Model::getUser($sid, 'username, okken');
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $path['js']; ?>odometer.js"></script>
     <script language="javascript" src="<?php echo $path['js']; ?>lz-string.js"></script>
+    <script type="text/javascript" src='<?php echo $path['js']; ?>games_league.js'></script>
 
     <!-- Websocket Server -->
     <script>var sid = <?php echo json_encode($sid); ?></script>
@@ -665,14 +666,13 @@ $_u = Model::getUser($sid, 'username, okken');
 </body>
 
 
-<script type="text/javascript" src='bootstrap/js/games_chat.js'></script>
-<script type="text/javascript" src="bootstrap/js/games_league.js"></script>
-<script type="text/javascript" src="bootstrap/js/games_lobby.js"></script>
-<script type="text/javascript" src="bootstrap/js/games_lobby_role.js"></script>
-<script type="text/javascript" src="bootstrap/data/lobby-data-league.js"></script>
-<script type="text/javascript" src="bootstrap/js/moment.js"></script>
-<script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
-<script type="text/javascript" src="bootstrap/js/odometer.js"></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>games_chat.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>games_lobby.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>games_lobby_role.js'></script>
+<script type="text/javascript" src='bootstrap/data/lobby-data-league.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>moment.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>jquery.timeago.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>odometer.js'></script>
 
 
 </html>

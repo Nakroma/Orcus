@@ -31,6 +31,7 @@ class MatchmakingServer extends WebSocketServer {
         // Decode JSON message
         $_prc = json_decode($message, true);
 
+        $tStart = microtime(true);
         switch ($_prc['code']) {
 
             /**
@@ -316,6 +317,8 @@ class MatchmakingServer extends WebSocketServer {
                 }
                 break;
         }
+        $tEnd = microtime(true);
+        $this->stdout($tEnd - $tStart);
     }
 
     /**

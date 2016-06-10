@@ -326,7 +326,7 @@ function GamesLeague_CancelCurrentScreen() {
 $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
-        //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')
@@ -369,5 +369,5 @@ $('.squad-invite-accept-decline').on('click', '.squad-invite-decline', function 
 $('.squad-invite-accept-decline').on('click', '.squad-invite-accept', function () {
     $('.squad-invite-wr').addClass('squad-invite-hidden');
     // Accepts invite
-    //SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
+    SocketClient_send('SQUAD_JOIN_USER', squadCurrentInvite);
 });

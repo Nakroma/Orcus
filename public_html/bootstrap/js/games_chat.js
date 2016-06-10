@@ -203,7 +203,7 @@ function GamesChat_createPost(username, inputVal, userid) {
 
         // Send to server
         if (ownPost) {
-            SocketClient_send('CHAT_SEND_MESSAGE', ['ALL', LZString.compressToUTF16(inputVal)]);
+            //SocketClient_send('CHAT_SEND_MESSAGE', ['ALL', LZString.compressToUTF16(inputVal)]);
         }
     }
 }
@@ -273,13 +273,13 @@ function GamesChat_hideSquadMemberDetails() {
 $(".chat-input-text").keypress(function (e) {
     if (e.which == 13) {
         GamesChat_createPost();
-        $(".chat-input-text").val(''); //not getting called due to socket error in .html
+        $(".chat-input-text").val(''); //not getting called due to //socket error in .html
     }
 });
 
 $(".send-ico").click(function () {
     GamesChat_createPost();
-    $(".chat-input-text").val(''); //not getting called due to socket error in .html
+    $(".chat-input-text").val(''); //not getting called due to //socket error in .html
 });
 
 $('.chat-menu-ico-wrapper').click(GamesChat_subMenuChatHide);
@@ -319,7 +319,7 @@ function GamesChat_Invite_User() {
 
         // Send input to server
         var name = $('.squad-sub-options .squad-invite .squad-inv-input').val();
-        SocketClient_send('SQUAD_INVITE_USER', name);
+        //SocketClient_send('SQUAD_INVITE_USER', name);
     }
 }
 

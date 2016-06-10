@@ -56,7 +56,8 @@ function GamesLobby_removeRole(username) {
 $(document.body).on('click', '.role-p-s', function () {
     if (!$('.self-taken').hasClass('locked-in')) {
         var role = '#' + $(this).find('.role-p-sub').attr('id');
-        SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+        //SocketClient_send('SQUAD_SELECT_ROLE', [role]);
+        GamesLobby_selectRole('TotalBiscuit', 'bootstrap/img/ava_sample_4.png', role, 'own')
     }
 });
 
@@ -71,10 +72,10 @@ $(document.body).on('click', '.role-p-s', function () {
 $(document.body).on('click', '.lock-in-role', function () {
     // Lock in role
     if (!$('.self-taken').hasClass('locked-in')) {
-        SocketClient_send('SQUAD_LOCK_ROLE', []);
+        //SocketClient_send('SQUAD_LOCK_ROLE', []);
     }
-    //GamesLobby_LockInRole();
-    //GamesLobby_StartQueue()
+    GamesLobby_LockInRole();
+    GamesLobby_StartQueue()
 });
 
 
@@ -260,7 +261,7 @@ function GamesLobby_SelectLane() {
 
 $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
     // Initiate role selection
-    SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
+    //SocketClient_send('SQUAD_START_MATCHMAKING', [['AP', 5, 50]]);
 
     // Get into role selection
     //GamesLobby_StartRoleSelection.call($(this));

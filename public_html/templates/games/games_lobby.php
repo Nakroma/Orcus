@@ -33,12 +33,11 @@ $_u = Model::getUser($sid, 'username, okken');
     <script src="<?php echo $path['js']; ?>bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $path['js']; ?>odometer.js"></script>
     <script language="javascript" src="<?php echo $path['js']; ?>lz-string.js"></script>
-    <script type="text/javascript" src='<?php echo $path['js']; ?>games_league.js'></script>
 
     <!-- Websocket Server -->
     <script>var sid = <?php echo json_encode($sid); ?></script>
     <script type="text/javascript" src="../server/client.js"></script>
-    <script>SocketClient_init();</script>
+    <script>$(document).ready(SocketClient_init);</script>
 </head>
 
 
@@ -667,6 +666,7 @@ $_u = Model::getUser($sid, 'username, okken');
 
 
 <script type="text/javascript" src='<?php echo $path['js']; ?>games_chat.js'></script>
+<script type="text/javascript" src='<?php echo $path['js']; ?>games_league.js'></script>
 <script type="text/javascript" src='<?php echo $path['js']; ?>games_lobby.js'></script>
 <script type="text/javascript" src='<?php echo $path['js']; ?>games_lobby_role.js'></script>
 <script type="text/javascript" src='bootstrap/data/lobby-data-league.js'></script>

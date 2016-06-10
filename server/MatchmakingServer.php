@@ -266,8 +266,9 @@ class MatchmakingServer extends WebSocketServer {
                 $squadMembers = $squad->getUsers();
 
                 $allLocked = true;
+                $json = $this->prep("NOTICE_SQUAD_LOCK_ROLE", $user->role);
+
                 for ($i = 0; $i < count($squadMembers); $i++) {
-                    $json = $this->prep("NOTICE_SQUAD_LOCK_ROLE", $user->role);
                     $this->send($squadMembers[$i], $json);
 
                     // See if everyone is locked
@@ -278,7 +279,13 @@ class MatchmakingServer extends WebSocketServer {
 
                 // Start matchmaking if everyone is locked
                 if ($allLocked) {
+                    $squad->state = STATE_IN_MATCHMAKING;
+                    $json = $this->prep("NOTICE_SQUAD_START_MATCHMAKING", $squad->mm_params);
 
+                    // Send members the info
+                    for ($i = 0; $i < count($squadMembers); $i++) {
+                        $this->send($squadMembers[$i], $json);
+                    }
                 }
                 break;
 
@@ -318,7 +325,7 @@ class MatchmakingServer extends WebSocketServer {
                 break;
         }
         $tEnd = microtime(true);
-        $this->stdout($tEnd - $tStart);
+        //$this->stdout($tEnd - $tStart);
     }
 
     /**

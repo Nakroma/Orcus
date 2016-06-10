@@ -3928,7 +3928,7 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
 
 .chat {
     position:absolute;
-    top:calc(-75vh + 144px);
+    top:calc(-75vh + 150px);
     right:0;
     width: 31vw;
     margin-left: -3.7px;
@@ -4244,6 +4244,7 @@ background-image:-ms-linear-gradient(top, transparent 0%, rgba(21,29,39,0.3) 50%
     position:absolute;
     z-index: 1;
     text-align:left;
+        pointer-events: all;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.2s;
@@ -4828,7 +4829,6 @@ left:1px;
     letter-spacing: 0.12em;
     margin:auto;
     position:relative;
-    margin-top:;
     z-index:5;
     border:2px solid transparent;
     background:rgba(0,0,0,0.3);
@@ -5852,8 +5852,9 @@ left:1px;
     position:relative;
 bottom:-48px;
     height:150px;
+    z-index:4;
+    pointer-events: none;
     width:100%;
-    z-index:5;
     text-align:center;
         background: -webkit-linear-gradient(bottom, #080c11, transparent);
     background: -o-linear-gradient(transparent, #0e141b);
@@ -6318,4 +6319,8 @@ bottom:-48px;
     -moz-transition-duration: 0.45s;
     -o-transition-duration: 0.45s;
     transition-duration: 0.45s;
+}
+
+.chat-preview {
+            pointer-events: all;
 }

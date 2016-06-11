@@ -74,6 +74,8 @@ NOTICE_SQUAD_ROLE_SELECTION	// Notifies that a user selected a role
 	1: Role		// Role ID
 NOTICE_SQUAD_LOCK_ROLE	// Signals that a user locked in a role
 	0: Role		// Role ID
+NOTICE_SQUAD_START_MATCHMAKING	// Signals the users that matchmaking started
+	0: Matchmaking parameters	// Parameters for the matchmaking (Mode, Size, Entry)
 ERROR_SQUAD_JOIN	// Notifies the user that the join failed
 	0: Error	// Error message
 

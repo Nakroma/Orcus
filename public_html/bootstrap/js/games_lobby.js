@@ -88,15 +88,41 @@ function GamesLobby_LockInRole(role) {
 
 
 
-function GamesLobby_StartQueue() {
+function GamesLobby_StartQueue(slots) {
+    // Adjust slots
+    var queue_slot = $('.lobby-queue-players .lobby-queue-ava');
+    var single = queue_slot.first();
+    if (queue_slot.length != slots && slots > 0) {
+        if (queue_slot.length < slots) {
+            for (var i = queue_slot.length; i < slots; i++) {
+                queue_slot.parent().append("<div class='lobby-queue-ava lobby-queue-ava-free'><img src='' class='lobby-queue-img invis'></div>");
+            }
+        } else if (queue_slot.length > slots) {
+            for (var i = queue_slot.length; i > slots; i--) {
+                console.log("lamo");
+                $('.lobby-queue-players .lobby-queue-ava:last-child').remove();
+            }
+        }
+
+    }
+
+    // Gradient
     $('.lock-in-role').addClass('locked-in-done')
     $('#role-text').removeClass('lobby-title-visible')
     $('#queue-text, .lobby-queue-players').addClass('lobby-title-visible')
 
-    // Add own img
-    $('.lobby-queue-ava-free:first-of-type').removeClass('lobby-queue-ava-free').find('.lobby-queue-img').attr('src', userAvaSrc).removeClass('invis');
+    // Add leader img
+    var img = $('.squad-ava-self .squad-ava-img-self').attr('src');
+    $('.lobby-queue-ava-free:first-of-type').removeClass('lobby-queue-ava-free').find('.lobby-queue-img').attr('src', img).removeClass('invis');
+
+    // Add team img
+    $('.squad-ava-wrapper .squad-slot-taken .squad-ava-img').each(function() {
+        img = $(this).attr('src');
+        $('.lobby-queue-ava-free').first().removeClass('lobby-queue-ava-free').find('.lobby-queue-img').attr('src', img).removeClass('invis');
+    });
 
     // Add Random img for simulation
+    /*
     var time = 1000;
     $('.lobby-queue-ava-free').each(function () {
         setTimeout(function () {
@@ -113,6 +139,7 @@ function GamesLobby_StartQueue() {
 
     // Call Lobby When done
     GamesLobby_StartLobby();
+    */
 }
 
 

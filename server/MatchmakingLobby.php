@@ -10,6 +10,7 @@
 define('STATE_OPEN', 0);
 define('STATE_ROLE_SELECTION', 1);
 define('STATE_IN_LOBBY', 2);
+define('STATE_IN_MATCHMAKING', 3);
 
 class MatchmakingLobby {
 

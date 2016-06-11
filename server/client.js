@@ -173,6 +173,16 @@ function SocketClient_init() {
                     GamesLobby_LockInRole(_prc.args[0]);
                     break;
 
+                /**
+                 * Signals the users that matchmaking started
+                 *
+                 * @argument Parameters for the matchmaking (Mode, Size, Entry)
+                 */
+                case 'NOTICE_SQUAD_START_MATCHMAKING':
+                    var param = _prc.args[0];
+                    GamesLobby_StartQueue(param[1]);
+                    break;
+
 
                 /**
                  * Notifies the user that the join failed

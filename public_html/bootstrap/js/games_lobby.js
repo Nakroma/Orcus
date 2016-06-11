@@ -2,9 +2,7 @@ var queueTimes = []
 
 var userAvaSrc = 'bootstrap/img/ava_sample_4.png';
 
-var winsSelf = $('#wins').text();
-var skillSelf = $('#skill').text();
-var lostSelf = $('#lost').text();
+var inQueue = false
 
 
 
@@ -17,13 +15,17 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
     role = $(role).parent();
     if (type === 'own') {
 
-        if ($(role).hasClass('other-taken')) {} else {
-            queueTimes.push($(role).find('.queue-est').text());
+        if ($(role).children('.role-p-sub').hasClass('other-taken') || inQueue === true) {} else {
+
+            // Save Queue Time
+            queueTimes.push($(role).find('.queue-est').html());
             if (queueTimes.length > 2) {
                 queueTimes.shift()
             }
+
+            // Role Transforms
             $('.self-taken').find('.queue-est-text').text('avg queue time');
-            $('.self-taken').find('.queue-est').text(queueTimes[0]);
+            $('.self-taken').find('.queue-est').html(queueTimes[0]);
             $('.self-taken').removeClass('locked-in role-ready role-taken');
             $('.role-default').removeClass('role-default role-preview')
             $('.self-taken').parent().removeClass('role-preview')
@@ -81,6 +83,8 @@ $(document.body).on('click', '.lock-in-role', function () {
 
 
 function GamesLobby_LockInRole(role) {
+    inQueue = true
+
     $(role).addClass('locked-in role-ready');
     $(role).find('.queue-est').addClass('queue-est-locked');
     $(role).find('.lock-in-ready').removeClass('lock-in-ready');

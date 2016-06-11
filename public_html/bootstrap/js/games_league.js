@@ -270,6 +270,7 @@ function GamesLeague_queueStartTransforms() {
 }
 
 function GamesLeague_queueCancelTransforms() {
+    inQueue = false
     $('#normal-bg').removeClass('invis')
     $('#blur-bg').addClass('invis')
     $('.play-text').removeClass('cancel-text').text('Play');

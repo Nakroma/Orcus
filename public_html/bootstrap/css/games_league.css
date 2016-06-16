@@ -597,22 +597,7 @@ div {
 }
 
 
-/* Sidebar */
 
-.gd-sidebar {
-    position: fixed;
-    overflow: hidden;
-    width: 22.2%;
-    height: 100%;
-    background: #16191e;
-    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
-    -webkit-transition-duration: 0.55s;
-    -moz-transition-duration: 0.55s;
-    -o-transition-duration: 0.55s;
-    transition-duration: 0.55s;
-    z-index: 3;
-}
 
 .gd-sidebar .gd-league {
     margin-top: -190px;
@@ -754,6 +739,7 @@ div {
     opacity: 1;
     width: 100%;
     min-height: 100vh;
+    -webkit-filter:blur(px);
     overflow: hidden;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -924,11 +910,7 @@ div {
     .gd-gamebar {
         display: none;
     }
-    .gd-sidebar {
-        margin-top: -102px;
-        height: 163px;
-        width: 100%;
-    }
+
     .game-banner {
         width: 100%;
     }
@@ -3397,24 +3379,11 @@ input[type=number]::-webkit-outer-spin-button {
     pointer-events: all;
 }
 
-.sidebar-bottom-links {
-    position: absolute;
-    font-family: 'helvetica';
-    bottom: 36px;
-    width: 14vw;
-    margin-left: 3.5vw;
-    text-align: center;
-    z-index: 1
-}
 
-.sidebar-bot-link {
-    display: inline-block;
-    color: #5c636e;
-}
 
-.sidebar-bot-link:hover {
-    color: white;
-}
+
+
+
 
 .game-mode-box:active {
     border: solid 2px #00b4ff;
@@ -5950,6 +5919,9 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: bottom;
     padding: 0px 30px;
     position: relative;
+   cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
@@ -6321,4 +6293,32 @@ input[type=number]::-webkit-outer-spin-button {
 
 .chat-preview {
     pointer-events: all;
+}
+
+
+
+.sidebar-game-name {
+    display:inline-block;
+    color:white;
+    position:relative;
+    top:23px;
+    font-size:20px;
+}
+
+.sidebar-game-stats {
+    display:inline-block;
+    margin:14px 8px;
+}
+
+.gd-stat-number {
+    color:#00b4ff;
+    font-family:'titillium web';
+    font-size:16px;
+}
+
+
+
+.game-view-ico {
+    margin-top:7px;
+    margin-left:8px;
 }

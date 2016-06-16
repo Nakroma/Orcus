@@ -270,9 +270,6 @@ function GamesLeague_queueStartTransforms() {
 }
 
 function GamesLeague_queueCancelTransforms() {
-    inQueue = false
-    $('#normal-bg').removeClass('invis')
-    $('#blur-bg').addClass('invis')
     $('.play-text').removeClass('cancel-text').text('Play');
     $('.play-ico').removeClass('cancel-ico');
     $('.menu-create-normal, .play-bloom').css('visibility', 'visible');
@@ -328,6 +325,7 @@ $('.queue-create').click(GamesLeague_ShowMatchFilters)
 $('.menu-play').click(function () {
     if ($(this).children().hasClass('cancel-text')) {
         //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        GamesLeague_CancelCurrentScreen();
     } else {
         $('.queue-options').text('Find Match')
         $('.sidebar-queue-start').text('Find Match')

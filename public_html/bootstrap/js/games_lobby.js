@@ -2,8 +2,6 @@ var queueTimes = []
 
 var userAvaSrc = 'bootstrap/img/ava_sample_4.png';
 
-var inQueue = false
-
 
 
 
@@ -15,7 +13,7 @@ function GamesLobby_selectRole(username, userImgSrc, role, type) {
     role = $(role).parent();
     if (type === 'own') {
 
-        if ($(role).children('.role-p-sub').hasClass('other-taken') || inQueue === true) {} else {
+        if ($(role).children('.role-p-sub').hasClass('other-taken')) {} else {
 
             // Save Queue Time
             queueTimes.push($(role).find('.queue-est').html());
@@ -83,8 +81,6 @@ $(document.body).on('click', '.lock-in-role', function () {
 
 
 function GamesLobby_LockInRole(role) {
-    inQueue = true
-
     $(role).addClass('locked-in role-ready');
     $(role).find('.queue-est').addClass('queue-est-locked');
     $(role).find('.lock-in-ready').removeClass('lock-in-ready');

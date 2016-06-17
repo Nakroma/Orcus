@@ -1,19 +1,3 @@
-/* Show Icon Description */
-$("#friends, #friends-desc").hover(function () {
-    $("#friends-desc").removeClass("desc-hidden")
-}, function () {
-    $("#friends-desc").addClass("desc-hidden")
-})
-$("#invest, #invest-desc").hover(function () {
-    $("#invest-desc").removeClass("desc-hidden-2")
-}, function () {
-    $("#invest-desc").addClass("desc-hidden-2")
-})
-$("#tournament, #tournament-desc").hover(function () {
-    $("#tournament-desc").removeClass("desc-hidden-3")
-}, function () {
-    $("#tournament-desc").addClass("desc-hidden-3")
-})
 
 
 /* Side Menu Open */
@@ -266,7 +250,7 @@ function GamesLeague_queueStartTransforms() {
     $('.chat-lobby-notification').text('You are now connected to the Lobby!')
     setTimeout(function () {
         $('.lobby-top-bar, .lobby-bot-bar').addClass('lobby-title-visible')
-            }, 450)
+    }, 450)
 }
 
 function GamesLeague_queueCancelTransforms() {
@@ -278,7 +262,7 @@ function GamesLeague_queueCancelTransforms() {
     $('.chat-group-active').removeClass('chat-group-active')
     $('#all-chat').addClass('chat-group-active');
     $('#squad-chat > .chat-group-td > .chat-group-desc').text('Main Menu')
-     $('.lobby-top-bar, .lobby-bot-bar').removeClass('lobby-title-visible')
+    $('.lobby-top-bar, .lobby-bot-bar').removeClass('lobby-title-visible')
 }
 
 function GamesLeague_queueLoadLobby() {

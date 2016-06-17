@@ -144,7 +144,7 @@
 
 
         <!-- Backgrounds -->
-        <img src='bootstrap/img/game_details_bg_league5_blur.jpg' class='content-bg' id='blur-bg'>
+        <img src='bootstrap/img/game_details_bg_league_blur.jpg' class='content-bg'>
         <!-- <video loop muted autoplay poser="bootstrap/img/lp_header.png" class="video">
             <source src="bootstrap/video/game_hub_bg2.mp4" type="video/mp4">
         </video>
@@ -162,17 +162,23 @@
             <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
             <div class='menu-options'>
                 <div class='menu-icons'>
-                    <img src='bootstrap/img/feedback-ico.svg' class='feedback-ico'>
-                    <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
+                    <img src='bootstrap/img/feedback-ico.svg' class='feedback-ico hidden'>
+                    <span class='menu-ico-desc hidden' style='margin-right:20px;'>Feedback</span>
 
+                    <div class='menu-bar-ico' id='friends'  style='position:relative; left:10px;'>
+                        <img src='bootstrap/img/friends-ico.svg' class='menu-ico'>
+                        <span class='menu-ico-desc desc-hidden'>Friends</span>
+                    </div>
+                    <div class='menu-bar-ico' id='invest' style='position:relative; left:0px;'>
+                        <img src='bootstrap/img/invest-ico.svg' class='menu-ico'>
+                        <span class='menu-ico-desc desc-hidden'>Invest</span>
+                    </div>
 
+                    <div class='menu-bar-ico' id='invest'>
+                        <img src='bootstrap/img/tournament-ico.svg' class='menu-ico' id='tournament'>
+                        <span class='menu-ico-desc desc-hidden' id='tournament-desc'>Tournaments</span>
+                    </div>
 
-                    <img src='bootstrap/img/friends-ico.svg' class='menu-ico hidden' id='friends'>
-                    <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
-                    <img src='bootstrap/img/invest-ico.svg' class='menu-ico hidden' id='invest'>
-                    <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
-                    <img src='bootstrap/img/tournament-ico.svg' class='menu-ico hidden' id='tournament'>
-                    <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
                 </div>
                 <div class='menu-play'>
                     <img src='bootstrap/img/play-ico.svg' class='svg play-ico'>

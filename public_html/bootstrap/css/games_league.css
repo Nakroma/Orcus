@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #242c37;
+    background-color: #272c32;
     overflow: hidden;
 }
 
@@ -3483,7 +3483,7 @@ input[type=number]::-webkit-outer-spin-button {
 .content-bg {
     position: absolute;
     z-index: -2;
-    opacity: 0.3;
+    opacity: 0.5;
     min-width: 100vw;
     min-height: 100vh;
     -webkit-transition-timing-function: ease;
@@ -3578,7 +3578,6 @@ input[type=number]::-webkit-outer-spin-button {
     text-transform: uppercase;
     padding-right: 10px;
     color: #8791a0;
-    margin-left: -16px;
     cursor: pointer;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -3588,14 +3587,14 @@ input[type=number]::-webkit-outer-spin-button {
     transition-duration: 0.35s;
 }
 
-.menu-ico:hover > .menu-ico-desc {
+.menu-bar-ico:hover > .menu-ico-desc {
     margin-left: -15px;
     opacity: 1;
 }
 
 .desc-hidden {
     opacity: 0;
-    margin-left: -75px;
+    margin-left: -55px;
     pointer-events: none;
 }
 
@@ -3691,7 +3690,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 75%;
     margin: 5px;
     overflow: hidden;
-    box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
+    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.6);
     white-space: nowrap;
     background: black url('../img/kappa.png') center no-repeat;
     background-size: 8%;
@@ -3796,7 +3795,7 @@ input[type=number]::-webkit-outer-spin-button {
     top: calc((95vh - 266px) * 0.32);
     right: 0;
     width: calc(25% - 14px);
-    box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
+    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.6);
     height: calc((95vh - 293px) * 0.632);
 }
 
@@ -3839,7 +3838,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 5px;
     height: calc((95vh - 198px) * 0.32);
     overflow: hidden;
-    box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
+    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.6);
     background: linear-gradient(to top, #141c24, #212d3a);
     text-align: center;
 }
@@ -3932,7 +3931,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     top: 0;
     right: 0;
-    box-shadow: 0px 3px 40px rgba(15, 24, 33, 0.6);
+    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.6);
     width: calc(25% - 15px);
     height: calc((95vh - 293px) * 0.32);
     overflow: hidden;
@@ -6321,4 +6320,8 @@ input[type=number]::-webkit-outer-spin-button {
 .game-view-ico {
     margin-top:7px;
     margin-left:8px;
+}
+
+.menu-bar-ico {
+    display:inline-block;
 }

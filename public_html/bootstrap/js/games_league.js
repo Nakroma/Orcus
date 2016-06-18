@@ -1,48 +1,40 @@
-/* Side Menu Open */
-$(".side-menu, .side-menu-open").click(function () {
-    if ($('.sidebar-menu-ico').is('#menu-visible')) {
-        $('.content-bg, .user-menu, .content, .menu-ope').css('transform', '')
-        $('.menu-open').css('transform', '')
-        $('.sidebar-content-dim').removeClass('dim-visible')
-        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
-        $('.sidebar-menu-ico').removeAttr('id')
+// Sidebar Filter Functions
+
+// Trigger according Filters
+$('.queue-create').click(GamesLeague_ShowMatchFilters)
+$('.menu-play').click(function () {
+    if ($(this).children().hasClass('cancel-text')) {
+        //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        GamesLeague_CancelCurrentScreen();
     } else {
-        $('.sidebar-menu-ico').attr('id', "menu-visible")
-        $('.menu-open').css('transform', 'translateX(-350px)')
-        $('.content').css('transform', 'translateX(-12%)')
-        $('.user-menu').css('transform', 'translateX(-12%)')
-        $('.content-bg').css('transform', 'translateX(4%)')
-        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg')
-        $('.sidebar-content-dim').addClass('dim-visible')
+        $('.queue-options').text('Find Match')
+        $('.sidebar-queue-start').text('Find Match')
+        GamesLeague_ShowMatchFilters()
     }
 })
-
-$(".sidebar-content-dim").click(function () {
-    if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
-        $('.content, .content-bg, .menu-open').css('transform', '')
-        $('.sidebar-content-dim').removeClass('dim-visible')
-        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
-        $('.sidebar-menu-ico').removeAttr('id')
-        $('.chat').removeClass('chat-visible');
-    } else {
-        GamesLeague_HideMatchFilters()
-    }
+$('.menu-create').click(function () {
+    $('.queue-options').text('Create Lobby')
+    $('.sidebar-queue-start').text('Create Lobby')
+    GamesLeague_ShowMatchFilters()
 })
 
-/* Activate Lobby */
-$("#activate-lobby").click(function () {
-    $('.lobby').css('margin-left', '0px')
-    $('.sidebar-lobby-note').css('display', 'inline-block')
-    $('.squad-chat-post').css('display', 'none')
-    $('#chat-option-2').text('Squad Chat').addClass('lobby-active')
-    $('.squad-chat-title').text('Lobby Chat')
-    setTimeout(function () {
-        $('.lobby-content').css('opacity', '1')
-    }, 450)
-    setTimeout(function () {
-        $('.sidebar-lobby-note').css('opacity', '1')
-    }, 1200)
-})
+
+
+function GamesLeague_ShowMatchFilters() {
+    $('.sidebar-lobby-options').removeClass('filters-hidden')
+    $('.content').css('transform', 'translateX(-12%)')
+    $('.content-bg').css('transform', 'translateX(3%)')
+    $('.sidebar-content-dim').addClass('dim-visible')
+    $('.user-menu').css('opacity', '0')
+}
+
+function GamesLeague_HideMatchFilters() {
+    $('.sidebar-lobby-options').addClass('filters-hidden')
+    $('.content, .content-bg').css('transform', '')
+    $('.sidebar-content-dim').removeClass('dim-visible')
+    $('.user-menu').css('opacity', '1')
+}
+
 
 
 // Hide/Show Modes
@@ -79,7 +71,9 @@ $(".sidebar-lobby-entry").click(function () {
 })
 
 
-/* Select Filters */
+
+
+// Filter Selection
 $(".game-mode-box").click(function () {
     if ($(this).hasClass('active')) {
         $(this).removeClass('active')
@@ -188,20 +182,16 @@ $(".game-mode-box").click(function () {
 
 
 
-function GamesLeague_ShowMatchFilters() {
-    $('.sidebar-lobby-options').removeClass('filters-hidden')
-    $('.content').css('transform', 'translateX(-12%)')
-    $('.content-bg').css('transform', 'translateX(3%)')
-    $('.sidebar-content-dim').addClass('dim-visible')
-    $('.user-menu').css('opacity', '0')
-}
 
-function GamesLeague_HideMatchFilters() {
-    $('.sidebar-lobby-options').addClass('filters-hidden')
-    $('.content, .content-bg').css('transform', '')
-    $('.sidebar-content-dim').removeClass('dim-visible')
-    $('.user-menu').css('opacity', '1')
-}
+
+
+
+
+
+
+
+
+// Queue Activation Functions
 
 function GamesLeague_queueStartTransforms() {
     $('.play-text').addClass('cancel-text').text('Cancel');
@@ -245,19 +235,6 @@ function GamesLeague_queueLoadMain() {
 
 }
 
-
-
-/* Show Full Chat */
-$('.chat-preview-wr, .chat-input').click(function () {
-    if ($('.chat').hasClass('chat-visible')) {} else {
-        $('.chat').addClass('chat-visible');
-        $('.sidebar-content-dim').addClass('dim-visible')
-    }
-})
-
-
-
-/* Get back to the startscreen */
 function GamesLeague_CancelCurrentScreen() {
     GamesLeague_queueCancelTransforms();
     GamesLeague_queueLoadMain();
@@ -267,23 +244,56 @@ function GamesLeague_CancelCurrentScreen() {
 }
 
 
-/* Modify Filters for Queue/Lobby creation */
-$('.queue-create').click(GamesLeague_ShowMatchFilters)
-$('.menu-play').click(function () {
-    if ($(this).children().hasClass('cancel-text')) {
-        //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
-        GamesLeague_CancelCurrentScreen();
+
+
+
+
+
+
+
+
+
+// Side Menu Functions
+$(".side-menu, .side-menu-open").click(function () {
+    if ($('.sidebar-menu-ico').is('#menu-visible')) {
+        $('.content-bg, .user-menu, .content, .menu-ope').css('transform', '')
+        $('.menu-open').css('transform', '')
+        $('.sidebar-content-dim').removeClass('dim-visible')
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
+        $('.sidebar-menu-ico').removeAttr('id')
     } else {
-        $('.queue-options').text('Find Match')
-        $('.sidebar-queue-start').text('Find Match')
-        GamesLeague_ShowMatchFilters()
+        $('.sidebar-menu-ico').attr('id', "menu-visible")
+        $('.menu-open').css('transform', 'translateX(-350px)')
+        $('.content').css('transform', 'translateX(-12%)')
+        $('.user-menu').css('transform', 'translateX(-12%)')
+        $('.content-bg').css('transform', 'translateX(4%)')
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/login-close.svg')
+        $('.sidebar-content-dim').addClass('dim-visible')
     }
 })
-$('.menu-create').click(function () {
-    $('.queue-options').text('Create Lobby')
-    $('.sidebar-queue-start').text('Create Lobby')
-    GamesLeague_ShowMatchFilters()
+
+$(".sidebar-content-dim").click(function () {
+    if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
+        $('.content, .content-bg, .menu-open').css('transform', '')
+        $('.sidebar-content-dim').removeClass('dim-visible')
+        $('.sidebar-menu-ico').attr('src', 'bootstrap/img/hamburger.svg')
+        $('.sidebar-menu-ico').removeAttr('id')
+        $('.chat').removeClass('chat-visible');
+    } else {
+        GamesLeague_HideMatchFilters()
+    }
 })
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Squad Invite Functions */
@@ -305,9 +315,7 @@ $(document).on({
     }
 }, '.squad-slot-taken')
 
-/* setTimeout(function () {
-    $('.squad-invite-wr').removeClass('squad-invite-hidden')
-}, 1200) */
+
 
 $('.squad-invite-accept-decline').on('click', '.squad-invite-decline', function () {
     $('.squad-invite-wr').addClass('squad-invite-hidden')

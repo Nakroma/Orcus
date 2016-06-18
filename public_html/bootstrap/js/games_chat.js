@@ -1,3 +1,12 @@
+// Show Full Chat
+$('.chat-preview-wr, .chat-input').click(function () {
+    if ($('.chat').hasClass('chat-visible')) {} else {
+        $('.chat').addClass('chat-visible');
+        $('.sidebar-content-dim').addClass('dim-visible')
+    }
+})
+
+
 jQuery(document).ready(function () {
     $(".chat-scroll").animate({
         scrollTop: $('.chat-scroll').prop("scrollHeight")

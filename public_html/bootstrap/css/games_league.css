@@ -2211,7 +2211,7 @@ a:focus {
     top: 0;
     right: -350px;
     width: 350px;
-    background: #21272f;
+       background: linear-gradient(to top, #0d1217, rgba(32, 41, 53, 1));
     z-index: 4;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
@@ -2730,7 +2730,7 @@ a:focus {
     position: fixed;
     height: 100%;
     width: 349px;
-    background: linear-gradient(to top, #0d1217, rgba(27, 36, 47, 1));
+    background: linear-gradient(to top, #0d1217, rgba(32, 41, 53, 1));
     top: 0;
     right: 0;
     z-index: 6;
@@ -2984,6 +2984,7 @@ input[type=number]::-webkit-outer-spin-button {
 .sidebar-lobby-entry-wrapper {
     position: relative;
     overflow: hidden;
+    opacity:0;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.25s;
@@ -2993,6 +2994,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sidebar-lobby-entry-filters {
+    margin-top:-250px;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 0.45s;
@@ -5989,7 +5991,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 22px;
     text-align: left;
     color: #acbace;
-    font-weight: 500;
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -6324,4 +6325,23 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menu-bar-ico {
     display:inline-block;
+    cursor:pointer;
+}
+
+.sidebar-entry-visible .sidebar-lobby-options-wrapper-entry .sidebar-lobby-entry-wrapper {
+    opacity:1;
+          transition-delay:0.15s;
+}
+.sidebar-entry-visible .sidebar-lobby-options-wrapper-entry .sidebar-lobby-entry-filters {
+    margin-top:0;
+            transition-delay:0.15s;
+}
+
+.sidebar-entry-visible .sidebar-lobby-options-wrapper .sidebar-lobby-mode-wrapper {
+    opacity:0;
+        transition-delay:0s;
+}
+.sidebar-entry-visible .sidebar-lobby-options-wrapper .sidebar-lobby-mode-filters {
+    margin-top:-250px;
+   transition-delay:0s;
 }

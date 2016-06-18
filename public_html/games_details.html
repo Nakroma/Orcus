@@ -547,7 +547,7 @@
         </div>
         <!-- Game Mode -->
         <img src='bootstrap/img/league_jungler_sub_header.png' class='sub-header-bg'>
-        <div class='queue-filters'>
+        <div class='queue-filters sidebar-entry-visible'>
             <div class='sidebar-lobby-options-wrapper'>
                 <div class='sidebar-lobby-mode'>
                     <h4 class='sidebar-game-mode'>Game Mode</h4>
@@ -574,7 +574,7 @@
             <div class='sidebar-lobby-options-wrapper-entry'>
                 <div class='sidebar-lobby-entry'>
                     <h4 class='sidebar-game-mode'>Select Entry</h4>
-                    <div class='queue-filter-arrow-ico' id='entries'>
+                    <div class='queue-filter-arrow-ico ico-hidden' id='entries'>
                     </div>
                     <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
                 </div>
@@ -656,7 +656,6 @@
 <script type="text/javascript" src="bootstrap/data/lobby-data-league.js"></script>
 <script type="text/javascript" src="bootstrap/js/moment.js"></script>
 <script type="text/javascript" src="bootstrap/js/jquery.timeago.js"></script>
-<script type="text/javascript" src="bootstrap/js/odometer.js"></script>
 <script>
     $(".sidebar-queue-start, .sidebar-list-link-game").click(function () {
         // Initiate role selection

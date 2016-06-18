@@ -1,5 +1,3 @@
-
-
 /* Side Menu Open */
 $(".side-menu, .side-menu-open").click(function () {
     if ($('.sidebar-menu-ico').is('#menu-visible')) {
@@ -47,73 +45,38 @@ $("#activate-lobby").click(function () {
 })
 
 
-/* Set Entries Hidden by default */
-$('.sidebar-lobby-entry-filters').css('margin-top', '-250px')
-$('.sidebar-lobby-entry-wrapper').css('opacity', '0')
-$('#entries').addClass('ico-hidden')
-
-
-/* Show Mode/Entry */
+// Hide/Show Modes
 $(".sidebar-lobby-mode").click(function () {
-    if ($('#entries').hasClass("ico-hidden")) {
-        if ($('#modes').hasClass("ico-hidden")) {
-            $('.sidebar-lobby-mode-filters').css('margin-top', '')
-            $('.sidebar-lobby-mode-wrapper').css('opacity', '')
-            $('#modes').removeClass('ico-hidden')
-        } else {
-            $('.sidebar-lobby-mode-filters').css('margin-top', '-200px')
-            $('.sidebar-lobby-mode-wrapper').css('opacity', '0')
-            $('#modes').addClass('ico-hidden')
-        }
-    } else {
-        $('.sidebar-lobby-entry').addClass('animated pulse')
-        $('.sidebar-lobby-entry-filters').css('margin-top', '-200px')
-        $('.sidebar-lobby-entry-wrapper').css('opacity', '0')
-        $('#entries').addClass('ico-hidden')
-        setTimeout(function () {
-            $('.sidebar-lobby-mode-filters').css('margin-top', '')
-            $('.sidebar-lobby-mode-wrapper').css('opacity', '')
-            $('#modes').removeClass('ico-hidden')
-        }, 150)
-    }
+    $('.sidebar-lobby-entry').addClass('animated pulse')
+    $('.queue-filters').removeClass('sidebar-entry-visible');
+    $('#entries').addClass('ico-hidden')
+    setTimeout(function () {
+        $('#modes').removeClass('ico-hidden')
+    }, 150)
 })
 
+
+// Hide/Show Entry
 $(".sidebar-lobby-entry").click(function () {
     $('.sidebar-lobby-entry').removeClass('animated pulse')
+
+    // Check if game modes selected
     if ($('.game-mode-players').children('div').hasClass('active') && $('.sidebar-lobby-mode-filters').children('div').hasClass('active')) {
-        if ($('#modes').hasClass("ico-hidden")) {
-            if ($('#entries').hasClass("ico-hidden")) {
-                $('.sidebar-lobby-entry-filters').css('margin-top', '')
-                $('.sidebar-lobby-entry-wrapper').css('opacity', '')
-                $('#entries').removeClass('ico-hidden')
-            } else {
-                $('.sidebar-lobby-entry').addClass('animated pulse')
-                $('.sidebar-lobby-entry-filters').css('margin-top', '-200px')
-                $('.sidebar-lobby-entry-wrapper').css('opacity', '0')
-                $('#entries').addClass('ico-hidden')
-            }
-        } else {
-            $('.sidebar-lobby-mode-filters').css('margin-top', '-200px')
-            $('.sidebar-lobby-mode-wrapper').css('opacity', '0')
-            $('#modes').addClass('ico-hidden')
-            setTimeout(function () {
-                $('.sidebar-lobby-entry-filters').css('margin-top', '')
-                $('.sidebar-lobby-entry-wrapper').css('opacity', '')
-                $('#entries').removeClass('ico-hidden')
-            }, 150)
-        }
+        $('.queue-filters').addClass('sidebar-entry-visible');
+        $('#modes').addClass('ico-hidden')
+        setTimeout(function () {
+            $('#entries').removeClass('ico-hidden')
+        }, 150)
     } else {
+
+        // Show Error if insufficient Mode selection
         $('.sidebar-entry-error').removeClass('error-hidden')
         setTimeout(function () {
             $('.sidebar-entry-error').addClass('error-hidden')
         }, 1200)
+
     }
 })
-
-
-
-
-1
 
 
 /* Select Filters */

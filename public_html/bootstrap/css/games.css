@@ -817,15 +817,19 @@ a:hover {
 }
 
 .content {
+    position:absolute;
+    top:0;
+    -webkit-filter:blur(3px);
+    filter:blur(3px);
     margin-left:12.5%;
     width:100%;
+    pointer-events: none;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.8s;
     -moz-transition-duration: 0.8s;
     -o-transition-duration: 0.8s;
     transition-duration: 0.8s;
-
 }
 
 .content--loading {
@@ -1328,8 +1332,8 @@ a:hover {
     top:0px;
     height:100%;
     width:100%;
-    background-color:rgba(0,0,0,0.7);
-    opacity:0;
+    background-color:#0c0e10;
+    opacity:0.8;
     z-index:4;
        -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -1820,4 +1824,31 @@ margin-top:20px;
 }
 .sidebar-game-view:hover {
     opacity:0.5 !important;
+}
+
+.main-content {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    z-index:5;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.55s;
+    -moz-transition-duration: 0.55s;
+    -o-transition-duration: 0.55s;
+    transition-duration: 0.55s;
+}
+
+.bot-content {
+        position: absolute;
+    bottom:0;
+    height: 150px;
+    z-index: 4;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+    background: -webkit-linear-gradient(bottom, #080c11, transparent);
+    background: -o-linear-gradient(transparent, #0e141b);
+    background: -moz-linear-gradient(transparent, #0e141b);
+    background: linear-gradient(bottom, #080c11, transparent);
 }

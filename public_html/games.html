@@ -8,8 +8,8 @@
     <title>Orcus - All Games</title>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link href="bootstrap/css/games.css" rel="stylesheet">
     <link href="bootstrap/css/games_league.css" rel="stylesheet">
+        <link href="bootstrap/css/games.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -118,7 +118,36 @@
                 </div>
             </div>
         </div>
-
+<div class='sidebar-game-link'>
+            <div class='sidebar-game-logo-wr'>
+                <img src='bootstrap/img/league_preview.png' class='sidebar-game-logo-img'>
+            </div>
+            <div class='sidebar-game-name'>League of Legends</div>
+            <div class='sidebar-game-view'><img src='bootstrap/img/view_game.svg' class='game-view-ico'></div>
+            <div class='sidebar-game-stats-wr'>
+                <div class='sidebar-game-stats'>
+                    <span class='gd-stat-number'>503</span> <span class='gd-stat-text'>in <span class='bold'>queue</span></span>
+                </div>
+                <div class='sidebar-game-stats'>
+                    <span class='gd-stat-number'>32432</span> <span class='gd-stat-text bold'>players</span>
+                </div>
+            </div>
+        </div>
+   <div class='sidebar-game-link'>
+            <div class='sidebar-game-logo-wr'>
+                <img src='bootstrap/img/league_preview.png' class='sidebar-game-logo-img'>
+            </div>
+            <div class='sidebar-game-name'>League of Legends</div>
+            <div class='sidebar-game-view'><img src='bootstrap/img/view_game.svg' class='game-view-ico'></div>
+            <div class='sidebar-game-stats-wr'>
+                <div class='sidebar-game-stats'>
+                    <span class='gd-stat-number'>503</span> <span class='gd-stat-text'>in <span class='bold'>queue</span></span>
+                </div>
+                <div class='sidebar-game-stats'>
+                    <span class='gd-stat-number'>32432</span> <span class='gd-stat-text bold'>players</span>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -129,94 +158,17 @@
 
 
 
-    <!-- Content -->
-    <div class="content">
-
-        <!-- Backgrounds -->
-        <img src='bootstrap/img/game_details_bg_league_blur.jpg' class='content-bg' id='blur-bg'>
-        <!-- <video loop muted autoplay poser="bootstrap/img/lp_header.png" class="video">
-            <source src="bootstrap/video/game_hub_bg2.mp4" type="video/mp4">
-        </video>
-
-
-
-        <!-- Menu Bar -->
-        <div class='menu-bar-top'>
-            <a href="#">
-                <img src='bootstrap/img/logo_solo.png' class='menu-logo'>
-                <img src='bootstrap/img/orcus_font.png' class='menu-logo-font'>
-            </a>
-            <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
-            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
-            <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
-            <div class='menu-options'>
-                <div class='menu-icons'>
-                    <img src='bootstrap/img/feedback-ico.svg' class='feedback-ico'>
-                    <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
-
-                    <img src='bootstrap/img/friends-ico.svg' class='menu-ico hidden' id='friends'>
-                    <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
-                    <img src='bootstrap/img/invest-ico.svg' class='menu-ico hidden' id='invest'>
-                    <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
-                    <img src='bootstrap/img/tournament-ico.svg' class='menu-ico hidden' id='tournament'>
-                    <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
-                </div>
-                <div class='menu-play'>
-                    <img src='bootstrap/img/play-ico.svg' class='svg play-ico'>
-                    <span class='play-text'>Play</span>
-                    <img src='bootstrap/img/bloom.png' class='play-bloom animated pulse'>
-                </div>
-                <div class='menu-create show-filters'>
-                    <div class='menu-create-normal '>
-                        <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
-                        <span class='create-text'>Create Lobby</span>
-                    </div>
-                    <div class='menu-create-filters invis'>
-                        <div class='filter-game-modes'>
-                        </div>
-                    </div>
-                    <div class='filter-entry invis'>
-                        <span class='filter-entry-text'>Entry</span>
-                        <span class='filter-entry-value'></span>
-                    </div>
-                </div>
-                <!-- Menu -->
-                <nav class='user-menu'>
-                    <div class='user-menu-container'>
-                        <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency_dark.svg' style='margin-bottom:3px;'></a>
-                        <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class='lobby-top-bar'>
-            <h1 class='lobby-role-selection-title lobby-title-visible' id='role-text'>Role Selection</h1>
-            <h1 class='lobby-role-selection-title' id='queue-text'>Finding Team</h1>
-            <h1 class='lobby-role-selection-title' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
-            <div class='lobby-queue-players'>
-                <div class='lobby-queue-ava lobby-queue-ava-free'>
-                    <img src='' class='lobby-queue-img invis'>
-                </div>
-                <div class='lobby-queue-ava lobby-queue-ava-free'>
-                    <img src='' class='lobby-queue-img invis'>
-                </div>
-                <div class='lobby-queue-ava lobby-queue-ava-free'>
-                    <img src='' class='lobby-queue-img invis'>
-                </div>
-                <div class='lobby-queue-ava lobby-queue-ava-free'>
-                    <img src='' class='lobby-queue-img invis'>
-                </div>
-                <div class='lobby-queue-ava lobby-queue-ava-free'>
-                    <img src='' class='lobby-queue-img invis'>
-                </div>
-            </div>
-        </div>
 
 
 
 
-        <!-- Left Side -->
-        <div class='main-content' id='main'>
+
+
+<!-- Game Info Preview -->
+<div class='content-helper'></div>
+ <div class='content-primary'>
+
+      <div class='main-content' id='main'>
             <!-- News/Notifications -->
             <div class='news-notifications news-visible'>
                 <script src='bootstrap/js/gallery.js'></script>
@@ -343,8 +295,126 @@
                         </div>
                     </div>
                 </div>
-
+          </div>
             </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- Backgrounds -->
+        <img src='bootstrap/img/game_details_bg_league_blur.jpg' class='content-bg' id='blur-bg'>
+        <!-- <video loop muted autoplay poser="bootstrap/img/lp_header.png" class="video">
+            <source src="bootstrap/video/game_hub_bg2.mp4" type="video/mp4">
+        </video>
+
+
+
+        <!-- Menu Bar -->
+        <div class='menu-bar-top'>
+            <a href="#">
+                <img src='bootstrap/img/logo_solo.png' class='menu-logo'>
+                <img src='bootstrap/img/orcus_font.png' class='menu-logo-font'>
+            </a>
+            <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
+            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
+            <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
+            <div class='menu-options'>
+                <div class='menu-icons'>
+                    <img src='bootstrap/img/feedback-ico.svg' class='feedback-ico'>
+                    <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
+
+                    <img src='bootstrap/img/friends-ico.svg' class='menu-ico hidden' id='friends'>
+                    <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
+                    <img src='bootstrap/img/invest-ico.svg' class='menu-ico hidden' id='invest'>
+                    <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
+                    <img src='bootstrap/img/tournament-ico.svg' class='menu-ico hidden' id='tournament'>
+                    <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
+                </div>
+                <div class='menu-play'>
+                    <img src='bootstrap/img/play-ico.svg' class='svg play-ico'>
+                    <span class='play-text'>Play</span>
+                    <img src='bootstrap/img/bloom.png' class='play-bloom animated pulse'>
+                </div>
+                <div class='menu-create show-filters'>
+                    <div class='menu-create-normal '>
+                        <img src='bootstrap/img/create_lobby_ico.svg' class='create-ico'>
+                        <span class='create-text'>Create Lobby</span>
+                    </div>
+                    <div class='menu-create-filters invis'>
+                        <div class='filter-game-modes'>
+                        </div>
+                    </div>
+                    <div class='filter-entry invis'>
+                        <span class='filter-entry-text'>Entry</span>
+                        <span class='filter-entry-value'></span>
+                    </div>
+                </div>
+                <!-- Menu -->
+                <nav class='user-menu'>
+                    <div class='user-menu-container'>
+                        <a href='#' class='user-money'>50.00 <img src='bootstrap/img/currency_dark.svg' style='margin-bottom:3px;'></a>
+                        <a class='side-menu'><img src='bootstrap/img/hamburger.svg' class='sidebar-menu-ico'></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class='lobby-top-bar'>
+            <h1 class='lobby-role-selection-title lobby-title-visible' id='role-text'>Role Selection</h1>
+            <h1 class='lobby-role-selection-title' id='queue-text'>Finding Team</h1>
+            <h1 class='lobby-role-selection-title' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
+            <div class='lobby-queue-players'>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+                <div class='lobby-queue-ava lobby-queue-ava-free'>
+                    <img src='' class='lobby-queue-img invis'>
+                </div>
+            </div>
+        </div>
+
+
+
 
 
             <div class="lobby">
@@ -357,7 +427,6 @@
 
             </div>
 
-        </div>
         <!-- End Main Content -->
         <div class='bot-content'>
             <div class='squad'>
@@ -506,6 +575,7 @@
         <div class='lobby-bot-bar'>
             <div class="lock-in-role lock-in-ready"> Lock In </div>
         </div>
+
 
     </div>
     <script src="bootstrap/js/games.js"></script>

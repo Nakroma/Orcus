@@ -3678,6 +3678,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
     width: 100%;
     margin: auto;
+    z-index:5;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;
@@ -6344,4 +6345,24 @@ input[type=number]::-webkit-outer-spin-button {
 .sidebar-entry-visible .sidebar-lobby-options-wrapper .sidebar-lobby-mode-filters {
     margin-top:-250px;
    transition-delay:0s;
+}
+
+.content-primary {
+ display:inline-block;
+    position:relative;
+    vertical-align: middle;
+    z-index:6;
+    margin-left:12.5%;
+    width:100%;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.content-helper {
+    display:inline-block;
+    height:30vh;
 }

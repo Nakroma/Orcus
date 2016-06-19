@@ -1332,7 +1332,7 @@ a:hover {
     top:0px;
     height:100%;
     width:100%;
-    background-color:#0c0e10;
+    background-color:#14181f;
     opacity:0.8;
     z-index:4;
        -webkit-transition-timing-function: ease;
@@ -1467,7 +1467,7 @@ c.user-money {
     overflow:hidden;
     top: 0px;
     width: 25%;
-       background: linear-gradient(to bottom, #1c2129, #282f3a);
+    background: linear-gradient(to top, #19232d, #212d3a);
     height:100%;
 z-index:8;
     border-right:solid 1px #2a303a;

@@ -3473,10 +3473,10 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     z-index: 1;
     height: 131px;
-    background: -webkit-linear-gradient(to bottom, transparent, rgba(14,20,27,0.8));
-    background: -o-linear-gradient(transparent, rgba(14,20,27,0.8));
-    background: -moz-linear-gradient(transparent, rgba(14,20,27,0.8));
-    background: linear-gradient(to top, transparent, rgba(14,20,27,0.8));
+    background: -webkit-linear-gradient(to bottom, transparent, rgba(23,31,41,1));
+    background: -o-linear-gradient(transparent, rgba(23,31,41,1));
+    background: -moz-linear-gradient(transparent, rgba(23,31,41,1));
+    background: linear-gradient(to top, transparent, rgba(23,31,41,1));
     width: 100%;
 }
 
@@ -5830,10 +5830,10 @@ input[type=number]::-webkit-outer-spin-button {
     pointer-events: none;
     width: 100%;
     text-align: center;
-    background: -webkit-linear-gradient(bottom, rgba(14,20,27,1), transparent);
+    background: -webkit-linear-gradient(bottom, rgba(23,31,41,1), transparent);
     background: -o-linear-gradient(transparent, #0e141b);
     background: -moz-linear-gradient(transparent, #0e141b);
-    background: linear-gradient(bottom, rgba(14,20,27,0.6), transparent);
+    background: linear-gradient(bottom, rgba(23,31,41,1), transparent);
 }
 
 .bot-mid-notifications {

@@ -1846,8 +1846,8 @@ margin-top:20px;
     pointer-events: none;
     width: 100%;
     text-align: center;
-    background: -webkit-linear-gradient(bottom, #080c11, transparent);
+    background: -webkit-linear-gradient(bottom, rgba(23,31,41,1), transparent);
     background: -o-linear-gradient(transparent, #0e141b);
     background: -moz-linear-gradient(transparent, #0e141b);
-    background: linear-gradient(bottom, #080c11, transparent);
+    background: linear-gradient(bottom, rgba(23,31,41,1), transparent);
 }

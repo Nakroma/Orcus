@@ -1332,8 +1332,8 @@ a:hover {
     top:0px;
     height:100%;
     width:100%;
-    background-color:#14181f;
-    opacity:0.8;
+    background-color:#191e27;
+    opacity:0.6;
     z-index:4;
        -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
@@ -1467,10 +1467,9 @@ c.user-money {
     overflow:hidden;
     top: 0px;
     width: 25%;
-    background: linear-gradient(to top, #19232d, #212d3a);
+ background-image: linear-gradient(to top, #161b21, #1e2632);
     height:100%;
 z-index:8;
-    border-right:solid 1px #2a303a;
     -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
     -webkit-transition-duration: 0.55s;

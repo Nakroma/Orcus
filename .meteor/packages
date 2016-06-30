@@ -16,9 +16,16 @@ standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
+# Meteor Utility
 reactive-dict
 accounts-ui
 accounts-password
 practicalmeteor:mocha
+
+# SASS
 seba:minifiers-autoprefixer
 fourseven:scss
+
+# Online Utility
+mizzao:user-status
+aldeed:collection2

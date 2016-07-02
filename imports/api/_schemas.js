@@ -4,20 +4,27 @@
 
 var Schemas = {};
 
+/* Schema whenever a user is referenced */
+Schemas.UserData = new SimpleSchema({
+    uID: {
+        type: String,
+        regEx: SimpleSchema.regEx.Id
+    },
+    username: {
+        type: String
+    }
+});
+
+/* Chat.js schema */
 Schemas.Chat = new SimpleSchema({
     text: {
         type: String,
         label: 'Chat Message',
         max: 200
     },
-    owner: {
-        type: String,
-        label: 'Author userID',
-        regEx: SimpleSchema.regEx.Id
-    },
-    username: {
-        type: String,
-        label: 'Author Username'
+    author: {
+        type: Schemas.UserData,
+        label: 'Author of the message'
     },
     createdAt: {
         type: Date,

@@ -10,11 +10,14 @@ Schema.User = new SimpleSchema({
         type: Array,
         optional: true
     },
-    "emails.$.address": {
+    'emails.$': {
+        type: Object
+    },
+    'emails.$.address': {
         type: String,
         regEx: SimpleSchema.RegEx.Email
     },
-    "emails.$.verified": {
+    'emails.$.verified': {
         type: Boolean
     },
     createdAt: {
@@ -46,6 +49,12 @@ Schema.User = new SimpleSchema({
     heartbeat: {
         type: Date,
         optional: true
+    },
+    // Status for meteor-user-status
+    status: {
+        type: Object,
+        optional: true,
+        blackbox: true
     }
 });
 

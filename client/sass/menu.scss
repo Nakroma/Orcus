@@ -1,0 +1,267 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+// Top bar
+// ------------------------------
+
+.menu-bar-top {
+  position: relative;
+  z-index: 1;
+  height: $width-menu-bar;
+  @include bg-gradient($color-menu-gradient);
+  width: 100%;
+}
+
+.menu-bar-top a .menu-logo {
+  vertical-align: top;
+  height: $height-menu-logo;
+  margin-top: $margin-top-menu-logo;
+  padding-left: $padding-left-menu-logo;
+  padding-right: $padding-right-menu-logo;
+}
+
+.menu-bar-top a .menu-logo-font {
+  vertical-align: top;
+  height: $height-menu-logo-font;
+  margin-top: $margin-top-menu-logo-font;
+}
+
+.sidebar-list-link:first-of-type {
+  padding-left: $padding-left-menu-list-link-fot;
+}
+
+.sidebar-list-link {
+  display: inline-block;
+  margin-top: $margin-top-menu-list-link;
+  margin-left: $margin-left-menu-list-link;
+  z-index: 1;
+  text-transform: uppercase;
+  @include font-menu-small($color-menu-list-link);
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.sidebar-list-link:hover {
+  color: $color-menu-list-link-select;
+}
+
+.sidebar-list-link-game {
+  display: inline-block;
+  z-index: 1;
+  margin-top: $margin-top-menu-list-link-game;
+  margin-left: $margin-left-menu-list-link;
+  font-weight: $font-weight-menu-list-link-game;
+  padding-right: $padding-right-menu-list-link-game;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  @include font-menu-small($color-menu-list-link-select);
+}
+
+
+// Menu Options
+// ------------------------------
+
+.menu-options {
+  float: right;
+}
+
+.menu-options .menu-icons {
+  @include inline-block-relative;
+  vertical-align: super;
+}
+
+.menu-options .menu-icons .menu-ico {
+  height: $height-menu-options-ico;
+  margin-bottom: $margin-bottom-menu-options-ico;
+  margin-right: $margin-right-menu-options-ico;
+  cursor: pointer;
+}
+
+.menu-options .menu-icons .menu-ico-desc {
+  text-transform: uppercase;
+  padding-right: 10px;
+  cursor: pointer;
+  @include font-menu-small($color-menu-create-text);
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.menu-options .menu-icons .feedback-ico {
+  height: $height-menu-options-ico;
+  margin-bottom: $margin-bottom-menu-options-feedback-ico;
+  margin-right: $margin-right-menu-options-feedback-ico;
+  transform: rotate(45deg);
+}
+
+.menu-options .menu-icons .desc-hidden {
+  @include menu-desc-hidden($margin-left-menu-options-desc-hidden);
+}
+
+.menu-options .menu-icons .desc-hidden-2 {
+  @include menu-desc-hidden($margin-left-menu-options-desc-hidden-2);
+}
+
+.menu-options .menu-icons .desc-hidden-3 {
+  z-index: -1;
+  @include menu-desc-hidden($margin-left-menu-options-desc-hidden-3);
+}
+
+.menu-options .menu-play {
+  @include inline-block-relative;
+  top: -1px;
+  height: $height-menu-play;
+  line-height: $line-height-menu-play;
+  cursor: pointer;
+  padding: 0 $padding-right-menu-play;
+  border: 1px solid;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from($color-menu-play-gradient), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image: -webkit-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image: -moz-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image: -o-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
+  border-image: linear-gradient(to bottom, $color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.menu-options .menu-play:hover {
+  opacity: $opacity-menu-play-hover;
+  border-left: 1px solid $color-menu-play-hover;
+  border-right: 1px solid $color-menu-play-hover;
+}
+
+.menu-options .menu-play .play-ico {
+  @include inline-block-relative;
+  top: $top-menu-play-ico;
+  margin-bottom: $margin-bottom-menu-play-ico;
+  margin-right: $margin-right-menu-play-ico;
+  width: $width-menu-play-ico;
+}
+
+.menu-options .menu-play .play-text {
+  position: relative;
+  top: $top-menu-play-text;
+  height: $height-menu-play-text;
+  font-weight: $font-weight-menu-play-text;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  @include font-menu-small($color-menu-play-text);
+}
+
+.menu-options .menu-play .play-bloom {
+  position: relative;
+  height: $height-menu-play-bloom;
+  margin-left: $margin-left-menu-play-bloom;
+  left: $left-menu-play-bloom;
+  top: $top-menu-play-bloom;
+}
+
+.menu-options .menu-play .animated {
+  animation-duration: $animation-duration-menu-play-bloom;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.menu-options .menu-create {
+  display: inline-block;
+  padding: 0 $padding-right-menu-create;
+  height: $height-menu-create;
+  line-height: $line-height-menu-create;
+  margin-right: $margin-right-menu-create;
+  text-align: center;
+  cursor: pointer;
+  @include ease(ease, $transition-duration-menu-list-link)
+}
+
+.menu-options .menu-create:hover {
+  opacity: $opacity-menu-play-hover;
+}
+
+.menu-options .show-filters {
+  cursor: auto;
+  pointer-events: none;
+}
+
+.menu-options .show-filters:hover {
+  opacity: 1;
+}
+
+.menu-options .menu-create .create-ico {
+  display: inline-block;
+  margin-bottom: $margin-bottom-menu-create-ico;
+  margin-right: $margin-right-menu-create-ico;
+  width: $width-menu-create-ico;
+}
+
+.menu-options .menu-create .create-text {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  top: $top-menu-create-text;
+  @include font-menu-small($color-menu-create-text);
+}
+
+.menu-options .menu-create .menu-create-filters {
+  position: absolute;
+  top: 0;
+  line-height: 0;
+  cursor: auto;
+}
+
+.menu-options .menu-create .menu-create-filters .filter-game-modes {
+  margin-top: $margin-top-menu-create-filter-modes;
+}
+
+.menu-options .menu-create .filter-entry {
+  @include inline-block-absolute;
+  line-height: 0;
+  top: $top-menu-create-filter-entry;
+  margin-left: $margin-left-menu-create-filter-entry;
+  cursor: auto;
+}
+
+.menu-options .menu-create .filter-entry .filter-entry-text {
+  color: $color-menu-create-text;
+  text-transform: uppercase;
+  font-size: $font-size-menu-create-filter-entry;
+}
+
+.menu-options .menu-create .filter-entry .filter-entry-value {
+  font-family: 'titillium web';
+  color: $color-menu-list-link-select;
+}
+
+.menu-options .user-menu {
+  @include inline-block-absolute;
+  right: $right-menu-user-menu;
+  top: $top-menu-user-menu;
+  z-index: 5;
+  @include ease($content-transition-timing, $transition-duration-menu-user-menu);
+}
+
+.menu-options .user-menu .user-money {
+  margin-left: $margin-left-menu-user-menu;
+  font-weight: $font-weight-menu-play-text;
+  @include ease(ease, $transition-duration-menu-list-link);
+  @include font-menu-small($color-menu-create-text);
+}
+
+.menu-options .user-menu .user-money:hover {
+  color: $color-menu-play-text;
+}
+
+.menu-options .user-menu .side-menu {
+  display: inline-block;
+  margin-left: $margin-left-menu-user-menu;
+  cursor: pointer;
+}
+
+.menu-options .user-menu .sidebar-menu-ico {
+  height: $height-menu-user-menu-ico;
+  margin-bottom: $margin-bottom-menu-user-menu-ico;
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.menu-options .user-menu .sidebar-menu-ico:hover {
+  opacity: $opacity-menu-play-hover;
+}

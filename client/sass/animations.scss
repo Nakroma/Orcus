@@ -1,0 +1,25 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+
+
+// Pulse animation
+// ------------------------------
+
+@keyframes pulse {
+  0% {
+    opacity: $animation-pulse-keyframe-wrap;
+  }
+  50% {
+    opacity: $animation-pulse-keyframe-middle;
+  }
+  100% {
+    opacity: $animation-pulse-keyframe-wrap;
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: $animation-duration-pulse;
+}

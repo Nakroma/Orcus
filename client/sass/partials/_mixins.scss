@@ -41,14 +41,19 @@
     color: $color;
 }
 
+@mixin font-menu-small($color) {
+    font-family: 'titillium web';
+    font-size: 16px;
+    color: $color;
+}
 
 
 // Animations
 // ------------------------------
 
-@mixin ease($timing){
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
+@mixin ease($function, $timing){
+    -webkit-transition-timing-function: $function;
+    transition-timing-function: $function;
     -webkit-transition-duration: $timing;
     -moz-transition-duration: $timing;
     -o-transition-duration: $timing;
@@ -68,6 +73,22 @@
 @mixin vertical-align {
     display: inline-block;
     vertical-align: middle;
+}
+
+@mixin inline-block-relative {
+    display: inline-block;
+    position: relative;
+}
+
+@mixin inline-block-absolute {
+  display: inline-block;
+  position: absolute;
+}
+
+@mixin menu-desc-hidden($margin-left) {
+  opacity: 0;
+  margin-left: $margin-left;
+  pointer-events: none;
 }
 
 
@@ -107,5 +128,16 @@
     cursor:pointer;
     border:0;
     padding:1px;
-    @include ease(0.15s);
+    @include ease(ease, 0.15s);
+}
+
+
+// Colors
+// ------------------------------
+
+@mixin bg-gradient($rgba) {
+    background: -webkit-linear-gradient(to bottom, transparent, $rgba);
+    background: -o-linear-gradient(transparent, $rgba);
+    background: -moz-linear-gradient(transparent, $rgba);
+    background: linear-gradient(to top, transparent, $rgba);
 }

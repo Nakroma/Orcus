@@ -1,0 +1,42 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+// Body
+// ------------------------------
+
+body {
+  position: relative;
+  background-color: $color-body;
+  overflow: hidden;
+}
+
+
+// Content div
+// ------------------------------
+
+.content {
+  display: inline-block;
+  opacity: 1;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-filter: blur(0px);
+  overflow: hidden;
+  @include ease($content-transition-timing, $content-transition-duration);
+}
+
+.content-bg {
+  position: absolute;
+  z-index: -2;
+  opacity: 0.5;
+  min-width: 100vw;
+  min-height: 100vh;
+  @include ease(ease, $content-bg-transition-duration);
+}
+
+.invis {
+  opacity: 0 !important;
+}

@@ -1,9 +1,66 @@
 <body>
+    <div class="content">
+        <!-- Backgrounds -->
+        <img src='/img/backgrounds/bg_league.jpg' class='content-bg invis' id='normal-bg'>
+        <img src='/img/backgrounds/bg_league_blur.jpg' class='content-bg' id='blur-bg'>
 
-    {{> loginButtons}}
 
-    {{#if currentUser}}
-    Test
-    {{/if}}
+        <!-- Menu Bar -->
+        <div class='menu-bar-top'>
+            <a href="#">
+                <img src='/img/logo/logo_solo.png' class='menu-logo'>
+                <img src='/img/logo/orcus_font.png' class='menu-logo-font'>
+            </a>
+            <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
+            <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
+            <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
 
+            <div class='menu-options'>
+                <div class='menu-icons'>
+                    <img src='/img/menu/feedback-ico.svg' class='feedback-ico'>
+                    <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
+
+                    <img src='/img/menu/friends-ico.svg' class='menu-ico hidden' id='friends'>
+                    <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
+                    <img src='/img/menu/invest-ico.svg' class='menu-ico hidden' id='invest'>
+                    <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
+                    <img src='/img/menu/tournament-ico.svg' class='menu-ico hidden' id='tournament'>
+                    <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
+                </div>
+
+                <div class='menu-play'>
+                    <img src='/img/menu/play-ico.svg' class='svg play-ico'>
+                    <span class='play-text'>Play</span>
+                    <img src='/img/menu/bloom.png' class='play-bloom animated pulse'>
+                </div>
+
+                <div class='menu-create show-filters'>
+                    <div class='menu-create-normal'>
+                        <img src='/img/menu/create_lobby_ico.svg' class='create-ico'>
+                        <span class='create-text'>Create Lobby</span>
+                    </div>
+                    <div class='menu-create-filters invis'>
+                        <div class='filter-game-modes'>
+                        </div>
+                    </div>
+                    <div class='filter-entry invis'>
+                        <span class='filter-entry-text'>Entry</span>
+                        <span class='filter-entry-value'></span>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <nav class='user-menu'>
+                    <div class='user-menu-container'>
+                        <a href='#' class='user-money'>50.00 <img src='/img/menu/currency_dark.svg' style='margin-bottom:3px;'></a>
+                        <a class='side-menu'><img src='/img/menu/hamburger.svg' class='sidebar-menu-ico'></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+        {{> loginButtons}}
+    </div>
 </body>

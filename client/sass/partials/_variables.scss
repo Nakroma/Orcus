@@ -1,0 +1,117 @@
+// Main Color Palette
+// ------------------------------
+
+$color-base: #2e3540;
+$color-accent: #32ab7f;
+$color-subtle: #8ea1ac;
+$color-warning: #ca2e22;
+$color-on-bg: #fff;
+$color-subtle-2: #acc2cf;
+
+$color-body: #272c32;
+$color-menu-gradient: rgba(23, 31, 41, 1);
+$color-menu-play-gradient: rgba(95, 127, 149, 0.36);
+$color-menu-play-hover: rgba(135, 145, 160, 0.4);
+$color-menu-play-text: #00b4ff;
+$color-menu-list-link: #788293;
+$color-menu-list-link-select: white;
+$color-menu-create-text: #8791a0;
+
+
+// Functions
+// ------------------------------
+
+$content-transition-timing: cubic-bezier(0, 1.01, .55, .99);
+$content-transition-duration: 0.75s;
+$content-bg-transition-duration: 0.8s;
+
+$transition-duration-menu-list-link: 0.35s;
+$transition-duration-menu-user-menu: 0.55s;
+$animation-duration-menu-play-bloom: 2.5s;
+
+
+// Dimensions
+// ------------------------------
+
+$width-menu-bar: 131px;
+$width-menu-play-ico: 20px;
+$width-menu-create-ico: 23px;
+
+$height-menu-logo: 32px;
+$height-menu-logo-font: 16px;
+$height-menu-options-ico: 20px;
+$height-menu-play: 113px;
+$height-menu-play-text: 16px;
+$height-menu-play-bloom: 103px;
+$height-menu-create: 103px;
+$height-menu-user-menu-ico: 17px;
+$line-height-menu-play: 134px;
+$line-height-menu-create: 120px;
+
+$top-menu-play-ico: -3px;
+$top-menu-play-text: -4px;
+$top-menu-play-bloom: -7px;
+$top-menu-create-text: -4px;
+$top-menu-create-filter-entry: 7px;
+$top-menu-user-menu: 52px;
+$right-menu-user-menu: 5%;
+$left-menu-play-bloom: 45px;
+
+
+$margin-top-menu-logo: 45px;
+$margin-top-menu-logo-font: 54px;
+$margin-top-menu-list-link: 51px;
+$margin-top-menu-list-link-game: 10px;
+$margin-top-menu-create-filter-modes: 35px;
+
+$margin-left-menu-list-link: 5px;
+$margin-left-menu-options-desc-hidden: -55px;
+$margin-left-menu-options-desc-hidden-2: -65px;
+$margin-left-menu-options-desc-hidden-3: -115px;
+$margin-left-menu-play-bloom: -145px;
+$margin-left-menu-create-filter-entry: -75px;
+$margin-left-menu-user-menu: 15px;
+
+$margin-bottom-menu-options-ico: 4px;
+$margin-bottom-menu-options-feedback-ico: 7px;
+$margin-bottom-menu-play-ico: 6px;
+$margin-bottom-menu-create-ico: 12px;
+$margin-bottom-menu-user-menu-ico: 3px;
+
+$margin-right-menu-options-ico: 1vw;
+$margin-right-menu-options-feedback-ico: 18px;
+$margin-right-menu-play-ico: 5px;
+$margin-right-menu-create: calc(33vw - 320px);
+$margin-right-menu-create-ico: 2px;
+
+
+$padding-left-menu-logo: 100px;
+$padding-left-menu-list-link-fot: 5%;
+
+$padding-right-menu-logo: 4px;
+$padding-right-menu-list-link-game: 50px;
+$padding-right-menu-play: 63px;
+$padding-right-menu-create: 30px;
+
+
+// Typography
+// ------------------------------
+
+$font-weight-menu-list-link-game: 500;
+$font-weight-menu-play-text: 600;
+
+$font-size-menu-create-filter-entry: 12px;
+
+
+// Transformation
+// ------------------------------
+
+$opacity-menu-play-hover: 0.5;
+
+
+// Animations
+// ------------------------------
+
+$animation-duration-pulse: 2s;
+$animation-pulse-keyframe-wrap: 1;
+$animation-pulse-keyframe-middle: 0.05;

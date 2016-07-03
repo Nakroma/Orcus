@@ -16,6 +16,12 @@ $color-menu-play-text: #00b4ff;
 $color-menu-list-link: #788293;
 $color-menu-list-link-select: white;
 $color-menu-create-text: #8791a0;
+$color-content-news-gallery: white;
+$color-content-news-slidebot: #161b21;
+$color-content-lower-main-notification: #1e2632;
+$color-lobby-top-bar: rgba(25, 32, 40, 0.8);
+$color-lobby-top-border: #39414b;
+$color-content-lower-main-notification-rm: #acbace;
 
 
 // Functions
@@ -27,16 +33,24 @@ $content-bg-transition-duration: 0.8s;
 
 $transition-duration-menu-list-link: 0.35s;
 $transition-duration-menu-user-menu: 0.55s;
+$transition-duration-main-news: 0.6s;
 $animation-duration-menu-play-bloom: 2.5s;
 
 
 // Dimensions
 // ------------------------------
 
+$min-width-content-news-gallery-pic-img: 130%;
 $width-menu-bar: 131px;
 $width-menu-play-ico: 20px;
 $width-menu-create-ico: 23px;
+$width-content-news: 65%;
+$width-content-news-slideshow: 75%;
+$width-content-news-gallery-pagination-circle: 9px;
+$width-content-lower-main-wrapper: calc(75% + 10px);
+$width-content-lower-main-notification: calc(33.33% - 10px);
 
+$min-height-content-news-gallery-pic-img: 46vh;
 $height-menu-logo: 32px;
 $height-menu-logo-font: 16px;
 $height-menu-options-ico: 20px;
@@ -45,6 +59,13 @@ $height-menu-play-text: 16px;
 $height-menu-play-bloom: 103px;
 $height-menu-create: 103px;
 $height-menu-user-menu-ico: 17px;
+$height-content-news: calc(95vh - 343px);
+$height-content-news-slideshow: 63%;
+$height-content-news-gallery-pic: calc(50vh - 56.5px);
+$height-content-news-slidebot: 120px;
+$height-lobby-top-bar: 190px;
+$height-content-lower-main: calc(50vh - 56.5px);
+$height-content-lower-main-notification: calc((95vh - 198px) * 0.32);
 $line-height-menu-play: 134px;
 $line-height-menu-create: 120px;
 
@@ -54,15 +75,23 @@ $top-menu-play-bloom: -7px;
 $top-menu-create-text: -4px;
 $top-menu-create-filter-entry: 7px;
 $top-menu-user-menu: 52px;
+$top-lobby-top-bar: -150px;
 $right-menu-user-menu: 5%;
+$right-content-news-gallery-pic-img: -30%;
 $left-menu-play-bloom: 45px;
+$bottom-content-news-gallery-pagination: 45px;
 
+$margin-content-news-slideshow: 5px;
+$margin-content-lower-main-notification: 5px;
 
 $margin-top-menu-logo: 45px;
 $margin-top-menu-logo-font: 54px;
 $margin-top-menu-list-link: 51px;
 $margin-top-menu-list-link-game: 10px;
 $margin-top-menu-create-filter-modes: 35px;
+$margin-top-content-news: -160px;
+$margin-top-content-news-gallery-category: 79px;
+$margin-top-content-news-gallery-headline: -15px;
 
 $margin-left-menu-list-link: 5px;
 $margin-left-menu-options-desc-hidden: -55px;
@@ -71,19 +100,25 @@ $margin-left-menu-options-desc-hidden-3: -115px;
 $margin-left-menu-play-bloom: -145px;
 $margin-left-menu-create-filter-entry: -75px;
 $margin-left-menu-user-menu: 15px;
+$margin-left-content-news-gallery: -40px;
+$margin-left-content-news-gallery-category: 100px;
 
 $margin-bottom-menu-options-ico: 4px;
 $margin-bottom-menu-options-feedback-ico: 7px;
 $margin-bottom-menu-play-ico: 6px;
 $margin-bottom-menu-create-ico: 12px;
 $margin-bottom-menu-user-menu-ico: 3px;
+$margin-bottom-content-news: 30px;
 
 $margin-right-menu-options-ico: 1vw;
 $margin-right-menu-options-feedback-ico: 18px;
 $margin-right-menu-play-ico: 5px;
 $margin-right-menu-create: calc(33vw - 320px);
 $margin-right-menu-create-ico: 2px;
+$margin-right-content-news-gallery-pic: -3.5px;
 
+
+$padding-content-news-gallery-pagination-incr: 5px;
 
 $padding-left-menu-logo: 100px;
 $padding-left-menu-list-link-fot: 5%;
@@ -94,19 +129,32 @@ $padding-right-menu-play: 63px;
 $padding-right-menu-create: 30px;
 
 
+$background-size-content-news-slideshow: 8%;
+
+
 // Typography
 // ------------------------------
 
 $font-weight-menu-list-link-game: 500;
 $font-weight-menu-play-text: 600;
+$font-weight-content-news-gallery-category: 200;
+$font-weight-content-news-gallery-headline: 800;
+$font-weight-content-lower-main-notification-title: 500;
 
 $font-size-menu-create-filter-entry: 12px;
+$font-size-content-news-gallery-category: 14px;
+$font-size-content-news-gallery-headline: 36px;
+$font-size-content-lower-main-notification-title: 18px;
+
+$letter-spacing-content-news-gallery-category: 0.05em;
 
 
 // Transformation
 // ------------------------------
 
 $opacity-menu-play-hover: 0.5;
+$transform-scale-content-news: 0.965;
+$box-shadow-content-news-slideshow: 0px 3px 20px rgba(15, 24, 33, 0.6);
 
 
 // Animations
@@ -115,3 +163,9 @@ $opacity-menu-play-hover: 0.5;
 $animation-duration-pulse: 2s;
 $animation-pulse-keyframe-wrap: 1;
 $animation-pulse-keyframe-middle: 0.05;
+
+
+// Images
+// ------------------------------
+
+$background-image-content-news-slideshow: '/img/misc/kappa.png';

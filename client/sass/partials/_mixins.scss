@@ -47,6 +47,12 @@
     color: $color;
 }
 
+@mixin font-menu-custom($color, $size) {
+    font-family: 'titillium web';
+    font-size: $size;
+    color: $color;
+}
+
 
 // Animations
 // ------------------------------
@@ -81,14 +87,14 @@
 }
 
 @mixin inline-block-absolute {
-  display: inline-block;
-  position: absolute;
+    display: inline-block;
+    position: absolute;
 }
 
 @mixin menu-desc-hidden($margin-left) {
-  opacity: 0;
-  margin-left: $margin-left;
-  pointer-events: none;
+    opacity: 0;
+    margin-left: $margin-left;
+    pointer-events: none;
 }
 
 
@@ -140,4 +146,11 @@
     background: -o-linear-gradient(transparent, $rgba);
     background: -moz-linear-gradient(transparent, $rgba);
     background: linear-gradient(to top, transparent, $rgba);
+}
+
+@mixin bg-gradient2($color) {
+    background: -webkit-linear-gradient(transparent, $color);
+    background: -o-linear-gradient(transparent, $color);
+    background: -moz-linear-gradient(transparent, $color);
+    background: linear-gradient(transparent, $color);
 }

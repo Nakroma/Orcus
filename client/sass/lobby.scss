@@ -1,0 +1,21 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+// Top Bar
+// ------------------------------
+
+.lobby-top-bar {
+  position: relative;
+  top: $top-lobby-top-bar;
+  height: $height-lobby-top-bar;
+  background: $color-lobby-top-bar;
+  border-bottom: solid 1px $color-lobby-top-border;
+  opacity: 0;
+  transform: scale(0.95);
+  z-index: 0;
+  @include ease(ease, $transition-duration-main-news);
+}

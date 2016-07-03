@@ -1,0 +1,1 @@
+import './main_content.html';

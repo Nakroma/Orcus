@@ -1,0 +1,203 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+// Main
+// ------------------------------
+
+.main-content {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+  z-index: 5;
+  @include ease($content-transition-timing, $transition-duration-menu-user-menu);
+}
+
+.main-content .news-notifications {
+  opacity: 0;
+  width: $width-content-news;
+  height: $height-content-news;
+  margin: $margin-top-content-news auto $margin-bottom-content-news;
+  transform: scale($transform-scale-content-news);
+  @include ease(ease, $transition-duration-main-news);
+}
+
+.main-content .news-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.number {
+  font-family: 'arial';
+}
+
+
+// Slideshow
+// ------------------------------
+
+.news-slideshow {
+  position: relative;
+  height: $height-content-news-slideshow;
+  width: $width-content-news-slideshow;
+  margin: $margin-content-news-slideshow;
+  overflow: hidden;
+  box-shadow: $box-shadow-content-news-slideshow;
+  white-space: nowrap;
+  background: black url($background-image-content-news-slideshow) center no-repeat;
+  background-size: $background-size-content-news-slideshow;
+}
+
+.news-slideshow .gallery-pictures {
+  margin-top: 0;
+  margin-left: $margin-left-content-news-gallery;
+  list-style-type: none;
+}
+
+.news-slideshow .gallery-pictures .gallery-picture {
+  @include inline-block-relative;
+  width: 100%;
+  overflow: hidden;
+  margin-right: $margin-right-content-news-gallery-pic;
+  height: $height-content-news-gallery-pic;
+}
+
+.news-slideshow .gallery-pictures .gallery-picture .slideshow-img {
+  position: absolute;
+  min-height: $min-height-content-news-gallery-pic-img;
+  min-width: $min-width-content-news-gallery-pic-img;
+  right: $right-content-news-gallery-pic-img;
+  z-index: -1;
+}
+.img01 { // Hack
+  margin: -5% 15%;
+}
+.img02 {
+  margin: 0;
+}
+.img03 {
+  margin: -3% 25%;
+}
+
+.news-slideshow .gallery-pictures .gallery-picture .slideshow-category {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-content-news-gallery-category;
+  font-weight: $font-weight-content-news-gallery-category;
+  margin-left: $margin-left-content-news-gallery-category;
+  margin-top: $margin-top-content-news-gallery-category;
+  @include font-menu-custom($color-content-news-gallery, $font-size-content-news-gallery-category)
+}
+
+.news-slideshow .gallery-pictures .gallery-picture .slideshow-headline {
+  color: $color-content-news-gallery;
+  text-transform: uppercase;
+  margin-left: $margin-left-content-news-gallery-category;
+  margin-top: $margin-top-content-news-gallery-headline;
+  font-size: $font-size-content-news-gallery-headline;
+  font-weight: $font-weight-content-news-gallery-headline;
+}
+
+.news-slideshow .slide-bot-shade {
+  position: absolute;
+  height: $height-content-news-slidebot;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  @include bg-gradient2($color-content-news-slidebot);
+}
+
+.news-slideshow .slide-pagination {
+  position: absolute;
+  text-align: center;
+  bottom: $bottom-content-news-gallery-pagination;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.news-slideshow .slide-pagination .pagination-size-incr {
+  display: inline-block;
+  cursor: pointer;
+  padding: $padding-content-news-gallery-pagination-incr;
+}
+
+.news-slideshow .slide-pagination .pagination-size-incr .slide-pagination-circle {
+  display: inline-block;
+  height: $width-content-news-gallery-pagination-circle;
+  width: $width-content-news-gallery-pagination-circle;
+  border-radius: 50%;
+  background: $color-content-news-gallery;
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.news-slideshow .slide-pagination .pagination-size-incr:hover .slide-pagination-circle {
+  opacity: 0.5;
+}
+
+
+// Lower Main Content
+// ------------------------------
+
+.lower-main-content {
+  display: flex;
+  height: $height-content-lower-main;
+  flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.lower-main-content  .notification-wrapper {
+  width: $width-content-lower-main-wrapper;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.lower-main-content  .notification-wrapper .notification {
+  position: relative;
+  width: $width-content-lower-main-notification;
+  margin: $margin-content-lower-main-notification;
+  height: $height-content-lower-main-notification;
+  overflow: hidden;
+  box-shadow: $box-shadow-content-news-slideshow;
+  background-image: linear-gradient(to top, $color-content-news-slidebot, $color-content-lower-main-notification);
+  text-align: center;
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-hlpr {
+  @include vertical-align-helper(50%);
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-wr {
+  @include vertical-align;
+  text-align: left;
+  position: relative;
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-title {
+  font-weight: $font-weight-content-lower-main-notification-title;
+  text-transform: uppercase;
+  color: $color-content-news-gallery;
+  font-size: $font-size-content-lower-main-notification-title;
+  margin-bottom: 0;
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-txt {
+  color: $color-menu-create-text;
+  font-weight: $font-weight-content-lower-main-notification-title;
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-rm {
+  position: relative;
+  color: $color-content-lower-main-notification-rm;
+  top: 5px;
+  @include ease(ease, $transition-duration-menu-list-link);
+}
+
+.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-rm:hover {
+  color: $color-content-news-gallery;
+}

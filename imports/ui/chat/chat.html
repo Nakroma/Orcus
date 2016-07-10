@@ -1,0 +1,102 @@
+<template name="partChat">
+    <div class='chat-preview'>
+
+        <!-- Right Side / Chat -->
+        <div class='chat'>
+            <div class='chat-container'>
+                <div class='chat-groups'>
+                    <img src='/img/chat_arrow.svg' class='chat-arrow-left'>
+                    <div class='chats-groups-wrapper'>
+                        <div class='chat-hrz-wr' id='chat-hrz'>
+                            <div class='chat-group chat-group-active' id='all-chat'>
+                                <span class='chat-group-title'>All Chat</span>
+                                <br><span class='chat-group-desc'><span class='number'>590</span> online</span>
+                            </div>
+                            <div class='chat-group' id='squad-chat'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>Squad</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Main Menu</span>
+                                </div>
+                                <div class='chat-new-msgs msgs-invis'>
+                                    5
+                                </div>
+                            </div>
+                            <div class='chat-group'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>Dendi</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Idle</span>
+                                </div>
+                                <div class='chat-new-msgs '>
+                                    5
+                                </div>
+                            </div>
+                            <div class='chat-group'>
+                                <div class='chat-group-td'>
+                                    <span class='chat-group-title'>FatFuckMoh</span>
+                                    <br>
+                                    <span class='chat-group-desc'>Main Menu</span>
+                                </div>
+                                <div class='chat-new-msgs msgs-invis'>
+                                    5
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src='/img/chat_arrow.svg' class='chat-arrow-right'>
+                    <div class='chat-menu-ico-wrapper'>
+                        <img src='/img/small_menu_ico.svg' class='chat-menu-ico'>
+                    </div>
+                    <div class='chat-sub-menu-options'>
+                        <div class='chat-pm'>
+                            <img src='/img/chat_add.png' class='chat-add'>
+                            <input type='text' placeholder='Enter player to chat with' class='pm-friend-input'>
+                            <div class='sidebar-entry-error error-hidden' id='chat-group-error'>Not Found</div>
+                        </div>
+                    </div>
+                    <div class='bottom-border-indicator'>
+                        <div class='triangle-border-left'></div>
+                        <div class='triangle'></div>
+                        <div class='triangle-border-right'></div>
+                    </div>
+                </div>
+
+
+                <div class='chat-content'>
+                    <div class='chat-scroll'>
+                        <span class='chat-lobby-notification'></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class='chat-preview-wr'>
+            <div class='chat-content'>
+                <div class='chat-scroll-preview'>
+                    <div class="sidebar-chat-post">
+                        <div class="chat-post-content">
+                            <div class="chat-info">
+                                <a class="sidebar-chat-username"></a>
+                            </div>
+                            <div class="sidebar-chat-message"></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-chat-post">
+                        <div class="chat-post-content">
+                            <div class="chat-info">
+                                <a class="sidebar-chat-username"></a>
+                            </div>
+                            <div class="sidebar-chat-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='chat-input'>
+            <input type=text class='chat-input-text' placeholder="Write something">
+            <img src='/img/send-msg-ico.svg' class='send-ico'>
+        </div>
+    </div>
+</template>

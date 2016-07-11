@@ -32,6 +32,9 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.6.4_1/web.browser/modules-runtime.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/copleykj_livestamp/1.1.7/web.browser/packages/copleykj_livestamp.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.14.1/web.browser/meteor/export.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.14.1/web.browser/moment.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/MeteorPublishReporter.coffee" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/ClientServerBaseReporter.coffee" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/html.js" />
@@ -404,6 +407,9 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/modules-runtime/0.6.4_1/web.browser/modules-runtime.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/copleykj_livestamp/1.1.7/web.browser/packages/copleykj_livestamp.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.14.1/web.browser/meteor/export.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.14.1/web.browser/moment.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/MeteorPublishReporter.coffee" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/ClientServerBaseReporter.coffee" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_mocha/2.4.5_4/web.browser/meteor/src/reporters/html.js" />

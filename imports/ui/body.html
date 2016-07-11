@@ -1,4 +1,4 @@
-<body>
+<body class=''>
 <div class='sidebar-content-dim'></div>
 
 <!-- Content -->
@@ -6,11 +6,10 @@
 
 
     <!-- Backgrounds -->
-    <img src='/img/game_details_bg_league5.jpg' class='content-bg invis' id='normal-bg'>
-    <img src='/img/game_details_bg_league5_blur.jpg' class='content-bg' id='blur-bg'>
+    <img src='/img/game_details_bg_league_blur.jpg' class='content-bg'>
     <!-- <video loop muted autoplay poser="/img/lp_header.png" class="video">
-        <source src="bootstrap/video/game_hub_bg2.mp4" type="video/mp4">
-    </video> -->
+        <source src="/video/game_hub_bg2.mp4" type="video/mp4">
+    </video>-->
 
 
 
@@ -25,17 +24,23 @@
         <span class='sidebar-list-link-game' style='cursor:pointer'>**debug** quick lobby</span>
         <div class='menu-options'>
             <div class='menu-icons'>
-                <img src='/img/feedback-ico.svg' class='feedback-ico'>
-                <span class='menu-ico-desc' style='margin-right:20px;'>Feedback</span>
+                <img src='/img/feedback-ico.svg' class='feedback-ico hidden'>
+                <span class='menu-ico-desc hidden' style='margin-right:20px;'>Feedback</span>
 
+                <div class='menu-bar-ico' id='friends'  style='position:relative; left:10px;'>
+                    <img src='/img/friends-ico.svg' class='menu-ico'>
+                    <span class='menu-ico-desc desc-hidden'>Friends</span>
+                </div>
+                <div class='menu-bar-ico' id='invest' style='position:relative; left:0px;'>
+                    <img src='/img/invest-ico.svg' class='menu-ico'>
+                    <span class='menu-ico-desc desc-hidden'>Invest</span>
+                </div>
 
+                <div class='menu-bar-ico' id='invest'>
+                    <img src='/img/tournament-ico.svg' class='menu-ico' id='tournament'>
+                    <span class='menu-ico-desc desc-hidden' id='tournament-desc'>Tournaments</span>
+                </div>
 
-                <img src='/img/friends-ico.svg' class='menu-ico hidden' id='friends'>
-                <span class='menu-ico-desc desc-hidden' id='friends-desc'>Friends</span>
-                <img src='/img/invest-ico.svg' class='menu-ico hidden' id='invest'>
-                <span class='menu-ico-desc desc-hidden-2' id='invest-desc'>Invest</span>
-                <img src='/img/tournament-ico.svg' class='menu-ico hidden' id='tournament'>
-                <span class='menu-ico-desc desc-hidden-3' id='tournament-desc'>Tournaments</span>
             </div>
             <div class='menu-play'>
                 <img src='/img/play-ico.svg' class='svg play-ico'>
@@ -333,7 +338,7 @@
         <div class='sidebar-lobby-options-wrapper-entry'>
             <div class='sidebar-lobby-entry'>
                 <h4 class='sidebar-game-mode'>Select Entry</h4>
-                <div class='queue-filter-arrow-ico' id='entries'>
+                <div class='queue-filter-arrow-ico ico-hidden' id='entries'>
                 </div>
                 <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
             </div>
@@ -406,8 +411,4 @@
 
 
 <!-- Game Bar -->
-
-
-
-        {{> loginButtons}}
 </body>

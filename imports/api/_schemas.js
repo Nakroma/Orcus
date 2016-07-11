@@ -2,13 +2,13 @@
  * Defines mongoDB schemas
  */
 
-var Schemas = {};
+export const Schemas = {};
 
 /* Schema whenever a user is referenced */
 Schemas.UserData = new SimpleSchema({
-    uID: {
+    _id: {
         type: String,
-        regEx: SimpleSchema.regEx.Id
+        regEx: SimpleSchema.RegEx.Id
     },
     username: {
         type: String

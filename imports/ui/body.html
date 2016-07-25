@@ -1,11 +1,15 @@
 <body class=''>
 <div class='sidebar-content-dim'></div>
 
+
 <!-- Content -->
 <div class="content">
 
 
+
+
     <!-- Backgrounds -->
+    <!--==============================-->
     <img src='/img/game_details_bg_league_blur.jpg' class='content-bg'>
     <!-- <video loop muted autoplay poser="/img/lp_header.png" class="video">
         <source src="/video/game_hub_bg2.mp4" type="video/mp4">
@@ -13,7 +17,10 @@
 
 
 
+
+
     <!-- Menu Bar -->
+    <!--==============================-->
     <div class='menu-bar-top'>
         <a href="#">
             <img src='/img/logo_solo.png' class='menu-logo'>
@@ -22,7 +29,11 @@
         <a href='#' class='sidebar-list-link' style='padding-left:2%;'>All</a>&nbsp;&nbsp;-
         <a href='#' class='sidebar-list-link'>MOBAs</a>&nbsp;&nbsp;-
         <span class='sidebar-list-link-game' style='cursor:pointer'>{{> loginButtons}}</span>
+
         <div class='menu-options'>
+
+
+           <!-- Site Links -->
             <div class='menu-icons'>
                 <img src='/img/feedback-ico.svg' class='feedback-ico hidden'>
                 <span class='menu-ico-desc hidden' style='margin-right:20px;'>Feedback</span>
@@ -40,13 +51,18 @@
                     <img src='/img/tournament-ico.svg' class='menu-ico' id='tournament'>
                     <span class='menu-ico-desc desc-hidden' id='tournament-desc'>Tournaments</span>
                 </div>
-
             </div>
+
+
+            <!-- Play Button -->
             <div class='menu-play'>
                 <img src='/img/play-ico.svg' class='svg play-ico'>
                 <span class='play-text'>Play</span>
                 <img src='/img/bloom.png' class='play-bloom animated pulse'>
             </div>
+
+
+            <!-- Create / Match Filter Area -->
             <div class='menu-create show-filters'>
                 <div class='menu-create-normal '>
                     <img src='/img/create_lobby_ico.svg' class='create-ico'>
@@ -61,7 +77,9 @@
                     <span class='filter-entry-value'></span>
                 </div>
             </div>
-            <!-- Menu -->
+
+
+            <!-- User Menu -->
             <nav class='user-menu'>
                 <div class='user-menu-container'>
                     <a href='#' class='user-money'>50.00 <img src='/img/currency_dark.svg' style='margin-bottom:3px;'></a>
@@ -70,6 +88,16 @@
             </nav>
         </div>
     </div>
+
+
+
+
+
+
+    <!-- Lobby Role Selection -->
+    <!--==============================-->
+
+    <!-- Lobby Top Bar -->
     <div class='lobby-top-bar'>
         <h1 class='lobby-role-selection-title lobby-title-visible' id='role-text'>Role Selection</h1>
         <h1 class='lobby-role-selection-title' id='queue-text'>Finding Team</h1>
@@ -96,10 +124,18 @@
 
 
 
-    <!-- Left Side -->
+
+
+    <!-- Main Content -->
+    <!--==============================-->
+
     <div class='main-content' id='main'>
+
         <!-- News/Notifications -->
         <div class='news-notifications news-visible'>
+
+
+           <!-- Slideshow dependencies -->
             <script src='/js/gallery.js'></script>
             <script src='/js/motionblur.js'></script>
             <script src='/js/TweenMax.min.js'></script>
@@ -111,6 +147,8 @@
                 </defs>
             </svg>
 
+
+            <!-- Slideshow -->
             <div class='news-slideshow'>
                 <ul class="gallery-pictures">
                     <li class="gallery-picture">
@@ -159,6 +197,8 @@
                 </div>
             </div>
 
+
+            <!-- Sub Notification/News -->
             <div class='lower-main-content'>
                 <div class='notification-wrapper'>
                     <div class='notification'>
@@ -194,6 +234,8 @@
                 </div>
             </div>
 
+
+            <!-- Updates/Ref link -->
             <div class='notification-ref'>
                 <div class='ntfc-title-hlpr'></div>
                 <div class='ntfc-title-wr-ref'>
@@ -227,27 +269,34 @@
 
         </div>
 
+        <!-- END News Notification -->
+
+
+
+
+
+        <!-- Lobby -->
+        <!--==============================-->
 
         <div class="lobby">
-
             <div class='lobby-wr'>
+
             </div>
-
-
-
-
-
-
-
-
-
         </div>
-
-
-
     </div>
-    <!-- End Main Content -->
+    <!-- END Main Content -->
+
+
+
+
+
+
+
+    <!-- Bottom Bar -->
+    <!--==============================-->
     <div class='bot-content'>
+
+       <!-- Squad Info -->
         <div class='squad'>
             <div class='squad-ava-self'>
                 <img src='/img/ava_sample_4.png' class='squad-ava-img-self'>
@@ -286,32 +335,49 @@
             </div>
         </div>
 
+
+       <!-- Real Time Notifications -->
         <div class='bot-mid-notifications'>
 
         </div>
 
-        {{> partChat}}
 
+       <!-- Chat -->
+        {{> partChat}}
     </div>
+    <!-- END Bottom Bar -->
+
+
+    <!-- Lobby Lock-In -->
     <div class='lobby-bot-bar'>
         <div class="lock-in-role lock-in-ready"> Lock In </div>
     </div>
 
+
 </div>
+<!-- END Content -->
 
 
 
 
 
 <!-- Sidebar Lobby Options -->
+<!--==============================-->
+
 <div class='sidebar-lobby-options filters-hidden'>
+
+   <!-- Sidebar Header -->
     <div class='sidebar-lobby-header'>
         <h3 class='queue-options'>Find Match</h3>
         <br>
     </div>
-    <!-- Game Mode -->
     <img src='/img/league_jungler_sub_header.png' class='sub-header-bg'>
+
+
+    <!-- Queue Filters -->
     <div class='queue-filters'>
+
+       <!-- Game Mode -->
         <div class='sidebar-lobby-options-wrapper'>
             <div class='sidebar-lobby-mode'>
                 <h4 class='sidebar-game-mode'>Game Mode</h4>
@@ -334,6 +400,8 @@
                 </div>
             </div>
         </div>
+
+
         <!-- Entry -->
         <div class='sidebar-lobby-options-wrapper-entry'>
             <div class='sidebar-lobby-entry'>
@@ -372,6 +440,10 @@
             </div>
         </div>
     </div>
+    <!-- END Queue Filters -->
+
+
+    <!-- Selected Filters -->
     <div class='sidebar-queue-status-wrapper'>
         <div class='sidebar-queue-status-desc'>
             <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
@@ -387,8 +459,8 @@
 
 
 
-
-<!-- Menu Open -->
+<!-- Main Menu -->
+<!--==============================-->
 <div class='menu-open'>
     <div class='menu-ava'></div>
     <a href='#' class='user-menu-name'>TotalBiscuit</a>
@@ -409,6 +481,4 @@
 </div>
 
 
-
-<!-- Game Bar -->
 </body>

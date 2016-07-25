@@ -31,13 +31,16 @@ Meteor.methods({
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
+
+        const user = Meteor.users.findOne(this.userId);
         
         // Insert message
         Chat.insert({
             text: message,
             author: {
                 _id: this.userId,
-                username: Meteor.users.findOne(this.userId).username
+                username: user.username,
+                avatar: user.profile.avatar
             },
             createdAt: new Date()
         });

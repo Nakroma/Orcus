@@ -53,7 +53,35 @@ Schemas.Squads = new SimpleSchema({
     },
     members: {
         type: [Schemas.UserData],
-        maxCount: 4
+        optional: true,
+        minCount: 4,
+        maxCount: 4,
+        defaultValue: [
+            {
+                _id: '22222222222222222',
+                username: '',
+                avatar: ''
+            },
+            {
+                _id: '22222222222222222',
+                username: '',
+                avatar: ''
+            },
+            {
+                _id: '22222222222222222',
+                username: '',
+                avatar: ''
+            },
+            {
+                _id: '22222222222222222',
+                username: '',
+                avatar: ''
+            }
+        ]
+    },
+    'members.$.empty': {
+        type: Boolean,
+        defaultValue: true
     },
     createdAt: {
         type: Date,

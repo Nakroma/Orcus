@@ -2,13 +2,13 @@
 
     <div class='squad'>
         <div class='squad-ava-self'>
-            <img src='{{userData.profile.avatar}}' class='squad-ava-img-self'>
+            <img src='{{squad.owner.avatar}}' class='squad-ava-img-self'>
             <div class='squad-ava-swap-helper'>
                 <img class='squad-ava-img-self-swap'>
             </div>
         </div>
         <div class='squad-ava-self-inf'>
-            <a href="#" class='squad-self-name'>{{userData.username}}</a>
+            <a href="#" class='squad-self-name'>{{squad.owner.username}}</a>
             <a href="#" class='squad-self-name-alt'></a>
             <br>
             <div class='squad-self-role'>Tank</div>
@@ -17,12 +17,9 @@
 
         <img src='/img/squad-border.png' class='squad-seperator'>
         <div class='squad-ava-wrapper'>
-            <div class='squad-ava squad-slot-taken'>
-                <img src='/img/ava_default.png' class='squad-ava-img'>
-            </div>
-            <div class='squad-ava'></div>
-            <div class='squad-ava'></div>
-            <div class='squad-ava'></div>
+            {{#each squad.members}}
+                {{> partSquadMember}}
+            {{/each}}
         </div>
         <div class='squad-menu-ico-wr'>
             <img src='/img/small_menu_ico.svg' class='squad-menu-ico'>
@@ -38,4 +35,14 @@
         </div>
     </div>
 
+</template>
+
+<template name="partSquadMember">
+    {{#if empty}}
+        <div class='squad-ava'></div>
+    {{else}}
+        <div class='squad-ava squad-slot-taken'>
+            <img src='{{avatar}}' class='squad-ava-img'>
+        </div>
+    {{/if}}
 </template>

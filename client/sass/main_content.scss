@@ -1,203 +1,340 @@
 // Imports
 // ------------------------------
-
 @import 'partials/variables';
 @import 'partials/mixins';
-
-
 // Main
 // ------------------------------
-
 .main-content {
-  display: inline-block;
-  width: 100%;
-  margin: auto;
-  z-index: 5;
-  @include ease($content-transition-timing, $transition-duration-menu-user-menu);
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    z-index:5;
+    @include ease-out(0.55s);
 }
 
-.main-content .news-notifications {
-  opacity: 0;
-  width: $width-content-news;
-  height: $height-content-news;
-  margin: $margin-top-content-news auto $margin-bottom-content-news;
-  transform: scale($transform-scale-content-news);
-  @include ease(ease, $transition-duration-main-news);
-}
-
-.main-content .news-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.number {
-  font-family: 'arial';
+.news-notifications {
+    opacity: 0;
+    width: 85em;
+    height: calc(95vh - 343px);
+    margin: 30px auto;
+    margin-top: -160px;
+    transform: scale(0.965);
+    @include ease(0.6s);
 }
 
 
 // Slideshow
 // ------------------------------
-
 .news-slideshow {
-  position: relative;
-  height: $height-content-news-slideshow;
-  width: $width-content-news-slideshow;
-  margin: $margin-content-news-slideshow;
-  overflow: hidden;
-  box-shadow: $box-shadow-content-news-slideshow;
-  white-space: nowrap;
-  background: black url($background-image-content-news-slideshow) center no-repeat;
-  background-size: $background-size-content-news-slideshow;
+    position: relative;
+    height: 63%;
+    width: 75%;
+    margin: 5px;
+    overflow: hidden;
+    @include drop-shadow();
+    white-space: nowrap;
+    background: black url('/img/kappa.png') center no-repeat;
+    background-size: 8%;
 }
 
-.news-slideshow .gallery-pictures {
-  margin-top: 0;
-  margin-left: $margin-left-content-news-gallery;
-  list-style-type: none;
+.gallery-pictures {
+    margin-top: 0;
+    margin-left: -40px;
+    list-style-type: none;
 }
 
-.news-slideshow .gallery-pictures .gallery-picture {
-  @include inline-block-relative;
-  width: 100%;
-  overflow: hidden;
-  margin-right: $margin-right-content-news-gallery-pic;
-  height: $height-content-news-gallery-pic;
+.gallery-picture {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    margin-right: -3.5px;
+    height: calc(50vh - 56.5px);
+    display: inline-block;
 }
 
-.news-slideshow .gallery-pictures .gallery-picture .slideshow-img {
-  position: absolute;
-  min-height: $min-height-content-news-gallery-pic-img;
-  min-width: $min-width-content-news-gallery-pic-img;
-  right: $right-content-news-gallery-pic-img;
-  z-index: -1;
-}
-.img01 { // Hack
-  margin: -5% 15%;
-}
-.img02 {
-  margin: 0;
-}
-.img03 {
-  margin: -3% 25%;
+.slideshow-img {
+    position: absolute;
+    min-height: 46vh;
+    min-width: 130%;
+    right: -30%;
+    z-index: -1;
 }
 
-.news-slideshow .gallery-pictures .gallery-picture .slideshow-category {
-  text-transform: uppercase;
-  letter-spacing: $letter-spacing-content-news-gallery-category;
-  font-weight: $font-weight-content-news-gallery-category;
-  margin-left: $margin-left-content-news-gallery-category;
-  margin-top: $margin-top-content-news-gallery-category;
-  @include font-menu-custom($color-content-news-gallery, $font-size-content-news-gallery-category)
+.slideshow-category {
+    @include font-default(white);
+    letter-spacing: 0.05em;
+    margin-left: 100px;
+    margin-top: 79px;
+}
+.slideshow-headline {
+    @include font-title(white);
+    margin-left: 100px;
+    margin-top: -15px;
 }
 
-.news-slideshow .gallery-pictures .gallery-picture .slideshow-headline {
-  color: $color-content-news-gallery;
-  text-transform: uppercase;
-  margin-left: $margin-left-content-news-gallery-category;
-  margin-top: $margin-top-content-news-gallery-headline;
-  font-size: $font-size-content-news-gallery-headline;
-  font-weight: $font-weight-content-news-gallery-headline;
+.slide-bot-shade {
+    position: absolute;
+    height: 120px;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    @include gradient-bottom($color-base-shade);
+}
+.slide-pagination {
+    position: absolute;
+    text-align: center;
+    bottom: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.pagination-size-incr {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px;
+}
+.slide-pagination-circle {
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    background: white;
+    @include ease(0.25s);
 }
 
-.news-slideshow .slide-bot-shade {
-  position: absolute;
-  height: $height-content-news-slidebot;
-  width: 100%;
-  bottom: 0;
-  z-index: 1;
-  pointer-events: none;
-  @include bg-gradient2($color-content-news-slidebot);
-}
-
-.news-slideshow .slide-pagination {
-  position: absolute;
-  text-align: center;
-  bottom: $bottom-content-news-gallery-pagination;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.news-slideshow .slide-pagination .pagination-size-incr {
-  display: inline-block;
-  cursor: pointer;
-  padding: $padding-content-news-gallery-pagination-incr;
-}
-
-.news-slideshow .slide-pagination .pagination-size-incr .slide-pagination-circle {
-  display: inline-block;
-  height: $width-content-news-gallery-pagination-circle;
-  width: $width-content-news-gallery-pagination-circle;
-  border-radius: 50%;
-  background: $color-content-news-gallery;
-  @include ease(ease, $transition-duration-menu-list-link);
-}
-
-.news-slideshow .slide-pagination .pagination-size-incr:hover .slide-pagination-circle {
-  opacity: 0.5;
-}
-
-
-// Lower Main Content
+// Lower Content
 // ------------------------------
-
 .lower-main-content {
-  display: flex;
-  height: $height-content-lower-main;
-  flex-flow: row wrap;
-  align-content: space-between;
-  justify-content: space-between;
+    display: flex;
+    height: calc(50vh - 56.5px);
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.notification-wrapper {
+    width: calc(75% + 10px);
+    display: flex;
+    flex-flow: row wrap;
+}
+.notification {
+    position: relative;
+    width: calc(33.33% - 10px);
+    margin: 5px;
+    height: calc((95vh - 198px) * 0.32);
+    overflow: hidden;
+    @include drop-shadow();
+    @include gradient-bg();
+    text-align: center;
+}
+.ntfc-title-hlpr {
+    display: inline-block;
+    height: 50%;
+}
+.ntfc-title-wr {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    position: relative;
+}
+.ntfc-title {
+    @include font-title-smaller(white);
+    margin-bottom: 0px;
+}
+.ntfc-txt {
+    @include font-default($color-subtle-2);
 }
 
-.lower-main-content  .notification-wrapper {
-  width: $width-content-lower-main-wrapper;
-  display: flex;
-  flex-flow: row wrap;
+.ntfc-rm {
+    position: relative;
+    color: $color-accent;
+    top: 5px;
+    @include ease(0.25s);
+}
+.ntfc-bg {
+    position: absolute;
+    left: 0;
+    opacity:0.5;
+    height: 100%;
 }
 
-.lower-main-content  .notification-wrapper .notification {
-  position: relative;
-  width: $width-content-lower-main-notification;
-  margin: $margin-content-lower-main-notification;
-  height: $height-content-lower-main-notification;
-  overflow: hidden;
-  box-shadow: $box-shadow-content-news-slideshow;
-  background-image: linear-gradient(to top, $color-content-news-slidebot, $color-content-lower-main-notification);
-  text-align: center;
+.top-ntf {
+    position: relative;
+    margin-top: -10vh;
+    margin-left: 4vh;
+    padding: 5px 10px;
+    max-width: 55px;
+    background: $color-accent;
+    @include font-default(white);
+}
+.notification-ref {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(25% - 15px);
+    height: calc((95vh - 293px) * 0.32);
+    overflow: hidden;
+    background: url(../img/refer_a_friend_bg.jpg) center;
+    background-size: calc(55vh - 18.25px);
+    text-align: center;
+    cursor: pointer;
+    @include ease(0.35s);
+    @include drop-shadow()
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-hlpr {
-  @include vertical-align-helper(50%);
+.notification-ref:hover {
+    background-size: calc(52vh - 23.25px);
+}
+.ref-title {
+    @include font-title-small(white);
+}
+.updates-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: calc((95vh - 266px) * 0.32);
+    right: 0;
+    width: calc(25% - 14px);
+    @include drop-shadow();
+    height: calc((95vh - 293px) * 0.632);
+}
+.updates {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -19px;
+    overflow-y: scroll;
+    @include gradient-bg()
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-wr {
-  @include vertical-align;
-  text-align: left;
-  position: relative;
+.update-date {
+    display: inline-block;
+    @include font-default($color-subtle-2);
+    margin-left: 50px;
+    margin-top: 47px;
+}
+.update-title {
+    @include font-title-smaller(white);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 0px;
+}
+.update-text {
+    display: inline-block;
+    @include font-default($color-subtle-2);
+    width: 70%;
+    margin-top: -10px;
+    margin-left: 50px;
+    padding-bottom: 50px;
+    border-bottom: 2px solid $color-subtle-3;
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-title {
-  font-weight: $font-weight-content-lower-main-notification-title;
-  text-transform: uppercase;
-  color: $color-content-news-gallery;
-  font-size: $font-size-content-lower-main-notification-title;
-  margin-bottom: 0;
+// Media Queries
+// ------------------------------
+@media (max-width:80em) {
+    .news-notifications{
+        width:70em;
+    }
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-txt {
-  color: $color-menu-create-text;
-  font-weight: $font-weight-content-lower-main-notification-title;
+@media (max-width:60em) {
+    .main-content{
+        width:100%;
+    }
+    .news-notifications{
+        width:100%;
+        margin:0;
+    }
+    .news-slideshow{
+        margin:0;
+        margin-top:-150px;
+        width:100%;
+    }
+    .notification-ref{
+        display:none !important;
+    }
+    .updates-wrapper{
+        display:none !important;
+    }
+    .slideshow-category{
+        margin-left:5%;
+    }
+    .slideshow-headline{
+        margin-left:5%;
+    }
+    .notification{
+        margin:0;
+        width:33.33%;
+    }
+    .notification-wrapper{
+        width:100%;
+        white-space: normal;
+    }
+    .gallery-pictures{
+        margin:0;
+        padding:0;
+        margin-bottom:-5px;
+    }
+    .bot-content{
+        bottom:-70px !important;
+    }
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-rm {
-  position: relative;
-  color: $color-content-lower-main-notification-rm;
-  top: 5px;
-  @include ease(ease, $transition-duration-menu-list-link);
+@media (max-width:40em) {
+    .main-content{
+        width:100%;
+    }
+    .news-notifications{
+        width:100%;
+        height:inherit;
+        margin:0;
+    }
+    .news-slideshow{
+        margin:0;
+        margin-top:-190px;
+        width:100%;
+    }
+    .notification-ref{
+        display:none !important;
+    }
+    .updates-wrapper{
+        display:none !important;
+    }
+    .slideshow-category{
+        margin-left:5%;
+    }
+    .slideshow-headline{
+        margin-left:5%;
+    }
+    .notification{
+        margin:0;
+        height:auto;
+        width:33.33%;
+    }
+    .notification-wrapper{
+        width:100%;
+        white-space: normal;
+    }
+    .top-ntf{
+        display:none !important;
+    }
+    .ntfc-title-wr{
+        padding:30px 20px;
+    }
+    .ntfc-title-hlpr{
+        display:none !important;
+    }
+    .gallery-pictures{
+        margin:0;
+        padding:0;
+        margin-bottom:-5px;
+    }
+    .gallery-picture{
+        height:calc(60vh - 55px);
+    }
 }
 
-.lower-main-content  .notification-wrapper .notification .ntfc-title-wr .ntfc-rm:hover {
-  color: $color-content-news-gallery;
-}

@@ -5,263 +5,302 @@
 @import 'partials/mixins';
 
 
-// Top bar
+
+// Menu Bar Top
 // ------------------------------
-
 .menu-bar-top {
-  position: relative;
-  z-index: 1;
-  height: $width-menu-bar;
-  @include bg-gradient($color-menu-gradient);
-  width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 131px;
+    @include font-default($color-subtle-2);
+    @include gradient-top($color-base);
+    width: 100%;
 }
 
-.menu-bar-top a .menu-logo {
-  vertical-align: top;
-  height: $height-menu-logo;
-  margin-top: $margin-top-menu-logo;
-  padding-left: $padding-left-menu-logo;
-  padding-right: $padding-right-menu-logo;
+
+.menu-bar-top-game-link {
+    display: inline-block;
+    margin-top: 51px;
+    z-index: 1;
+    margin-left: 5px;
+    text-transform: uppercase;
+    @include ease(0.25s);
 }
 
-.menu-bar-top a .menu-logo-font {
-  vertical-align: top;
-  height: $height-menu-logo-font;
-  margin-top: $margin-top-menu-logo-font;
+
+.menu-logo {
+    vertical-align: top;
+    height: 32px;
+    margin-top: 45px;
+    padding-left: 5%;
+    padding-right: 4px;
 }
 
-.sidebar-list-link:first-of-type {
-  padding-left: $padding-left-menu-list-link-fot;
+.menu-logo-font {
+    vertical-align: top;
+    height: 16px;
+    margin-top: 54px;
 }
 
-.sidebar-list-link {
-  display: inline-block;
-  margin-top: $margin-top-menu-list-link;
-  margin-left: $margin-left-menu-list-link;
-  z-index: 1;
-  text-transform: uppercase;
-  @include font-menu-small($color-menu-list-link);
-  @include ease(ease, $transition-duration-menu-list-link);
+.menu-icons {
+    display: inline-block;
+    vertical-align: super;
+    position: relative;
 }
 
-.sidebar-list-link:hover {
-  color: $color-menu-list-link-select;
+.menu-ico-desc {
+    text-transform: uppercase;
+    padding-right: 10px;
+    cursor: pointer;
+    @include ease(0.25s);
 }
 
-.sidebar-list-link-game {
-  display: inline-block;
-  z-index: 1;
-  margin-top: $margin-top-menu-list-link-game;
-  margin-left: $margin-left-menu-list-link;
-  font-weight: $font-weight-menu-list-link-game;
-  padding-right: $padding-right-menu-list-link-game;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  @include font-menu-small($color-menu-list-link-select);
+.menu-bar-ico:hover > .menu-ico-desc {
+    margin-left: -15px;
+    opacity: 1;
+}
+
+.desc-hidden {
+    opacity: 0;
+    margin-left: -55px;
+    pointer-events: none;
+}
+
+.menu-options {
+    float: right;
+    margin-right:5%;
+}
+
+.menu-ico-desc-2 {
+    text-transform: uppercase;
+    padding-right: 10px;
+    margin-left: -15px;
+    @include ease(0.25s);
+}
+
+.desc-hidden-2 {
+    opacity: 0;
+    margin-left: -65px;
+    pointer-events: none;
+}
+
+.desc-hidden-3 {
+    opacity: 0;
+    margin-left: -115px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.menu-ico-wr {
+    width: 49px;
+    display: inline-block;
+}
+
+.menu-play {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    height: 113px;
+    line-height: 134px;
+    cursor: pointer;
+    padding: 0 63px;
+    @include ease(0.25s);
+    @include gradient-border($color-subtle-3, transparent);
+        }
+
+.menu-play:hover {
+    opacity: 0.5;
+}
+
+.menu-create {
+    display: inline-block;
+    padding: 0px 30px;
+    height: 103px;
+    line-height: 120px;
+    text-align: center;
+    cursor: pointer;
+    @include ease(0.25s);
+}
+
+.menu-create:hover {
+    opacity: 0.5;
+}
+
+.create-ico {
+    display: inline-block;
+    margin-bottom: 12px;
+    margin-right: 2px;
+    width: 23px;
+}
+
+.create-text {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    top: -4px;
+}
+
+.play-ico {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    margin-bottom: 6px;
+    margin-right: 5px;
+    width: 20px;
+}
+
+.play-text {
+    position: relative;
+    top: -4px;
+    color: $color-accent !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.play-bloom {
+    position: relative;
+    height: 103px;
+    margin-left: -145px;
+    left: 45px;
+    top: -7px;
+}
+.menu-create-filters {
+    position: absolute;
+    top: 0px;
+    line-height: 0;
+    cursor: auto;
+}
+
+.filter-game-modes {
+    margin-top: 35px;
+}
+
+.filter-entry {
+    display: inline-block;
+    position: absolute;
+    line-height: 0;
+    top: 70px;
+    margin-left: -75px;
+    cursor: auto;
+}
+.filter-entry-text {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.filter-entry-value {
+    color: white;
+}
+
+.filter-mode:first-of-type {
+    margin-left: 0;
+}
+
+.show-filters:hover {
+    opacity: 1;
+}
+
+.show-filters {
+    cursor: auto;
+    pointer-events: none;
+}
+
+.user-menu {
+    display: inline-block;
+    vertical-align: super;
+    position:relative;
+    top:3px;
+    z-index: 5;
+    @include ease-out(0.55s);
+}
+.user-money {
+    margin-left: 15px;
+    @include font-default($color-subtle-2);
+    @include ease(0.25s);
+}
+.side-menu {
+    display: inline-block;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.sidebar-menu-ico {
+    height: 17px;
+    margin-bottom: 3px;
+    @include ease(0.25s);
 }
 
 
 // Menu Options
 // ------------------------------
 
-.menu-options {
-  float: right;
+
+// Media Queries
+// ------------------------------
+
+@media (max-width:85em) {
+    .menu-icons{
+        display:none !important;
+    }
 }
 
-.menu-options .menu-icons {
-  @include inline-block-relative;
-  vertical-align: super;
+@media (max-width:70em) {
+    .menu-bar-top-game-link{
+        display:none !important;
+    }
 }
 
-.menu-options .menu-icons .menu-ico {
-  height: $height-menu-options-ico;
-  margin-bottom: $margin-bottom-menu-options-ico;
-  margin-right: $margin-right-menu-options-ico;
-  cursor: pointer;
+@media (max-width:55em) {
+    .create-text{
+        display:none !important;
+    }
 }
 
-.menu-options .menu-icons .menu-ico-desc {
-  text-transform: uppercase;
-  padding-right: 10px;
-  cursor: pointer;
-  @include font-menu-small($color-menu-create-text);
-  @include ease(ease, $transition-duration-menu-list-link);
+@media (max-width:40em) {
+    .menu-bar-top{
+        position:relative;
+        @include gradient-bg();
+        @include drop-shadow();
+        height:120px;
+    }
+    .menu-play{
+        position:absolute;
+        padding:0;
+        top:0;
+    }
+    .menu-create{
+        top:10px;
+        padding:0 50px;
+        margin-right:-25px;
+    }
+    .user-menu{
+        position:absolute;
+        left:25px;
+        top:50px;
+    }
+    .menu-logo{
+        display:none;
+    }
+    .menu-logo-font{
+        margin-left:95px;
+    }
+    .user-money{
+        display:none !important;
+    }
 }
 
-.menu-options .menu-icons .feedback-ico {
-  height: $height-menu-options-ico;
-  margin-bottom: $margin-bottom-menu-options-feedback-ico;
-  margin-right: $margin-right-menu-options-feedback-ico;
-  transform: rotate(45deg);
-}
-
-.menu-options .menu-icons .desc-hidden {
-  @include menu-desc-hidden($margin-left-menu-options-desc-hidden);
-}
-
-.menu-options .menu-icons .desc-hidden-2 {
-  @include menu-desc-hidden($margin-left-menu-options-desc-hidden-2);
-}
-
-.menu-options .menu-icons .desc-hidden-3 {
-  z-index: -1;
-  @include menu-desc-hidden($margin-left-menu-options-desc-hidden-3);
-}
-
-.menu-options .menu-play {
-  @include inline-block-relative;
-  top: -1px;
-  height: $height-menu-play;
-  line-height: $line-height-menu-play;
-  cursor: pointer;
-  padding: 0 $padding-right-menu-play;
-  border: 1px solid;
-  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from($color-menu-play-gradient), to(rgba(0, 0, 0, 0))) 1 100%;
-  -webkit-border-image: -webkit-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
-  -moz-border-image: -moz-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
-  -o-border-image: -o-linear-gradient($color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
-  border-image: linear-gradient(to bottom, $color-menu-play-gradient, rgba(0, 0, 0, 0)) 1 100%;
-  @include ease(ease, $transition-duration-menu-list-link);
-}
-
-.menu-options .menu-play:hover {
-  opacity: $opacity-menu-play-hover;
-  border-left: 1px solid $color-menu-play-hover;
-  border-right: 1px solid $color-menu-play-hover;
-}
-
-.menu-options .menu-play .play-ico {
-  @include inline-block-relative;
-  top: $top-menu-play-ico;
-  margin-bottom: $margin-bottom-menu-play-ico;
-  margin-right: $margin-right-menu-play-ico;
-  width: $width-menu-play-ico;
-}
-
-.menu-options .menu-play .play-text {
-  position: relative;
-  top: $top-menu-play-text;
-  height: $height-menu-play-text;
-  font-weight: $font-weight-menu-play-text;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  @include font-menu-small($color-menu-play-text);
-}
-
-.menu-options .menu-play .play-bloom {
-  position: relative;
-  height: $height-menu-play-bloom;
-  margin-left: $margin-left-menu-play-bloom;
-  left: $left-menu-play-bloom;
-  top: $top-menu-play-bloom;
-}
-
-.menu-options .menu-play .animated {
-  animation-duration: $animation-duration-menu-play-bloom;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-}
-
-.menu-options .menu-create {
-  display: inline-block;
-  padding: 0 $padding-right-menu-create;
-  height: $height-menu-create;
-  line-height: $line-height-menu-create;
-  margin-right: $margin-right-menu-create;
-  text-align: center;
-  cursor: pointer;
-  @include ease(ease, $transition-duration-menu-list-link)
-}
-
-.menu-options .menu-create:hover {
-  opacity: $opacity-menu-play-hover;
-}
-
-.menu-options .show-filters {
-  cursor: auto;
-  pointer-events: none;
-}
-
-.menu-options .show-filters:hover {
-  opacity: 1;
-}
-
-.menu-options .menu-create .create-ico {
-  display: inline-block;
-  margin-bottom: $margin-bottom-menu-create-ico;
-  margin-right: $margin-right-menu-create-ico;
-  width: $width-menu-create-ico;
-}
-
-.menu-options .menu-create .create-text {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  position: relative;
-  top: $top-menu-create-text;
-  @include font-menu-small($color-menu-create-text);
-}
-
-.menu-options .menu-create .menu-create-filters {
-  position: absolute;
-  top: 0;
-  line-height: 0;
-  cursor: auto;
-}
-
-.menu-options .menu-create .menu-create-filters .filter-game-modes {
-  margin-top: $margin-top-menu-create-filter-modes;
-}
-
-.menu-options .menu-create .filter-entry {
-  @include inline-block-absolute;
-  line-height: 0;
-  top: $top-menu-create-filter-entry;
-  margin-left: $margin-left-menu-create-filter-entry;
-  cursor: auto;
-}
-
-.menu-options .menu-create .filter-entry .filter-entry-text {
-  color: $color-menu-create-text;
-  text-transform: uppercase;
-  font-size: $font-size-menu-create-filter-entry;
-}
-
-.menu-options .menu-create .filter-entry .filter-entry-value {
-  font-family: 'titillium web';
-  color: $color-menu-list-link-select;
-}
-
-.menu-options .user-menu {
-  @include inline-block-absolute;
-  right: $right-menu-user-menu;
-  top: $top-menu-user-menu;
-  z-index: 5;
-  @include ease($content-transition-timing, $transition-duration-menu-user-menu);
-}
-
-.menu-options .user-menu .user-money {
-  margin-left: $margin-left-menu-user-menu;
-  font-weight: $font-weight-menu-play-text;
-  @include ease(ease, $transition-duration-menu-list-link);
-  @include font-menu-small($color-menu-create-text);
-}
-
-.menu-options .user-menu .user-money:hover {
-  color: $color-menu-play-text;
-}
-
-.menu-options .user-menu .side-menu {
-  display: inline-block;
-  margin-left: $margin-left-menu-user-menu;
-  cursor: pointer;
-}
-
-.menu-options .user-menu .sidebar-menu-ico {
-  height: $height-menu-user-menu-ico;
-  margin-bottom: $margin-bottom-menu-user-menu-ico;
-  @include ease(ease, $transition-duration-menu-list-link);
-}
-
-.menu-options .user-menu .sidebar-menu-ico:hover {
-  opacity: $opacity-menu-play-hover;
+@media (max-width:32em) {
+    .play-text{
+        display:none !important;
+    }
+    .play-bloom{
+        display:none !important;
+    }
+    .menu-play{
+        padding:0 !important;
+        width:0;
+        margin:0;
+        border: 0px solid transparent !important;
+    }
+    .menu-options{
+        white-space: nowrap;
+    }
 }

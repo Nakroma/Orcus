@@ -4,6 +4,27 @@
 @import 'partials/variables';
 @import 'partials/mixins';
 
+// General
+// ------------------------------
+.invis {
+    opacity: 0 !important;
+}
+
+.visible-scaled {
+    opacity: 1 !important;
+    transform:scale(1);
+}
+
+.selectable-text:hover {
+    color:white !important;
+}
+
+a{
+    color:$color-subtle-2;
+}
+a:hover{
+    color:white;
+}
 
 // Body
 // ------------------------------
@@ -14,6 +35,20 @@ body {
   overflow: hidden;
 }
 
+.sidebar-content-dim {
+    position: absolute;
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    z-index: 4;
+    top:0;
+    left:0;
+    @include ease(0.3);
+}
+
+
 
 // Content div
 // ------------------------------
@@ -23,9 +58,8 @@ body {
   opacity: 1;
   width: 100%;
   min-height: 100vh;
-  -webkit-filter: blur(0px);
   overflow: hidden;
-  @include ease($content-transition-timing, $content-transition-duration);
+  @include ease-out(0.75s);
 }
 
 .content-bg {
@@ -34,9 +68,30 @@ body {
   opacity: 0.5;
   min-width: 100vw;
   min-height: 100vh;
-  @include ease(ease, $content-bg-transition-duration);
+  @include ease(0.75s);
 }
 
-.invis {
-  opacity: 0 !important;
+// Bot Content
+// ------------------------------
+
+.bot-content {
+    position: relative;
+    bottom: -48px;
+    height: 150px;
+    z-index: 4;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+    @include gradient-bottom($color-base);
+}
+
+.bot-mid-notifications {
+    display: inline-block;
+    width: calc(50% - 200px);
+    position: relative;
+    top: 5px;
+    z-index: 1;
+    @include gradient-border(transparent, $color-subtle-3);
+    margin-top: 45px;
+    height: 100px;
 }

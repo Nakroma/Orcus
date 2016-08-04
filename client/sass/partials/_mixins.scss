@@ -2,7 +2,7 @@
 // ------------------------------
 
 @mixin font-default($color) {
-    font-family: 'raleway';
+    font-family: 'Titillium Web';
     font-size: 16px;
     font-weight: 500;
     color: $color;
@@ -15,18 +15,28 @@
     color: $color;
 }
 
-@mixin font-small-title($color) {
+@mixin font-title-smaller($color) {
+    font-family: 'raleway';
+    font-size: 18px;
+    font-weight: 500;
+    color: $color;
+    text-transform:uppercase;
+}
+
+@mixin font-title-small($color) {
     font-family: 'raleway';
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 800;
     color: $color;
+    text-transform:uppercase;
 }
 
 @mixin font-title($color) {
     font-family: 'raleway';
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 36px;
+    font-weight: 700;
     color: $color;
+    text-transform:uppercase;
 }
 
 @mixin font-logo($color) {
@@ -41,30 +51,29 @@
     color: $color;
 }
 
-@mixin font-menu-small($color) {
-    font-family: 'titillium web';
-    font-size: 16px;
-    color: $color;
-}
-
-@mixin font-menu-custom($color, $size) {
-    font-family: 'titillium web';
-    font-size: $size;
-    color: $color;
-}
 
 
 // Animations
 // ------------------------------
 
-@mixin ease($function, $timing){
-    -webkit-transition-timing-function: $function;
-    transition-timing-function: $function;
+@mixin ease($timing){
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
     -webkit-transition-duration: $timing;
     -moz-transition-duration: $timing;
     -o-transition-duration: $timing;
     transition-duration: $timing;
 }
+
+@mixin ease-out($timing){
+    -webkit-transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    transition-timing-function: cubic-bezier(0, 1.01, .55, .99);
+    -webkit-transition-duration: $timing;
+    -moz-transition-duration: $timing;
+    -o-transition-duration: $timing;
+    transition-duration: $timing;
+}
+
 
 
 
@@ -81,22 +90,6 @@
     vertical-align: middle;
 }
 
-@mixin inline-block-relative {
-    display: inline-block;
-    position: relative;
-}
-
-@mixin inline-block-absolute {
-    display: inline-block;
-    position: absolute;
-}
-
-@mixin menu-desc-hidden($margin-left) {
-    opacity: 0;
-    margin-left: $margin-left;
-    pointer-events: none;
-}
-
 
 
 // Inputs
@@ -109,21 +102,25 @@
     padding-top:3px;
 }
 
-@mixin input-placeholder {
+@mixin input-placeholder($color) {
     ::-webkit-input-placeholder {
-        @include font-default($color-subtle);
+        @include font-default($color-base);
+        color:$color !important;
 
     }
     ::-moz-placeholder {
-        @include font-default($color-subtle);
+        @include font-default($color-base);
+        color:$color !important;
 
     }
     :-ms-input-placeholder {
-        @include font-default($color-subtle);
+        @include font-default($color-base);
+        color:$color !important;
 
     }
     :-moz-placeholder {
-        @include font-default($color-subtle);
+        @include font-default($color-base);
+        color:$color !important;
 
     }
 }
@@ -134,23 +131,47 @@
     cursor:pointer;
     border:0;
     padding:1px;
-    @include ease(ease, 0.15s);
+    @include ease(0.15s);
 }
 
 
-// Colors
+
+// Gradients
 // ------------------------------
 
-@mixin bg-gradient($rgba) {
-    background: -webkit-linear-gradient(to bottom, transparent, $rgba);
-    background: -o-linear-gradient(transparent, $rgba);
-    background: -moz-linear-gradient(transparent, $rgba);
-    background: linear-gradient(to top, transparent, $rgba);
+@mixin gradient-top($color){
+    background: -webkit-linear-gradient(to top, transparent, $color);
+    background: -o-linear-gradient(to top, transparent, $color);
+    background: -moz-linear-gradient(to top, transparent, $color);
+    background: linear-gradient(to top, transparent, $color);
 }
 
-@mixin bg-gradient2($color) {
-    background: -webkit-linear-gradient(transparent, $color);
-    background: -o-linear-gradient(transparent, $color);
-    background: -moz-linear-gradient(transparent, $color);
-    background: linear-gradient(transparent, $color);
+@mixin gradient-bottom($color){
+    background: -webkit-linear-gradient(to bottom, transparent, $color);
+    background: -o-linear-gradient(to bottom, transparent, $color);
+    background: -moz-linear-gradient(to bottom, transparent, $color);
+    background: linear-gradient(to bottom, transparent, $color);
+}
+
+@mixin gradient-bg(){
+    background-image: linear-gradient(to top, $color-base-shade, $color-base);
+}
+
+@mixin gradient-border($col-1, $col-2){
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from($col-1), to($col-2)) 1 100%;
+    -webkit-border-image: -webkit-linear-gradient($col-1, $col-2) 1 100%;
+    -moz-border-image: -moz-linear-gradient($col-1, $col-2) 1 100%;
+    -o-border-image: -o-linear-gradient($col-1, $col-2) 1 100%;
+    border-image: linear-gradient(to bottom, $col-1, $col-2) 1 100%;
+}
+
+
+
+// Other
+// ------------------------------
+
+@mixin drop-shadow(){
+    box-shadow: 0px 3px 20px rgba(15, 24, 33, 0.6);
 }

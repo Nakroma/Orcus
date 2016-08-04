@@ -1,14 +1,16 @@
 // Main Color Palette
 // ------------------------------
 
-$color-base: #2e3540;
-$color-accent: #32ab7f;
-$color-subtle: #8ea1ac;
-$color-warning: #ca2e22;
+$color-base: rgba(23, 31, 41, 1);
+$color-base-shade: rgba(15, 24, 33, 0.6);
+$color-accent: #00b4ff;
+$color-subtle: #acbace;
+$color-subtle-2: #8791a0;
+$color-subtle-3: rgba(135, 145, 160, 0.2);
+$color-warning: #f2433a;
 $color-on-bg: #fff;
-$color-subtle-2: #acc2cf;
-
 $color-body: #272c32;
+
 $color-menu-gradient: rgba(23, 31, 41, 1);
 $color-menu-play-gradient: rgba(95, 127, 149, 0.36);
 $color-menu-play-hover: rgba(135, 145, 160, 0.4);

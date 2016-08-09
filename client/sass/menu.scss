@@ -48,6 +48,11 @@
     position: relative;
 }
 
+.menu-bar-ico {
+    display:inline-block;
+    cursor:pointer;
+}
+
 .menu-ico-desc {
     text-transform: uppercase;
     padding-right: 10px;
@@ -257,9 +262,12 @@
 @media (max-width:40em) {
     .menu-bar-top{
         position:relative;
-        @include gradient-bg();
+        background:rgba(0,0,0,0.85);
         @include drop-shadow();
-        height:120px;
+        height:80px;
+    }
+    .menu-options{
+        margin-top:-20px;
     }
     .menu-play{
         position:absolute;
@@ -274,13 +282,15 @@
     .user-menu{
         position:absolute;
         left:25px;
-        top:50px;
+        top:30px;
     }
     .menu-logo{
         display:none;
     }
     .menu-logo-font{
+        position:relative;
         margin-left:95px;
+        top:-20px;
     }
     .user-money{
         display:none !important;
@@ -288,16 +298,11 @@
 }
 
 @media (max-width:32em) {
-    .play-text{
-        display:none !important;
-    }
-    .play-bloom{
-        display:none !important;
-    }
     .menu-play{
         padding:0 !important;
         width:0;
         margin:0;
+        margin-right:35px;
         border: 0px solid transparent !important;
     }
     .menu-options{

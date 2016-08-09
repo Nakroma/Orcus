@@ -1,0 +1,141 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+.squad {
+    display: inline-block;
+    left: 5%;
+    top: 55px;
+    position: absolute;
+    z-index: 1;
+    text-align: left;
+    pointer-events: all;
+    @include ease(0.2);
+}
+
+.squad-ava-self {
+    display: inline-block;
+    height: 55px;
+    width: 55px;
+    background-size: 100%;
+    margin-left: 6px;
+    text-align: center;
+    @include ava-mid($color-accent);
+    @include ease(0.25s);
+}
+
+.squad-ava-img-self {
+    height: 100%;
+    @include ease(0.25s);
+}
+
+.squad-ava-swap-helper {
+    height: 100%;
+    margin-top: -100%;
+    overflow: hidden;
+    border-radius: 200px;
+    @include ease(0.25s);
+}
+
+.squad-ava-img-self-swap {
+    height: 105%;
+}
+
+.squad-ava-self-inf {
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    @include ease(0.4s);
+}
+
+.squad-self-name {
+    margin-top: 6.5%;
+    margin-left: 5px;
+    @include font-default(white);
+}
+
+.squad-self-name-alt {
+    position: absolute;
+    left: 0;
+    margin-left: 5px;
+    opacity: 0;
+    @include font-default(white);
+    @include ease(0.2s)
+}
+
+.squad-self-role {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+    @include font-default($color-subtle-2);
+    cursor: pointer;
+}
+.squad-self-role-alt {
+    position: absolute;
+    left: 0;
+    top: 19px;
+    margin-left: 5px;
+    opacity: 0;
+    @include font-default($color-subtle-2);
+    @include ease(0.2s);
+}
+.squad-hidden .squad-ava-self {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.squad-hidden .squad-ava-self-inf {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.squad-hidden .squad-seperator {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.squad-hidden .squad-ava {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ava-offline {
+    @include ava-offline();
+}
+
+.squad-seperator {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-left: 10px;
+    @include ease(0.25s);
+}
+
+.squad-ava-wrapper + .squad-ava:first-child {
+    background: #4c525e url('/img/ava_sample_1.png') center;
+    background-size: 100%;
+}
+
+.squad-ava {
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 10px;
+    background: $color-base url('/img/ava_blank.svg') center no-repeat;
+    background-size: 50%;
+    margin-left: 3px;
+    text-align: center;
+    @include ava-small($color-subtle-2);
+    @include ease(0.25s);
+}
+
+.squad-ava-img {
+    height: 100%;
+}
+.squad-ava:hover {
+    background: $color-base url('/img/ava_blank_add.png') center no-repeat;
+    background-size: 40%;
+}

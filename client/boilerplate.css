@@ -1462,30 +1462,9 @@ a:focus {
     color: white;
 }
 
-.squad-ava {
-    overflow: hidden;
-    display: inline-block;
-    margin-top: 10px;
-    height: 39px;
-    width: 39px;
-    border-radius: 50px;
-    border: 2px solid #4c525e;
-    background: #14191f url('/img/ava_blank.svg') center no-repeat;
-    background-size: 50%;
-    margin-left: 3px;
-    text-align: center;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
 
-.squad-ava-wrapper + .squad-ava:first-child {
-    background: #4c525e url('/img/ava_sample_1.png') center;
-    background-size: 100%;
-}
+
+
 
 .squad-wrapper {
     margin-top: 5px;
@@ -1553,23 +1532,7 @@ a:focus {
     top: -6.5px;
 }
 
-.squad-ava-self {
-    overflow: hidden;
-    display: inline-block;
-    height: 55px;
-    width: 55px;
-    border-radius: 50px;
-    border: 2px solid #00b4ff;
-    background-size: 100%;
-    margin-left: 6px;
-    text-align: center;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
+
 
 .lobby-host {
     display: inline-block;
@@ -2523,14 +2486,9 @@ a:focus {
     transition-duration: 0.6s;
 }
 
-.squad-ava-img {
-    height: 100%;
-}
 
-.squad-ava:hover {
-    background: #202328 url('/img/ava_blank_add.png') center no-repeat;
-    background-size: 40%;
-}
+
+
 
 .sidebar-bg {}
 
@@ -3802,62 +3760,13 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0.6;
 }
 
-.squad {
-    display: inline-block;
-    left: 5%;
-    top: 55px;
-    position: absolute;
-    z-index: 1;
-    text-align: left;
-    pointer-events: all;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
 
-.squad-self-name {
-    margin-top: 6.5%;
-    margin-left: 5px;
-    font-size: 18px;
-    color: white;
-}
 
-.squad-self-role {
-    display: inline-block;
-    position: relative;
-    top: -3px;
-    margin-left: 5px;
-    color: #8791a0;
-    cursor: pointer;
-}
 
-.squad-ava-self-inf {
-    display: inline-block;
-    position: relative;
-    top: -10px;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
 
-.squad-seperator {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 3px;
-    margin-left: 10px;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
+
+
+
 
 .squad-menu-ico {
     display: inline-block;
@@ -3979,38 +3888,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 5%;
 }
 
-.ava-offline {
-    border: 2px solid grey;
-    -webkit-filter: grayscale(100%);
-    filter: gray;
-    filter: grayscale(100%);
-    filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
-    background-blend-mode: luminosity, normal;
-}
+
 
 .chat-ava-img {
     height: 100%;
 }
 
-.squad-hidden .squad-ava-self {
-    opacity: 0;
-    pointer-events: none;
-}
 
-.squad-hidden .squad-ava-self-inf {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.squad-hidden .squad-seperator {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.squad-hidden .squad-ava {
-    opacity: 0;
-    pointer-events: none;
-}
 
 .squad-sub-options {
     position: relative;
@@ -4366,33 +4250,9 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-.lock-in-role {
-    line-height: 63px;
-    color: White;
-    font-size: 20px;
-    font-weight: 800;
-    width: 210px;
-    height: 62px;
-    text-align: center;
-    letter-spacing: 0.12em;
-    margin: auto;
-    position: relative;
-    z-index: 5;
-    border: 2px solid transparent;
-    background: rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    cursor: pointer;
-}
 
-.lock-in-role:hover {
-    border: solid 2px #313d4b;
-}
+
+
 
 .par-sub {
     color: #8791a0;
@@ -4403,19 +4263,9 @@ input[type=number]::-webkit-outer-spin-button {
     top: -4px;
 }
 
-.squad-ava-img-self {
-    height: 100%;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.15s;
-    -moz-transition-duration: 0.15s;
-    -o-transition-duration: 0.15s;
-    transition-duration: 0.15s;
-}
 
-.squad-ava-img-self-swap {
-    height: 105%;
-}
+
+
 
 .squad-ava-self-inf-alt {
     display: inline-block;
@@ -4434,33 +4284,9 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0;
 }
 
-.squad-self-name-alt {
-    position: absolute;
-    left: 0;
-    margin-left: 5px;
-    font-size: 16px;
-    color: white;
-    opacity: 0;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
 
-.squad-ava-swap-helper {
-    height: 100%;
-    margin-top: -100%;
-    overflow: hidden;
-    border-radius: 200px;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
+
+
 
 .self-taken .role-img {
     opacity: 1;
@@ -4946,21 +4772,7 @@ input[type=number]::-webkit-outer-spin-button {
     transform: scale(1);
 }
 
-.squad-self-role-alt {
-    position: absolute;
-    left: 0;
-    top: 19px;
-    margin-left: 5px;
-    font-size: 14px;
-    color: #8791a0;
-    opacity: 0;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-}
+
 
 .play-bloom {
     position: relative;
@@ -5111,9 +4923,7 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0;
 }
 
-.lock-in-ready {
-    border: 2px solid transparent;
-}
+
 
 .chat-lobby-notification {
     color: #6c7480;
@@ -5800,10 +5610,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left:8px;
 }
 
-.menu-bar-ico {
-    display:inline-block;
-    cursor:pointer;
-}
+
 
 .sidebar-entry-visible .sidebar-lobby-options-wrapper-entry .sidebar-lobby-entry-wrapper {
     opacity:1;

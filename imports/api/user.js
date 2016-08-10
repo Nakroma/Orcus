@@ -32,6 +32,11 @@ if (Meteor.isServer) {
         profile: {
             type: Schema.UserProfile
         },
+        squadId: {
+            type: String,
+            optional: true,
+            regEx: SimpleSchema.RegEx.Id
+        },
         createdAt: {
             type: Date,
             // Inserts date on creation
@@ -76,6 +81,7 @@ if (Meteor.isServer) {
     // Publish user data
     Meteor.publish('userData', function userDataPublication() {
         return Meteor.users.find({_id: this.userId}, {fields : {
+            'squadId': 1,
             'profile': 1,
             'username': 1
         }})

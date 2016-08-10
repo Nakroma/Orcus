@@ -32,10 +32,11 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
 
+        // Get user
         const user = Meteor.users.findOne(this.userId);
-        
-        // Insert message
-        Chat.insert({
+
+        // Create new object for insertion
+        const chatObj = {
             text: message,
             author: {
                 _id: this.userId,
@@ -43,7 +44,13 @@ Meteor.methods({
                 avatar: user.profile.avatar
             },
             createdAt: new Date()
-        });
+        };
+
+        // Check object against schema
+        check(chatObj, Schemas.Chat);
+
+        // Insert message
+        Chat.insert(chatObj);
     }
 
 });

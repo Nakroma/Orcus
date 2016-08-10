@@ -1,0 +1,49 @@
+// Imports
+// ------------------------------
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+
+
+.bot-mid-notifications {
+    display: inline-block;
+    width: calc(50% - 200px);
+    position: relative;
+    overflow:hidden;
+    top: 5px;
+    pointer-events:all !important;
+    z-index: 5;
+    @include gradient-border(transparent, $color-subtle-3);
+    margin-top: 45px;
+    height: 100px;
+}
+
+.bot-mid-notification-item{
+    display:inline-block;
+    overflow:hidden;
+    cursor:pointer;
+    z-index:5;
+    border-radius:5px;
+    width:60px;
+    height:60px;
+    white-space:nowrap;
+    margin:0 20px;
+    text-align:center;
+    @include ease(0.25s);
+}
+
+.bot-mid-notification-item:hover{
+    width:inherit;
+}
+
+.bot-mid-notification-item-ico{
+    width:60px;
+    height:60px;
+    background:$color-warning;
+}
+
+.bot-mid-notification-item-desc{
+    background:$color-warning;
+    @include font-default($color-on-bg);
+}

@@ -88,16 +88,7 @@ body {
     @include gradient-bottom($color-base);
 }
 
-.bot-mid-notifications {
-    display: inline-block;
-    width: calc(50% - 200px);
-    position: relative;
-    top: 5px;
-    z-index: 1;
-    @include gradient-border(transparent, $color-subtle-3);
-    margin-top: 45px;
-    height: 100px;
-}
+
 .lock-in-role {
     line-height: 63px;
     color: White;

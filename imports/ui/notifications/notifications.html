@@ -1,0 +1,14 @@
+<template name="partNotifications">
+    <div class='bot-mid-notifications'>
+        {{#each invites}}
+            {{> partNotificationsInvite}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="partNotificationsInvite">
+    <div class="bot-mid-notification-item">
+        <div class="bot-mid-notification-item-ico"></div>
+        <div class="bot-mid-notification-item-desc">Action</div>
+    </div>
+</template>

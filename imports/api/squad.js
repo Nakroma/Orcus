@@ -23,6 +23,8 @@ Meteor.methods({
 
     // Creates a new squad invitation
     'squad.invite'(invite) {
+        const userId = this.userId;
+
         // Login error
         if (!userId) {
             throw new Meteor.Error('not-authorized');
@@ -37,7 +39,7 @@ Meteor.methods({
         });
 
         // Not owner error
-        if (squad.owner.id != userId) {
+        if (squad.owner._id != userId) {
             throw new Meteor.Error('not-squad-owner');
         }
 
@@ -117,5 +119,8 @@ if (Meteor.isServer) {
     // Publishing
     Meteor.publish('squads', function squadPublication() {
         return Squads.find();
+    });
+    Meteor.publish('squadInvitations', function squadInvitePublication() {
+        return SquadInvitations.find();
     });
 }

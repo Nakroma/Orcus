@@ -98,3 +98,29 @@ Schemas.Squads = new SimpleSchema({
         }
     }
 });
+
+/* Squad.js Invitation schema */
+Schemas.SquadInvitations = new SimpleSchema({
+    invite: {
+        type: Schemas.UserData,
+        label: 'Person to invite'
+    },
+    squadId: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id
+    },
+    createdAt: {
+        type: Date,
+        label: 'Date of creation',
+        // Inserts date on creation
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date();
+            } else if (this.isUpsert) {
+                return { $setOnInsert: new Date() };
+            } else {
+                this.unset(); // Prevents setting own date
+            }
+        }
+    }
+});

@@ -21,3 +21,13 @@ Template.partNotifications.helpers({
         });
     }
 });
+
+/* Events */
+Template.partNotificationsInvite.events({
+
+    // Call squad invite
+    'click .bot-mid-notification-item'() {
+        Meteor.call('notification.accept', this._id);
+    }
+
+});

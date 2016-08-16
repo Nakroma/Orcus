@@ -70,23 +70,23 @@ Schemas.Squads = new SimpleSchema({
         defaultValue: [
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             }
         ]
     },

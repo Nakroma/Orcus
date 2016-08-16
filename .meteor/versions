@@ -22,6 +22,7 @@ caching-compiler@1.0.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
+chfritz:easycron@0.0.4
 coffeescript@1.1.4
 copleykj:livestamp@1.1.7
 ddp@1.2.5

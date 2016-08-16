@@ -15,6 +15,17 @@ Schemas.UserData = new SimpleSchema({
     },
     avatar: {
         type: String
+    },
+
+    // For relogging purposes
+    offline: {
+        type: Boolean,
+        optional: true,
+        defaultValue: false
+    },
+    lastLogin: {
+        type: Date,
+        optional: true
     }
 });
 

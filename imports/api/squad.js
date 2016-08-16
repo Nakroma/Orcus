@@ -77,8 +77,47 @@ Meteor.methods({
 if (Meteor.isServer) {
     // Listen for login and create new squad
     UserStatus.events.on('connectionLogin', function(fields) {
-        if (!Meteor.users.findOne(fields.userId).hasOwnProperty('squadId')) {
+        const user = Meteor.users.findOne(fields.userId);
+        if (!user.hasOwnProperty('squadId')) {
             squadCreate(fields.userId);
+        } else {
+            // See if hes offline, if yes set him online
+            console.log('someones logging in');
+            const squad = Squads.findOne({_id: user.squadId});
+            if (squad.owner._id == fields.userId) {
+                // Is owner
+                Squads.update({_id: user.squadId}, {$set: {
+                    'owner.offline': false
+                }});
+            } else {
+                // Is member
+                Squads.update({_id: user.squadId, 'members._id': fields.userId}, {$set: {
+                    'members.$.offline': false
+                }});
+            }
+        }
+    });
+
+    // Relogging
+    UserStatus.events.on('connectionLogout', function(fields) {
+        // Set him to offline
+        const user = Meteor.users.findOne(fields.userId);
+        if (!user.status.online) {  // See if all connections are timed out
+            console.log('someones logging out');
+            const squad = Squads.findOne({_id: user.squadId});
+            if (squad.owner._id == fields.userId) {
+                // Is owner
+                Squads.update({_id: user.squadId}, {$set: {
+                    'owner.offline': true,
+                    'owner.lastLogin': fields.logoutTime
+                }});
+            } else {
+                // Is member
+                Squads.update({_id: user.squadId, 'members._id': fields.userId}, {$set: {
+                    'members.$.offline': true,
+                    'members.$.lastLogin': fields.logoutTime
+                }});
+            }
         }
     });
 

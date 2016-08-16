@@ -44,7 +44,11 @@
         <div class='squad-ava'></div>
     {{else}}
         <div class='squad-ava squad-slot-taken'>
-            <img src='{{avatar}}' class='squad-ava-img'>
+            {{#if offline}}
+                <img src='{{avatar}}' class='squad-ava-img' style='-webkit-filter: grayscale(100%);filter: grayscale(100%)'>
+            {{else}}
+                <img src='{{avatar}}' class='squad-ava-img'>
+            {{/if}}
         </div>
     {{/if}}
 </template>

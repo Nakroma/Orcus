@@ -26,6 +26,7 @@
                         <div class='game-mode-box'>Captain's Draft</div>
                     </div>
                     <div class='game-mode-players'>
+                        <!-- TODO: Wenn man auf die zahlen klickt selektiert es das span und nicht die box -->
                         <div class='game-mode-box'>
                             <span class='number'>5 vs 5</span>
                         </div>
@@ -39,7 +40,7 @@
 
             <!-- Entry -->
             <div class='sidebar-lobby-options-wrapper-entry'>
-                <div class='sidebar-lobby-entry'>
+                <div class='sidebar-lobby-entry {{lobbyEntryAnimated}}'>
                     <h4 class='sidebar-game-mode'>Select Entry</h4>
                     <div class='queue-filter-arrow-ico ico-hidden' id='entries'>
                     </div>
@@ -83,7 +84,7 @@
                 <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
             </div>
             <div class='sidebar-queue-start-cancel'>
-                <div class='sidebar-queue-start  queue-not-ready'>Find Match</div>
+                <div class='sidebar-queue-start {{queueReady}}'>Find Match</div>
             </div>
         </div>
     </div>

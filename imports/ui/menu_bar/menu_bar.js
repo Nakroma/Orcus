@@ -5,7 +5,7 @@ import './menu_bar.html';
 Template.partMenuBar.events({
     // Show play menu
     'click .menu-play'(event) {
-        if ($(this).children().hasClass('cancel-text')) {
+        if ($(event.target).children().hasClass('cancel-text')) {
             //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
         } else {
             $('.queue-options').text('Find Match');

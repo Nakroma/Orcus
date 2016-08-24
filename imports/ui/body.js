@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 
+import './menu_bar/menu_bar.js';
 import './squad/squad.js';
 import './notifications/notifications.js';
 import './chat/chat.js';

@@ -62,6 +62,12 @@ Schemas.Squads = new SimpleSchema({
         type: Schemas.UserData,
         label: 'Owner of the squad'
     },
+    status: {
+        // 0: Normal, 1: Looking for mates, 2: Looking for lobby
+        type: Integer,
+        optional: true,
+        defaultValue: 0
+    },
     members: {
         type: [Schemas.UserData],
         optional: true,

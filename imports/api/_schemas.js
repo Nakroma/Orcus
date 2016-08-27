@@ -135,3 +135,29 @@ Schemas.SquadInvitations = new SimpleSchema({
         }
     }
 });
+
+/* Matchmaking Lobby schema */
+Schemas.Lobby = new SimpleSchema({
+    squad1: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id
+    },
+    squad2: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id
+    },
+    createdAt: {
+        type: Date,
+        label: 'Date of creation',
+        // Inserts date on creation
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date();
+            } else if (this.isUpsert) {
+                return { $setOnInsert: new Date() };
+            } else {
+                this.unset(); // Prevents setting own date
+            }
+        }
+    }
+});

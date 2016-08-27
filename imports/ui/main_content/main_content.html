@@ -2,7 +2,7 @@
 
     <div class="main-content" id="main">
         <!-- News/Notifications -->
-        <div class='news-notifications news-visible'>
+        <div class='news-notifications {{#unless inMatchmaking}}news-visible{{/unless}}'>
             <script src='/js/gallery.js'></script>
             <script src='/js/motionblur.js'></script>
             <script src='/js/TweenMax.min.js'></script>

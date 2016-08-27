@@ -34,25 +34,27 @@
 
             <!-- Play Button -->
             <div class='menu-play'>
-                <img src='/img/play-ico.svg' class='svg play-ico'>
-                <span class='play-text'>Play</span>
-                <img src='/img/bloom.png' class='play-bloom animated pulse'>
+                <img src='/img/play-ico.svg' class='svg play-ico {{#if inMatchmaking}}cancel-ico{{/if}}'>
+                <span class='play-text {{#if inMatchmaking}}cancel-text{{/if}}'>{{#if inMatchmaking}}Cancel{{else}}Play{{/if}}</span>
+                <img src='/img/bloom.png' class='play-bloom animated pulse {{#if inMatchmaking}}vis-hidden{{/if}}'>
             </div>
 
 
             <!-- Create / Match Filter Area -->
             <div class='menu-create show-filters'>
-                <div class='menu-create-normal '>
+                <div class='menu-create-normal {{#if inMatchmaking}}vis-hidden{{/if}}'>
                     <img src='/img/create_lobby_ico.svg' class='create-ico'>
                     <span class='create-text'>Create Lobby</span>
                 </div>
-                <div class='menu-create-filters invis'>
+                <!-- TODO: Hier sind test values, wenn filter fertig sind das hier anpassen -->
+                <div class='menu-create-filters {{#unless inMatchmaking}}invis{{/unless}}'>
                     <div class='filter-game-modes'>
+                        ARAM, 1vs1
                     </div>
                 </div>
-                <div class='filter-entry invis'>
+                <div class='filter-entry {{#unless inMatchmaking}}invis{{/unless}}'>
                     <span class='filter-entry-text'>Entry</span>
-                    <span class='filter-entry-value'></span>
+                    <span class='filter-entry-value'>50</span>
                 </div>
             </div>
 

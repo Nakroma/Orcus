@@ -1,6 +1,5 @@
 import './menu_bar.html';
 
-
 /* Events */
 Template.partMenuBar.events({
     // Show play menu

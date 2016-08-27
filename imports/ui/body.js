@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Squads } from '../api/squad.js';
 import { hideMatchFilters } from './menu_bar/menu_bar.js';
 
 import './menu_bar/menu_bar.js';
@@ -8,6 +9,12 @@ import './notifications/notifications.js';
 import './chat/chat.js';
 import './main_content/main_content.js';
 import './body.html';
+
+/* Created */
+Template.body.onCreated(function() {
+    Meteor.subscribe('squads');
+    Meteor.subscribe('userData');
+});
 
 Template.body.events({
     'click .sidebar-content-dim'(event) {
@@ -26,4 +33,12 @@ Template.body.events({
             hideMatchFilters();
         }
     }
+});
+
+// Global helper
+UI.registerHelper('inMatchmaking', function() {
+    const squad = Squads.findOne({
+        _id: Meteor.user().squadId
+    });
+    return squad.status > 0;
 });

@@ -64,7 +64,7 @@ Schemas.Squads = new SimpleSchema({
     },
     status: {
         // 0: Normal, 1: Looking for mates, 2: Looking for lobby
-        type: Integer,
+        type: SimpleSchema.Integer,
         optional: true,
         defaultValue: 0
     },
@@ -143,7 +143,7 @@ Schemas.SquadInvitations = new SimpleSchema({
 });
 
 /* Matchmaking Lobby schema */
-Schemas.Lobby = new SimpleSchema({
+Schemas.Lobbies = new SimpleSchema({
     squad1: {
         type: String,
         regEx: SimpleSchema.RegEx.Id

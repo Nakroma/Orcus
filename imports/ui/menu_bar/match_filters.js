@@ -1,4 +1,5 @@
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { Meteor } from 'meteor/meteor';
 
 import './match_filters.html';
 
@@ -73,5 +74,13 @@ Template.partMatchFilters.events({
         instance.state.set('gamemodeSelected', $('.sidebar-lobby-mode-filters .game-mode-box').hasClass('active'));
         instance.state.set('teamsizeSelected', $('.game-mode-players .game-mode-box').hasClass('active'));
         instance.state.set('entrySelected', $('.sidebar-lobby-entry-filters .game-mode-box').hasClass('active'));
+    },
+
+    // Start matchmaking
+    'click .sidebar-queue-start'(event, instance) {
+        // If everything selected
+        if (instance.state.get('gamemodeSelected') && instance.state.get('teamsizeSelected') && instance.state.get('entrySelected')) {
+            Meteor.call('squad.start_matchmaking');
+        }
     }
 });

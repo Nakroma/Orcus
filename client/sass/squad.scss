@@ -115,16 +115,11 @@
     @include ease(0.25s);
 }
 
-.squad-ava-wrapper + .squad-ava:first-child {
-    background: #4c525e url('/img/ava_sample_1.png') center;
-    background-size: 100%;
-}
-
 .squad-ava {
     overflow: hidden;
     display: inline-block;
     margin-top: 10px;
-    background: $color-base url('/img/ava_blank.svg') center no-repeat;
+    background: $color-base url('/img/avatars/ava_blank.svg') center no-repeat;
     background-size: 50%;
     margin-left: 3px;
     text-align: center;
@@ -136,6 +131,6 @@
     height: 100%;
 }
 .squad-ava:hover {
-    background: $color-base url('/img/ava_blank_add.png') center no-repeat;
+    background: $color-base url('/img/avatars/ava_blank_add.png') center no-repeat;
     background-size: 40%;
 }

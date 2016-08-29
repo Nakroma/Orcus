@@ -55,7 +55,6 @@ manuel:reactivearray@1.0.5
 mdg:validation-error@0.2.0
 meteor@1.2.17
 meteor-base@1.0.4
-minifier-css@1.1.13
 minifier-js@1.2.14
 minimongo@1.0.17
 mizzao:timesync@0.3.4
@@ -85,7 +84,6 @@ reactive-var@1.0.10
 reload@1.1.10
 retry@1.0.8
 routepolicy@1.0.11
-seba:minifiers-autoprefixer@1.0.1
 service-configuration@1.0.10
 session@1.1.6
 sha@1.0.8

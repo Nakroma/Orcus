@@ -8,6 +8,7 @@ import './squad/squad.js';
 import './notifications/notifications.js';
 import './chat/chat.js';
 import './main_content/main_content.js';
+import './role_selection/role_selection.js';
 import './body.html';
 
 /* Created */

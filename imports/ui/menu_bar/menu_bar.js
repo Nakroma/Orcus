@@ -4,8 +4,8 @@ import './menu_bar.html';
 Template.partMenuBar.events({
     // Show play menu
     'click .menu-play'(event) {
-        if ($(event.target).children().hasClass('cancel-text')) {
-            //SocketClient_send('SQUAD_CANCEL_MATCHMAKING', []);
+        if ($('.play-text').hasClass('cancel-text')) {
+            Meteor.call('squad.stop_matchmaking');
         } else {
             $('.queue-options').text('Find Match');
             $('.sidebar-queue-start').text('Find Match');

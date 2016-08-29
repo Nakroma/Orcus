@@ -62,6 +62,12 @@ Schemas.Squads = new SimpleSchema({
         type: Schemas.UserData,
         label: 'Owner of the squad'
     },
+    status: {
+        // 0: Normal, 1: Looking for mates, 2: Looking for lobby
+        type: SimpleSchema.Integer,
+        optional: true,
+        defaultValue: 0
+    },
     members: {
         type: [Schemas.UserData],
         optional: true,
@@ -70,23 +76,23 @@ Schemas.Squads = new SimpleSchema({
         defaultValue: [
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             },
             {
                 _id: '22222222222222222',
-                username: '',
-                avatar: ''
+                username: '_',
+                avatar: '_'
             }
         ]
     },
@@ -117,6 +123,32 @@ Schemas.SquadInvitations = new SimpleSchema({
         label: 'Person to invite'
     },
     squadId: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id
+    },
+    createdAt: {
+        type: Date,
+        label: 'Date of creation',
+        // Inserts date on creation
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date();
+            } else if (this.isUpsert) {
+                return { $setOnInsert: new Date() };
+            } else {
+                this.unset(); // Prevents setting own date
+            }
+        }
+    }
+});
+
+/* Matchmaking Lobby schema */
+Schemas.Lobbies = new SimpleSchema({
+    squad1: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id
+    },
+    squad2: {
         type: String,
         regEx: SimpleSchema.RegEx.Id
     },

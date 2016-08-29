@@ -1,0 +1,91 @@
+<template name="partMatchFilters">
+    <div class='sidebar-lobby-options filters-hidden'>
+
+        <!-- Sidebar Header -->
+        <div class='sidebar-lobby-header'>
+            <h3 class='queue-options'>Find Match</h3>
+            <br>
+        </div>
+        <img src='/img/league_jungler_sub_header.png' class='sub-header-bg'>
+
+
+        <!-- Queue Filters -->
+        <div class='queue-filters'>
+
+            <!-- Game Mode -->
+            <div class='sidebar-lobby-options-wrapper'>
+                <div class='sidebar-lobby-mode'>
+                    <h4 class='sidebar-game-mode'>Game Mode</h4>
+                    <div class='queue-filter-arrow-ico' id='modes'></div>
+                </div>
+                <div class='sidebar-lobby-mode-wrapper'>
+                    <div class='sidebar-lobby-mode-filters'>
+                        <div class='game-mode-box'>All Pick</div>
+                        <div class='game-mode-box'>ARAM</div>
+                        <div class='game-mode-box'>SWAG</div>
+                        <div class='game-mode-box'>Captain's Draft</div>
+                    </div>
+                    <div class='game-mode-players'>
+                        <!-- TODO: Wenn man auf die zahlen klickt selektiert es das span und nicht die box -->
+                        <div class='game-mode-box'>
+                            <span class='number'>5 vs 5</span>
+                        </div>
+                        <div class='game-mode-box'>
+                            <span class='number'>1 vs 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Entry -->
+            <div class='sidebar-lobby-options-wrapper-entry'>
+                <div class='sidebar-lobby-entry {{lobbyEntryAnimated}}'>
+                    <h4 class='sidebar-game-mode'>Select Entry</h4>
+                    <div class='queue-filter-arrow-ico ico-hidden' id='entries'>
+                    </div>
+                    <div class='sidebar-entry-error error-hidden'>Mode Incomplete</div>
+                </div>
+                <div class='sidebar-lobby-entry-wrapper'>
+                    <div class='sidebar-lobby-entry-filters'>
+                        <div class='game-mode-box number'>
+                            5 <img src='/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number'>
+                            10 <img src='/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number'>
+                            20 <img src='/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number'>
+                            50 <img src='/img/currency.svg' class='entry-currency-ico'>
+                        </div>
+                        <div class='game-mode-box number' style='width:110px;'>
+                            <input type="number" name="custom entry" class='custom-entry' placeholder='Custom'>
+                        </div>
+                    </div>
+                    <div class='game-entry-invest'>
+                        <div class='game-mode-box'>
+                            <span class='number'>20 <img src='/img/currency.svg' class='entry-currency-ico'></span>
+                        </div>
+                        <div class='game-mode-box'>
+                            <span class='number'>10 <img src='/img/currency.svg' class='entry-currency-ico'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Queue Filters -->
+
+
+        <!-- Selected Filters -->
+        <div class='sidebar-queue-status-wrapper'>
+            <div class='sidebar-queue-status-desc'>
+                <span class='entry-value'></span> - <span class='mode-selected'></span> - Europe
+            </div>
+            <div class='sidebar-queue-start-cancel'>
+                <div class='sidebar-queue-start {{queueReady}}'>Find Match</div>
+            </div>
+        </div>
+    </div>
+</template>

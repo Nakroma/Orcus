@@ -1,3 +1,7 @@
+/* Hack bitte in ne kleine subklasse hängen */
+.vis-hidden {
+    visibility: hidden;
+}
 
 /* Navbar */
 

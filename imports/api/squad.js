@@ -18,6 +18,11 @@ Meteor.methods({
 
     // Creates new empty squad
     'squad.create'() {
+        // Login error
+        if (!this.userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
         squadCreate(this.userId);
     },
 
@@ -69,6 +74,31 @@ Meteor.methods({
 
         // Insert squad invitation
         SquadInvitations.insert(squadInviteObj);
+    },
+
+    'squad.start_matchmaking'() {
+        // Login error
+        if (!this.userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(this.userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Not owner error
+        if (squad.owner._id != this.userId) {
+            throw new Meteor.Error('not-squad-owner');
+        }
+
+        // Update status to 1
+        Squads.update(user.squadId, { $set: {
+            status: 1
+        }});
     }
 
 });

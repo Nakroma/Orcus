@@ -2604,7 +2604,7 @@ a:focus {
 .sidebar-lobby-header {
     height: 113px;
     border-bottom: solid 1px #32363e;
-    background: url(../img/league_jungler_header.png);
+    background: url(../img/games/league/match_filters_header.png);
     background-size: cover;
     text-align: center;
     line-height: 0px;

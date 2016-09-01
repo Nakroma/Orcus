@@ -3,14 +3,14 @@
 
 
     <!-- Content -->
-    <!--==============================-->
+    <!-- ============================= -->
     <div class="content">
 
 
 
 
         <!-- Backgrounds -->
-        <!--==============================-->
+        <!-- ============================= -->
         <img src='/img/games/league/backgrounds/game_details_bg_league_blur.jpg' class='content-bg'>
         <!-- <video loop muted autoplay poser="/img/lp_header.png" class="video">
         <source src="/video/game_hub_bg2.mp4" type="video/mp4">
@@ -21,86 +21,16 @@
 
 
         <!-- Menu Bar -->
-        <!--==============================-->
-<<<<<<< HEAD
-        <div class='menu-bar-top'>
-            <a href="#">
-                <img src='/img/logo_solo.png' class='menu-logo'>
-                <img src='/img/orcus_font.png' class='menu-logo-font'>
-            </a>
-            <a href='#' class='menu-bar-top-game-link selectable-text' style='padding-left:2%;'>All &nbsp;&nbsp;-</a>
-            <a href='#' class='menu-bar-top-game-link selectable-text'>MOBAs &nbsp;&nbsp;-</a>
-            <span class='menu-bar-top-game-link selectable-text' style='cursor:pointer; color:white;'>{{> loginButtons}}</span>
-
-            <div class='menu-options'>
+        <!-- ============================= -->
 
 
-                <!-- Site Links -->
-                <div class='menu-icons'>
-                    <img src='/img/games/league/ui/menu/feedback-ico.svg' class='feedback-ico hidden'>
-                    <span class='menu-ico-desc hidden' style='margin-right:20px;'>Feedback</span>
-
-                    <div class='menu-bar-ico' id='friends' style='position:relative; left:10px;'>
-                        <img src='/img/games/league/ui/menu/friends-ico.svg' class='menu-ico'>
-                        <span class='menu-ico-desc desc-hidden'>Friends</span>
-                    </div>
-                    <div class='menu-bar-ico' id='invest' style='position:relative; left:0px;'>
-                        <img src='/img/games/league/ui/menu/invest-ico.svg' class='menu-ico'>
-                        <span class='menu-ico-desc desc-hidden'>Invest</span>
-                    </div>
-
-                    <div class='menu-bar-ico' id='invest'>
-                        <img src='/img/games/league/ui/menu/tournament-ico.svg' class='menu-ico' id='tournament'>
-                        <span class='menu-ico-desc desc-hidden' id='tournament-desc'>Tournaments</span>
-                    </div>
-                </div>
-
-
-                <!-- Play Button -->
-                <div class='menu-play'>
-                    <img src='/img/games/league/ui/menu/play-ico.svg' class='svg play-ico'>
-                    <span class='play-text'>Play</span>
-                    <img src='/img/games/league/ui/menu/bloom.png' class='play-bloom animated pulse'>
-                </div>
-
-
-                <!-- Create / Match Filter Area -->
-                <div class='menu-create show-filters'>
-                    <div class='menu-create-normal '>
-                        <img src='/img/games/league/ui/menu/create_lobby_ico.svg' class='create-ico'>
-                        <span class='create-text'>Create Lobby</span>
-                    </div>
-                    <div class='menu-create-filters invis'>
-                        <div class='filter-game-modes'>
-                        </div>
-                    </div>
-                    <div class='filter-entry invis'>
-                        <span class='filter-entry-text'>Entry</span>
-                        <span class='filter-entry-value'></span>
-                    </div>
-                </div>
-
-
-                <!-- User Menu -->
-                <div class='user-menu'>
-                    <div class='user-menu-container'>
-                        <a href='#' class='user-money selectable-text'>50.00 <img src='/img/games/league/ui/menu/currency_dark.svg' style='margin-bottom:3px;'></a>
-                        <a class='side-menu'><img src='/img/games/league/ui/menu/hamburger.svg' class='sidebar-menu-ico'></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-=======
         {{> partMenuBar}}
->>>>>>> origin/development
+
 
 
 
         <!-- Lobby Role Selection -->
-        <!--==============================-->
+        <!-- ============================= -->
 
         <!-- Lobby Top Bar -->
         <div class='lobby-top-bar'>
@@ -129,173 +59,25 @@
 
 
 
+        <!-- Main Content-->
+        <!-- ============================= -->
 
 
-        <!-- Main Content -->
-        <!--==============================-->
+        <!-- News Content -->
+        <!-- ============================= -->
 
-        <div class='main-content' id='main'>
-
-<<<<<<< HEAD
-            <!-- News/Notifications -->
-            <div class='news-notifications visible-scaled'>
+        {{> partMainContent}}
 
 
-                <!-- Slideshow dependencies -->
-                <script src='/js/gallery.js'></script>
-                <script src='/js/motionblur.js'></script>
-                <script src='/js/TweenMax.min.js'></script>
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
-                    <defs>
-                        <filter id="blur">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="0,0" />
-                        </filter>
-                    </defs>
-                </svg>
+        <!-- Lobby -->
+        <!-- ============================= -->
 
-
-                <!-- Slideshow -->
-                <div class='news-slideshow'>
-                    <ul class="gallery-pictures">
-                        <li class="gallery-picture">
-                            <img src='/img/slideshow/league_ocs_header_img.jpg' class='slideshow-img'>
-                            <h2 class='slideshow-category'>Tournament News</h2>
-                            <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                        </li>
-                        <li class="gallery-picture">
-                            <img src="/img/slideshow/league_aaa_header_img.jpg" class='slideshow-img'>
-                            <h2 class='slideshow-category'>Tournament News</h2>
-                            <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                        </li>
-                        <li class="gallery-picture">
-                            <img src='/img/slideshow/league_ocs_header_img.jpg' class='slideshow-img'>
-                            <h2 class='slideshow-category'>Tournament News</h2>
-                            <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                        </li>
-                        <li class="gallery-picture">
-                            <img src="/img/slideshow/league_aaa_header_img.jpg" class='slideshow-img'>
-                            <h2 class='slideshow-category'>Tournament News</h2>
-                            <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                        </li>
-                        <li class="gallery-picture">
-                            <img src='/img/slideshow/league_bbb_header_img.jpg' class='slideshow-img'>
-                            <h2 class='slideshow-category'>Tournament News</h2>
-                            <h1 class='slideshow-headline'>OCS - Starting Friday</h1>
-                        </li>
-                    </ul>
-                    <div class='slide-bot-shade'></div>
-                    <div class='slide-pagination'>
-                        <div class='pagination-size-incr'>
-                            <div class='slide-pagination-circle'></div>
-                        </div>
-                        <div class='pagination-size-incr'>
-                            <div class='slide-pagination-circle'></div>
-                        </div>
-                        <div class='pagination-size-incr'>
-                            <div class='slide-pagination-circle'></div>
-                        </div>
-                        <div class='pagination-size-incr'>
-                            <div class='slide-pagination-circle'></div>
-                        </div>
-                        <div class='pagination-size-incr'>
-                            <div class='slide-pagination-circle'></div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Sub Notification/News -->
-                <div class='lower-main-content'>
-                    <div class='notification-wrapper'>
-                        <div class='notification'>
-                            <div class='ntfc-title-hlpr'></div>
-                            <div class='ntfc-title-wr'>
-                                <h1 class='ntfc-title'><span class='number'>1K</span> worth giveaway</h1>
-                                <span class='ntfc-txt'>Participate by playing within<br>the next 250 matches.
-                                <br><a href="#" class='ntfc-rm selectable-text'>Read more</a></span>
-                            </div>
-                        </div>
-                        <div class='notification investment-notf'>
-                            <img src='/img/investment_bg.png' class='ntfc-bg'>
-                            <div class='ntfc-title-hlpr'></div>
-                            <div class='ntfc-title-wr'>
-                                <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                                <span class='ntfc-txt'>From investing in Meemy.</span>
-                            </div>
-                            <div class='top-ntf'>
-                                +20$
-                            </div>
-                        </div>
-                        <div class='notification investment-notf'>
-                            <img src='/img/investment_bg.png' class='ntfc-bg'>
-                            <div class='ntfc-title-hlpr'></div>
-                            <div class='ntfc-title-wr'>
-                                <h1 class='ntfc-title'>Received <span class='number'>20$</span></h1>
-                                <span class='ntfc-txt'>From investing in Meemy.</span>
-                            </div>
-                            <div class='top-ntf'>
-                                +20$
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Updates/Ref link -->
-                <div class='notification-ref'>
-                    <div class='ntfc-title-hlpr'></div>
-                    <div class='ntfc-title-wr-ref'>
-                        <div class='ntfc-title-wr-ref-cntr'>
-                            <h1 class='ref-title'>Invite a friend<br>& profit.</h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='updates-wrapper'>
-                    <div class='slide-bot-shade'></div>
-                    <div class='updates'>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>Beta giveaway winner announced!</h3>
-                            <span class='update-text'><span class='inline-block'>Congratulations to <a href='#'>Webbel</a>, <a href='#'>Pleb</a> and <a href='#'>Oppai Blaster</a> for winning a combined value of 1000$ </span>
-                            </span>
-                        </div>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
-                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
-                        </div>
-                        <div class='update-content'>
-                            <span class='update-date'>06/03/2016</span>
-                            <h3 class='update-title'>orcus Update <span class='number'>0.56</span></h3>
-                            <span class='update-text'><span class='inline-block'>· Addressed minor bugfixes <br></span><span class='inline-block'>· Addressed AP to match filters<br></span><span class='inline-block'>· Orcus Mobile has been &nbsp;&nbsp;enhanced <br></span></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- END News Notification -->
-
-
-
-
-=======
-            {{> partMainContent}}
->>>>>>> origin/development
-
-            <!-- Lobby -->
-            <!--==============================-->
-
-            <div class="lobby {{#if inMatchmaking}}lobby-visible{{/if}}">
-                <div class='lobby-wr'>
-                    {{#if inMatchmaking}}
-                        {{> partRoleSelection}}
-                    {{/if}}
-                </div>
+        <div class="lobby {{#if inMatchmaking}}lobby-visible{{/if}}">
+            <div class='lobby-wr'>
+                {{#if inMatchmaking}} {{> partRoleSelection}} {{/if}}
             </div>
         </div>
-        <!-- END Main Content -->
+    </div>
 
 
 
@@ -303,29 +85,28 @@
 
 
 
-        <!-- Bottom Bar -->
-        <!--==============================-->
-        <div class='bot-content'>
+    <!-- Bottom Bar -->
+    <!-- ============================= -->
+    <div class='bot-content'>
 
-            <!-- Squad Info -->
-            {{> partSquad}}
-
-
-            <!-- Real Time Notifications -->
-            {{> partNotifications}}
+        <!-- Squad Info -->
+        {{> partSquad}}
 
 
-            <!-- Chat -->
-            {{> partChat}}
-
-        </div>
-        <!-- END Bottom Bar -->
+        <!-- Real Time Notifications -->
+        {{> partNotifications}}
 
 
-        <!-- Lobby Lock-In -->
-        <div class='lobby-bot-bar'>
-            <div class="lock-in-role lock-in-ready"> Lock In </div>
-        </div>
+        <!-- Chat -->
+        {{> partChat}}
+
+    </div>
+    <!-- END Bottom Bar -->
+
+
+    <!-- Lobby Lock-In -->
+    <div class='lobby-bot-bar'>
+        <div class="lock-in-role lock-in-ready"> Lock In </div>
     </div>
     <!-- END Content -->
 
@@ -334,7 +115,7 @@
 
 
     <!-- Sidebar Lobby Options -->
-    <!--==============================-->
+    <!-- ============================= -->
     {{> partMatchFilters}}
 
 
@@ -343,7 +124,7 @@
 
 
     <!-- Main Menu -->
-    <!--==============================-->
+    <!-- ============================= -->
     <div class='menu-open'>
         <div class='menu-ava'></div>
         <a href='#' class='user-menu-name'>TotalBiscuit</a>

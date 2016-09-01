@@ -76,29 +76,14 @@ Meteor.methods({
         SquadInvitations.insert(squadInviteObj);
     },
 
+    // Initiates matchmaking
     'squad.start_matchmaking'() {
-        // Login error
-        if (!this.userId) {
-            throw new Meteor.Error('not-authorized');
-        }
+        changeMatchmakingStatus(this.userId, 1);
+    },
 
-        // Get user
-        const user = Meteor.users.findOne(this.userId);
-
-        // Get squad
-        const squad = Squads.findOne({
-            _id: user.squadId
-        });
-
-        // Not owner error
-        if (squad.owner._id != this.userId) {
-            throw new Meteor.Error('not-squad-owner');
-        }
-
-        // Update status to 1
-        Squads.update(user.squadId, { $set: {
-            status: 1
-        }});
+    // Cancels matchmaking
+    'squad.stop_matchmaking'() {
+        changeMatchmakingStatus(this.userId, 0);
     }
 
 });
@@ -151,8 +136,18 @@ if (Meteor.isServer) {
         }
     });
 
-    // Outsourced method for easier user
-    function squadCreate(userId) {
+    // Publishing
+    Meteor.publish('squads', function squadPublication() {
+        return Squads.find();
+    });
+    Meteor.publish('squadInvitations', function squadInvitePublication() {
+        return SquadInvitations.find();
+    });
+}
+
+// Outsourced method for easier user
+function squadCreate(userId) {
+    if (Meteor.isServer) {
         // Login error
         if (!userId) {
             throw new Meteor.Error('not-authorized');
@@ -184,12 +179,34 @@ if (Meteor.isServer) {
             }
         });
     }
+}
+function changeMatchmakingStatus(userId, status) {
+    if (Meteor.isServer) {
+        check(status, Number);
 
-    // Publishing
-    Meteor.publish('squads', function squadPublication() {
-        return Squads.find();
-    });
-    Meteor.publish('squadInvitations', function squadInvitePublication() {
-        return SquadInvitations.find();
-    });
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Not owner error
+        if (squad.owner._id != userId) {
+            throw new Meteor.Error('not-squad-owner');
+        }
+
+        // Update status to 1
+        Squads.update(user.squadId, {
+            $set: {
+                status: status
+            }
+        });
+    }
 }

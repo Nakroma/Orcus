@@ -29,6 +29,19 @@ Schemas.UserData = new SimpleSchema({
     }
 });
 
+/* Schema for role selection */
+Schemas.SingleRole = new SimpleSchema({
+    selected: {
+        type: Boolean,
+        optional: true,
+        defaultValue: false
+    },
+    user: {
+        type: Schemas.UserData,
+        optional: true
+    }
+});
+
 /* Chat.js schema */
 Schemas.Chat = new SimpleSchema({
     text: {
@@ -99,6 +112,30 @@ Schemas.Squads = new SimpleSchema({
     'members.$.empty': {
         type: Boolean,
         defaultValue: true
+    },
+    roleSelection: {
+        type: Object,
+        optional: true
+    },
+    'roleSelection.jungler': {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    'roleSelection.support': {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    'roleSelection.carry': {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    'roleSelection.top': {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    'roleSelection.mid': {
+        type: Schemas.SingleRole,
+        optional: true
     },
     createdAt: {
         type: Date,

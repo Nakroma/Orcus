@@ -38,6 +38,33 @@ Schemas.SingleRole = new SimpleSchema({
     },
     user: {
         type: Schemas.UserData,
+        optional: true,
+        defaultValue: {
+            _id: '22222222222222222',
+            username: '_',
+            avatar: '_'
+        }
+    }
+});
+Schemas.RoleSelection = new SimpleSchema({
+    jungler: {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    carry: {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    support: {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    mid: {
+        type: Schemas.SingleRole,
+        optional: true
+    },
+    top: {
+        type: Schemas.SingleRole,
         optional: true
     }
 });
@@ -114,27 +141,7 @@ Schemas.Squads = new SimpleSchema({
         defaultValue: true
     },
     roleSelection: {
-        type: Object,
-        optional: true
-    },
-    'roleSelection.jungler': {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    'roleSelection.support': {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    'roleSelection.carry': {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    'roleSelection.top': {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    'roleSelection.mid': {
-        type: Schemas.SingleRole,
+        type: Schemas.RoleSelection,
         optional: true
     },
     createdAt: {

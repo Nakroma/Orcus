@@ -90,6 +90,11 @@ Meteor.methods({
     // Selects a role
     'squad.role.select_role'(id) {
         selectRole(this.userId, id);
+    },
+
+    // Locks a role
+    'squad.role.lock_role'() {
+        lockRole(this.userId);
     }
 
 });
@@ -247,7 +252,7 @@ function selectRole(userId, id) {
 
         // Make new role selection
         var roleObj = squad.roleSelection;
-        for (var i = 0; i <= 4; i++) {  // Reset old selects
+        for (var i = 0; i <= roleObj.length; i++) {  // Reset old selects
             if (roleObj[i].user._id == userId) {
                 roleObj[i].selected = false;
             }
@@ -259,6 +264,43 @@ function selectRole(userId, id) {
         Squads.update(user.squadId, {
             $set: { roleSelection: roleObj }
         });
+    }
+}
+function lockRole(userId) {
+    if (Meteor.isServer) {
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Go through roles
+        var roleFound = false;
+        var roleObj = squad.roleSelection;
+        for (var i = 0; roleObj.length; i++) {
+            if (roleObj[i].user._id == userId) {
+                roleObj[i].locked = true;
+                roleFound = true;
+                break;
+            }
+        }
+
+        // Not found
+        if (!roleFound) {
+            throw new Meteor.Error('not-role-selected');
+        } else {
+            // Update squads
+            Squads.update(user.squadId, {
+                $set: { roleSelection: roleObj }
+            });
+        }
     }
 }
 function resetRoles(userId) {
@@ -283,7 +325,7 @@ function resetRoles(userId) {
 
         // Reset everything
         var roleObj = squad.roleSelection;
-        for (var i = 0; i <= 4; i++) {
+        for (var i = 0; roleObj.length; i++) {
             roleObj[i].selected = false;
             roleObj[i].locked = false;
         }

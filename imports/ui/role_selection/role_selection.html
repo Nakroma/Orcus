@@ -15,13 +15,13 @@
 </template>
 
 <template name="partSingleRole"> <!-- role-preview role-default -->
-    <div class='role-p-s {{#if selfSelected}}role-preview role-default{{/if}}'>
+    <div class='role-p-s {{#if selfSelected}}role-preview role-default{{/if}} {{#if role.locked}}locked-in role-ready{{/if}}'>
         <div class='role role-p-sub {{#if role.selected}}role-taken other-taken{{/if}}' id='{{index}}'>
             <img src='/img/league_role_{{role.title}}.png'>
             <br>
             <span class='role-name'>{{role.title}}</span>
             <br>
-            <span class='queue-est {{#if role.selected}}queue-est-taken{{/if}}'>
+            <span class='queue-est {{#if role.selected}}queue-est-taken{{/if}} {{#if role.locked}}queue-est-locked{{/if}}'>
                 {{#if role.selected}}{{role.user.username}}{{else}}<span class='number'>5</span> Minute Queue{{/if}}
             </span>
             <div class='role-taken-wr'>

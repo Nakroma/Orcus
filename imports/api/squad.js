@@ -252,8 +252,11 @@ function selectRole(userId, id) {
 
         // Make new role selection
         var roleObj = squad.roleSelection;
-        for (var i = 0; i <= roleObj.length; i++) {  // Reset old selects
+        for (var i = 0; i < roleObj.length; i++) {  // Reset old selects
             if (roleObj[i].user._id == userId) {
+                if (roleObj[i].selected && roleObj[i].locked) { // U already locked in boi
+                    throw new Meteor.Error('role-already-locked');
+                }
                 roleObj[i].selected = false;
             }
         }
@@ -284,8 +287,8 @@ function lockRole(userId) {
         // Go through roles
         var roleFound = false;
         var roleObj = squad.roleSelection;
-        for (var i = 0; roleObj.length; i++) {
-            if (roleObj[i].user._id == userId) {
+        for (var i = 0; i < roleObj.length; i++) {
+            if (roleObj[i].selected && (roleObj[i].user._id == userId)) {
                 roleObj[i].locked = true;
                 roleFound = true;
                 break;
@@ -325,7 +328,7 @@ function resetRoles(userId) {
 
         // Reset everything
         var roleObj = squad.roleSelection;
-        for (var i = 0; roleObj.length; i++) {
+        for (var i = 0; i < roleObj.length; i++) {
             roleObj[i].selected = false;
             roleObj[i].locked = false;
         }

@@ -35,6 +35,10 @@ Schemas.SingleRole = new SimpleSchema({
         type: Boolean,
         defaultValue: false
     },
+    locked: {
+        type: Boolean,
+        defaultValue: false
+    },
     user: {
         type: Schemas.UserData
     },

@@ -84,6 +84,7 @@ Meteor.methods({
     // Cancels matchmaking
     'squad.stop_matchmaking'() {
         changeMatchmakingStatus(this.userId, 0);
+        resetRoles(this.userId);
     },
 
     // Selects a role
@@ -255,6 +256,39 @@ function selectRole(userId, id) {
         roleObj[id].user = userObj;
 
         // Update status to selected
+        Squads.update(user.squadId, {
+            $set: { roleSelection: roleObj }
+        });
+    }
+}
+function resetRoles(userId) {
+    if (Meteor.isServer) {
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Not owner error
+        if (squad.owner._id != userId) {
+            throw new Meteor.Error('not-squad-owner');
+        }
+
+        // Reset everything
+        var roleObj = squad.roleSelection;
+        for (var i = 0; i <= 4; i++) {
+            roleObj[i].selected = false;
+            roleObj[i].locked = false;
+        }
+
+        // Update status to 1
         Squads.update(user.squadId, {
             $set: { roleSelection: roleObj }
         });

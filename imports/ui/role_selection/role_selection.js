@@ -30,6 +30,12 @@ Template.partRoleSelection.helpers({
         });
     }
 });
+Template.partSingleRole.helpers({
+    // Checks if role is selected by yourself
+    selfSelected() {
+        return (this.role.selected && (this.role.user._id == Meteor.user()._id));
+    }
+});
 
 
 /**

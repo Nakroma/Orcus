@@ -84,6 +84,11 @@ Meteor.methods({
     // Cancels matchmaking
     'squad.stop_matchmaking'() {
         changeMatchmakingStatus(this.userId, 0);
+    },
+
+    // Selects a role
+    'squad.role.select_role'(id) {
+        selectRole(this.userId, id);
     }
 
 });
@@ -207,6 +212,51 @@ function changeMatchmakingStatus(userId, status) {
             $set: {
                 status: status
             }
+        });
+    }
+}
+function selectRole(userId, id) {
+    if (Meteor.isServer) {
+        check(id, Number);
+
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Role already selected
+        if (squad.roleSelection[id].selected) {
+            throw new Meteor.Error('role-already-selected');
+        }
+
+        // New user
+        const userObj = {
+            _id: userId,
+            username: user.username,
+            avatar: user.profile.avatar
+        };
+
+        // Make new role selection
+        var roleObj = squad.roleSelection;
+        for (var i = 0; i <= 4; i++) {  // Reset old selects
+            if (roleObj[i].user._id == userId) {
+                roleObj[i].selected = false;
+            }
+        }
+        roleObj[id].selected = true;    // Update new select
+        roleObj[id].user = userObj;
+
+        // Update status to selected
+        Squads.update(user.squadId, {
+            $set: { roleSelection: roleObj }
         });
     }
 }

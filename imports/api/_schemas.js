@@ -33,39 +33,15 @@ Schemas.UserData = new SimpleSchema({
 Schemas.SingleRole = new SimpleSchema({
     selected: {
         type: Boolean,
-        optional: true,
         defaultValue: false
     },
     user: {
-        type: Schemas.UserData,
+        type: Schemas.UserData
+    },
+    title: {
+        type: String,
         optional: true,
-        defaultValue: {
-            _id: '22222222222222222',
-            username: '_',
-            avatar: '_'
-        }
-    }
-});
-Schemas.RoleSelection = new SimpleSchema({
-    jungler: {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    carry: {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    support: {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    mid: {
-        type: Schemas.SingleRole,
-        optional: true
-    },
-    top: {
-        type: Schemas.SingleRole,
-        optional: true
+        defaultValue: "UNDEFINED"
     }
 });
 
@@ -141,8 +117,57 @@ Schemas.Squads = new SimpleSchema({
         defaultValue: true
     },
     roleSelection: {
-        type: Schemas.RoleSelection,
-        optional: true
+        type: [Schemas.SingleRole],
+        optional: true,
+        minCount: 5,
+        maxCount: 5,
+        defaultValue: [ // 0->4, Jungler -> Support -> Carry -> Top -> Mid
+            {
+                selected: false,
+                user: {
+                    _id: '22222222222222222',
+                    username: '_',
+                    avatar: '_'
+                },
+                title: "Jungler"
+            },
+            {
+                selected: false,
+                user: {
+                    _id: '22222222222222222',
+                    username: '_',
+                    avatar: '_'
+                },
+                title: "Support"
+            },
+            {
+                selected: false,
+                user: {
+                    _id: '22222222222222222',
+                    username: '_',
+                    avatar: '_'
+                },
+                title: "Carry"
+            },
+            {
+                selected: false,
+                user: {
+                    _id: '22222222222222222',
+                    username: '_',
+                    avatar: '_'
+                },
+                title: "Top"
+            },
+            {
+                selected: false,
+                user: {
+                    _id: '22222222222222222',
+                    username: '_',
+                    avatar: '_'
+                },
+                title: "Mid"
+            }
+        ]
     },
     createdAt: {
         type: Date,

@@ -1,8 +1,34 @@
+import { Squads } from '../../api/squad.js';
+
 import './role_selection.html';
+
+/* Created */
+Template.partSquad.onCreated(function squadOnCreated() {
+    Meteor.subscribe('userData');
+    Meteor.subscribe('squads');
+});
 
 /* On rendered */
 Template.partRoleSelection.onRendered(function() {
     setRoleGallerySettings();
+});
+
+/* Events */
+Template.partRoleSelection.events({
+    // Select Role
+    'click .role-p-s'(event) {
+        Meteor.call('squad.role.select_role', this.index);
+    }
+});
+
+/* Helper */
+Template.partRoleSelection.helpers({
+    // Returns user data
+    squad() {
+        return Squads.findOne({
+            _id: Meteor.user().squadId
+        });
+    }
 });
 
 
@@ -70,8 +96,8 @@ function setRoleGallerySettings() {
     }
 
     $galleryPictures.css({
-        webkitFilter: "url('#blur')",
-        // filter: "url('#blur')", //invis in FF
+        //webkitFilter: "url('#blur')"
+        //filter: "url('#blur')" //invis in FF
     });
     $galleryPicture.each(function (i) {
         var cur = $(this);

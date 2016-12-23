@@ -83,7 +83,7 @@ Schemas.Squads = new SimpleSchema({
         label: 'Owner of the squad'
     },
     status: {
-        // 0: Normal, 1: Looking for mates, 2: Looking for lobby
+        // 0: Normal, 1: Role selection, 2: In queue, looking to fill up 5 people
         type: SimpleSchema.Integer,
         optional: true,
         defaultValue: 0

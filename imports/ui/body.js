@@ -10,6 +10,7 @@ import './chat/chat.js';
 import './main_content/main_content.js';
 import './role_selection/role_selection.js';
 import './role_selection/role_lock.js';
+import './role_selection/role_queue.js';
 import './body.html';
 
 /* Created */
@@ -43,4 +44,12 @@ UI.registerHelper('inMatchmaking', function() {
         _id: Meteor.user().squadId
     });
     return squad.status > 0;
+});
+
+// Global helper
+UI.registerHelper('inSquadQueue', function() {
+    const squad = Squads.findOne({
+        _id: Meteor.user().squadId
+    });
+    return squad.status > 1;
 });

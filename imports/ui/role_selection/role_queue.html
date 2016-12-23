@@ -1,0 +1,34 @@
+<template name="partRoleQueue">
+    <div class='lobby-top-bar'>
+        <h1 class='lobby-role-selection-title {{#unless inSquadQueue}}lobby-title-visible{{/unless}}' id='role-text'>Role Selection</h1>
+        <h1 class='lobby-role-selection-title {{#if inSquadQueue}}lobby-title-visible{{/if}}' id='queue-text'>Finding Team</h1>
+        <h1 class='lobby-role-selection-title' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
+        <div class='lobby-queue-players {{#if inSquadQueue}}lobby-title-visible{{/if}}'>
+            {{#each squad.members}}
+                {{> partRoleQueueMember}}
+            {{/each}}
+            <!--
+            <div class='lobby-queue-ava lobby-queue-ava-free'>
+                <img src='' class='lobby-queue-img invis'>
+            </div>
+            <div class='lobby-queue-ava lobby-queue-ava-free'>
+                <img src='' class='lobby-queue-img invis'>
+            </div>
+            <div class='lobby-queue-ava lobby-queue-ava-free'>
+                <img src='' class='lobby-queue-img invis'>
+            </div>
+            <div class='lobby-queue-ava lobby-queue-ava-free'>
+                <img src='' class='lobby-queue-img invis'>
+            </div>
+            <div class='lobby-queue-ava lobby-queue-ava-free'>
+                <img src='' class='lobby-queue-img invis'>
+            </div>-->
+        </div>
+    </div>
+</template>
+
+<template name="partRoleQueueMember">
+    <div class='lobby-queue-ava {{#if empty}}lobby-queue-ava-free{{/if}}'>
+        <img src='{{avatar}}' class='lobby-queue-img'>
+    </div>
+</template>

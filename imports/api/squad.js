@@ -306,20 +306,21 @@ function lockRole(userId) {
         }
 
         // If everyone is locked in, start queue
-        let everyoneLocked = false;
+        let lockedPlayers = 0;
         for (let i = 0; i < roleObj.length; i++) {
-            if (roleObj[i].selected) {
-                if (roleObj[i].locked) {
-                    everyoneLocked = true;
-                } else {
-                    everyoneLocked = false;
-                    break;
-                }
+            if (roleObj[i].selected && roleObj[i].locked) {
+                lockedPlayers++;
+            }
+        }
+        let members = 1; // Account for owner
+        for (let i = 0; i < squad.members.length; i++) {
+            if (!squad.members[i].empty) {
+                members++;
             }
         }
 
         // Start queue
-        if (everyoneLocked) {
+        if (lockedPlayers == members && members > 0) {
             // Update squads
             Squads.update(user.squadId, {
                 $set: { status: 2 }

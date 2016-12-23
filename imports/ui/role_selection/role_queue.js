@@ -3,13 +3,13 @@ import { Squads } from '../../api/squad.js';
 import './role_queue.html';
 
 /* Created */
-Template.partSquad.onCreated(function squadOnCreated() {
+Template.partRoleQueue.onCreated(function squadOnCreated() {
     Meteor.subscribe('userData');
     Meteor.subscribe('squads');
 });
 
 /* Helper */
-Template.partSquad.helpers({
+Template.partRoleQueue.helpers({
     // Returns user data
     squad() {
         return Squads.findOne({

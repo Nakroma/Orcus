@@ -95,6 +95,11 @@ Meteor.methods({
     // Locks a role
     'squad.role.lock_role'() {
         lockRole(this.userId);
+    },
+
+    // Attempts to join users in another squad looking for members
+    'squad.role.matchmaking'() {
+        roleSelectionMatchmaking(this.userId);
     }
 
 });
@@ -359,5 +364,33 @@ function resetRoles(userId) {
         Squads.update(user.squadId, {
             $set: { roleSelection: roleObj }
         });
+    }
+}
+function roleSelectionMatchmaking(userId) {
+    if (Meteor.isServer) {
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        const squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Not owner error
+        if (squad.owner._id != userId) {
+            throw new Meteor.Error('not-squad-owner');
+        }
+
+        // Find potential squads for joining
+        let memberCount = 1;
+        for (let i = 0; i < squad.members.length; i++) {
+            if (empty)
+                memberCount++;
+        }
     }
 }

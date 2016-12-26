@@ -8,6 +8,8 @@
             {{#each squad.members}}
                 {{> partRoleQueueMember}}
             {{/each}}
+
+            {{#if inSquadQueue}}{{> partRoleQueueHelper}}{{/if}}
         </div>
     </div>
 </template>
@@ -17,3 +19,5 @@
         <img src='{{avatar}}' class='lobby-queue-img {{#if empty}}invis{{/if}}'>
     </div>
 </template>
+
+<template name="partRoleQueueHelper"></template>

@@ -22,11 +22,14 @@ Template.partRoleQueue.helpers({
 Template.partRoleQueueHelper.onRendered(function () {
     const squad = Squads.findOne({ _id: Meteor.user().squadId });
 
-    if (squad.owner._id == this.userId) { // Call the matchmaking function every few seconds
+    if (squad.owner._id == Meteor.user()._id) { // Call the matchmaking function every few seconds
+
         let squadQueueTimer = Meteor.setInterval(function () {
+            const squad = Squads.findOne({ _id: Meteor.user().squadId });
             if (squad.status != 2) {
                 Meteor.clearInterval(squadQueueTimer);
             } else {
+
                 Meteor.call('squad.role.matchmaking')
             }
         }, 5000);

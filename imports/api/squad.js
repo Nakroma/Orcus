@@ -110,6 +110,7 @@ if (Meteor.isServer) {
     UserStatus.events.on('connectionLogin', function(fields) {
         const user = Meteor.users.findOne(fields.userId);
         if (!user.hasOwnProperty('squadId')) {
+            // TODO: Also do this when the squad the id is linking to doesn't exist anymore
             squadCreate(fields.userId);
         } else {
             // See if hes offline, if yes set him online
@@ -377,7 +378,7 @@ function roleSelectionMatchmaking(userId) {
         const user = Meteor.users.findOne(userId);
 
         // Get squad
-        const squad = Squads.findOne({
+        let squad = Squads.findOne({
             _id: user.squadId
         });
 
@@ -386,11 +387,89 @@ function roleSelectionMatchmaking(userId) {
             throw new Meteor.Error('not-squad-owner');
         }
 
-        // Find potential squads for joining
-        let memberCount = 1;
+        // Count own squads open slots
+        let emptySlots = 0;
         for (let i = 0; i < squad.members.length; i++) {
-            if (empty)
-                memberCount++;
+            if (squad.members[i].empty)
+                emptySlots++;
+        }
+
+        // Get squads
+        let allOpenSquads = Squads.find({
+            status: 2
+        });
+        allOpenSquads = allOpenSquads.fetch();
+        let potentialSquads = [];
+
+        // Filter squads
+        for (let i = 0; i < allOpenSquads.length; i++) {
+            let lSquad = allOpenSquads[i];
+
+            // Count empty slots
+            let usedSlots = 0;
+            for (let j = 0; j < lSquad.members.length; j++) {
+                if (!lSquad.members[j].empty)
+                    usedSlots++;
+            }
+
+            // If enough, check for roles
+            if (usedSlots <= emptySlots) {
+                // Check for roles
+                let noDoubleSelection = true;
+                for (let j = 0; j < squad.roleSelection.length; j++) {
+                    // TODO: If you'd want, change the mm algorithm here
+                    // If a role is double selected, view the squad as non-potential
+                    if (squad.roleSelection[j].selected && lSquad.roleSelection[j].selected) {
+                        noDoubleSelection = false;
+                        break;
+                    }
+                }
+
+                // If not double selected, add to potential squads
+                if (noDoubleSelection)
+                    potentialSquads.push(lSquad);
+            }
+        }
+
+        // Merge both squads
+        if (potentialSquads.length == 0) {
+            throw new Meteor.Error('no-open-squad-found'); // TODO: Remove, maybe
+        } else {
+            let joinSquad = potentialSquads[0]; // TODO: idk select the longest open one or something, works fine for now
+            // Merge users
+            for (let i = -1; i < joinSquad.members.length; i++) { // Note that it goes from -1 to represent the owner
+                if (i == -1 || !joinSquad.members[i].empty) {
+                    for (let j = 0; j < squad.members.length; j++) {
+                        if (squad.members[j].empty) {
+                            // Replace user
+                            if (i == -1) {
+                                squad.members[j] = joinSquad.owner;
+                                squad.members[j].empty = false;
+                            } else {
+                                squad.members[j] = joinSquad.members[i];
+                            }
+                            // Update users squad id
+                            Meteor.users.update(squad.members[j]._id, {
+                                $set: {
+                                    squadId: squad._id
+                                }
+                            });
+                            break;
+                        }
+                    }
+                }
+            }
+            // Merge roles
+            for (let i = 0; i < joinSquad.roleSelection.length; i++) {
+                if (joinSquad.roleSelection[i].selected && !squad.roleSelection[i].selected) // Double check just for safety, you never know
+                    squad.roleSelection[i] = joinSquad.roleSelection[i]
+            }
+
+            // Update merged squad, delete old one
+            Squads.update(user.squadId, {
+                $set: { members: squad.members, roleSelection: squad.roleSelection }
+            });
+            Squads.remove(joinSquad._id);
         }
     }
 }

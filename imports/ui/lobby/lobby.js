@@ -24,6 +24,7 @@ Template.partLobby.helpers({
 Template.partLobbyTeamMember.helpers({
     // Checks if the id is the owner
     isOwner(id) {
+        const lobby = getLobby();
         return (id == getSquad1().owner._id) || (id == getSquad2().owner._id);
     }
 });

@@ -12,6 +12,7 @@ import { Squads } from '../imports/api/squad.js';
  */
 
 /* Cleans up squads and offline users */
+/* TODO: Remove comment
 let squadCleanup = new Cron(function() {
     // Go through offline users
     const offlineMembers = Squads.find({'members.offline': true});
@@ -46,4 +47,4 @@ let squadCleanup = new Cron(function() {
             }
         });
     }
-}, {});
+}, {});*/

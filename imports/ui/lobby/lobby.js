@@ -34,8 +34,17 @@ Template.partLobbySelectedPlayer.helpers({
     // Returns the currently selected player
     current() {
         if (!Session.get('lobbySelectedPlayerHovered')) {
+            const squad = Squads.findOne({
+                _id: Meteor.user().squadId
+            });
             let obj = Meteor.user();
             obj.avatar = obj.profile.avatar;
+            for (let i = 0; i < squad.roleSelection.length; i++) {
+                if (squad.roleSelection[i].user._id == Meteor.user()._id) {
+                    obj.ready = squad.roleSelection[i].ready;
+                    break;
+                }
+            }
             return obj;
         } else {
             return Session.get('lobbySelectedPlayer');
@@ -51,9 +60,17 @@ Template.partLobbyTeamMember.helpers({
 });
 
 /* Events */
+Template.partLobbySelectedPlayer.events({
+    // Ready up
+    'click .player-side-ready-up'() {
+        Meteor.call('lobby.ready');
+    }
+});
 Template.partLobbyTeamMember.events({
     'mouseenter .lobby-player'(event, instance) {
-        Session.set('lobbySelectedPlayer', instance.data.role.user);
+        let obj = instance.data.role.user;
+        obj.ready = instance.data.role.ready;
+        Session.set('lobbySelectedPlayer', obj);
         Session.set('lobbySelectedPlayerHovered', true);
     },
     'mouseleave .lobby-player'() {

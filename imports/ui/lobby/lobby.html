@@ -71,10 +71,12 @@
             <div class="lobby-player-helper"></div>
             <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
                     class="player-sidebar-name">{{current.username}} |&nbsp;</span><span
-                    class="player-sidebar-status player-side-ready">Ready</span>
-                <div class="player-side-ava player-ava-ready"><img src="{{current.avatar}}" class="player-img">
+                    class="player-sidebar-status {{#if current.ready}}player-side-ready{{/if}}">{{#unless current.ready}}Not{{/unless}} Ready</span>
+                <div class="player-side-ava {{#if current.ready}}player-ava-ready{{/if}}"><img src="{{current.avatar}}" class="player-img">
                 </div>
-                <div class="player-side-ready-up">Un-Ready</div>
+                <div class="player-side-ready-up {{#unless current.ready}}not-ready{{/unless}}">
+                    {{#if current.ready}}Un-{{/if}}Ready{{#unless current.ready}} Up{{/unless}}
+                </div>
                 <div class="player-side-stats-wr">
                     <div class="player-side-stats">
                         <div class="player-side-stats-number"> 840</div>

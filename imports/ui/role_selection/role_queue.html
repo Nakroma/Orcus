@@ -1,9 +1,9 @@
 <template name="partRoleQueue">
     <div class='lobby-top-bar {{#if inMatchmaking}}lobby-title-visible{{/if}}'>
         <h1 class='lobby-role-selection-title {{#unless inSquadQueue}}lobby-title-visible{{/unless}}' id='role-text'>Role Selection</h1>
-        <h1 class='lobby-role-selection-title {{#if inSquadQueue}}lobby-title-visible{{/if}}' id='queue-text'>Finding Team</h1>
-        <h1 class='lobby-role-selection-title' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
-        <div class='lobby-queue-players {{#if inSquadQueue}}lobby-title-visible{{/if}}' style="margin-bottom: -14px;"> <!-- TODO: Remove style -->
+        <h1 class='lobby-role-selection-title {{#if inSquadQueue}}{{#unless inLobby}}lobby-title-visible{{/unless}}{{/if}}' id='queue-text'>Finding Team</h1>
+        <h1 class='lobby-role-selection-title {{#if inLobby}}lobby-title-visible{{/if}}' id='lobby-text'>All pick - <span class='number'>5</span> vs <span class='number'>5</span></h1>
+        <div class='lobby-queue-players {{#if inSquadQueue}}{{#unless inLobby}}lobby-title-visible{{/unless}}{{/if}}' style="margin-bottom: -14px;"> <!-- TODO: Remove style -->
             {{> partRoleQueueMember squad.owner}}
             {{#each squad.members}}
                 {{> partRoleQueueMember}}

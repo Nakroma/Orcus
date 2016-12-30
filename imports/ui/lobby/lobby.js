@@ -4,6 +4,6 @@ import { Meteor } from 'meteor/meteor';
 import './lobby.html';
 
 /* Created */
-Template.partChat.onRendered(function () {
+Template.partLobby.onCreated(function () {
     Meteor.subscribe('lobbies');
 });

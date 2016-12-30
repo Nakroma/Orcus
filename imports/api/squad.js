@@ -521,6 +521,10 @@ function roleSelectionLobbyMatchmaking(userId) {
         for (let i = 0; i < allOpenSquads.length; i++) {
             let lSquad = allOpenSquads[i];
 
+            // Own squad
+            if (lSquad._id == user.squadId)
+                break;
+
             // Count squads slots
             let usedSlots = 1;
             for (let j = 0; j < lSquad.members.length; j++) {
@@ -552,6 +556,8 @@ function roleSelectionLobbyMatchmaking(userId) {
                 createdAt: new Date()
             };
             const lobbyId = Lobbies.insert(lobbyObject);
+
+            console.log("Squad " + user.squadId + " and Squad " + joinSquad._id + " joined in a lobby");
 
             // Update squads to be in lobby
             Squads.update(user.squadId, { $set: { lobbyId: lobbyId } });

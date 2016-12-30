@@ -5,13 +5,13 @@ import { hideMatchFilters } from './menu_bar/menu_bar.js';
 import './menu_bar/menu_bar.js';
 import './menu_bar/match_filters.js';
 import './squad/squad.js';
-import './lobby/lobby.js';
 import './notifications/notifications.js';
 import './chat/chat.js';
 import './main_content/main_content.js';
 import './role_selection/role_selection.js';
 import './role_selection/role_lock.js';
 import './role_selection/role_queue.js';
+import './lobby/lobby.js';
 import './body.html';
 
 /* Created */
@@ -44,7 +44,7 @@ UI.registerHelper('inMatchmaking', function() {
     const squad = Squads.findOne({
         _id: Meteor.user().squadId
     });
-    return squad.status > 0 && squad.status < 3;
+    return squad.status > 0;
 });
 
 // Global helper
@@ -52,7 +52,7 @@ UI.registerHelper('inSquadQueue', function() {
     const squad = Squads.findOne({
         _id: Meteor.user().squadId
     });
-    return squad.status > 1 && squad.status < 3;
+    return squad.status > 1;
 });
 
 // Global helper

@@ -1,3 +1,188 @@
 <template name="partLobby">
 
+    <div class="lobby-content">
+        <div class="lobby-teams-helper"></div>
+        <div style="opacity: 1;" class="lobby-main">
+            <div class="lobby-teams">
+                <div class="lobby-team-1">
+                    <div class="team-header">
+                        <h2 class="team-1-name">Team <span class='bold'>Blue</span></h2>
+                        <span class="team-status team-ready">
+                            <span class="number">5</span>/<span class="number">5</span> ready
+                        </span>
+                    </div>
+                    <div class="lobby-players">
+                        <div class="lobby-player">
+                            <div class="player-ava-wrapper">
+                                <div class="player-ava player-ready">
+                                    <img src="/img/ava_sample_4.png" class="player-img">
+                                </div>
+                                <div class="player-host">
+                                    <img src="/img/lobby_host.svg" class="player-host-ico">
+                                </div>
+                            </div>
+                            <a href="#" class="lobby-player-name">TotalBiscuit</a>
+                            <span class="lobby-player-role">Tank</span>
+                        </div>
+                        <div class="lobby-player">
+                            <div class="player-ava-wrapper">
+                                <div class="player-ava player-ready">
+                                    <img src="/img/ava_default.png" class="player-img">
+                                </div>
+                            </div>
+                            <a href="#" class="lobby-player-name">Dondo</a>
+                            <span class="lobby-player-role">Carry Roam</span>
+                        </div>
+                        <div class="lobby-player">
+                            <div class="player-ava-wrapper">
+                                <div class="player-ava player-ready">
+                                    <img src="/img/ava_sample_4.png" class="player-img">
+                                </div>
+                            </div>
+                            <a href="#" class="lobby-player-name">EG.Sumail</a>
+                            <span class="lobby-player-role">Carry</span>
+                        </div>
+                        <div class="lobby-player">
+                            <div class="player-ava-wrapper">
+                                <div class="player-ava player-ready">
+                                    <img src="/img/ava_sample_4.png" class="player-img">
+                                </div>
+                            </div>
+                            <a href="#" class="lobby-player-name">EG.ppd</a>
+                            <span class="lobby-player-role">Support</span></div>
+                        <div class="lobby-player">
+                            <div class="player-ava-wrapper">
+                                <div class="player-ava player-ready"><img src="/img/ava_sample_4.png"
+                                                                          class="player-img"></div>
+                            </div>
+                            <a href="#" class="lobby-player-name">EG.Universe</a> <span class="lobby-player-role">Offlane</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lobby-teams-middle">
+                    <div class="lobby-lane lobby-lane-taken"><span class="lane-text">Choose a<br> Lane</span>
+                        <div class="lobby-lane-elements"><img src="/img/league_lane_bg.png" class="lane-bg">
+                            <div class="lane-inactive-shade"></div>
+                            <img src="/img/league_lane_opponent.png" class="lane-opponent"> <img
+                                    src="/img/league_lane_top.png" class="lane-top"> <img
+                                    src="/img/league_lane_nexus.png" class="lane-nexus"> <img
+                                    src="/img/league_lane_bot.png" class="lane-bot"> <img src="/img/league_lane_mid.png"
+                                                                                          class="lane-mid">
+                            <div class="top-lane">
+                                <div class="lane-ava-wr top-1 lane-ava-visible"><img src="/img/ava_default.png"
+                                                                                     class="lane-ava"></div>
+                                <div class="lane-ava-wr top-2"><img src="/img/ava_default.png" class="lane-ava"></div>
+                                <div class="lane-ava-wr top-3"><img src="/img/ava_default.png" class="lane-ava"></div>
+                            </div>
+                            <div class="mid-lane">
+                                <div class="lane-ava-wr mid-1 lane-ava-visible lane-self-taken"><img
+                                        src="/img/ava_default.png" class="lane-ava"></div>
+                                <div class="lane-ava-wr mid-2"><img src="/img/ava_default.png" class="lane-ava"></div>
+                            </div>
+                            <div class="bot-lane">
+                                <div class="lane-ava-wr bot-3"><img src="/img/ava_default.png" class="lane-ava"></div>
+                                <div class="lane-ava-wr lane-ava-visible bot-2"><img src="/img/ava_default.png"
+                                                                                     class="lane-ava"></div>
+                                <div class="lane-ava-wr lane-ava-visible bot-1"><img src="/img/ava_default.png"
+                                                                                     class="lane-ava"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lobby-team-2">
+                    <div class="team-header"><span class="team-status"><span class="number">2</span>/<span
+                            class="number">5</span> ready</span>
+                        <h2 class="team-2-name">Team <span class='bold'>Green</span></h2></div>
+                    <div class="lobby-players-2">
+                        <div class="lobby-player"><a href="#" class="lobby-player-name-2">TotalBiscuit</a> <span
+                                class="lobby-player-role-2">Tank</span>
+                            <div class="player-ava-wrapper-2">
+                                <div class="player-ava player-ready"><img src="/img/ava_sample_4.png"
+                                                                          class="player-img"></div>
+                                <div class="player-host"><img src="/img/lobby_host.svg" class="player-host-ico"></div>
+                            </div>
+                        </div>
+                        <div class="lobby-player"><a href="#" class="lobby-player-name-2">TotalBiscuit</a> <span
+                                class="lobby-player-role-2">Tank</span>
+                            <div class="player-ava-wrapper-2">
+                                <div class="player-ava"><img src="/img/ava_sample_4.png" class="player-img"></div>
+                            </div>
+                        </div>
+                        <div class="lobby-player"><a href="#" class="lobby-player-name-2">TotalBiscuit</a> <span
+                                class="lobby-player-role-2">Tank</span>
+                            <div class="player-ava-wrapper-2">
+                                <div class="player-ava"><img src="/img/ava_sample_4.png" class="player-img"></div>
+                            </div>
+                        </div>
+                        <div class="lobby-player"><a href="#" class="lobby-player-name-2">TotalBiscuit</a> <span
+                                class="lobby-player-role-2">Tank</span>
+                            <div class="player-ava-wrapper-2">
+                                <div class="player-ava player-ready"><img src="/img/ava_sample_4.png"
+                                                                          class="player-img"></div>
+                            </div>
+                        </div>
+                        <div class="lobby-player"><a href="#" class="lobby-player-name-2">TotalBiscuit</a> <span
+                                class="lobby-player-role-2">Tank</span>
+                            <div class="player-ava-wrapper-2">
+                                <div class="player-ava"><img src="/img/ava_sample_4.png" class="player-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="opacity: 1;" class="lobby-player-self">
+            <div class="lobby-player-content-wr">
+                <div class="lobby-player-helper"></div>
+                <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
+                        class="player-sidebar-name">TotalBiscuit |&nbsp;</span><span
+                        class="player-sidebar-status player-side-ready">Ready</span>
+                    <div class="player-side-ava player-ava-ready"><img src="/img/ava_sample_4.png" class="player-img">
+                    </div>
+                    <div class="player-side-ready-up">Un-Ready</div>
+                    <div class="player-side-stats-wr">
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 840</div>
+                            <div class="player-side-stats-text"> Skill</div>
+                        </div>
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 310</div>
+                            <div class="player-side-stats-text"> Won</div>
+                        </div>
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 23</div>
+                            <div class="player-side-stats-text"> Lost</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="opacity: 1;" class="lobby-player-other">
+            <div class="lobby-player-content-wr">
+                <div class="lobby-player-helper"></div>
+                <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
+                        class="player-sidebar-name">TotalBiscuit |&nbsp;</span><span
+                        class="player-sidebar-status player-side-ready">Ready</span>
+                    <div class="player-side-ava player-ava-ready"><img src="/img/ava_sample_4.png" class="player-img">
+                    </div>
+                    <div class="player-side-ready-up">Un-Ready</div>
+                    <div class="player-side-stats-wr">
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 840</div>
+                            <div class="player-side-stats-text"> Skill</div>
+                        </div>
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 310</div>
+                            <div class="player-side-stats-text"> Won</div>
+                        </div>
+                        <div class="player-side-stats">
+                            <div class="player-side-stats-number"> 23</div>
+                            <div class="player-side-stats-text"> Lost</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>

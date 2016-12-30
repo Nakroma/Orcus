@@ -15,6 +15,11 @@ Template.partRoleQueue.helpers({
         return Squads.findOne({
             _id: Meteor.user().squadId
         });
+    },
+
+    // Checks if in lobby
+    inSquadQueueNotLobby() {
+        return UI._globalHelpers.inSquadQueue() && !UI._globalHelpers.inLobby();
     }
 });
 

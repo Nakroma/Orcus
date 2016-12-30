@@ -52,8 +52,11 @@
 
         <div class="lobby {{#if inMatchmaking}}lobby-visible{{/if}}">
             <div class='lobby-wr'>
+                {{#if inLobby}} {{> partLobby}} {{/if}}
                 {{#if inMatchmaking}} {{> partRoleSelection}} {{/if}}
             </div>
+
+
         </div>
 
         <!-- Bottom Bar -->

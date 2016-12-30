@@ -12,51 +12,9 @@
                         </span>
                     </div>
                     <div class="lobby-players">
-                        <div class="lobby-player">
-                            <div class="player-ava-wrapper">
-                                <div class="player-ava player-ready">
-                                    <img src="/img/ava_sample_4.png" class="player-img">
-                                </div>
-                                <div class="player-host">
-                                    <img src="/img/lobby_host.svg" class="player-host-ico">
-                                </div>
-                            </div>
-                            <a href="#" class="lobby-player-name">TotalBiscuit</a>
-                            <span class="lobby-player-role">Tank</span>
-                        </div>
-                        <div class="lobby-player">
-                            <div class="player-ava-wrapper">
-                                <div class="player-ava player-ready">
-                                    <img src="/img/ava_default.png" class="player-img">
-                                </div>
-                            </div>
-                            <a href="#" class="lobby-player-name">Dondo</a>
-                            <span class="lobby-player-role">Carry Roam</span>
-                        </div>
-                        <div class="lobby-player">
-                            <div class="player-ava-wrapper">
-                                <div class="player-ava player-ready">
-                                    <img src="/img/ava_sample_4.png" class="player-img">
-                                </div>
-                            </div>
-                            <a href="#" class="lobby-player-name">EG.Sumail</a>
-                            <span class="lobby-player-role">Carry</span>
-                        </div>
-                        <div class="lobby-player">
-                            <div class="player-ava-wrapper">
-                                <div class="player-ava player-ready">
-                                    <img src="/img/ava_sample_4.png" class="player-img">
-                                </div>
-                            </div>
-                            <a href="#" class="lobby-player-name">EG.ppd</a>
-                            <span class="lobby-player-role">Support</span></div>
-                        <div class="lobby-player">
-                            <div class="player-ava-wrapper">
-                                <div class="player-ava player-ready"><img src="/img/ava_sample_4.png"
-                                                                          class="player-img"></div>
-                            </div>
-                            <a href="#" class="lobby-player-name">EG.Universe</a> <span class="lobby-player-role">Offlane</span>
-                        </div>
+                        {{#each squad1.roleSelection}}
+                            {{> partLobbyTeamMember}}
+                        {{/each}}
                     </div>
                 </div>
                 <div class="lobby-teams-middle">
@@ -185,4 +143,25 @@
         </div>
     </div>
 
+</template>
+<!--<div class="lobby-player">
+    <div class="player-ava-wrapper">
+        <div class="player-ava player-ready">
+            <img src="/img/ava_default.png" class="player-img">
+        </div>
+    </div>
+    <a href="#" class="lobby-player-name">Dondo</a>
+    <span class="lobby-player-role">Carry Roam</span>
+</div>-->
+<template name="partLobbyTeamMember">
+    <div class="lobby-player">
+        <div class="player-ava-wrapper">
+            <div class="player-ava player-ready">
+                <img src="{{user.avatar}}" class="player-img">
+            </div>
+            {{#if isOwner user._id}}<div class="player-host"><img src="/img/lobby_host.svg" class="player-host-ico"></div>{{/if}}
+        </div>
+        <a href="#" class="lobby-player-name">{{user.username}}</a>
+        <span class="lobby-player-role">{{title}}</span>
+    </div>
 </template>

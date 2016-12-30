@@ -62,3 +62,8 @@ UI.registerHelper('inLobby', function() {
     });
     return squad.status > 2;
 });
+
+// Global helper
+UI.registerHelper('equals', function(a, b) {
+    return a == b;
+});

@@ -7,8 +7,8 @@
                 <div class="lobby-team-1">
                     <div class="team-header">
                         <h2 class="team-1-name">Team <span class='bold'>Blue</span></h2>
-                        <span class="team-status team-ready">
-                            <span class="number">5</span>/<span class="number">5</span> ready
+                        <span class="team-status {{#if equals squad1ready squad1.roleSelection.length}}team-ready{{/if}}">
+                            <span class="number">{{squad1ready}}</span>/<span class="number">{{squad1.roleSelection.length}}</span> ready
                         </span>
                     </div>
                     <div class="lobby-players">
@@ -48,8 +48,9 @@
                     </div>
                 </div>
                 <div class="lobby-team-2">
-                    <div class="team-header"><span class="team-status"><span class="number">2</span>/<span
-                            class="number">5</span> ready</span>
+                    <div class="team-header">
+                        <span class="team-status {{#if equals squad2ready squad2.roleSelection.length}}team-ready{{/if}}">
+                        <span class="number">{{squad2ready}}</span>/<span class="number">{{squad2.roleSelection.length}}</span> ready</span>
                         <h2 class="team-2-name">Team <span class='bold'>Green</span></h2></div>
                     <div class="lobby-players-2">
                         {{#each squad2.roleSelection}}

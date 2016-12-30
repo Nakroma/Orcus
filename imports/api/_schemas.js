@@ -39,6 +39,10 @@ Schemas.SingleRole = new SimpleSchema({
         type: Boolean,
         defaultValue: false
     },
+    ready: { // lobby ready
+        type: Boolean,
+        defaultValue: false
+    },
     user: {
         type: Schemas.UserData
     },

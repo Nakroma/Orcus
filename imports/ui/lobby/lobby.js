@@ -22,6 +22,12 @@ Template.partLobby.helpers({
     },
     squad2() {
         return getSquad2();
+    },
+    squad1ready() {
+        return getReadies(getSquad1());
+    },
+    squad2ready() {
+        return getReadies(getSquad2());
     }
 });
 Template.partLobbySelectedPlayer.helpers({
@@ -73,4 +79,13 @@ function getSquad2() {
     return Squads.findOne({
         _id: getLobby().squad2
     });
+}
+function getReadies(squad) {
+    const roles = squad.roleSelection;
+    let rdy = 0;
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].ready)
+            rdy++;
+    }
+    return rdy;
 }

@@ -83,10 +83,16 @@ Schemas.Squads = new SimpleSchema({
         label: 'Owner of the squad'
     },
     status: {
-        // 0: Normal, 1: Role selection, 2: In queue, looking to fill up 5 people
+        // 0: Normal, 1: Role selection, 2: In queue, looking to fill up 5 people, 3: In lobby
         type: SimpleSchema.Integer,
         optional: true,
         defaultValue: 0
+    },
+    lobbyId: {
+        type: SimpleSchema.RegEx.Id,
+        optional: true,
+        defaultValue: '22222222222222222',
+        label: 'Id of the assigned lobby'
     },
     members: {
         type: [Schemas.UserData],

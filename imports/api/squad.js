@@ -394,6 +394,12 @@ function roleSelectionMatchmaking(userId) {
                 emptySlots++;
         }
 
+        // Team full? Search for lobby
+        if (emptySlots == 0) {
+            roleSelectionLobbyMatchmaking(userId);
+            return;
+        }
+
         // Get squads
         let allOpenSquads = Squads.find({
             status: 2
@@ -406,7 +412,7 @@ function roleSelectionMatchmaking(userId) {
             let lSquad = allOpenSquads[i];
 
             // Count empty slots
-            let usedSlots = 0;
+            let usedSlots = 1; // Account for owner
             for (let j = 0; j < lSquad.members.length; j++) {
                 if (!lSquad.members[j].empty)
                     usedSlots++;
@@ -470,6 +476,81 @@ function roleSelectionMatchmaking(userId) {
                 $set: { members: squad.members, roleSelection: squad.roleSelection }
             });
             Squads.remove(joinSquad._id);
+        }
+    }
+}
+function roleSelectionLobbyMatchmaking(userId) {
+    if (Meteor.isServer) {
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get squad
+        let squad = Squads.findOne({
+            _id: user.squadId
+        });
+
+        // Not owner error
+        if (squad.owner._id != userId) {
+            throw new Meteor.Error('not-squad-owner');
+        }
+
+        // Count all slots
+        let ownSlots = 1;
+        for (let i = 0; i < squad.members.length; i++) {
+            if (!squad.members[i].empty) {
+                ownSlots++;
+            } else {
+                throw new Meteor.Error('not-full-squad');
+            }
+        }
+
+        // Get squads
+        let allOpenSquads = Squads.find({
+            status: 2
+        });
+        allOpenSquads = allOpenSquads.fetch();
+        let potentialSquads = [];
+
+        // Filter squads
+        for (let i = 0; i < allOpenSquads.length; i++) {
+            let lSquad = allOpenSquads[i];
+
+            // Count squads slots
+            let usedSlots = 1;
+            for (let j = 0; j < lSquad.members.length; j++) {
+                if (!lSquad.members[j].empty) {
+                    usedSlots++;
+                } else {
+                    usedSlots = -1;
+                    break;
+                }
+            }
+            if (usedSlots == -1)
+                break;
+
+            // Assign
+            if (usedSlots == ownSlots)
+                potentialSquads.push(lSquad);
+        }
+
+        // Merge both squads into lobby
+        if (potentialSquads.length == 0) {
+            throw new Meteor.Error('no-open-squad-found'); // TODO: Remove, maybe
+        } else {
+            let joinSquad = potentialSquads[0]; // TODO: idk select the longest open one or something, works fine for now
+
+            // Create lobby
+
+            // Update squads to be in lobby
+            Squads.update(user.squadId, { $set: { lobbyId: '22222222222222222' } });
+            Squads.update(joinSquad._id, { $set: { lobbyId: '22222222222222222' } });
+            Squads.update(user.squadId, { $set: { status: 3 } });
+            Squads.update(joinSquad._id, { $set: { status: 3 } });
         }
     }
 }

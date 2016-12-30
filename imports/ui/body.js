@@ -44,7 +44,7 @@ UI.registerHelper('inMatchmaking', function() {
     const squad = Squads.findOne({
         _id: Meteor.user().squadId
     });
-    return squad.status > 0;
+    return squad.status > 0 && squad.status < 3;
 });
 
 // Global helper
@@ -52,5 +52,13 @@ UI.registerHelper('inSquadQueue', function() {
     const squad = Squads.findOne({
         _id: Meteor.user().squadId
     });
-    return squad.status > 1;
+    return squad.status > 1 && squad.status < 3;
+});
+
+// Global helper
+UI.registerHelper('inLobby', function() {
+    const squad = Squads.findOne({
+        _id: Meteor.user().squadId
+    });
+    return squad.status > 2;
 });

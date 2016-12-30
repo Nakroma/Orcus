@@ -1,6 +1,7 @@
 import { Lobbies } from '../../api/lobby.js';
 import { Squads } from '../../api/squad.js';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 import './lobby.html';
 
@@ -9,6 +10,8 @@ Template.partLobby.onCreated(function () {
     Meteor.subscribe('userData');
     Meteor.subscribe('squads');
     Meteor.subscribe('lobbies');
+
+    Session.set('lobbySelectedPlayerHovered', false);
 });
 
 /* Helper */
@@ -21,11 +24,34 @@ Template.partLobby.helpers({
         return getSquad2();
     }
 });
+Template.partLobbySelectedPlayer.helpers({
+    // Returns the currently selected player
+    current() {
+        if (!Session.get('lobbySelectedPlayerHovered')) {
+            let obj = Meteor.user();
+            obj.avatar = obj.profile.avatar;
+            return obj;
+        } else {
+            return Session.get('lobbySelectedPlayer');
+        }
+    }
+});
 Template.partLobbyTeamMember.helpers({
     // Checks if the id is the owner
     isOwner(id) {
         const lobby = getLobby();
         return (id == getSquad1().owner._id) || (id == getSquad2().owner._id);
+    }
+});
+
+/* Events */
+Template.partLobbyTeamMember.events({
+    'mouseenter .lobby-player'(event, instance) {
+        Session.set('lobbySelectedPlayer', instance.data.role.user);
+        Session.set('lobbySelectedPlayerHovered', true);
+    },
+    'mouseleave .lobby-player'() {
+        Session.set('lobbySelectedPlayerHovered', false);
     }
 });
 

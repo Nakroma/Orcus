@@ -3,6 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 import { Schemas } from './_schemas.js';
+import { Lobbies } from './lobby.js';
 
 // Create squad collection
 export const Squads = new Mongo.Collection('squads');
@@ -545,10 +546,16 @@ function roleSelectionLobbyMatchmaking(userId) {
             let joinSquad = potentialSquads[0]; // TODO: idk select the longest open one or something, works fine for now
 
             // Create lobby
+            const lobbyObject = {
+                squad1: user.squadId,
+                squad2: joinSquad._id,
+                createdAt: new Date()
+            };
+            const lobbyId = Lobbies.insert(lobbyObject);
 
             // Update squads to be in lobby
-            Squads.update(user.squadId, { $set: { lobbyId: '22222222222222222' } });
-            Squads.update(joinSquad._id, { $set: { lobbyId: '22222222222222222' } });
+            Squads.update(user.squadId, { $set: { lobbyId: lobbyId } });
+            Squads.update(joinSquad._id, { $set: { lobbyId: lobbyId } });
             Squads.update(user.squadId, { $set: { status: 3 } });
             Squads.update(joinSquad._id, { $set: { status: 3 } });
         }

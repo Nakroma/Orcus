@@ -59,60 +59,38 @@
                 </div>
             </div>
         </div>
-        <div style="opacity: 1;" class="lobby-player-self">
-            <div class="lobby-player-content-wr">
-                <div class="lobby-player-helper"></div>
-                <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
-                        class="player-sidebar-name">TotalBiscuit |&nbsp;</span><span
-                        class="player-sidebar-status player-side-ready">Ready</span>
-                    <div class="player-side-ava player-ava-ready"><img src="/img/ava_sample_4.png" class="player-img">
-                    </div>
-                    <div class="player-side-ready-up">Un-Ready</div>
-                    <div class="player-side-stats-wr">
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 840</div>
-                            <div class="player-side-stats-text"> Skill</div>
-                        </div>
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 310</div>
-                            <div class="player-side-stats-text"> Won</div>
-                        </div>
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 23</div>
-                            <div class="player-side-stats-text"> Lost</div>
-                        </div>
-                    </div>
+        {{> partLobbySelectedPlayer}}
+    </div>
+
+</template>
+
+<template name="partLobbySelectedPlayer">
+    <div style="opacity: 1" class="lobby-player-self">
+        <div class="lobby-player-content-wr">
+            <div class="lobby-player-helper"></div>
+            <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
+                    class="player-sidebar-name">TotalBiscuit |&nbsp;</span><span
+                    class="player-sidebar-status player-side-ready">Ready</span>
+                <div class="player-side-ava player-ava-ready"><img src="/img/ava_sample_4.png" class="player-img">
                 </div>
-            </div>
-        </div>
-        <div style="opacity: 1;" class="lobby-player-other">
-            <div class="lobby-player-content-wr">
-                <div class="lobby-player-helper"></div>
-                <div class="player-info-container"><span class="player-sidebar">Selected Player</span> <br> <span
-                        class="player-sidebar-name">TotalBiscuit |&nbsp;</span><span
-                        class="player-sidebar-status player-side-ready">Ready</span>
-                    <div class="player-side-ava player-ava-ready"><img src="/img/ava_sample_4.png" class="player-img">
+                <div class="player-side-ready-up">Un-Ready</div>
+                <div class="player-side-stats-wr">
+                    <div class="player-side-stats">
+                        <div class="player-side-stats-number"> 840</div>
+                        <div class="player-side-stats-text"> Skill</div>
                     </div>
-                    <div class="player-side-ready-up">Un-Ready</div>
-                    <div class="player-side-stats-wr">
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 840</div>
-                            <div class="player-side-stats-text"> Skill</div>
-                        </div>
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 310</div>
-                            <div class="player-side-stats-text"> Won</div>
-                        </div>
-                        <div class="player-side-stats">
-                            <div class="player-side-stats-number"> 23</div>
-                            <div class="player-side-stats-text"> Lost</div>
-                        </div>
+                    <div class="player-side-stats">
+                        <div class="player-side-stats-number"> 310</div>
+                        <div class="player-side-stats-text"> Won</div>
+                    </div>
+                    <div class="player-side-stats">
+                        <div class="player-side-stats-number"> 23</div>
+                        <div class="player-side-stats-text"> Lost</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </template>
 
 <template name="partLobbyTeamMember">

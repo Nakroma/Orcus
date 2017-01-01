@@ -8,11 +8,11 @@
                     <img src='/img/chat_arrow.svg' class='chat-arrow-left'>
                     <div class='chats-groups-wrapper'>
                         <div class='chat-hrz-wr' id='chat-hrz'>
-                            <div class='chat-group chat-group-active' id='all-chat'>
+                            <div class='chat-group {{#if equals getRoom 0}}chat-group-active{{/if}}' id='all-chat'>
                                 <span class='chat-group-title'>All Chat</span>
                                 <br><span class='chat-group-desc'><span class='number'>{{onlineUsers}}</span> online</span>
                             </div>
-                            <div class='chat-group' id='squad-chat'>
+                            <div class='chat-group {{#if equals getRoom 1}}chat-group-active{{/if}}' id='squad-chat'>
                                 <div class='chat-group-td'>
                                     <span class='chat-group-title'>Squad</span>
                                     <br>

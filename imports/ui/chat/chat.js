@@ -25,6 +25,9 @@ Template.partChat.helpers({
         return Meteor.users.find({
             "status.online": true
         }).count();
+    },
+    getRoom() {
+        return Template.instance().state.get('room');
     }
 });
 
@@ -49,6 +52,19 @@ Template.partChat.events({
     'click .send-ico'() {
         sendChatMessage();
     },
+
+    // Switch chat room
+    'click .chat-group'(event, instance) {
+        let roomNumber = 3;
+        const id = event.currentTarget.id;
+
+        if (id == 'all-chat')
+            roomNumber = 0;
+        if (id == 'squad-chat')
+            roomNumber = 1;
+
+        instance.state.set('room', roomNumber);
+    }
 
 });
 

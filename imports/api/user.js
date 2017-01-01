@@ -86,4 +86,7 @@ if (Meteor.isServer) {
             'username': 1
         }})
     });
+    Meteor.publish('users', function () {
+        return Meteor.users.find({});
+    })
 }

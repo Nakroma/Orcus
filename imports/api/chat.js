@@ -43,6 +43,7 @@ Meteor.methods({
                 username: user.username,
                 avatar: user.profile.avatar
             },
+            room: 0,
             createdAt: new Date()
         };
 

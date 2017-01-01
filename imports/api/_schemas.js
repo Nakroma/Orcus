@@ -64,6 +64,20 @@ Schemas.Chat = new SimpleSchema({
         type: Schemas.UserData,
         label: 'Author of the message'
     },
+    room: {
+        type: SimpleSchema.Integer,
+        label: 'Room type, 0 = all, 1 = squad, 2 = private'
+    },
+    private: {
+        type: Schemas.UserData,
+        label: 'Recipient of a private message',
+        optional: true,
+        defaultValue: {
+            _id: '22222222222222222',
+            username: '_',
+            avatar: '_'
+        }
+    },
     createdAt: {
         type: Date,
         label: 'Date of creation',

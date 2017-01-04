@@ -12,13 +12,19 @@ Template.partChat.onCreated(function chatOnCreated() {
     Meteor.subscribe('users');
 
     // Saves current room
+    Session.set('chatRoomPrivateId', '_');
     this.state = new ReactiveDict();
     this.state.set('room', 0);
 });
 
 /* Rendered */
 Template.partChatGroup.onRendered(function () {
-    Session.set('chatRoomPrivateId', '');
+    // Set tab active
+    Session.set('chatRoomPrivateId', this.data.id);
+
+    // Set scrolling
+
+    document.getElementById('chat-hrz').scrollLeft = this.find('.chat-group').offsetLeft;
 });
 
 /* Helper */
@@ -66,6 +72,8 @@ Template.partChat.helpers({
 
     // Returns current room
     getRoom() {
+        if (Session.get('chatRoomPrivateId') != '_')
+            Template.instance().state.set('room', 2);
         return Template.instance().state.get('room');
     },
 
@@ -139,11 +147,11 @@ Template.partChat.events({
     'click .chat-group'(event, instance) {
         let roomNumber = 2;
         const id = event.currentTarget.id;
-        Session.set('chatRoomPrivateId', '');
+        Session.set('chatRoomPrivateId', '_');
 
         if (id == 'all-chat')
             roomNumber = 0;
-        if (id == 'squad-chat')
+        else if (id == 'squad-chat')
             roomNumber = 1;
         else
             Session.set('chatRoomPrivateId', this.id);

@@ -29,14 +29,49 @@ Template.partChat.helpers({
             receiveId: recId
         });
     },
+
     // Returns all online users
     onlineUsers() {
         return Meteor.users.find({
             "status.online": true
         }).count();
     },
+
+    // Returns current room
     getRoom() {
         return Template.instance().state.get('room');
+    },
+
+    // Returns all private chat groups
+    privateChatGroups() {
+        const user = Meteor.user();
+        const relevantPrivates = Chat.find({ // Gets all private messages which concern the user
+            room: 3,
+            $or: [
+                { 'author._id': user._id },
+                { receiveId: user._id }
+            ]
+        }, { 'author': 1, receiveId: 1 });
+
+        let privateArray = [];
+        relevantPrivates.forEach(function(obj) { // Insert all names in an array
+            if (obj.author._id != user._id) {
+                const receiver = Meteor.users.findOne({_id: obj.receiveId});
+                let pushObj = {};
+
+                pushObj.id = obj.author._id;
+                pushObj.username = obj.author.username;
+                pushObj.desc = 'Main Menu';
+                if (!isDuplicate(privateArray, pushObj.id))
+                    privateArray.push(pushObj);
+
+                pushObj.id = receiver._id;
+                pushObj.username = receiver.username;
+                pushObj.desc = 'Main Menu';
+                if (!isDuplicate(privateArray, pushObj.id))
+                    privateArray.push(pushObj);
+            }
+        });
     }
 });
 
@@ -125,4 +160,12 @@ function sendChatMessage(instance) {   // Handles chat messages
 
     // Clear input
     target.val('');
+}
+
+function isDuplicate(array, id) { // Checks if object with a certain id already exists in array
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id == id)
+            return true;
+    }
+    return false;
 }

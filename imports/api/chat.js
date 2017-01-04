@@ -47,11 +47,44 @@ Meteor.methods({
                 break;
         }
 
+        insertChatMessage(user, message, room, id);
+    },
+
+    // New private message
+    'chat.private_message'(receiver) {
+        const userId = this.userId;
+
+        // Login error
+        if (!userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        // Get user
+        const user = Meteor.users.findOne(userId);
+
+        // Get messaged user by name
+        const messagedUser = Meteor.users.findOne({
+            username: receiver
+        });
+
+        // User not found error
+        if (!messagedUser) {
+            throw new Meteor.Error('not-found-invited-user');
+        }
+
+        // Pseudo message
+        insertChatMessage(user, 'PSEUDO_GROUP_START_MESSAGE', 3, messagedUser._id);
+    }
+
+});
+
+function insertChatMessage(user, message, room, id) {
+    if (Meteor.isServer) {
         // Create new object for insertion
         const chatObj = {
             text: message,
             author: {
-                _id: this.userId,
+                _id: user._id,
                 username: user.username,
                 avatar: user.profile.avatar
             },
@@ -66,5 +99,4 @@ Meteor.methods({
         // Insert message
         Chat.insert(chatObj);
     }
-
-});
+}

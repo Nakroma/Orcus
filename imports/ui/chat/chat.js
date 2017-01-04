@@ -46,25 +46,27 @@ Template.partChat.helpers({
     privateChatGroups() {
         const user = Meteor.user();
         const relevantPrivates = Chat.find({ // Gets all private messages which concern the user
-            room: 3,
+            room: { $in: [2, 3]},
             $or: [
                 { 'author._id': user._id },
                 { receiveId: user._id }
             ]
-        }, { 'author': 1, receiveId: 1 });
+        }, { 'author': 1, receiveId: 1, room: 1 });
 
         let privateArray = [];
         relevantPrivates.forEach(function(obj) { // Insert all names in an array
-            if (obj.author._id != user._id) {
-                const receiver = Meteor.users.findOne({_id: obj.receiveId});
-                let pushObj = {};
+            const receiver = Meteor.users.findOne({_id: obj.receiveId});
+            let pushObj = {};
 
+            if (obj.author._id != user._id && obj.room != 3) {
                 pushObj.id = obj.author._id;
                 pushObj.username = obj.author.username;
                 pushObj.desc = 'Main Menu';
                 if (!isDuplicate(privateArray, pushObj.id))
                     privateArray.push(pushObj);
+            }
 
+            if (receiver._id != user._id) {
                 pushObj.id = receiver._id;
                 pushObj.username = receiver.username;
                 pushObj.desc = 'Main Menu';
@@ -72,6 +74,8 @@ Template.partChat.helpers({
                     privateArray.push(pushObj);
             }
         });
+
+        return privateArray;
     }
 });
 
@@ -99,7 +103,7 @@ Template.partChat.events({
 
     // Switch chat room
     'click .chat-group'(event, instance) {
-        let roomNumber = 3;
+        let roomNumber = 2;
         const id = event.currentTarget.id;
 
         if (id == 'all-chat')
@@ -128,6 +132,20 @@ Template.partChat.events({
     // New private chat
     'click .chat-menu-ico-wrapper'() {
         switchChatMenu();
+    },
+    'click .leave-squad'() {
+        chatPrivateUser();
+    },
+    'keyup .pm-friend-input'(event) {
+        if (event.which === 13) {
+            chatPrivateUser();
+        } else {
+            const errMsg = $('#chat-group-error');
+
+            if (!errMsg.hasClass('error-hidden')) {
+                errMsg.addClass('error-hidden');
+            }
+        }
     }
 
 });
@@ -175,7 +193,7 @@ function isDuplicate(array, id) { // Checks if object with a certain id already 
     return false;
 }
 
-function switchChatMenu() {
+function switchChatMenu() { // Toggles chat group hide/show
     const groups = $('.chat-groups');
 
     if (groups.hasClass('chat-groups-hidden')) {
@@ -184,4 +202,19 @@ function switchChatMenu() {
         groups.addClass('chat-groups-hidden');
         $('.pm-friend-input').focus();
     }
+}
+
+function chatPrivateUser() {
+    const target = $('.pm-friend-input');
+    const errMsg = $('#chat-group-error');
+
+    // Call function
+    Meteor.call('chat.private_message', target.val(), function(error, result) {
+        if (!error) {
+            switchChatMenu();
+            target.val('');
+        } else {
+            errMsg.removeClass('error-hidden');
+        }
+    });
 }

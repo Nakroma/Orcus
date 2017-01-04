@@ -123,6 +123,11 @@ Template.partChat.events({
     },
     'click .chat-arrow-right'() {
         document.getElementById('chat-hrz').scrollLeft += 60;
+    },
+
+    // New private chat
+    'click .chat-menu-ico-wrapper'() {
+        switchChatMenu();
     }
 
 });
@@ -168,4 +173,15 @@ function isDuplicate(array, id) { // Checks if object with a certain id already 
             return true;
     }
     return false;
+}
+
+function switchChatMenu() {
+    const groups = $('.chat-groups');
+
+    if (groups.hasClass('chat-groups-hidden')) {
+        groups.removeClass('chat-groups-hidden');
+    } else {
+        groups.addClass('chat-groups-hidden');
+        $('.pm-friend-input').focus();
+    }
 }

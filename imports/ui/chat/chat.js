@@ -44,13 +44,13 @@ Template.partChat.events({
     },
 
     // Send chat message
-    'keyup .chat-input-text'(event) {
+    'keyup .chat-input-text'(event, instance) {
         if (event.which === 13) {
-            sendChatMessage();
+            sendChatMessage(instance);
         }
     },
-    'click .send-ico'() {
-        sendChatMessage();
+    'click .send-ico'(event, instance) {
+        sendChatMessage(instance);
     },
 
     // Switch chat room
@@ -93,11 +93,11 @@ Template.partChatMessage.onRendered(function() {
 
 /* Custom functions */
 
-function sendChatMessage() {   // Handles chat messages
+function sendChatMessage(instance) {   // Handles chat messages
     const target = $('.chat-input-text');
 
     // Call function
-    Meteor.call('chat.insert', target.val());
+    Meteor.call('chat.insert', target.val(), instance.state.get('room'));
 
     // Clear input
     target.val('');

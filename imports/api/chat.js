@@ -24,8 +24,9 @@ if (Meteor.isServer) {
 Meteor.methods({
 
     // Creates new chat message
-    'chat.insert'(message) {
+    'chat.insert'(message, room) {
         check(message, String);
+        check(room, Number);
 
         // Login error
         if (!this.userId) {
@@ -35,6 +36,17 @@ Meteor.methods({
         // Get user
         const user = Meteor.users.findOne(this.userId);
 
+        // Room checking
+        let id = '22222222222222222';
+        switch (room) {
+            case 1:
+                id = user.squadId;
+                break;
+
+            default:
+                break;
+        }
+
         // Create new object for insertion
         const chatObj = {
             text: message,
@@ -43,7 +55,8 @@ Meteor.methods({
                 username: user.username,
                 avatar: user.profile.avatar
             },
-            room: 0,
+            room: room,
+            receiveId: id,
             createdAt: new Date()
         };
 

@@ -32,6 +32,8 @@ let squadCleanup = new Cron(function() {
                         squadMembers[i].avatar = '_';
                         squadMembers[i].offline = false;
 
+                        // TODO: Make role selection
+
                         // Update user
                         Meteor.users.update({_id: uId}, {$unset: {
                             squadId: ''

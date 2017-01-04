@@ -7,6 +7,7 @@ import './chat.html';
 /* Created */
 Template.partChat.onCreated(function chatOnCreated() {
     Meteor.subscribe('chat');
+    Meteor.subscribe('userData');
     Meteor.subscribe('users');
 
     // Saves current room
@@ -18,7 +19,15 @@ Template.partChat.onCreated(function chatOnCreated() {
 Template.partChat.helpers({
     // Returns all messages
     messages() {
-        return Chat.find();
+        const roomNumber = Template.instance().state.get('room');
+        let recId = '22222222222222222';
+        if (roomNumber == 1)
+            recId = Meteor.user().squadId;
+
+        return Chat.find({
+            room: roomNumber,
+            receiveId: recId
+        });
     },
     // Returns all online users
     onlineUsers() {

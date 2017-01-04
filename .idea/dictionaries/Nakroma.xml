@@ -11,6 +11,7 @@
       <w>mongo</w>
       <w>mouseenter</w>
       <w>mouseleave</w>
+      <w>mousewheel</w>
       <w>navbar</w>
       <w>relogging</w>
       <w>slidebot</w>

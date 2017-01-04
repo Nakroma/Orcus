@@ -73,6 +73,21 @@ Template.partChat.events({
             roomNumber = 1;
 
         instance.state.set('room', roomNumber);
+    },
+
+    // Scroll through chat rooms
+    'wheel .chat-hrz-wr'(event) {
+        event.preventDefault();
+        const ev = event.originalEvent;
+        const delta = Math.max(-1, Math.min(1, (ev.deltaY || -ev.detail)));
+        event.currentTarget.scrollLeft -= (-delta * 60);
+        console.log(event.currentTarget.scrollLeft);
+    },
+    'click .chat-arrow-left'() {
+        document.getElementById('chat-hrz').scrollLeft -= 60;
+    },
+    'click .chat-arrow-right'() {
+        document.getElementById('chat-hrz').scrollLeft += 60;
     }
 
 });

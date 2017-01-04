@@ -24,7 +24,7 @@ if (Meteor.isServer) {
 Meteor.methods({
 
     // Creates new chat message
-    'chat.insert'(message, room) {
+    'chat.insert'(message, room, pid) {
         check(message, String);
         check(room, Number);
 
@@ -41,6 +41,11 @@ Meteor.methods({
         switch (room) {
             case 1:
                 id = user.squadId;
+                break;
+
+            case 2:
+                check(pid, String);
+                id = pid;
                 break;
 
             default:

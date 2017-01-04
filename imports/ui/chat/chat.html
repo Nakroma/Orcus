@@ -128,7 +128,7 @@
 </template>
 
 <template name="partChatGroup">
-    <div class='chat-group'>
+    <div class='chat-group {{#if equals getCurrentPrivateId id}}chat-group-active{{/if}}'>
         <div class='chat-group-td'>
             <span class='chat-group-title'>{{username}}</span>
             <br>

@@ -1,6 +1,7 @@
 import { Chat } from '../../api/chat.js';
 import { Meteor } from 'meteor/meteor';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { Session } from 'meteor/session';
 
 import './chat.html';
 
@@ -15,19 +16,45 @@ Template.partChat.onCreated(function chatOnCreated() {
     this.state.set('room', 0);
 });
 
+/* Rendered */
+Template.partChatGroup.onRendered(function () {
+    Session.set('chatRoomPrivateId', '');
+});
+
 /* Helper */
 Template.partChat.helpers({
     // Returns all messages
     messages() {
         const roomNumber = Template.instance().state.get('room');
         let recId = '22222222222222222';
+
         if (roomNumber == 1)
             recId = Meteor.user().squadId;
 
-        return Chat.find({
-            room: roomNumber,
-            receiveId: recId
-        });
+        if (roomNumber != 2) {
+            return Chat.find({
+                room: roomNumber,
+                receiveId: recId
+            });
+        } else {
+            recId = Session.get('chatRoomPrivateId');
+            let uId = Meteor.user()._id;
+
+            // Returns all private messages between user and recId
+            return Chat.find({
+                room: roomNumber,
+                $or: [
+                    { $and: [
+                        { receiveId: recId },
+                        { 'author._id': uId }
+                    ]},
+                    { $and: [
+                        { receiveId: uId },
+                        { 'author._id': recId }
+                    ]}
+                ]
+            });
+        }
     },
 
     // Returns all online users
@@ -54,7 +81,7 @@ Template.partChat.helpers({
         }, { 'author': 1, receiveId: 1, room: 1 });
 
         let privateArray = [];
-        relevantPrivates.forEach(function(obj) { // Insert all names in an array
+        relevantPrivates.forEach(function(obj) { // Insert private recipients into an array
             const receiver = Meteor.users.findOne({_id: obj.receiveId});
             let pushObj = {};
 
@@ -78,6 +105,13 @@ Template.partChat.helpers({
         return privateArray;
     }
 });
+Template.partChatGroup.helpers({
+    // Gets current private id
+    getCurrentPrivateId() {
+        return Session.get('chatRoomPrivateId');
+    }
+});
+
 
 /* Events */
 Template.partChat.events({
@@ -105,11 +139,14 @@ Template.partChat.events({
     'click .chat-group'(event, instance) {
         let roomNumber = 2;
         const id = event.currentTarget.id;
+        Session.set('chatRoomPrivateId', '');
 
         if (id == 'all-chat')
             roomNumber = 0;
         if (id == 'squad-chat')
             roomNumber = 1;
+        else
+            Session.set('chatRoomPrivateId', this.id);
 
         instance.state.set('room', roomNumber);
     },
@@ -179,7 +216,7 @@ function sendChatMessage(instance) {   // Handles chat messages
     const target = $('.chat-input-text');
 
     // Call function
-    Meteor.call('chat.insert', target.val(), instance.state.get('room'));
+    Meteor.call('chat.insert', target.val(), instance.state.get('room'), Session.get('chatRoomPrivateId'));
 
     // Clear input
     target.val('');

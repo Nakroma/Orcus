@@ -17,36 +17,9 @@
                         {{/each}}
                     </div>
                 </div>
-                <div class="lobby-teams-middle">
-                    <div class="lobby-lane lobby-lane-taken"><span class="lane-text">Choose a<br> Lane</span>
-                        <div class="lobby-lane-elements"><img src="/img/league_lane_bg.png" class="lane-bg">
-                            <div class="lane-inactive-shade"></div>
-                            <img src="/img/league_lane_opponent.png" class="lane-opponent"> <img
-                                    src="/img/league_lane_top.png" class="lane-top"> <img
-                                    src="/img/league_lane_nexus.png" class="lane-nexus"> <img
-                                    src="/img/league_lane_bot.png" class="lane-bot"> <img src="/img/league_lane_mid.png"
-                                                                                          class="lane-mid">
-                            <div class="top-lane">
-                                <div class="lane-ava-wr top-1 lane-ava-visible"><img src="/img/avatars/_default.png"
-                                                                                     class="lane-ava"></div>
-                                <div class="lane-ava-wr top-2"><img src="/img/avatars/_default.png" class="lane-ava"></div>
-                                <div class="lane-ava-wr top-3"><img src="/img/avatars/_default.png" class="lane-ava"></div>
-                            </div>
-                            <div class="mid-lane">
-                                <div class="lane-ava-wr mid-1 lane-ava-visible lane-self-taken"><img
-                                        src="/img/avatars/_default.png" class="lane-ava"></div>
-                                <div class="lane-ava-wr mid-2"><img src="/img/avatars/_default.png" class="lane-ava"></div>
-                            </div>
-                            <div class="bot-lane">
-                                <div class="lane-ava-wr bot-3"><img src="/img/avatars/_default.png" class="lane-ava"></div>
-                                <div class="lane-ava-wr lane-ava-visible bot-2"><img src="/img/avatars/_default.png"
-                                                                                     class="lane-ava"></div>
-                                <div class="lane-ava-wr lane-ava-visible bot-1"><img src="/img/avatars/_default.png"
-                                                                                     class="lane-ava"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                {{> partLobbyLaneSelection}}
+
                 <div class="lobby-team-2">
                     <div class="team-header">
                         <span class="team-status {{#if equals squad2ready squad2.roleSelection.length}}team-ready{{/if}}">
@@ -63,6 +36,40 @@
         {{> partLobbySelectedPlayer}}
     </div>
 
+</template>
+
+<template name="partLobbyLaneSelection">
+    <div class="lobby-teams-middle">
+        <div class="lobby-lane">
+            <span class="lane-text">Choose a<br> Lane</span>
+            <div class="lobby-lane-elements"><img src="/img/league_lane_bg.png" class="lane-bg">
+                <div class="lane-inactive-shade"></div>
+                <img src="/img/league_lane_opponent.png" class="lane-opponent"> <img
+                        src="/img/league_lane_top.png" class="lane-top"> <img
+                        src="/img/league_lane_nexus.png" class="lane-nexus"> <img
+                        src="/img/league_lane_bot.png" class="lane-bot"> <img src="/img/league_lane_mid.png"
+                                                                              class="lane-mid">
+                <div class="top-lane">
+                    <div class="lane-ava-wr top-1 lane-ava-visible"><img src="/img/avatars/_default.png"
+                                                                         class="lane-ava"></div>
+                    <div class="lane-ava-wr top-2"><img src="/img/avatars/_default.png" class="lane-ava"></div>
+                    <div class="lane-ava-wr top-3"><img src="/img/avatars/_default.png" class="lane-ava"></div>
+                </div>
+                <div class="mid-lane">
+                    <div class="lane-ava-wr mid-1 lane-ava-visible lane-self-taken"><img
+                            src="/img/avatars/_default.png" class="lane-ava"></div>
+                    <div class="lane-ava-wr mid-2"><img src="/img/avatars/_default.png" class="lane-ava"></div>
+                </div>
+                <div class="bot-lane">
+                    <div class="lane-ava-wr bot-3"><img src="/img/avatars/_default.png" class="lane-ava"></div>
+                    <div class="lane-ava-wr lane-ava-visible bot-2"><img src="/img/avatars/_default.png"
+                                                                         class="lane-ava"></div>
+                    <div class="lane-ava-wr lane-ava-visible bot-1"><img src="/img/avatars/_default.png"
+                                                                         class="lane-ava"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="partLobbySelectedPlayer">

@@ -76,6 +76,17 @@ Template.partLobbyTeamMember.events({
         Session.set('lobbySelectedPlayerHovered', false);
     }
 });
+Template.partLobbyLaneSelection.events({
+    // Shows Choose a Lane if lane not selected
+    // TODO: Make the .lobby-lane boundaries fit the box
+    'mouseenter .lobby-lane'() {
+        $('.lane-text, .lane-inactive-shade').css({'opacity': '0', 'pointer-events': 'none'});
+    },
+    'mouseleave .lobby-lane'() {
+        // TODO: Add check if lane selected
+        $('.lane-text, .lane-inactive-shade').css('opacity', '1');
+    }
+});
 
 // Common functions for easier use
 function getLobby() {

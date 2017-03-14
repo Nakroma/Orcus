@@ -66,6 +66,7 @@ Template.partLobbySelectedPlayer.events({
     }
 });
 Template.partLobbyTeamMember.events({
+    // Shows hovered teammate
     'mouseenter .lobby-player'(event, instance) {
         let obj = instance.data.role.user;
         obj.ready = instance.data.role.ready;
@@ -82,9 +83,14 @@ Template.partLobbyLaneSelection.events({
     'mouseenter .lobby-lane'() {
         $('.lane-text, .lane-inactive-shade').css({'opacity': '0', 'pointer-events': 'none'});
     },
-    'mouseleave .lobby-lane'() {
-        // TODO: Add check if lane selected
-        $('.lane-text, .lane-inactive-shade').css('opacity', '1');
+    'mouseleave .lobby-lane'(event) {
+        if (!$(event.target).hasClass('lobby-lane-taken'))
+            $('.lane-text, .lane-inactive-shade').css('opacity', '1');
+    },
+
+    // Lane hover
+    'mouseenter .top-lane, .mid-lane, .bot-lane'() {
+
     }
 });
 

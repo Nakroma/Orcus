@@ -65,3 +65,8 @@ UI.registerHelper('inLobby', function() {
 UI.registerHelper('equals', function(a, b) {
     return a == b;
 });
+
+// Global helper
+UI.registerHelper('getUserEntry', function(id) {
+    return Meteor.users.findOne(id);
+});

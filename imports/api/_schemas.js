@@ -60,6 +60,10 @@ Schemas.Chat = new SimpleSchema({
         label: 'Chat Message',
         max: 200
     },
+    authorId: {
+        type: SimpleSchema.RegEx.Id,
+        label: 'ID of the author of the message'
+    },
     author: {
         type: Schemas.UserData,
         label: 'Author of the message'

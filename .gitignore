@@ -1,3 +1,4 @@
 node_modules/
-.meteor/
+.meteor/local/
 /.brackets.json
+.idea/

@@ -14,7 +14,7 @@ tracker@1.1.2                # Meteor's client-side reactive programming library
 
 standard-minifier-js@1.2.3  # JS minifier run for production mode
 es5-shim@4.6.15              # ECMAScript 5 compatibility for older browsers.
-ecmascript@0.6.3              # Enable ECMAScript2015+ syntax in app code
+ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 # Meteor Utility
 reactive-dict@1.1.8

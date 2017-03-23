@@ -10,7 +10,7 @@ Lobbies.attachSchema(Schemas.Lobbies);
 
 // Publish
 if (Meteor.isServer) {
-    Meteor.publish('lobbies', function lobbyPublication() {
+    Meteor.publish('lobbies', function () {
         return Lobbies.find();
     });
 }

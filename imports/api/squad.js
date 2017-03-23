@@ -155,10 +155,10 @@ if (Meteor.isServer) {
     });
 
     // Publishing
-    Meteor.publish('squads', function squadPublication() {
+    Meteor.publish('squads', function () {
         return Squads.find();
     });
-    Meteor.publish('squadInvitations', function squadInvitePublication() {
+    Meteor.publish('squadInvitations', function () {
         return SquadInvitations.find();
     });
 }

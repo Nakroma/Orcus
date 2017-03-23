@@ -34,8 +34,8 @@ Meteor.methods({
         }
 
         // Check if squad is full
-        var squadFull = true;
-        for (var i = 0; i < 4; i++) {
+        let squadFull = true;
+        for (let i = 0; i < 4; i++) {
             if (squad.members[i].empty) {
                 squadFull = false;
                 break;
@@ -67,9 +67,9 @@ Meteor.methods({
                 // If owner
 
                 // See if members are left
-                var membersLeft = false;
-                var mPos;
-                for (var i = 0; i < 4; i++) {
+                let membersLeft = false;
+                let mPos;
+                for (let i = 0; i < 4; i++) {
                     if (!osq.members[i].empty) {
                         membersLeft = true;
                         mPos = i;

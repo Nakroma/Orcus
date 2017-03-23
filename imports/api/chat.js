@@ -11,7 +11,7 @@ Chat.attachSchema(Schemas.Chat);
 
 // Publish
 if (Meteor.isServer) {
-    Meteor.publish('chat', function chatPublication() {
+    Meteor.publish('chat', function () {
         return Chat.find({
             'createdAt': {
                 $gte: new Date()

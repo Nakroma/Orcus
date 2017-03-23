@@ -79,7 +79,7 @@ if (Meteor.isServer) {
 
 
     // Publish user data
-    Meteor.publish('userData', function userDataPublication() {
+    Meteor.publish('userData', function () {
         return Meteor.users.find({_id: this.userId}, {fields : {
             'squadId': 1,
             'profile': 1,

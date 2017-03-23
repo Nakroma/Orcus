@@ -88,7 +88,6 @@ function insertChatMessage(user, message, room, id) {
         // Create new object for insertion
         const chatObj = {
             text: message,
-            authorId: user._id,
             author: {
                 _id: user._id,
                 username: user.username,

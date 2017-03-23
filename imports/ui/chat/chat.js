@@ -23,7 +23,6 @@ Template.partChatGroup.onRendered(function () {
     Session.set('chatRoomPrivateId', this.data.id);
 
     // Set scrolling
-
     document.getElementById('chat-hrz').scrollLeft = this.find('.chat-group').offsetLeft;
 });
 

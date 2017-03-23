@@ -31,9 +31,7 @@ Template.body.events({
         }
 
         // Hide sidebar
-        if ($('.sidebar-lobby-options').hasClass('filters-hidden')) {
-            //
-        } else {
+        if (!$('.sidebar-lobby-options').hasClass('filters-hidden')) {
             hideMatchFilters();
         }
     }
